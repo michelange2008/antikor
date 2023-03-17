@@ -54,9 +54,9 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://localhost/antikor'),
 
-    'asset_url' => env('ASSET_URL'),
+    'asset_url' => env('APP_URL', 'http://localhost/antikor'),
 
     /*
     |--------------------------------------------------------------------------
@@ -82,7 +82,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'fr',
 
     /*
     |--------------------------------------------------------------------------
@@ -209,7 +209,9 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // 'ExampleClass' => App\Example\ExampleClass::class,
+
+      'Redis' => Illuminate\Support\Facades\Redis::class,
+
     ])->toArray(),
 
 ];
