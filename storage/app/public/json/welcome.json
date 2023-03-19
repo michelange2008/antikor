@@ -1,0 +1,32 @@
+{
+    "par" : {
+        "img" : "parasitisme.jpg",
+        "texte" : "Parasitisme",
+        "url" : "front.index"
+    },
+    "for" : {
+        "img" : "formations.jpg",
+        "texte" : "Formations",
+        "url" : "front.index"
+    },
+    "phy" : {
+        "img" : "achillee.jpg",
+        "texte" : "Phytothérapie",
+        "url" : "front.index"
+    },
+    "rep" : {
+        "img" : "reproduction.jpg",
+        "texte" : "Reproduction",
+        "url" : "front.index"
+    },
+    "ave" : {
+        "img" : "aver.jpg",
+        "texte" : "AVER",
+        "url" : "front.index"
+    },
+    "ant" : {
+        "img" : "antikor.jpg",
+        "texte" : "Antikor",
+        "url" : "login"
+    }
+}
