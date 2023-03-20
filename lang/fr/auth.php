@@ -14,8 +14,11 @@ return [
     */
 
     'failed' => 'Ces identifiants n\'existe pas.',
-    'password' => 'Le mot de passe est incorrect.',
+    'password' => 'Mot de passe',
+    'wrong_password' => 'Le mot de passe est incorrect.',
     'throttle' => 'Trop de tentatives de connexion. Merci de réessayer dans :seconds secondes.',
     "You're logged in!" => "Vous êtes connecté.e.s!",
+    'log_in' => "Connexion",
     'Log Out' => "Déconnexion",
+    'Remember me' => "Se souvenir de moi",
 ];
