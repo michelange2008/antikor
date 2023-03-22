@@ -8,25 +8,29 @@
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
                     </a>
                 </div>
-
-                <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    
+                    <!-- Navigation Links -->
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
-                        {{ __('commun.home') }} 
-					
-                    </x-nav-link>
-
-                    <x-nav-link :href="route('aroma')">
-                        Aromaliste
+                        {{ ucfirst(__('menu.home')) }}
                     </x-nav-link> 
-
+                    
+                    <x-nav-link :href="route('aroma')" :active="request()->routeIs('aroma')">
+                        {{ ucfirst(__('menu.aromaliste')) }}
+                    </x-nav-link> 
+                    
+                    <x-nav-link :href="route('visites')" :active="request()->routeIs('visites')">
+                        {{ ucfirst(__('menu.visites')) }}
+                    </x-nav-link> 
+                    
+                    <x-nav-link :href="route('formations.index')" :active="request()->routeIs('formations.index')">
+                        {{ ucfirst(__('menu.formations')) }}
+                    </x-nav-link> 
+                    
                     <x-nav-link :href="config('links.nextcloud')">
                         Nuage
                     </x-nav-link> 
 
-                    <x-nav-link :href="route('visites')">
-                        Visites
-                    </x-nav-link> 
                 </div>
             </div>
 

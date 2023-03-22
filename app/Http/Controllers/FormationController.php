@@ -13,7 +13,13 @@ class FormationController extends Controller
      */
     public function index()
     {
-        //
+        $formations = Formation::all();
+        $titre = ["titre" => "liste_formations", "icone" => "formations.svg"];
+        
+        return view('formations.form_index', [
+            'formations' => $formations,
+            'titre' => $titre,
+        ]);
     }
 
     /**
