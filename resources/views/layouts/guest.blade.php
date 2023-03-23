@@ -17,9 +17,11 @@
     </head>
     <body class="antialiased">
 
-      @section('content')
-
       @show
+      
+     <main>
+        {{ $slot }}
+      </main>
 
     </body>
 </html>
