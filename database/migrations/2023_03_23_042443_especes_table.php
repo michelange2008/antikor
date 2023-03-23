@@ -11,20 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('formations', function (Blueprint $table) {
+        Schema::create('especes', function (Blueprint $table) {
             $table->id();
             $table->string('name', 191);
-            $table->string('duree', 50)->default('1 jour');
-            $table->string('lieu', 50)->default('en ferme');
+            $table->string('groupe', 50);
             $table->string('icone', 50);
         });
+       //
     }
 
-    /**
+   /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-            Schema::dropIfExists('formations');
+        Schema::dropIfExists('especes');
     }
 };

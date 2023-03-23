@@ -20,7 +20,6 @@ use App\Http\Livewire\ShowUsers;
 
 Route::get('/', [FrontController::class, 'index'])->name('front.index');
 
-Route::resource('/formations', FormationController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -30,6 +29,7 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/aroma', [HomeController::class, 'aroma'])->name('aroma');
     Route::get('/visites', [HomeController::class, 'visites'])->name('visites');
+    Route::resource('/formations', FormationController::class);
 
 });
 

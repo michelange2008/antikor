@@ -5,11 +5,11 @@ namespace Database\Seeders;
 use DB;
 use JeroenZwart\CsvSeeder\CsvSeeder;
 
-class FormationsTableSeeder extends CsvSeeder
+class EspecesTableSeeder extends CsvSeeder
 {
     public function __construct()
     {
-        $this->file = "/database/seeders/csvs/formations.csv";
+        $this->file = "/database/seeders/csvs/especes.csv";
         $this->timestamps = false;
     }
     /**
@@ -22,4 +22,5 @@ class FormationsTableSeeder extends CsvSeeder
         DB::disableQueryLog();
         parent::run();
     }
+
 }

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Formation extends Model
+class Espece extends Model
 {
     use HasFactory;
 
@@ -14,9 +14,8 @@ class Formation extends Model
     
     public $timestamps = false;
 
-    public function especes(): BelongsToMany
+    public function formations(): BelongsToMany
     {
-        return $this->belongsToMany(Espece::class);
+        return $this->belongsToMany(Formation::class);
     }
-
 }

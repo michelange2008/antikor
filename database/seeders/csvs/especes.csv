@@ -1,0 +1,9 @@
+name;groupe;icone
+bovins;bovins;VL.svg
+vaches laitières;bovins;VL.svg
+vaches allaitantes;bovins;VA.svg
+ovins;petits ruminants;OA.svg
+brebis allaitantes;petits ruminants;OA.svg
+brebis laitières;petits ruminants;OA.svg
+caprins;petits ruminants;CP.svg
+chevaux;equidés;CV.svg

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreFormationRequest;
 use App\Http\Requests\UpdateFormationRequest;
 use App\Models\Formation;
+use App\View\Components\Titre;
 
 class FormationController extends Controller
 {
@@ -14,8 +15,9 @@ class FormationController extends Controller
     public function index()
     {
         $formations = Formation::all();
-        $titre = ["titre" => "Liste des formations", "icone" => "formations.svg"];
-        
+
+        $titre = new Titre("liste_formations", "formations.svg");
+
         return view('formations.form_index', [
             'formations' => $formations,
             'titre' => $titre,
