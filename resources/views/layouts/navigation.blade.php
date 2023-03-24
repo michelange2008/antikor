@@ -86,6 +86,27 @@
             <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                {{ ucfirst(__('menu.home')) }}
+            </x-responsive-nav-link> 
+            
+            <x-responsive-nav-link :href="route('aroma')" :active="request()->routeIs('aroma')">
+                {{ ucfirst(__('menu.aromaliste')) }}
+            </x-responsive-nav-link> 
+            
+            <x-responsive-nav-link :href="route('visites')" :active="request()->routeIs('visites')">
+                {{ ucfirst(__('menu.visites')) }}
+            </x-responsive-nav-link> 
+            
+            <x-responsive-nav-link :href="route('formations.index')" :active="request()->routeIs('formations.index')">
+                {{ ucfirst(__('menu.formations')) }}
+            </x-responsive-nav-link> 
+            
+            <x-responsive-nav-link :href="config('links.nextcloud')">
+                Nuage
+            </x-responsive-nav-link> 
+
         </div>
 
         <!-- Responsive Settings Options -->
