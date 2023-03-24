@@ -2,13 +2,13 @@
 
     @foreach ($formations as $formation)
 
-        <div class="flex flex-row justify-between items-center py-3">
+        <div class="flex flex-row justify-between py-3">
 
-            <div class="flex flex-row justify-start gap-1 sm:gap-5">
+            <div class="flex flex-row justify-start gap-3 sm:gap-5 items-start sm:items-center ">
                 <img class="w-10 lg:w-12" src="{{ url('storage/img/formations/icones/' . $formation->icone) }}"
                     alt="{{ $formation->icone }}">
                     <div class="flex flex-col">
-                        <p class="font-semibold text-sm sm:text-base md:text-lg lg:text-xl ">{{ $formation->name }}</p>
+                        <p class="font-semibold text-md sm:text-base md:text-lg lg:text-xl ">{{ $formation->name }}</p>
                         <!-- Sur petit écran affichage des icones sous le titre de la formation -->
                         <div class="sm:collapse visible justify-start" >
                             <x-liste-especes :especes="$formation->especes"></x-liste-especes>
