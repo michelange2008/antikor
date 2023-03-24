@@ -11,7 +11,9 @@ class FormationsTableSeeder extends CsvSeeder
     {
         $this->file = "/database/seeders/csvs/formations.csv";
         $this->timestamps = false;
+        $this->truncate= false;
     }
+
     /**
      * Run the database seeds.
      */
