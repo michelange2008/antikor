@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    <div class="mx-2 sm:mx-8 lg:mx-16 xl:mx-24 2xl:mx-40">
+    <div class="mx-2 sm:mx-6 lg:mx-12 xl:mx-20 2xl:mx-36">
     
         <x-titre :titre="$titre->titre" :icone="$titre->icone" ></x-titre>
 

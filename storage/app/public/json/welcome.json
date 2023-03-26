@@ -7,7 +7,7 @@
     "for" : {
         "img" : "formations.jpg",
         "texte" : "Formations",
-        "url" : "front.index"
+        "url" : "front.formations"
     },
     "phy" : {
         "img" : "achillee.jpg",

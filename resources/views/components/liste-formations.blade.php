@@ -1,8 +1,8 @@
-<div class=" py-2 ">
+<ul class=" py-2 ">
 
     @foreach ($formations as $formation)
 
-        <div class="flex flex-row justify-between py-3">
+        <li class="flex flex-row justify-between py-3 border-b-2 last:border-b-0 md:hover:bg-gray-100">
 
             <div class="flex flex-row justify-start gap-3 sm:gap-5 items-start sm:items-center ">
                 <img class="w-10 lg:w-12" src="{{ url('storage/img/formations/icones/' . $formation->icone) }}"
@@ -20,8 +20,8 @@
             <div class="collapse sm:visible  justify-end" >
                 <x-liste-especes :especes="$formation->especes"></x-liste-especes>
             </div>
-        </div>
+</li>
 
     @endforeach
 
-</div>
+</ul>
