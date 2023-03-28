@@ -1,0 +1,73 @@
+"id","categorie_id","nom","unite_id","quantite_totale"
+"1","1","cannelle","3",NULL
+"2","1","origan","3",NULL
+"3","1","girofle","3",NULL
+"4","1","thym à thymol","3",NULL
+"5","1","pin sylvestre","3",NULL
+"6","1","cyprès","3",NULL
+"7","1","eucalyptus globuleux","3",NULL
+"8","1","eucalyptus citronné","3",NULL
+"9","1","ail","3",NULL
+"10","1","tea tree","3",NULL
+"11","1","palmarosa","3",NULL
+"12","1","laurier noble","3",NULL
+"13","1","basilic","3",NULL
+"14","1","menthe poivrée","3",NULL
+"15","1","lavandin","3",NULL
+"16","1","géranium","3",NULL
+"18","1","thym à linalol","3",NULL
+"19","1","romarin à cinéole","3",NULL
+"20","1","ravintsara","3",NULL
+"21","1","niaouli","3",NULL
+"22","1","manuka","3",NULL
+"23","1","litsée citronnée","3",NULL
+"24","1","gaulthérie","3",NULL
+"25","1","gingembre","3",NULL
+"26","1","sauge sclarée","3",NULL
+"27","1","thym saturéoide","3",NULL
+"28","1","citron","3",NULL
+"29","1","fenouil","3",NULL
+"30","1","tanaisie annuelle","3",NULL
+"31","2","calendula","3",NULL
+"32","2","artichaut","3",NULL
+"33","2","orthosiphon","3",NULL
+"34","2","pissenlit","3",NULL
+"35","2","verge d'or","3",NULL
+"36","2","ortie","3",NULL
+"37","2","achillée","3",NULL
+"38","2","romarin","3",NULL
+"39","2","absinthe","3",NULL
+"40","2","ail","3",NULL
+"41","2","ronce","3",NULL
+"42","2","noyer","3",NULL
+"43","2","tanaisie commune","3",NULL
+"44","2","aunée","3",NULL
+"45","2","marron d’inde","3",NULL
+"46","2","cassis","3",NULL
+"47","2","épine vinette","3",NULL
+"48","4","thym","2",NULL
+"49","4","ortie","2",NULL
+"50","4","ail","2",NULL
+"51","4","racine de gentiane","1",NULL
+"52","3","lavande","3",NULL
+"53","5","huile alimentaire","3",NULL
+"54","5","huile de paraffine","3",NULL
+"55","5","beurre de cacao","1",NULL
+"56","5","sucre","1",NULL
+"57","5","argile","2",NULL
+"58","5","lanoline","1",NULL
+"59","5","cire","1",NULL
+"60","5","solubol","3",NULL
+"61","5","xanthane","1",NULL
+"62","6","flacon 100 ml","5",NULL
+"63","6","flacon 250 ml","5",NULL
+"64","6","moules à ovules","5",NULL
+"65","6","spray","5",NULL
+"66","6","bouchon flacon","5",NULL
+"67","6","étiquettes","5",NULL
+"68","6","seringues","5",NULL
+"69","5","cires émulsifiantes","1",NULL
+"70","5","lécithine de soja","1",NULL
+"71","5","lithotame","2",NULL
+"75","2","chardon-marie","3",NULL
+"76","5","sel","2",NULL
