@@ -1,21 +1,21 @@
-"id","nom","nov"
-"1","anti-infectieux respiratoire","confort respiratoire"
-"2","anti-infectieux diarrhée","équilibre digestif"
-"3","anti-coccidien aromatique","équilibre digestif (> 3 sem)"
-"4","gel lubrifiant","gel lubrifiant"
-"5","ovules aromatiques","oeufs de pâques"
-"6","spray désinfectant","lavage des plaies"
-"7","baume mamelles","baume aromatique"
-"8","sirop fortifiant","sirop fortifiant"
-"9","drainage hépatique et rénal","drainage hépatique et rénal"
-"10","répulsif insecte","confort estival"
-"11","anti-coccidien préventif","équilibre digestif TM"
-"12","crème à mammites","crème MOPE"
-"13","gel panaris","gel pieds"
-"14","gel antalgique","gel GEL"
-"15","stimulation des chaleurs","melange GIEC"
-"16","onguent ophtalmique","baume OP"
-"17","métrites","crème UHT"
-"18","BAL sevrage","bloc à lécher sevrage"
-"19","décongestionnant","drainage rénal"
-"20","coccidiose TM","Confort digestif TM"
+id;name;detail
+1;anti-infectieux respiratoire;confort respiratoire
+2;anti-infectieux diarrhée;équilibre digestif
+3;anti-coccidien aromatique;équilibre digestif (> 3 sem)
+4;gel lubrifiant;gel lubrifiant
+5;ovules aromatiques;oeufs de pâques
+6;spray désinfectant;lavage des plaies
+7;baume mamelles;baume aromatique
+8;sirop fortifiant;sirop fortifiant
+9;drainage hépatique et rénal;drainage hépatique et rénal
+10;répulsif insecte;confort estival
+11;anti-coccidien préventif;équilibre digestif TM
+12;crème à mammites;crème MOPE
+13;gel panaris;gel pieds
+14;gel antalgique;gel GEL
+15;stimulation des chaleurs;melange GIEC
+16;onguent ophtalmique;baume OP
+17;métrites;crème UHT
+18;BAL sevrage;bloc à lécher sevrage
+19;décongestionnant;drainage rénal
+20;coccidiose TM;Confort digestif TM

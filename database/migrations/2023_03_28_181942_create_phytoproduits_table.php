@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('phytoproduits', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 191);
+            $table->string('name', 50);
             $table->foreignId('phytotype_id')->constrained();
             $table->foreignId('phytounite_id')->constrained();
         });

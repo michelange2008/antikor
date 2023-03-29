@@ -13,8 +13,11 @@ return new class extends Migration
     {
         Schema::create('phytotypes', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 191);
-            $table->string('detail', 191);
+            $table->string('name', 50);
+            $table->string('abbreviation', 10);
+            $table->string('icone', 50);
+            $table->string('couleur', 50);
+            $table->unsignedInteger('arrondi')->default(0);
         });
     }
 

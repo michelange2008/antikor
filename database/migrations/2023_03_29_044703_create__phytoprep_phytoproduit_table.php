@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('phytopreps', function (Blueprint $table) {
+        Schema::create('_phytoprep_phytoproduit', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 50);
-            $table->string('detail', 191);
+            $table->foreignId('phytoprep_id')->constrained();
+            $table->foreignId('phytoproduit_id')->constrained();
+            $table->float('quantite');
         });
-         //
-
     }
 
     /**
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('_phytoprep_phytoproduit');
     }
 };

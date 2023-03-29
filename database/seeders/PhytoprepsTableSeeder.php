@@ -5,11 +5,11 @@ namespace Database\Seeders;
 use DB;
 use JeroenZwart\CsvSeeder\CsvSeeder;
 
-class PhytoproduitTableSeeder extends CsvSeeder
+class PhytoprepsTableSeeder extends CsvSeeder
 {
     public function __construct()
     {
-        $this->file = "/database/seeders/csvs/phytoproduits.csv";
+        $this->file = "/database/seeders/csvs/phytopreps.csv";
         $this->timestamps = false;
         $this->truncate = false;
     }

@@ -5,11 +5,11 @@ namespace Database\Seeders;
 use DB;
 use JeroenZwart\CsvSeeder\CsvSeeder;
 
-class PhytouniteTableSeeder extends CsvSeeder
+class PhytoproduitsTableSeeder extends CsvSeeder
 {
     public function __construct()
     {
-        $this->file = "/database/seeders/csvs/phytounites.csv";
+        $this->file = "/database/seeders/csvs/phytoproduits.csv";
         $this->timestamps = false;
         $this->truncate = false;
     }
@@ -18,8 +18,8 @@ class PhytouniteTableSeeder extends CsvSeeder
      */
     public function run(): void
     {
-         // Recommended when importing larger CSVs
-         DB::disableQueryLog();
-         parent::run();
-     }
+        // Recommended when importing larger CSVs
+        DB::disableQueryLog();
+        parent::run();
+    }
 }

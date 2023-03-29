@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Phytoproduit;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,9 +15,15 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            EspecesTableSeeder::class,
-            FormationsTableSeeder::class,
-            EspecesFormationsTableSeeder::class,
+            // EspecesTableSeeder::class,
+            // FormationsTableSeeder::class,
+            // EspecesFormationsTableSeeder::class,
+            // PhytotypesTableSeeder::class,
+            // PhytounitesTableSeeder::class,
+            // PhytoproduitsTableSeeder::class,
+            // PhytoprepsTableSeeder::class,
+            PhytoprepsPhytoproduitsTableSeeder::class,
+            FormationsPhytoprepsTableSeeder::class,
         ]);
     }
 }
