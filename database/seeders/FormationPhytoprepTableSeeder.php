@@ -9,7 +9,7 @@ class FormationPhytoprepTableSeeder extends CsvSeeder
 {
     public function __construct()
     {
-        $this->file = "/database/seeders/csvs/formations_phytopreps.csv";
+        $this->file = "/database/seeders/csvs/formation_phytoprep.csv";
         $this->timestamps = false;
         $this->truncate = false;
     }

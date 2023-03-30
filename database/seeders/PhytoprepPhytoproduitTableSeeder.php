@@ -9,7 +9,7 @@ class PhytoprepPhytoproduitTableSeeder extends CsvSeeder
 {
     public function __construct()
     {
-        $this->file = "/database/seeders/csvs/phytopreps_phytoproduits.csv";
+        $this->file = "/database/seeders/csvs/phytoprep_phytoproduit.csv";
         $this->timestamps = false;
         $this->truncate = false;
     }

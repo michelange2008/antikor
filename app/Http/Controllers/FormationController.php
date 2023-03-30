@@ -16,11 +16,8 @@ class FormationController extends Controller
     {
         $formations = Formation::all();
 
-        $titre = new Titre("liste_formations", "formations.svg");
-
         return view('formations.form_index', [
             'formations' => $formations,
-            'titre' => $titre,
         ]);
     }
 

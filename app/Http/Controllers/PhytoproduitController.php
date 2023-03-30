@@ -12,7 +12,11 @@ class PhytoproduitController extends Controller
      */
     public function index()
     {
-        //
+        $produits = Phytoproduit::all();
+
+        return view('produits.index', [
+            'produits' => $produits,
+        ]);
     }
 
     /**

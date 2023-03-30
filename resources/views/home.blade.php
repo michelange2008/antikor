@@ -6,7 +6,4 @@
         route: {{request()->routeIs('aroma')}}
     </x-slot>
 
-
-    <x-footer></x-footer>
-
 </x-app-layout>

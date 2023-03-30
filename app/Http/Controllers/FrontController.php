@@ -26,11 +26,8 @@ class FrontController extends Controller
     {
         $formations = Formation::all();
 
-        $titre = new Titre('liste_formations', 'formations.svg');
-
         return view('front.formations', [
             'formations' => $formations,
-            'titre' => $titre,
         ]);
 
     }

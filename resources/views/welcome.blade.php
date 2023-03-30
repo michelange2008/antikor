@@ -9,10 +9,10 @@
       <div class="flex justify-between items-center top-0  py-3 px-6 text-right">
         <img class="w-32 dark:invert" src="{{ url('storage/img/logo.svg')}}" alt="Logo Antikor">
         @auth
-        <a href="{{ url('/dashboard') }}"
+        <a href="{{ route('home') }}"
         class="font-semibold text-gray-600 hover:text-black
           dark:text-neutral-400 dark:hover:text-white focus:outline focus:outline-2
-          focus:rounded-sm focus:outline-red-500">Dashboard</a>
+          focus:rounded-sm focus:outline-red-500">Intranet</a>
       @else
         <a href="{{ route('login') }}"
         class="font-semibold text-gray-600 hover:text-black
@@ -37,17 +37,7 @@
       </div>
       @endforeach
     </div>
-    
-    <footer class="flex flex-row justify-between fixed bottom-0 py-3 px-4 bg-black w-screen ">
-    <p>ANTIKOR: Société coopérative de vétérinaires à capital variable</p>
-    <p>605 Grande Rue - 26300 Barbières</p>
-    <p>
-      <a href="mailto:antikor@orange.fr">
-        antikor@orange.fr
-      </a>
-    </p>
-  </footer>
-  
+      
 </div>
 
 </x-guest-layout>
