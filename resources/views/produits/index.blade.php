@@ -2,19 +2,25 @@
 
     <x-titre :texte="'liste_produits'" :icone="'produits.svg'"></x-titre>
 
-    <ul class="mx-2">
-        @foreach ($produits as $produit)
-            <a href="{{ route('produits.show', $produit->id) }}">
-                <li class="my-3 p-3 flex flex-row items-center hover:bg-gray-200 border-b-2 ">
-                    <img class="w-12" src="{{ url('storage/img/produits/' . $produit->phytotype->icone) }}"
-                        alt="{{ $produit->phytotype->icone }}">
-                    <p class="text-lg">
-                        {{ ucfirst($produit->name) }}
-                        ({{ $produit->phytounite->abbreviation }})
-                    </p>
-                </li>
-            </a>
+    <ul>
+        @foreach ($phytotypes as $phytotype)
+
+        <li>{{$phytotype->name}}</li>
+            
         @endforeach
     </ul>
+
+    <ul class="mx-2">
+
+        @foreach ($produits as $produit)
+            <x-item 
+                :name="$produit->name" :icone="$produit->phytotype->icone" 
+                :detail="$produit->phytounite->abbreviation"
+                :route="'produits.show'"
+                :id="$produit->id">
+            </x-item>
+        @endforeach
+    </ul>
+
 
 </x-app-layout>

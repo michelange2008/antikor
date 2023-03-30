@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Phytoproduit;
+use App\Models\Phytotype;
 use Illuminate\Http\Request;
 
 class PhytoproduitController extends Controller
@@ -13,9 +14,11 @@ class PhytoproduitController extends Controller
     public function index()
     {
         $produits = Phytoproduit::all();
+        $phytotypes = Phytotype::all();
 
         return view('produits.index', [
             'produits' => $produits,
+            'phytotypes' => $phytotypes,
         ]);
     }
 
