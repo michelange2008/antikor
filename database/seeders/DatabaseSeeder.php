@@ -18,12 +18,12 @@ class DatabaseSeeder extends Seeder
             // EspecesTableSeeder::class,
             // FormationsTableSeeder::class,
             // EspecesFormationsTableSeeder::class,
-            // PhytotypesTableSeeder::class,
-            // PhytounitesTableSeeder::class,
-            // PhytoproduitsTableSeeder::class,
-            // PhytoprepsTableSeeder::class,
+            PhytotypesTableSeeder::class,
+            PhytounitesTableSeeder::class,
+            PhytoproduitsTableSeeder::class,
+            PhytoprepsTableSeeder::class,
             PhytoprepPhytoproduitTableSeeder::class,
-            // FormationPhytoprepTableSeeder::class,
+            FormationPhytoprepTableSeeder::class,
         ]);
     }
 }

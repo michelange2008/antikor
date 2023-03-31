@@ -2,22 +2,16 @@
 
     <x-titre :texte="'liste_produits'" :icone="'produits.svg'"></x-titre>
 
-    <ul class="grid grid-flow-row  grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-1 md:gap-2 xl:gap-3 ">
+    <div class="grid grid-flow-row  grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-1 md:gap-2 xl:gap-3 ">
         @foreach ($phytotypes as $phytotype)
 
-        <li class="flex flex-row justify-start items-center  p-2 xl:p-3 bg-slate-300 hover:bg-slate-700 hover:text-stone-200">
-                <img class="w-8" src="{{ url('storage/img/produits/'.$phytotype->icone)}}" alt="{{$phytotype->name}}">
-                <p class="ml-1 md:ml-2 xl:ml-3">{{$phytotype->name}}</p>
-        </li>
-            
+            <x-buttons.butticon :icone="'storage/img/produits/'.$phytotype->icone" :name="$phytotype->name"></x-buttons.butticon>
+
         @endforeach
 
-        <li class="flex flex-row justify-start items-center  p-2 xl:p-3 bg-slate-300 hover:bg-slate-700 hover:text-stone-200">
-            <img class="w-8" src="{{ url('storage/img/produits/fait.svg')}}" alt="tous">
-            <p class="ml-1 md:ml-2 xl:ml-3">Tout</p>
-    </li>
-        
-</ul>
+        <x-buttons.butticon :icone="'storage/img/produits/fait.svg'" :name="'Tout'"></x-buttons.butticon>
+
+    </div>
 
     <ul class="mx-2">
 
