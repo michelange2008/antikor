@@ -1,8 +1,60 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-f3b229a8.css",
+    "file": "assets/app-d71e9dbd.css",
     "isEntry": true,
     "src": "resources/css/app.css"
+  },
+  "resources/fonts/OFL.txt": {
+    "file": "assets/OFL-aeccbb3a.txt",
+    "src": "resources/fonts/OFL.txt"
+  },
+  "resources/fonts/SourceSansPro-Black.ttf": {
+    "file": "assets/SourceSansPro-Black-4377bd9f.ttf",
+    "src": "resources/fonts/SourceSansPro-Black.ttf"
+  },
+  "resources/fonts/SourceSansPro-BlackItalic.ttf": {
+    "file": "assets/SourceSansPro-BlackItalic-19b38cdd.ttf",
+    "src": "resources/fonts/SourceSansPro-BlackItalic.ttf"
+  },
+  "resources/fonts/SourceSansPro-Bold.ttf": {
+    "file": "assets/SourceSansPro-Bold-66f0aa8e.ttf",
+    "src": "resources/fonts/SourceSansPro-Bold.ttf"
+  },
+  "resources/fonts/SourceSansPro-BoldItalic.ttf": {
+    "file": "assets/SourceSansPro-BoldItalic-b221f229.ttf",
+    "src": "resources/fonts/SourceSansPro-BoldItalic.ttf"
+  },
+  "resources/fonts/SourceSansPro-ExtraLight.ttf": {
+    "file": "assets/SourceSansPro-ExtraLight-03df6c5e.ttf",
+    "src": "resources/fonts/SourceSansPro-ExtraLight.ttf"
+  },
+  "resources/fonts/SourceSansPro-ExtraLightItalic.ttf": {
+    "file": "assets/SourceSansPro-ExtraLightItalic-ab3017a6.ttf",
+    "src": "resources/fonts/SourceSansPro-ExtraLightItalic.ttf"
+  },
+  "resources/fonts/SourceSansPro-Italic.ttf": {
+    "file": "assets/SourceSansPro-Italic-7987a699.ttf",
+    "src": "resources/fonts/SourceSansPro-Italic.ttf"
+  },
+  "resources/fonts/SourceSansPro-Light.ttf": {
+    "file": "assets/SourceSansPro-Light-7a7c2fba.ttf",
+    "src": "resources/fonts/SourceSansPro-Light.ttf"
+  },
+  "resources/fonts/SourceSansPro-LightItalic.ttf": {
+    "file": "assets/SourceSansPro-LightItalic-051f9de6.ttf",
+    "src": "resources/fonts/SourceSansPro-LightItalic.ttf"
+  },
+  "resources/fonts/SourceSansPro-Regular.ttf": {
+    "file": "assets/SourceSansPro-Regular-e0acaced.ttf",
+    "src": "resources/fonts/SourceSansPro-Regular.ttf"
+  },
+  "resources/fonts/SourceSansPro-SemiBold.ttf": {
+    "file": "assets/SourceSansPro-SemiBold-c263e461.ttf",
+    "src": "resources/fonts/SourceSansPro-SemiBold.ttf"
+  },
+  "resources/fonts/SourceSansPro-SemiBoldItalic.ttf": {
+    "file": "assets/SourceSansPro-SemiBoldItalic-3eb91dd0.ttf",
+    "src": "resources/fonts/SourceSansPro-SemiBoldItalic.ttf"
   },
   "resources/js/app.js": {
     "file": "assets/app-9f9c98ef.js",
