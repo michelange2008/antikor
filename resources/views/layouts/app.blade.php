@@ -15,9 +15,11 @@
     <script defer src="https://friconix.com/cdn/friconix.js"> </script> 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @livewireStyles
+
 </head>
 
-<body class="font-sans antialiased bg-gray-100 xl:px-40 lg:px-10 md:px-8">
+<body class="font-sans antialiased bg-gray-100 xl:px-40 lg:px-10 md:px-8 sm:px-2 px-1">
     <div class="mx-auto min-h-screen bg-gray-100 dark:bg-gray-900">
         @include('layouts.navigation')
 
@@ -37,6 +39,8 @@
         
     </div>
 
+    @livewireScripts
+    
 </body>
 
 </html>

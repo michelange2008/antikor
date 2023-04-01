@@ -13,11 +13,9 @@ class PhytoproduitController extends Controller
      */
     public function index()
     {
-        $produits = Phytoproduit::all();
         $phytotypes = Phytotype::all();
 
         return view('produits.index', [
-            'produits' => $produits,
             'phytotypes' => $phytotypes,
         ]);
     }

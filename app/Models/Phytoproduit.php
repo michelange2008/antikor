@@ -9,6 +9,8 @@ class Phytoproduit extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     public function phytotype()
     {
         return $this->belongsTo(Phytotype::class);
