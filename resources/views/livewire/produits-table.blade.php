@@ -1,11 +1,11 @@
 <div>
 
-    <div class="flex flex-col sm:flex-row justify-between gap-5">
+    <div class="flex flex-row items-center justify-between gap-5">
 
-        <div class="grow flex flex-row  my-2 sm:my-0">
+        <div class=" flex flex-row grow my-2 sm:my-0">
             <img class="w-8 mr-2" src="{{ url('storage/img/fonticone/search.svg') }}" alt="">
 
-            <input class="grow" type="text" placeholder="Rechercher un produit" wire:model.debounce.500ms="search">
+            <input class="sm:grow" type="text" placeholder="Rechercher un produit" wire:model.debounce.500ms="search">
 
         </div>
 
