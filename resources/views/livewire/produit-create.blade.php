@@ -34,9 +34,9 @@
     
                 <label for="phytotype">Type de produit</label>
     
-                <select name="phytotype" id="phytotype" wire:model.defer="produit.phytotype_id">
+                <select name="phytotype_id" id="phytotype" wire:model.defer="produit.phytotype_id">
 
-                    <option value="" >Choisissez un type</option>
+                    <option value="default" hidden>Choisissez un type ...</option>
 
                     @foreach ($phytotypes as $type)
     
@@ -45,24 +45,38 @@
                     @endforeach
                     
                 </select>
+
+                @error('produit.phytotype_id')
+                    <div class="text-red-900 text-xs">{{ $message }}</div>
+                @enderror
+
             </div>
     
             <div class="flex flex-col mb-2">
     
                 <label for="phytounite">Unité</label>
     
-                <select name="phytounite" id="phytounite" wire:model.defer="produit.phytounite_id">
+                <select name="phytounite_id" id="phytounite" wire:model.defer="produit.phytounite_id">
+
+                    <option value="default" hidden>Choisissez une unité ...</option>
+
                     @foreach ($phytounites as $unite)
     
                     <option value="{{ $unite->id }}">{{ $unite->name }}</option>
                     
                     @endforeach
                 </select>
+
+                @error('produit.phytounite_id')
+                    <div class="text-red-900 text-xs">{{ $message }}</div>
+                @enderror
+
             </div>
     
             <button class="rounded my-1 px-3 py-1 text-center bg-teal-900 text-teal-100 disabled:bg-gray-500" type="submit"
                 wire:loading.attr="disabled">Enregistrer</button>
-            <button @click="open = false" class="rounded my-1 px-3 py-1 text-center bg-gray-300 hover:bg-gray-800 hover:text-gray-200" type="reset">Annuler</button>
+            {{-- <button @click="open = false" class="rounded my-1 px-3 py-1 text-center bg-gray-300 hover:bg-gray-800 hover:text-gray-200" type="reset">Annuler</button> --}}
+            <x-button-cancel></x-button-cancel>
             <div class="text-gray-500" wire:loading>Sauvegarde...</div>
         </form>
     
