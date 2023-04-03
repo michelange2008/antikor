@@ -26,7 +26,7 @@ class ProduitCreate extends Component
     {
         $this->validate();
         $this->produit->save();
-        $this->emit('produitUpdated');
+        
     }
 
     public function render()

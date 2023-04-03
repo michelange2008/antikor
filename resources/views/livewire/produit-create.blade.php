@@ -1,12 +1,6 @@
-<div x-data="{ open: false }" class="shadow-md rounded p-2 bg-teal-800 w-40 hover:bg-teal-500 text-teal-100 hover:text-teal-900">
+<div x-data="{ open: false }" @click.outside="open = false">
 
-    <button x-on:click=" open = !open" class=" flex flex-row" >
-
-        <img class="w-4 mr-2" src="{{ url('storage/img/fonticone/add.svg') }}" alt="add">
-
-        <p>{{ ucfirst(__('boutons.produit_create')) }}</p>
-
-    </button>
+    <x-button-add></x-button-add>
 
     <div x-show="open" class="fixed w-1/2 top-1/3 left-1/4 shadow-lg">
 
@@ -73,11 +67,7 @@
 
             </div>
     
-            <button class="rounded my-1 px-3 py-1 text-center bg-teal-900 text-teal-100 disabled:bg-gray-500" type="submit"
-                wire:loading.attr="disabled">Enregistrer</button>
-            {{-- <button @click="open = false" class="rounded my-1 px-3 py-1 text-center bg-gray-300 hover:bg-gray-800 hover:text-gray-200" type="reset">Annuler</button> --}}
-            <x-button-cancel></x-button-cancel>
-            <div class="text-gray-500" wire:loading>Sauvegarde...</div>
+            <x-button-save-cancel></x-button-save-cancel>
         </form>
     
     </div>

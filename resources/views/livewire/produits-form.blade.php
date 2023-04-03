@@ -59,8 +59,7 @@
 
         <button class="rounded my-1 px-3 py-1 text-center bg-teal-900 text-teal-100 disabled:bg-gray-500" type="submit"
             wire:loading.attr="disabled">Enregistrer</button>
-        <div class="text-gray-500" wire:loading>Sauvegarde...</div>
-        <x-button-cancel></x-button-cancel>
+        <x-button-cancel :action="'open = false'"></x-button-cancel>
     </form>
 
 </div>
