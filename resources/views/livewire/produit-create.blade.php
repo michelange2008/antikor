@@ -1,0 +1,71 @@
+<div x-data="{ open: false }" class="shadow-md rounded p-2 bg-teal-800 w-40 hover:bg-teal-500 text-teal-100 hover:text-teal-900">
+
+    <button x-on:click=" open = !open" class=" flex flex-row" >
+
+        <img class="w-4 mr-2" src="{{ url('storage/img/fonticone/add.svg') }}" alt="add">
+
+        <p>{{ ucfirst(__('boutons.produit_create')) }}</p>
+
+    </button>
+
+    <div x-show="open" class="fixed w-1/2 top-1/3 left-1/4 shadow-lg">
+
+        <div class="flex flex-row items-center p-3 bg-teal-900">
+            <img class="w-8 mr-2" src="{{url('storage/img/fonticone/add.svg')}}" alt="Add">
+            <h4 class="text-xl text-teal-100">Création d'un nouveau produit</h4>
+        </div>
+
+        <form class=" border-gray-200 bg-gray-100 px-5 py-3 text-gray-900 " action="" wire:submit.prevent="save">
+
+            <div class="flex flex-col mb-2">
+    
+                <label for="name">Nom du produit</label>
+    
+                <input id="name" type="text" wire:model.defer="produit.name"
+                    class="form-input rounded border-1 focus:active:border-0">
+                @error('produit.name')
+                    <div class="text-red-900 text-xs">{{ $message }}</div>
+                @enderror
+    
+    
+            </div>
+    
+            <div class="flex flex-col mb-2">
+    
+                <label for="phytotype">Type de produit</label>
+    
+                <select name="phytotype" id="phytotype" wire:model.defer="produit.phytotype_id">
+
+                    <option value="" >Choisissez un type</option>
+
+                    @foreach ($phytotypes as $type)
+    
+                    <option value="{{ $type->id }}">{{ ucfirst($type->name) }}</option>
+
+                    @endforeach
+                    
+                </select>
+            </div>
+    
+            <div class="flex flex-col mb-2">
+    
+                <label for="phytounite">Unité</label>
+    
+                <select name="phytounite" id="phytounite" wire:model.defer="produit.phytounite_id">
+                    @foreach ($phytounites as $unite)
+    
+                    <option value="{{ $unite->id }}">{{ $unite->name }}</option>
+                    
+                    @endforeach
+                </select>
+            </div>
+    
+            <button class="rounded my-1 px-3 py-1 text-center bg-teal-900 text-teal-100 disabled:bg-gray-500" type="submit"
+                wire:loading.attr="disabled">Enregistrer</button>
+            <button @click="open = false" class="rounded my-1 px-3 py-1 text-center bg-gray-300 hover:bg-gray-800 hover:text-gray-200" type="reset">Annuler</button>
+            <div class="text-gray-500" wire:loading>Sauvegarde...</div>
+        </form>
+    
+    </div>
+
+</div>

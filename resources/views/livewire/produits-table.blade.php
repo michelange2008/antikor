@@ -9,33 +9,32 @@
 
         </div>
 
-        <x-buttons.add-button :route="'produits.create'" :texte="'produit_create'"></x-buttons.add-button>
+        <livewire:produit-create />
 
     </div>
 
     <x-titres.sous-titre :texte="'selectionner_produit'"></x-titres.sous-titre>
 
-    <ul class="grid grid-flow-row grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-1 md:gap-2 xl:gap-3">
-
-        @foreach ($phytotypes as $phytotype)
+    <ul class="grid grid-flow-row grid-cols-4 sm:grid-cols-8 md:grid-cols-8 gap-1 md:gap-2 xl:gap-3">
 
         <div class="group flex flex-row justify-start items-center cursor-pointer rounded p-2 xl:p-3 bg-slate-300 hover:bg-slate-700 hover:text-stone-200"
+            wire:click="tousTypes">
+            <img class="w-6 group-hover:brightness-200" src="{{ url('storage/img/produits/fait.svg') }}" alt="Tout">
+            <p class="ml-1 md:ml-2 xl:ml-3">Tout</p>
+        </div>
+
+        @foreach ($phytotypes as $phytotype)
+            <div class="group flex flex-row justify-start items-center cursor-pointer rounded p-2 xl:p-3 bg-slate-300 hover:bg-slate-700 hover:text-stone-200"
                 wire:click="selectType({{ $phytotype->id }})">
-                <img class="w-8 group-hover:brightness-200" src="{{ url('storage/img/produits/'.$phytotype->icone) }}"
+                <img class="w-6 group-hover:brightness-200" src="{{ url('storage/img/produits/' . $phytotype->icone) }}"
                     alt="{{ $phytotype->name }}">
-                <p class="ml-1 md:ml-2 xl:ml-3">{{ $phytotype->name }}</p>
+                <p class="ml-1 md:ml-2 xl:ml-3">{{ $phytotype->abbreviation }}</p>
             </div>
 
             {{-- <x-buttons.butticon :icone="'storage/img/produits/' . $phytotype->icone" :name="$phytotype->name" wire:click="selectType({{$phytotype->id}})"></x-buttons.butticon> --}}
         @endforeach
 
-        {{-- <x-buttons.butticon :icone="'storage/img/produits/fait.svg'" :name="'Tout'"></x-buttons.butticon> --}}
 
-        <div class="group flex flex-row justify-start items-center cursor-pointer rounded p-2 xl:p-3 bg-slate-300 hover:bg-slate-700 hover:text-stone-200"
-            wire:click="tousTypes">
-            <img class="w-8 group-hover:brightness-200" src="{{ url('storage/img/produits/fait.svg') }}" alt="Tout">
-            <p class="ml-1 md:ml-2 xl:ml-3">Tout</p>
-        </div>
 
     </ul>
 

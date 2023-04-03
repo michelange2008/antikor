@@ -1,0 +1,1 @@
+/srv/phpinfo/phpinfo.php
