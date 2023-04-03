@@ -40,6 +40,11 @@ class ProduitsTable extends Component
         $this->reset('searchType');
     }
 
+    public function resetSearch()
+    {
+        $this->reset('search');
+    }
+
     public function onProduitUpdated()
     {
         $this->reset('editId');

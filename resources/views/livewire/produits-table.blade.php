@@ -5,7 +5,9 @@
         <div class=" flex flex-row grow my-2 sm:my-0">
             <img class="w-8 mr-2" src="{{ url('storage/img/fonticone/search.svg') }}" alt="">
 
-            <input class="sm:grow" type="text" placeholder="Rechercher un produit" wire:model.debounce.500ms="search">
+            <input class="sm:grow border-r-0" type="text" placeholder="Rechercher un produit" wire:model.debounce.500ms="search">
+
+            <img class="w-10 px-2 cursor-pointer border border-left-0 border-gray-500" wire:click="resetSearch" src="{{ url('storage/img/fonticone/reset.svg')}}" alt="reset">
 
         </div>
 
