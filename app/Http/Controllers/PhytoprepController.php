@@ -12,7 +12,9 @@ class PhytoprepController extends Controller
      */
     public function index()
     {
-        //
+        return view('preparations.preparations', [
+            'preparations' => Phytoprep::all(),
+        ]);
     }
 
     /**
