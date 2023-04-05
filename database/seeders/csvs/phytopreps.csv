@@ -1,21 +1,20 @@
-id;name;detail
-1;anti-infectieux respiratoire;confort respiratoire
-2;anti-infectieux diarrhée;équilibre digestif
-3;anti-coccidien aromatique;équilibre digestif (> 3 sem)
-4;gel lubrifiant;gel lubrifiant
-5;ovules aromatiques;oeufs de pâques
-6;spray désinfectant;lavage des plaies
-7;baume mamelles;baume aromatique
-8;sirop fortifiant;sirop fortifiant
-9;drainage hépatique et rénal;drainage hépatique et rénal
-10;répulsif insecte;confort estival
-11;anti-coccidien préventif;équilibre digestif TM
-12;crème à mammites;crème MOPE
-13;gel panaris;gel pieds
-14;gel antalgique;gel GEL
-15;stimulation des chaleurs;melange GIEC
-16;onguent ophtalmique;baume OP
-17;métrites;crème UHT
-18;BAL sevrage;bloc à lécher sevrage
-19;décongestionnant;drainage rénal
-20;coccidiose TM;Confort digestif TM
+id;name;officiel;detail;icone
+1;anti-infectieux respiratoire;confort respiratoire;;respi.svg
+2;anti-infectieux diarrhée;équilibre digestif;;digestif.svg
+3;anti-coccidien aromatique;équilibre digestif (> 3 sem);;cocche.svg
+4;gel lubrifiant;gel lubrifiant;;lubri.svg
+5;ovules aromatiques;oeufs de pâques;;ovules.svg
+6;spray désinfectant;lavage des plaies;;spray.svg
+7;baume mamelles;baume aromatique;;baume.svg
+8;sirop fortifiant;sirop fortifiant;;sirop.svg
+9;drainage hépatique et rénal;drainage hépatique et rénal;;hepato.svg
+10;répulsif insecte;confort estival;;insect.svg
+12;crème à mammites;crème MOPE;;mamm.svg
+13;gel panaris;gel pieds;;panarie.svg
+14;gel antalgique;gel GEL;;aromacoup.svg
+15;stimulation des chaleurs;melange GIEC;;giec.svg
+16;onguent ophtalmique;baume OP;;oeil.svg
+17;métrites;crème UHT;;metrites.svg
+18;BAL sevrage;bloc à lécher sevrage;;bal_sevrage.svg
+19;décongestionnant;drainage rénal;;decong_oral.svg
+20;coccidiose TM;Confort digestif TM;;cocctm.svg

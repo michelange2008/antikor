@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('phytopreps', function (Blueprint $table) {
             $table->id();
             $table->string('name', 50);
-            $table->string('detail', 191);
+            $table->string('officiel', 50)->nullable();
+            $table->string('detail', 191)->nullable();
+            $table->string('icone', 50);
         });
          //
 

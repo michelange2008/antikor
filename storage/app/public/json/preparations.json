@@ -1,0 +1,22 @@
+{
+    "name" : {
+        "name" : "nom",
+        "type" : "text",
+        "align" : "left"
+    },
+    "officiel" : {
+        "name" : "nom officiel",
+        "type" : "text",
+        "align" : "left"
+    },
+    "detail" : {
+        "name" : "détail",
+        "type" : "text",
+        "align" : "left"
+    },
+    "icone" : {
+        "name" : "icone",
+        "type" : "img",
+        "align" : "center"
+    }
+}
