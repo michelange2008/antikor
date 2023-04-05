@@ -1,4 +1,9 @@
 {
+    "icone" : {
+        "name" : "icone",
+        "type" : "img",
+        "align" : "center"
+    },
     "name" : {
         "name" : "nom",
         "type" : "text",
@@ -11,12 +16,7 @@
     },
     "detail" : {
         "name" : "détail",
-        "type" : "text",
+        "type" : "textarea",
         "align" : "left"
-    },
-    "icone" : {
-        "name" : "icone",
-        "type" : "img",
-        "align" : "center"
     }
 }

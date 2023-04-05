@@ -1,29 +1,49 @@
-<div>
+<div x-data="{ open: false }">
     <x-titre :texte="$texte" :icone="$icone"></x-titre>
 
-    <table>
-        <thead>
+    <table class=" table-auto border-collapse w-full p-2">
+        <thead class="bg-gray-800 text-gray-100">
+
             @foreach ($cols as $col)
-                <th>
+                @if ($col->type == 'textarea')
+
+                @else
+                <th class="py-3 px-2 text-{{$col->align}}">
                     {{ ucfirst($col->name) }}
                 </th>
+                @endif
             @endforeach
         </thead>
 
         <tbody>
             @foreach ($liste as $item)
-                <tr>
-                    @foreach ($cols as $key => $col)
-                    @if ($col->type = "img")
-                    <td><img src="{{ url('storage/img/icones/'.$item->key)}}" alt="{{ $item->$key }}"></td>
-                        
-                    @else
+                <tr class=" hover:bg-gray-300 cursor-pointer" x-on:click="open = ! open">
+                    @foreach ($cols as $intitule => $col)
+                        @if ($col->type == 'img')
+                            <td class="px-1 py-2 border align-{{$col->align}} border-gray-300">
+                                <img class="w-8 m-auto" src="{{ url('storage/img/icones/' . $item->$intitule) }}"
+                                    alt="{{ $item->$intitule }}">
+                            </td>
+                        @elseif($col->type == 'textarea')
+                        @else
+                            <td class="px-1 py-2 border text-{{$col->align}} border-gray-300">
+                                {{ $item->$intitule }}
+                            </td>
+                        @endif
 
-                    <td>{{ $item->$key }} </td>
-                    @endif
                     @endforeach
                 </tr>
-            @endforeach
+                <tr x-show.important="open">
+
+                    <td class="border p-3" colspan="3">
+                        <form action="">
+                            <p class="text-xl">Modifier</p>
+                            <input type="text">
+                            <button type="submit">Enregistrer</button>
+                        </form>
+                    </td>
+                </tr>
+                @endforeach
         </tbody>
     </table>
 
