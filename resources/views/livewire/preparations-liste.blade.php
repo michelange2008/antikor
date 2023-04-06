@@ -1,4 +1,4 @@
-<div x-data="{ open: false }">
+<div x-data="{ detailItem: @entangle('item_id') }">
     <x-titre :texte="$texte" :icone="$icone"></x-titre>
 
     <table class=" table-auto border-collapse w-full p-2">
@@ -33,14 +33,10 @@
 
                     @endforeach
                 </tr>
-                <tr x-show.important="open">
+                <tr x-show="item_id">
 
                     <td class="border p-3" colspan="3">
-                        <form action="">
-                            <p class="text-xl">Modifier</p>
-                            <input type="text">
-                            <button type="submit">Enregistrer</button>
-                        </form>
+                        <p>{{ $item->detail }}</p>
                     </td>
                 </tr>
                 @endforeach
