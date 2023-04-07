@@ -15,7 +15,7 @@ trait LitJson {
      * @param  string $json nom du fichier json présent dans _storage/json/_ sans l'extension
      * @return array       tableau issu du json
      */
-    public function litJson($json)
+    public function litJson($json): Mixed
     {
       $context = stream_context_create(
           array(

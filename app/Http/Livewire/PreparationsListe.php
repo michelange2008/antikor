@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Phytoprep;
+use App\Models\Phytotype;
 use App\Traits\LitJson;
 use Livewire\Component;
 
@@ -10,23 +11,21 @@ class PreparationsListe extends Component
 {
     use LitJson;
 
-    public $liste;
+    public $preparations;
     public $texte = 'liste_preps';
     public $icone = 'preps.svg';
-    private $cols; 
+    public $types; 
 
     public function mount()
     {
-        $this->liste = Phytoprep::all();
+        $this->preparations = Phytoprep::all();
         $this->icone;
         $this->texte;
-        $this->cols =$this->litJson('preparations');
+        $this->types = Phytotype::all();
     }
 
     public function render()
     {
-        return view('livewire.preparations-liste', [
-            'cols' => $this->cols,
-        ]);
+        return view('livewire.preparations-liste');
     }
 }

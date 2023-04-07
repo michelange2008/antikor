@@ -9,4 +9,9 @@ class Phytoprep extends Model
 {
     use HasFactory;
     public $timestamps = false;
+
+    public function produits()
+    {
+        return $this->belongsToMany(Phytoproduit::class)->withPivot('quantite');
+    }
 }

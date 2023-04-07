@@ -20,4 +20,9 @@ class Phytoproduit extends Model
     {
         return $this->belongsTo(Phytounite::class);
     }
+
+    public function preparations()
+    {
+        return $this->belongsToMany(Phytoprep::class)->withPivot('quantite');
+    }
 }

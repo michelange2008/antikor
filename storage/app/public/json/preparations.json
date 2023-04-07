@@ -1,22 +1,30 @@
 {
-    "icone" : {
-        "name" : "icone",
-        "type" : "img",
-        "align" : "center"
-    },
-    "name" : {
-        "name" : "nom",
-        "type" : "text",
-        "align" : "left"
-    },
-    "officiel" : {
-        "name" : "nom officiel",
-        "type" : "text",
-        "align" : "left"
-    },
-    "detail" : {
-        "name" : "détail",
-        "type" : "textarea",
-        "align" : "left"
+    "classe" : "preparations",
+    
+    "champs" : {
+        "icone" : {
+            "name" : "icone",
+            "type" : "img",
+            "align" : "center",
+            "hidden" : false
+        },
+        "name" : {
+            "name" : "nom",
+            "type" : "text",
+            "align" : "left",
+            "hidden" : false
+        },
+        "officiel" : {
+            "name" : "nom officiel",
+            "type" : "text",
+            "align" : "left",
+            "hidden" : false
+        },
+        "detail" : {
+            "name" : "détail",
+            "type" : "textarea",
+            "align" : "left",
+            "hidden" : true
+        }
     }
 }
