@@ -1,4 +1,4 @@
-<div x-data="{ more: false }" @click.outside="more = false">
+<div x-data="{ more: false }" @click.outside="more = false" @keyup.escape="more = false">
     <x-titre :texte="$texte" :icone="$icone"></x-titre>
 
     <table class=" table-auto border-collapse w-full p-2">

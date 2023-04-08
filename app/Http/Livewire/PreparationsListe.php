@@ -12,16 +12,26 @@ class PreparationsListe extends Component
     use LitJson;
 
     public $preparations;
-    public $texte = 'liste_preps';
-    public $icone = 'preps.svg';
     public $types; 
+    public String $texte = 'liste_preps';
+    public String $icone = 'preps.svg';
+    public Bool $edit  = false ;
+
+    protected $listeners = [
+        'preparationUpdated' => 'onPreparationUpdated',
+    ];
 
     public function mount()
     {
         $this->preparations = Phytoprep::all();
+        $this->types = Phytotype::all();
         $this->icone;
         $this->texte;
-        $this->types = Phytotype::all();
+    }
+
+    public function onPreparationUpdated()
+    {
+        $this->edit = false;
     }
 
     public function render()
