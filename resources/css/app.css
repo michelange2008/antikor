@@ -2,4 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    .h2 {
+        @apply font-extrabold text-xl mb-2 text-teal-900;
+    }
+}
+
 [x-cloak] { display: none !important; }
+

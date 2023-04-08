@@ -1,20 +1,27 @@
 id;name;officiel;detail;icone
-1;anti-infectieux respiratoire;confort respiratoire;;respi.svg
-2;anti-infectieux diarrhée;équilibre digestif;;digestif.svg
-3;anti-coccidien aromatique;équilibre digestif (> 3 sem);;cocche.svg
-4;gel lubrifiant;gel lubrifiant;;lubri.svg
+1;anti-infectieux respiratoire;confort respiratoire;C'est un mélange associant des huiles essentielles est destiné à favoriser un fonctionnement efficace du système respiratoire.;respi.svg
+2;anti-infectieux diarrhée;équilibre digestif;Ce mélange associe des huiles essentielles destinées à favoriser les transitions digestives des jeunes ruminants (veaux, agneaux, chevreaux).;digestif.svg
+3;anti-coccidien aromatique;équilibre digestif (> 3 sem);C'est un mélange associant des huiles essentielles. Il est destiné à favoriser les transitions alimentaires au moment du sevrage.;cocche.svg
+4;gel lubrifiant;gel lubrifiant;"Il s'agit de préparer un gel utilisé lorsque l'on intervient sur une mise-bas. L'hydrolat de
+lavande est utilisé comme base aqueuse pour la fabrication d'un gel avec de la gomme de
+xanthane. L'ajout d'huile essentielle de clou de girofle permet de favoriser les contractions et la dilatation de la vulve.";lubri.svg
 5;ovules aromatiques;oeufs de pâques;;ovules.svg
-6;spray désinfectant;lavage des plaies;;spray.svg
-7;baume mamelles;baume aromatique;;baume.svg
-8;sirop fortifiant;sirop fortifiant;;sirop.svg
-9;drainage hépatique et rénal;drainage hépatique et rénal;;hepato.svg
-10;répulsif insecte;confort estival;;insect.svg
-12;crème à mammites;crème MOPE;;mamm.svg
-13;gel panaris;gel pieds;;panarie.svg
-14;gel antalgique;gel GEL;;aromacoup.svg
-15;stimulation des chaleurs;melange GIEC;;giec.svg
-16;onguent ophtalmique;baume OP;;oeil.svg
-17;métrites;crème UHT;;metrites.svg
-18;BAL sevrage;bloc à lécher sevrage;;bal_sevrage.svg
-19;décongestionnant;drainage rénal;;decong_oral.svg
-20;coccidiose TM;Confort digestif TM;;cocctm.svg
+6;spray désinfectant;lavage des plaies;"L'association de la teinture mère d'Achillée millefeuille avec des huiles essentielles
+permet de préparer un spray pour le lavage des plaies.";spray.svg
+7;baume mamelles;baume aromatique;C'est un baume composé de nombreuses huiles essentielles.t un baume composé de nombreuses huiles essentielles.;baume.svg
+8;sirop fortifiant;sirop fortifiant;"A base de gentiane, cette décoction est destinée à apporter une source d'énergie
+ponctuelle en cas de faiblesse avant ou après la mise-bas. C'est un fortifiant pour les
+nouveaux-nés un peu faibles ou affaiblis par une maladie néonatale";sirop.svg
+9;drainage hépatique et rénal;drainage hépatique et rénal;"L'association de plusieurs teintures-mères ayant un impact sur le foie et augmentant la
+quantité d'urine produite permet de préparer un mélange hépato-protecteur.";hepato.svg
+10;répulsif insecte;confort estival;Un mélange d'huile de Neem et d'huiles essentielles pour diminuer l'impact des mouches sur les vaches l'été.;insect.svg
+12;crème à mammites;crème MOPE;Un mélange pour la mamelle qui a montré une meilleure efficacité dans certaines situations que le traitement antibiotique de référence.;mamm.svg
+13;gel panaris;gel pieds;"A appliquer sur le boulet en cas de panaris (""gros pied""). Attention, en cas de boîterie, il faut commencer par lever le pied de la vache pour vérifier qu'il n'y a pas un problème d'onglon.";panaris.svg
+14;gel antalgique;gel GEL;A appliquer localement en cas de coups et contusions. Il contient 3 huiles essentielles très efficaces sur les douleurs et inflammations.;aromacoup.svg
+15;stimulation des chaleurs;melange GIEC;Pour stimuler les chaleurs des animaux, particulièrement pour la reproduction en contre-saison en élevage bio.;giec.svg
+16;onguent ophtalmique;baume OP;Pour les atteintes de l'oeil en été: un mélange d'huiles essentielles très bien tolérées.;oeil.svg
+17;métrites;crème UHT;A mettre en intra-utérin en cas d'infection.;metrites.svg
+18;BAL sevrage;bloc à lécher sevrage;Un seau à lécher à base de plantes, de vitamines et d'olig-éléments pour favoriser la transition alimentaire au moment du sevrage;bal_sevrage.svg
+19;décongestionnant;drainage rénal;Pour les congestion mammaires, un mélange de plantes diurétiques et protectrices vasculaires.;decong_oral.svg
+20;coccidiose TM;Confort digestif TM;"L'association de plusieurs teintures-mères permet de favoriser les transitions alimentai-
+res, notamment au moment du sevrage.";cocctm.svg
