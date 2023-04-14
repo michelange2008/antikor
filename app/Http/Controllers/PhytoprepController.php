@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Phytoprep;
+use App\Models\Phytoproduit;
+use App\Models\Phytotype;
 use Illuminate\Http\Request;
 
 class PhytoprepController extends Controller
@@ -44,9 +46,16 @@ class PhytoprepController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Phytoprep $phytoprep)
+    public function edit(Phytoprep $preparation)
     {
-        //
+        $produits = Phytoproduit::all();
+        $types = Phytotype::all();
+
+        return view('preparations.composition-edit', [
+            'preparation' => $preparation,
+            'produits' => $produits,
+            'types' => $types,
+        ]);
     }
 
     /**
@@ -54,7 +63,7 @@ class PhytoprepController extends Controller
      */
     public function update(Request $request, Phytoprep $phytoprep)
     {
-        //
+        dd($request->all());
     }
 
     /**

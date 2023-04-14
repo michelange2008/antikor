@@ -1,7 +1,9 @@
-<div class="flex bg-{{ $couleur }}-900 py-3 rounded">
+<div class="titre-1 bg-amber-700">
 
-    <x-font-icone icone="{{ $icone }}"></x-fonticone>
+    @isset($icone)
+        <img class="w-8 p-1" src="{{ url('storage/img/icones/' . $icone) }}" alt="icone">
+    @endisset
 
-        <h3 class="text-xl text-{{ $couleur }}-100">{{ ucfirst($texte) }}</h3>
+    <h2 class="text-gray-100">{{ ucfirst($slot) }}</h2>
+
 </div>
-

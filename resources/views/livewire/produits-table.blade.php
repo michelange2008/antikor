@@ -33,7 +33,6 @@
                 <p class="ml-1 md:ml-2 xl:ml-3">{{ $phytotype->abbreviation }}</p>
             </div>
 
-            {{-- <x-buttons.butticon :icone="'storage/img/produits/' . $phytotype->icone" :name="$phytotype->name" wire:click="selectType({{$phytotype->id}})"></x-buttons.butticon> --}}
         @endforeach
 
 

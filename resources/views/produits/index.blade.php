@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    <x-titre :texte="'liste_produits'" :icone="'produits.svg'"></x-titre>
+    <x-titres.titre icone="produits_light.svg">@lang('titres.liste_produits')</x-titre>
 
     <livewire:produits-table />
 

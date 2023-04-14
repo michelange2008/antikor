@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PhytoprepController;
 use App\Http\Controllers\PhytoproduitController;
 use App\Http\Livewire\PreparationsListe;
+use App\Http\Livewire\CompositionEdit;
 
 use App\Http\Livewire\ShowUsers;
 
@@ -41,6 +42,10 @@ Route::prefix('intranet')->middleware('auth', 'verified')->group(function () {
     Route::resource('/formations', FormationController::class);
     // Route::resource('/preparations', PhytoprepController::class);
     Route::get('/preparations', PreparationsListe::class)->name('preparations.index');
+
+    Route::get('/preparation/composition/{preparation}', [PhytoprepController::class, 'edit'])->name('composition.edit');
+    Route::post('/preparation/composition/{preparation}', [PhytoprepController::class, 'update'])->name('composition.update');
+    
     Route::resource('/produits', PhytoproduitController::class);
 });
 

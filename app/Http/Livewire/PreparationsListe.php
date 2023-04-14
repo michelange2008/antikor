@@ -14,7 +14,7 @@ class PreparationsListe extends Component
     public $preparations;
     public $types; 
     public String $texte = 'liste_preps';
-    public String $icone = 'preps.svg';
+    public String $icone = 'preps_light.svg';
     public Bool $edit  = false ;
 
     protected $listeners = [

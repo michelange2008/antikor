@@ -26,13 +26,13 @@ class PreparationsEditDel extends Component
         $this->types = Phytotype::all();
         $this->produits = Phytoproduit::all();
     }
-
+    
     public function update()
     {
+        $this->edit = false;
         $this->validate();
         $this->preparation->save();
         $this->emit('preparationUpdated');
-        $this->edit = false;
 
     }
 

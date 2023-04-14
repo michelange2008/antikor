@@ -67,7 +67,7 @@
 
             </div>
     
-            <x-button-save-cancel></x-button-save-cancel>
+            <x-buttons.save-cancel-button cancel="Annuler"></x-buttons.save-cancel-button>
         </form>
     
     </div>

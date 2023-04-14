@@ -9,7 +9,7 @@
         </p>
     </header>
 
-    <x-danger-button
+    <x-buttons.danger-button
         x-data=""
         x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')"
     >{{ __('profile.Delete Account') }}</x-danger-button>
@@ -28,9 +28,9 @@
             </p>
 
             <div class="mt-6">
-                <x-input-label for="password" value="{{ __('Password') }}" class="sr-only" />
+                <x-forms.input-label for="password" value="{{ __('Password') }}" class="sr-only" />
 
-                <x-text-input
+                <x-forms.text-input
                     id="password"
                     name="password"
                     type="password"
@@ -38,15 +38,15 @@
                     placeholder="{{ __('Password') }}"
                 />
 
-                <x-input-error :messages="$errors->userDeletion->get('password')" class="mt-2" />
+                <x-forms.input-error :messages="$errors->userDeletion->get('password')" class="mt-2" />
             </div>
 
             <div class="mt-6 flex justify-end">
-                <x-secondary-button x-on:click="$dispatch('close')">
+                <x-buttons.secondary-button x-on:click="$dispatch('close')">
                     {{ __('commun.Cancel') }}
                 </x-secondary-button>
 
-                <x-danger-button class="ml-3">
+                <x-buttons.danger-button class="ml-3">
                     {{ __('profile.Delete Account') }}
                 </x-danger-button>
             </div>
