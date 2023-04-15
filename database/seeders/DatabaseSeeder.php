@@ -22,8 +22,8 @@ class DatabaseSeeder extends Seeder
             // PhytounitesTableSeeder::class,
             // PhytoproduitsTableSeeder::class,
             PhytoprepsTableSeeder::class,
-            PhytoprepPhytoproduitTableSeeder::class,
-            FormationPhytoprepTableSeeder::class,
+            // PhytoprepPhytoproduitTableSeeder::class,
+            // FormationPhytoprepTableSeeder::class,
         ]);
     }
 }
