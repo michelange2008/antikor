@@ -48,7 +48,7 @@ class PhytoprepController extends Controller
      */
     public function edit(Phytoprep $preparation)
     {
-        $produits = Phytoproduit::all();
+        $produits = Phytoproduit::all()->sortBy('name');
         $types = Phytotype::all();
 
         return view('preparations.composition-edit', [
@@ -61,9 +61,30 @@ class PhytoprepController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Phytoprep $phytoprep)
+    public function update(Request $request, Phytoprep $preparation)
     {
-        dd($request->all());
+        
+        $datas = array_slice($request->all(), 2);
+
+        $update = [];
+
+        foreach ($datas as $Q_produit_id => $quantite) {
+            $produit_id = substr($Q_produit_id, 2);
+            if ($quantite > 0) {
+                $update[$produit_id] = [ 'quantite' => $quantite];
+            }
+        }
+        $result = $preparation->produits()->sync($update);
+
+        if (empty($result['attached']) && empty($result['detached']) && empty($result['updated'])) {
+
+            return back()->with(["message" => "La préparation n'a pas été modifiée"]);
+
+        } else {
+
+            return back()->with(["message" => "La composition de la préparation a été mise à jour", 'type' => "warning"]);
+        }
+        
     }
 
     /**

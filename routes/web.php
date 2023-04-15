@@ -43,6 +43,8 @@ Route::prefix('intranet')->middleware('auth', 'verified')->group(function () {
     // Route::resource('/preparations', PhytoprepController::class);
     Route::get('/preparations', PreparationsListe::class)->name('preparations.index');
 
+    // Route::get('/preparation/composition/{preparation}', CompositionEdit::class)->name('composition.edit');
+    // Route::post('/preparation/composition', [CompositionEdit::class, 'update'])->name('composition.update');
     Route::get('/preparation/composition/{preparation}', [PhytoprepController::class, 'edit'])->name('composition.edit');
     Route::post('/preparation/composition/{preparation}', [PhytoprepController::class, 'update'])->name('composition.update');
     
