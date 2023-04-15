@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 50);
             $table->string('officiel', 50)->nullable();
-            $table->string('detail', 191)->nullable();
+            $table->text('detail')->nullable();
             $table->string('icone', 50);
         });
          //
