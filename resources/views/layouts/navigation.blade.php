@@ -92,27 +92,36 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
-                {{ __('Dashboard') }}
-            </x-responsive-nav-link>
 
-            <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
+            <x-responsive-nav-link :class="'font-bold'" :href="route('home')" :active="request()->routeIs('home')">
                 {{ ucfirst(__('menu.home')) }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link :href="route('aroma')" :active="request()->routeIs('aroma')">
+            <x-responsive-nav-link :class="'font-bold'">
                 {{ ucfirst(__('menu.aromaliste')) }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link :href="route('visites')" :active="request()->routeIs('visites')">
-                {{ ucfirst(__('menu.visites')) }}
+            <x-responsive-nav-link :class="'ml-2'" href="#" :active="request()->routeIs('visites')">
+                {{ ucfirst(__('menu.aromaliste')) }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link :href="route('formations.index')" :active="request()->routeIs('formations.index')">
+            <x-responsive-nav-link :class="'ml-2'" :href="route('produits.index')" :active="request()->routeIs('produits.index')">
+                {{ ucfirst(__('menu.produits')) }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :class="'ml-2'" :href="route('preparations.index')" :active="request()->routeIs('preparations.index')">
+                {{ ucfirst(__('menu.preps')) }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :class="'ml-2'" :href="route('visites')" :active="request()->routeIs('visites')">
+                {{ ucfirst(__('menu.aromaform')) }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :class="'font-bold'" :href="route('formations.index')" :active="request()->routeIs('formations.index')">
                 {{ ucfirst(__('menu.formations')) }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link :href="config('links.nextcloud')">
+            <x-responsive-nav-link :class="'font-bold'" :href="config('links.nextcloud')">
                 Nuage
             </x-responsive-nav-link>
 
@@ -126,7 +135,7 @@
             </div>
 
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
+                <x-responsive-nav-link :class="'ml-2'" :href="route('profile.edit')">
                     {{ __('profile.Profile') }}
                 </x-responsive-nav-link>
 
@@ -134,7 +143,7 @@
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
-                    <x-responsive-nav-link :href="route('logout')"
+                    <x-responsive-nav-link :class="'ml-2'" :href="route('logout')"
                         onclick="event.preventDefault();
                                         this.closest('form').submit();">
                         {{ __('Log Out') }}
