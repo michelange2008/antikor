@@ -1,4 +1,4 @@
-<div class="titre-1 bg-amber-700">
+<div {{ $attributes->merge([ 'class' => 'titre-1 bg-amber-700']) }}>
 
     @isset($icone)
         <img class="w-8 p-1" src="{{ url('storage/img/icones/' . $icone) }}" alt="icone">

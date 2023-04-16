@@ -1,7 +1,7 @@
 <x-app-layout>
 
-    <x-titres.titre icone="modify_light.svg">{{ ucfirst($preparation->name) }}</x-titres.titre>
-    <x-titres.titre2>Modification de la composition</x-titres.titre2>
+    <x-titres.titre :class="'mt-5'" icone="modify_light.svg">{{ ucfirst($preparation->name) }}</x-titres.titre>
+    <x-titres.titre2 :class="'mb-5'">Modification de la composition</x-titres.titre2>
 
     <x-flash></x-flash>
     <form action="{{ route('composition.update', $preparation) }}" method="POST"">
@@ -9,12 +9,12 @@
         @method('POST')
         <div class="flex flex-row justify-between">
             <div>
-                <x-buttons.success-button><x-icones.save/> Enregistrer</x-buttons.success-button>
-                <x-buttons.reset-button><x-icones.reset/> Réinitialiser</x-buttons.reset-button>
+                <x-buttons.success-button><x-icones.save :collapse="true"/> Enregistrer</x-buttons.success-button>
+                <x-buttons.reset-button><x-icones.reset :collapse="true" /> Réinitialiser</x-buttons.reset-button>
             </div>
             <div>
                 <a href="{{ route('preparations.index') }}">
-                    <x-buttons.secondary-button><x-icones.return/> Retour aux préparations</x-buttons.secondary-button>
+                    <x-buttons.secondary-button><x-icones.return collapse="true" /> Retour aux préparations</x-buttons.secondary-button>
                 </a>
             </div>
         </div>

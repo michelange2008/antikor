@@ -1,5 +1,5 @@
 <div x-data="{ more: false }" @click.outside="more = false" @keyup.escape="more = false">
-    <x-titres.titre :icone="$icone">{{__('titres.'.$texte)}}</x-titre>
+    <x-titres.titre :class="'my-5'" :icone="$icone">{{__('titres.'.$texte)}}</x-titre>
 
     <table class=" table-auto border-collapse w-full p-2">
         <thead class="bg-gray-800 text-gray-100">

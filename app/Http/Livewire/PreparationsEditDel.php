@@ -13,6 +13,7 @@ class PreparationsEditDel extends Component
     public $types;
     public $produits;
     public Bool $edit;
+    public Bool $del_prep;
 
 
     protected $rules = [
@@ -34,6 +35,12 @@ class PreparationsEditDel extends Component
         $this->preparation->save();
         $this->emit('preparationUpdated');
 
+    }
+
+    public function delete_preparation()
+    {
+        $this->del_prep = false;
+        dd($this->preparation);
     }
 
     public function render()
