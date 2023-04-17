@@ -1,5 +1,11 @@
-<div x-data="{ more: false }" @click.outside="more = false" @keyup.escape="more = false">
+<div x-data="{ more: false, add_prep: @entangle('add_prep') }" 
+    @click.outside="more = false" @keyup.escape="more = false"
+    @click.outside="add_prep = false" @keyup.escape="add_prep = false">
     <x-titres.titre :class="'my-5'" :icone="$icone">{{__('titres.'.$texte)}}</x-titre>
+
+    <x-buttons.success-button :class="'my-1'" x-on:click="add_prep = true">
+        <x-icones.add></x-icones.add>Ajouter<span class="collapse sm:visible"> une préparation</span>
+    </x-buttons.success-button>
 
     <table class=" table-auto border-collapse w-full p-2">
         <thead class="bg-gray-800 text-gray-100">
@@ -74,6 +80,32 @@
             @endforeach
         </tbody>
     </table>
+
+    <div x-cloak x-show='add_prep' x-transition
+        class=" w-full inset-0 m-auto z-50
+            sm:w-3/4 lg:w-1/2 fixed top-2 p-5 
+            flex flex-col justify-between
+            shadow bg-orange-200">
+
+        <x-titres.titre1 icone="modify_light.svg">Nouvelle préparation</x-titres.titre1>
+
+        <form action="" wire:submit.prevent="add_preparation">
+
+            <x-forms.input-text name="Nom" id="name" model="preparation"></x-forms.input-text>
+
+            <x-forms.input-text name="Nom officiel" id="officiel" model="preparation"></x-forms.input-text>
+
+            <x-forms.textarea name="Description" id="detail" model="preparation" rows="5"></x-forms.textarea>
+            
+            <x-forms.textarea name="Fabrication" id="fabrication" model="preparation" rows=10></x-forms.textarea>
+
+            <x-forms.input-text name="Icone" id="icone" model="preparation"></x-forms.input-text>
+
+            <x-buttons.save-cancel-button cancel="add_prep"></x-buttons.save-cancel-button>
+
+        </form>
+
+    </div>
 
 
 </div>
