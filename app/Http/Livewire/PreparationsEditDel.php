@@ -21,6 +21,10 @@ class PreparationsEditDel extends Component
         'preparation.officiel' => 'required|string|min:2|max:191',
         'preparation.detail' => 'string|max:3000',
     ];
+
+    protected $listeners = [
+        'preparationUpdated' => 'mount',
+    ];
     
     public function mount()
     {
@@ -30,17 +34,19 @@ class PreparationsEditDel extends Component
     
     public function update()
     {
-        $this->edit = false;
         $this->validate();
         $this->preparation->save();
+        $this->edit = false;
         $this->emit('preparationUpdated');
+
 
     }
 
     public function delete_preparation()
     {
+        $this->preparation->destroy($this->preparation->id);
         $this->del_prep = false;
-        dd($this->preparation);
+
     }
 
     public function render()

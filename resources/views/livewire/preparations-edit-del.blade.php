@@ -8,13 +8,17 @@
             <x-buttons.danger-button x-on:click="del_prep = true">
                 <x-icones.del :collapse="true"></x-icones.del> Supprimer
             </x-buttons.danger-button>
+            <a class="flex" href="{{ route('composition.edit', $preparation) }}">
+                <x-buttons.blue-button>
+                    <x-icones.settings :collapse="true"></x-icones.settings> Changer la composition
+                </x-buttons.blue-button>
+            </a>
         </div>
 
-        <a class="flex" href="{{ route('composition.edit', $preparation) }}">
-            <x-buttons.blue-button>
-                <x-icones.settings :collapse="true"></x-icones.settings> Changer la composition
-            </x-buttons.blue-button>
-        </a>
+        <div>
+            <x-buttons.reset-button x-on:click="more = false"><x-icones.return></x-icones.return>Fermer</x-buttons.reset-button>
+        </div>
+
     </div>
 
     <div x-cloak x-show='edit' x-show="more == {{ $preparation->id }}" x-transition

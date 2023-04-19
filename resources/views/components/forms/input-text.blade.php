@@ -1,4 +1,4 @@
-<div class="flex flex-col my-2">
+<div {{ $attributes->merge(['class' => 'flex flex-col my-2']) }}>
 
     <label for="{{$id}}">{{ $name}}</label>
 
