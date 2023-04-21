@@ -1,0 +1,8 @@
+;paint.net Palette File
+;Downloaded from Lospec.com/palette-list
+;Palette Name: Death Valley
+;Description: A warm but dry pallete
+;Colors: 3
+FFf2ebca
+FFd9b370
+FF2a9c85

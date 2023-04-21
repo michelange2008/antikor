@@ -25,12 +25,11 @@ class PreparationsListe extends Component
         'preparation.officiel' => 'required|string|max:50',
         'preparation.detail' => 'max:65000',
         'preparation.fabrication' => 'max:65000',
-        'icone' => 'max:50',
-        // 'preparation.icone' => 'max:50',
+        'icone' => 'image|max:50',
     ];
 
     protected $listeners = [
-        'preparationUpdated' => 'onPreparationUpdated',
+        'preparationDeleted' => 'mount',
         'preparationCreated' => 'mount',
     ];
 
@@ -44,16 +43,14 @@ class PreparationsListe extends Component
         $this->texte_titre;
     }
 
-    public function onPreparationUpdated()
-    {
-        $this->edit = false;
-    }
-
     public function add_preparation()
     {
         $this->validate();
 
-        $this->icone->storeAs('img/icones', $this->preparation->name);
+        $extension = $this->icone->getClientOriginalExtension();
+        $file_name = $this->preparation->name.".".$extension;
+        $this->icone->storeAs('public/img/icones', $file_name);
+        $this->preparation->icone = $file_name;
         $this->preparation->save();
         $this->add_prep = false;
         $this->emit('preparationCreated');

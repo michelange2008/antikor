@@ -6,9 +6,11 @@ use App\Models\Phytoprep;
 use App\Models\Phytoproduit;
 use App\Models\Phytotype;
 use Livewire\Component;
+use Illuminate\Support\Facades\Storage;
 
 class PreparationsEditDel extends Component
 {
+
     public Phytoprep $preparation;
     public $types;
     public $produits;
@@ -44,8 +46,10 @@ class PreparationsEditDel extends Component
 
     public function delete_preparation()
     {
+        Storage::delete(url('storage/img/icones/'.$this->preparation->icone));
         $this->preparation->destroy($this->preparation->id);
         $this->del_prep = false;
+        $this->emitUp('preparationDeleted');
 
     }
 

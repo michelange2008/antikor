@@ -3,56 +3,48 @@
     <x-titres.titre :class="'my-5'" :icone="$icone_titre">{{ __('titres.' . $texte_titre) }}</x-titre>
 
         <div>
+            {{-- <x-buttons.success-round x-data="" --}}
+            {{-- x-on:click.prevent="$dispatch('open-modal', 'addpreparation')"></x-buttons.success-round> --}}
             <x-buttons.success-round x-on:click="add_prep = !add_prep"></x-buttons.success-round>
 
-            <div x-cloak x-show='add_prep' x-transition x-trap.inert.noscroll="add_prep" @click.away="add_prep = false"
-                class="fixed top-0 inset-0 z-40 bg-gray-400/50 py-5">
-                <div class="flex flex-col justify-between
-                    shadow bg-orange-200 sm:w-3/4 lg:w-2/3 xl-w-1/2 m-auto w-full p-5">
+            <x-modal-custom>
 
+                {{-- <x-modal name="addpreparation"> --}}
+                    <div class="flex flex-col justify-between bg-orange-200 p-5">
+                    
                     <x-titres.titre1 icone="modify_light.svg">Nouvelle préparation</x-titres.titre1>
-
+                    
                     <form action="" wire:submit.prevent="add_preparation">
-
-                        <div class="flex flex-row gap-3 flex-grow">
-
+                        
+                        <div class="md:flex md:flex-row md:gap-3 md:flex-grow">
+                            
                             <x-forms.input-text :class="'basis-1/2'" name="Nom" id="name" model="preparation"></x-forms.input-text>
-    
+                            
                             <x-forms.input-text :class="'basis-1/2'" name="Nom officiel" id="officiel" model="preparation"></x-forms.input-text>
                             
                         </div>
-
-                        <x-forms.textarea name="Description" id="detail" model="preparation" rows="3">
-                        </x-forms.textarea>
-
-                        <x-forms.textarea name="Fabrication" id="fabrication" model="preparation" rows=8>
-                        </x-forms.textarea>
-
-                        <div class="flex flex-col my-2">
-
-                            <label>Icone</label>
                         
-                            <input type="file" wire:model.defer="icone"
-                                class="form-input rounded border-1 focus:active:border-0">
-                            {{-- @error( $message )
-                                <div class="text-red-900 text-xs">{{ $message }}</div>
-                            @enderror --}}
+                        <x-forms.textarea name="Description" id="detail" model="preparation" rows="3"></x-forms.textarea>
                         
-                            @if ($icone)
+                        <x-forms.textarea name="Fabrication" id="fabrication" model="preparation" rows=8></x-forms.textarea>
                         
-                                <img class="w-8 m-3" src="{{ $icone->temporaryUrl() }}" alt="">
-                                
-                            @endif
+                        <x-forms.input-file name="Icone" model="icone"></x-forms.input-file>
                         
-                        </div>
-
+                        @if ($icone)
+                        @if (in_array($icone->getClientOriginalExtension(), ['png', 'jpg', 'jpeg', 'svg']))
+                        <img class="w-8 m-3" src="{{ $icone->temporaryUrl() }}" alt="">
+                        @endif
+                        @endif
+                        
                         <x-buttons.save-cancel-button cancel="add_prep"></x-buttons.save-cancel-button>
-
+                        
                     </form>
-
+                    
                 </div>
+                {{-- </x-modal> --}}
+            </x-modal-custom>
 
-            </div>
+            {{-- </div> --}}
         </div>
 
 
@@ -116,6 +108,7 @@
                             </div>
                             <div>
                                 <h2 class="h2">Préparation</h2>
+                                <p class="px-3">{{ ucfirst($preparation->fabrication) }}</p>
 
                             </div>
                         </td>

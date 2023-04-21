@@ -1,0 +1,25 @@
+<?php
+$CONFIG = array (
+  'instanceid' => 'ocnk7bpnnqyc',
+  'passwordsalt' => 'LaSLeqjNO+k/F4nVhdXoapHDK+7oXj',
+  'secret' => 'nswmkm7wO4Ob2mE2xV1Y6cDb1JrgKMHgcARr/NuC8WdHhoTi',
+  'trusted_domains' =>
+  array (
+    0 => 'michelange.org',
+  ),
+  'datadirectory' => '/var/www/vhosts/michelange.org/httpdocs/nextcloud/data',
+  'dbtype' => 'mysql',
+  'version' => '23.0.0.10',
+  'overwrite.cli.url' => 'http://michelange.org/nextcloud',
+  'dbname' => '06489_nc',
+  'dbhost' => 'sql01.ouvaton.coop',
+  'dbport' => '',
+  'dbtableprefix' => 'oc_',
+  'mysql.utf8mb4' => true,
+  'dbuser' => '06489_nc',
+  'dbpassword' => '17891789Mm!',
+  'installed' => true,
+  'default_phone_region' => 'ISO 3166-1',
+  'trusted_proxies' => array('10.0.20.16'),
+  'forwarded_for_headers' => array('HTTP_X_FORWARDED_FOR'),
+);

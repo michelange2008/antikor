@@ -33,7 +33,9 @@
 
             <x-forms.input-text name="Nom officiel" id="officiel" model="preparation"></x-forms.input-text>
 
-            <x-forms.textarea name="Description" id="detail" model="preparation" rows="5"></x-forms.textarea>
+            <x-forms.textarea name="Description" id="detail" model="preparation" rows="3"></x-forms.textarea>
+
+            <x-forms.textarea name="Fabrication" id="fabrication" model="preparation" rows="5"></x-forms.textarea>
 
 
             <x-buttons.save-cancel-button cancel="edit"></x-buttons.save-cancel-button>
