@@ -1,15 +1,12 @@
-<div x-data="{ more: false, add_prep: @entangle('add_prep') }" @click.outside="more = false" @click.away="add_prep = false"
-    @keydown.escape="add_prep = false">
+<div x-data="{ more: false,  show: false}" @click.outside="more = false">
     <x-titres.titre :class="'my-5'" :icone="$icone_titre">{{ __('titres.' . $texte_titre) }}</x-titre>
 
         <div>
-            {{-- <x-buttons.success-round x-data="" --}}
-            {{-- x-on:click.prevent="$dispatch('open-modal', 'addpreparation')"></x-buttons.success-round> --}}
-            <x-buttons.success-round x-on:click="add_prep = !add_prep"></x-buttons.success-round>
 
-            <x-modal-custom>
+            <x-buttons.success-round x-on:click.prevent="$dispatch('open-modal' , 'add_prep')"></x-buttons.success-round>
 
-                {{-- <x-modal name="addpreparation"> --}}
+            <x-modal-custom name="add_prep">
+
                     <div class="flex flex-col justify-between bg-orange-200 p-5">
                     
                     <x-titres.titre1 icone="modify_light.svg">Nouvelle préparation</x-titres.titre1>
@@ -36,15 +33,14 @@
                         @endif
                         @endif
                         
-                        <x-buttons.save-cancel-button cancel="add_prep"></x-buttons.save-cancel-button>
+                        <x-buttons.save-cancel-button></x-buttons.save-cancel-button>
                         
                     </form>
                     
                 </div>
-                {{-- </x-modal> --}}
+
             </x-modal-custom>
 
-            {{-- </div> --}}
         </div>
 
 

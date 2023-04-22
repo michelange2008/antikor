@@ -18,7 +18,6 @@ class PreparationsListe extends Component
     public String $texte_titre = 'liste_preps';
     public String $icone_titre = 'preps_light.svg';
     public Bool $edit  = false ;
-    public Bool $add_prep = false;
 
     protected $rules = [
         'preparation.name' => 'required|string|max:50',
@@ -31,7 +30,10 @@ class PreparationsListe extends Component
     protected $listeners = [
         'preparationDeleted' => 'mount',
         'preparationCreated' => 'mount',
+        'preparationUpdated' => 'mount',
     ];
+
+    
 
     public function mount()
     {
@@ -52,7 +54,6 @@ class PreparationsListe extends Component
         $this->icone->storeAs('public/img/icones', $file_name);
         $this->preparation->icone = $file_name;
         $this->preparation->save();
-        $this->add_prep = false;
         $this->emit('preparationCreated');
 
     }

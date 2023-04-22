@@ -1,13 +1,15 @@
-<div x-data="{ edit: @entangle('edit'), del_prep: @entangle('del_prep') }" @click.outside="edit = false" @keyup.escape="edit = false">
+<div x-data="{ edit: @entangle('edit'),  del_prep: @entangle('del_prep')}" @click.outside="edit = false" @keyup.escape="edit = false">
 
     <div class="flex flex-wrap gap-x-3 gap-y-1 justify-around sm:justify-between">
         <div class="flex flex-row gap-2">
             <x-buttons.success-button x-on:click=" edit = !edit">
                 <x-icones.edit :collapse="true"></x-icones.edit> Modifier
             </x-buttons.success-button>
+
             <x-buttons.danger-button x-on:click="del_prep = true">
                 <x-icones.del :collapse="true"></x-icones.del> Supprimer
             </x-buttons.danger-button>
+            
             <a class="flex" href="{{ route('composition.edit', $preparation) }}">
                 <x-buttons.blue-button>
                     <x-icones.settings :collapse="true"></x-icones.settings> Changer la composition
@@ -16,7 +18,9 @@
         </div>
 
         <div>
-            <x-buttons.reset-button x-on:click="more = false"><x-icones.return></x-icones.return>Fermer</x-buttons.reset-button>
+            <x-buttons.reset-button x-on:click="more = false">
+                <x-icones.return></x-icones.return>Fermer
+            </x-buttons.reset-button>
         </div>
 
     </div>
@@ -37,6 +41,16 @@
 
             <x-forms.textarea name="Fabrication" id="fabrication" model="preparation" rows="5"></x-forms.textarea>
 
+            <x-forms.input-file name="Icone ({{ $preparation->icone }})" model="icone"></x-forms.input-file>
+
+            @isset($icone)
+                @if (in_array($icone->getClientOriginalExtension(), ['png', 'jpg', 'jpeg', 'svg']))
+                    <img class="w-8 m-3" src="{{ $icone->temporaryUrl() }}" alt="">
+                @endif
+            @else
+                <img class="w-8 m-3" src="{{ url('storage/img/icones/'.$preparation->icone)}}">
+            @endisset
+
 
             <x-buttons.save-cancel-button cancel="edit"></x-buttons.save-cancel-button>
 
@@ -54,7 +68,7 @@
 
         <div class="m-5">
             <p>En cliquant sur le bouton <span class="text-bold text-red-900 border px-1">
-                CONFIRMER</span>, vous supprimerez définitivement la préparation:
+                    CONFIRMER</span>, vous supprimerez définitivement la préparation:
             </p>
             <p class="font-bold text-xl text-center my-3">
                 {{ ucfirst($preparation->name) }}
