@@ -1,4 +1,4 @@
-<a href="{{ url()->previous() }}">
+<a href="{{ url()->previous() }}" {{ $attributes }}>
 
     <button 
     type="reset"

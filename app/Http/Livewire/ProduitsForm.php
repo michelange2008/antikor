@@ -24,8 +24,14 @@ class ProduitsForm extends Component
     {
         $this->validate();
         $this->produit->save();
-        $this->emit('produitUpdated');
+        $this->emitUp('produitUpdated');
     }
+
+    public function cancel()
+    {
+        $this->emitUp('produitUpdated');
+    }
+
     public function render()
     {
         return view('livewire.produits-form', [

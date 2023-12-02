@@ -57,9 +57,8 @@
             </select>
         </div>
 
-        <button class="rounded my-1 px-3 py-1 text-center bg-teal-900 text-teal-100 disabled:bg-gray-500" type="submit"
-            wire:loading.attr="disabled">Enregistrer</button>
-        <x-button-cancel :action="'open = false'"></x-button-cancel>
+        <x-buttons.success-button>Enregistrer</x-buttons.success-button>
+        <x-buttons.cancel-button wire:click="cancel()">Annuler</x-buttons.cancel-button>
     </form>
 
 </div>
