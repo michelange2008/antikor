@@ -15,13 +15,19 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
+            // DocumentSeeder::class,
+            // DureeSeeder::class,
+            // IntervenantSeeder::class,
+            // ModaliteSeeder::class,
+            // PedagogieSeeder::class,
+            // StagiaireSeeder::class,
             // EspecesTableSeeder::class,
             // FormationsTableSeeder::class,
-            // EspecesFormationsTableSeeder::class,
+            EspecesFormationsTableSeeder::class,
             // PhytotypesTableSeeder::class,
             // PhytounitesTableSeeder::class,
             // PhytoproduitsTableSeeder::class,
-            PhytoprepsTableSeeder::class,
+            // PhytoprepsTableSeeder::class,
             // PhytoprepPhytoproduitTableSeeder::class,
             // FormationPhytoprepTableSeeder::class,
         ]);

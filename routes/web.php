@@ -10,7 +10,7 @@ use App\Http\Controllers\PhytoprepController;
 use App\Http\Controllers\PhytoproduitController;
 use App\Http\Livewire\PreparationsListe;
 use App\Http\Livewire\CompositionEdit;
-
+use App\Http\Livewire\FormationDetail;
 use App\Http\Livewire\ShowUsers;
 
 /*
@@ -27,6 +27,7 @@ use App\Http\Livewire\ShowUsers;
 Route::get('/', [FrontController::class, 'index'])->name('front.index');
 
 Route::get('/Formations', [FrontController::class, 'formations'])->name('front.formations');
+Route::get('/Formations/{formation}', [FrontController::class, 'formationShow'])->name('front.formation');
 Route::get('/Parasitisme', [FrontController::class, 'parasitisme'])->name('front.parasitisme');
 Route::get('/Reproduction', [FrontController::class, 'reproduction'])->name('front.reproduction');
 
@@ -40,6 +41,7 @@ Route::prefix('intranet')->middleware('auth', 'verified')->group(function () {
     Route::get('/aroma', [HomeController::class, 'aroma'])->name('aroma');
     Route::get('/visites', [HomeController::class, 'visites'])->name('visites');
     Route::resource('/formations', FormationController::class);
+    Route::get('/Formations/{formation}', FormationDetail::class)->name('formaShow');
     // Route::resource('/preparations', PhytoprepController::class);
     Route::get('/preparations', PreparationsListe::class)->name('preparations.index');
 
