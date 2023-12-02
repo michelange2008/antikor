@@ -1,4 +1,4 @@
-<div>
+<div x-data="{create: @entangle('create')}">
 
     <div class="flex flex-row items-center justify-between gap-5">
 
@@ -11,6 +11,7 @@
 
         </div>
 
+        <x-buttons.success-round x-on:click="create = !create">Ajouter</x-buttons.success-round>
         <livewire:produit-create />
 
     </div>
