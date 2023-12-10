@@ -10,10 +10,14 @@ use Livewire\Component;
 class ProduitCreate extends Component
 {
     public Phytoproduit $produit;
+    public $phytotypes;
+    public $phytounites;
 
     public function mount()
     {
         $this->produit = new Phytoproduit();
+        $this->phytotypes = Phytotype::all();
+        $this->phytounites = Phytounite::all();
     }
 
     protected $rules = [
@@ -31,9 +35,6 @@ class ProduitCreate extends Component
 
     public function render()
     {
-        return view('livewire.produit-create', [
-            'phytotypes' => Phytotype::all(),
-            'phytounites' => Phytounite::all(),
-        ]);
+        return view('livewire.produit-create');
     }
 }

@@ -4,34 +4,58 @@ namespace App\Http\Livewire;
 
 use App\Models\Phytoprep;
 use App\Models\Phytotype;
-use App\Traits\LitJson;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class PreparationsListe extends Component
 {
-    use LitJson;
+    use WithFileUploads;
 
+    public $preparation;
+    public $icone;
     public $preparations;
     public $types; 
-    public String $texte = 'liste_preps';
-    public String $icone = 'preps_light.svg';
+    public String $texte_titre = 'liste_preps';
+    public String $icone_titre = 'preps_light.svg';
     public Bool $edit  = false ;
 
-    protected $listeners = [
-        'preparationUpdated' => 'onPreparationUpdated',
+    protected $rules = [
+        'preparation.name' => 'required|string|max:50',
+        'preparation.officiel' => 'required|string|max:50',
+        'preparation.detail' => 'max:65000',
+        'preparation.fabrication' => 'max:65000',
+        'icone' => 'image|max:50',
     ];
+
+    protected $listeners = [
+        'preparationDeleted' => 'mount',
+        'preparationCreated' => 'mount',
+        'preparationUpdated' => 'mount',
+    ];
+
+    
 
     public function mount()
     {
+        $this->preparation = new Phytoprep();
+
         $this->preparations = Phytoprep::all();
         $this->types = Phytotype::all();
-        $this->icone;
-        $this->texte;
+        $this->icone_titre;
+        $this->texte_titre;
     }
 
-    public function onPreparationUpdated()
+    public function add_preparation()
     {
-        $this->edit = false;
+        $this->validate();
+
+        $extension = $this->icone->getClientOriginalExtension();
+        $file_name = $this->preparation->name.".".$extension;
+        $this->icone->storeAs('public/img/icones', $file_name);
+        $this->preparation->icone = $file_name;
+        $this->preparation->save();
+        $this->emit('preparationCreated');
+
     }
 
     public function render()

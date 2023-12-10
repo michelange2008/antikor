@@ -14,8 +14,11 @@ return new class extends Migration
         Schema::create('formations', function (Blueprint $table) {
             $table->id();
             $table->string('name', 191);
-            $table->string('duree', 50)->default('1 jour');
-            $table->string('lieu', 50)->default('en ferme');
+            $table->string('subname', 191)->nullable();
+            $table->text('contexte', 65000)->nullable();
+            $table->foreignId('duree_id')->constrained();
+            $table->foreignId('stagiaire_id')->constrained();
+            $table->foreignId('intervenant_id')->constrained();
             $table->string('icone', 50);
         });
     }

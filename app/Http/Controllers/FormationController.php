@@ -17,6 +17,7 @@ class FormationController extends Controller
         $formations = Formation::all();
 
         return view('formations.form_index', [
+            'route' => 'formations.show',
             'formations' => $formations,
         ]);
     }
@@ -42,7 +43,9 @@ class FormationController extends Controller
      */
     public function show(Formation $formation)
     {
-        //
+        return view('formations.form_show', [
+            'formation' => $formation,
+        ]);
     }
 
     /**

@@ -25,11 +25,25 @@ class FrontController extends Controller
     public function formations()
     {
         $formations = Formation::all();
-
+        
         return view('front.formations', [
+            'route' => 'front.formationShow',
             'formations' => $formations,
         ]);
 
+    }
+
+    /**
+     * Détail des formations pour visiteur non connecté
+     *
+     * @param Formation $formation
+     * @return view
+     **/
+    public function formationShow(Formation $formation)
+    {
+        return view('formations.form_show_user', [
+            'formation' => $formation,
+        ]);
     }
 
     public function parasitisme()
@@ -39,6 +53,7 @@ class FrontController extends Controller
 
     public function reproduction()
     {
-        # code...
+        $reproduction = config('links.reproduction');
+        return redirect()->to($reproduction);
     }
 }

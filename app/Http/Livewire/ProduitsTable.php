@@ -11,9 +11,12 @@ class ProduitsTable extends Component
 {
     use WithPagination;
 
+    public $produits;
+    public $phytotypes;
     public $search = '';
     public $searchType = '';
     public $editId = 0;
+    public $create = false;
 
     protected $queryString = [
         'search' => ['except' => ''],
@@ -23,6 +26,16 @@ class ProduitsTable extends Component
     protected $listeners = [
         'produitUpdated' => 'onProduitUpdated',
     ];
+
+    public function mount()
+    {
+        $this->produits = Phytoproduit::where('name', 'LIKE', "%{$this->search}%")
+                                ->where('phytotype_id', 'LIKE', "%{$this->searchType}%")
+                                ->orderBy('name')
+                                ->get();
+        $this->phytotypes = Phytotype::all();
+
+    }
 
     public function startEdit(int $id)
     {
@@ -59,13 +72,6 @@ class ProduitsTable extends Component
 
     public function render()
     {
-        return view('livewire.produits-table', [
-            'produits' => Phytoproduit::
-                            where('name', 'LIKE', "%{$this->search}%")
-                            ->where('phytotype_id', 'LIKE', "%{$this->searchType}%")
-                            ->orderBy('name')
-                            ->get(),
-            'phytotypes' => Phytotype::all(),
-        ]);
+        return view('livewire.produits-table');
     }
 }

@@ -1,11 +1,14 @@
-name;duree;lieu;icone
-Phytothérapie en élevage - initiation;2 jours;en salle;phyto_ini.svg
-Phytothérapie en élevage - perfectionnement;1 jour;en salle;phyto_perf.svg
-Ostéopathie des animaux d’élevage - initiation;2 jours;en ferme;osteo.svg
-Faire face à l’urgence en élevage de petits ruminants;2 jours;en ferme;urgences.svg
-Éleveur infirmier - petits-ruminants;1 jour;en ferme;elev_inf.svg
-Éleveur infirmier - bovins;1 jour;en ferme;elev_inf.svg
-Gestion raisonnée du parasitisme - initiation;1 jour;en salle;par_ini.svg
-Gestion raisonnée du parasitisme - perfectionnement;1 jour;en ferme;par_perf.svg
-Alimentation minérale et vitaminique;1 jour;en salle et/ou en ferme;mineraux.svg
-Santé de la mamelle des petits ruminants;1 jour;en salle et en ferme;mam_pr.svg
+"id";"name";"subname";"contexte";"duree_id";"stagiaire_id";"intervenant_id";"icone"
+"1";"Phytothérapie en élevage";"Initiation";" Dans un contexte de réduction des intrants en élevage (plan écoantibio, cahier des charges Bio), de nombreux éleveurs cherchent à améliorer la santé de leur troupeau par l’usage des plantes médicinales.";"1";"1";"1";"phyto_ini.svg"
+"2";"Phytothérapie en élevage";"Perfectionnement";"Après le module initiation et un temps de pratique dans son exploitation, cette journée permet d’aller plus loin dans la connaissance du mode d’action des plantes et de gagner en autonomie dans sa pratique de la phytothérapie.";"3";"1";"1";"phyto_perf.svg"
+"3";"Ostéopathie des animaux d’élevage";"Initiation";"L’ostéopathie est une médecine manuelle dont l’objectif est de rétablir l’équilibre de l’organisme afin qu’il puisse se défendre contre les agressions extérieures. 
+Pour l’éleveur, avoir des connaissances en ostéopathie peut lui permettre d’identifier et de gérer les dysfonctions ostéopathiques à sa portée et d’apporter du confort à ses animaux.";"1";"1";"1";"osteo.svg"
+"4";"Faire face à l’urgence en élevage";"Petits ruminants";"Les éleveurs de petits ruminants n’ont pas toujours accès facilement à un vétérinaire, notamment en élevage pastoral. Cette formation a pour but de les aider dans l’évaluation de la situation et la prise de décision lorsqu’ils sont confrontés à des situations d’urgence.";"1";"2";"1";"urgences.svg"
+"5";"Éleveur infirmier";"Petits ruminants";"L’éleveur est le premier infirmier de son troupeau, cette formation a pour but de lui donner les clés pour observer au mieux son troupeau, et se sentir en capacité de gérer les pathologies de base.";"3";"2";"1";"elev_inf.svg"
+"6";"Éleveur infirmier";"Bovins";"L’éleveur est le premier infirmier de son troupeau, cette formation a pour but de lui donner les clés pour observer au mieux son troupeau, et se sentir en capacité de gérer les pathologies de base.";"3";"3";"1";"elev_inf.svg"
+"7";"Gestion raisonnée du parasitisme";"Initiation";"Les résistances aux anthelminthiques incitent à revoir les mode de gestion du parasitisme des petits ruminants: rotation de pâturage, pâturage mixte, renforcement de l’immunité du troupeau, plantes à tanin et suivi régulier de l’infestation constituent la boite à outils indispensable.";"3";"2";"1";"par_ini.svg"
+"8";"Gestion raisonnée du parasitisme";"Perfectionnement";"La gestion raisonnée du parasitisme nécessite la mise en œuvre de pratiques spécifiques à chaque exploitation: il n’existe pas de préconisations applicables uniformément à toutes les exploitations mais un ensemble de principes à articuler en fonction de chaque situation.";"3";"4";"1";"par_perf.svg"
+"9";"Alimentation minérale et vitaminique";NULL;"La complémentation minérale et vitaminique est un élément fondamental de la santé des troupeaux de petits-ruminants, particulièrement des brebis et chèvres laitières.
+Les oligo-éléments et les vitamines sont indispensables pour le maitien d’une immunité efficace.";"3";"1";"1";"mineraux.svg"
+"10";"Santé de la mamelle";"Petits ruminants";"En production laitière, la bonne santé de la mamelle est indispensable à l’ équilibre de l’exploitation. Or, c’est un organe extrêmement sollicité et sujet à divers pathologies.
+Par ailleurs, la qualité du lait dépend largement de la santé de la mamelle.";"3";"5";"1";"mam_pr.svg"

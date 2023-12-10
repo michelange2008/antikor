@@ -17,7 +17,7 @@
     "rep" : {
         "img" : "reproduction.jpg",
         "texte" : "Reproduction",
-        "url" : "front.index"
+        "url" : "front.reproduction"
     },
     "ave" : {
         "img" : "aver.jpg",

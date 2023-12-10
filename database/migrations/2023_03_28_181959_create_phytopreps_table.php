@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('name', 50);
             $table->string('officiel', 50)->nullable();
             $table->text('detail')->nullable();
-            $table->string('icone', 50);
+            $table->text('fabrication')->nullable();
+            $table->string('icone', 50)->default('default.svg');
         });
          //
 

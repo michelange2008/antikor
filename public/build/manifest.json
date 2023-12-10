@@ -1,11 +1,11 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-4ea68c18.css",
+    "file": "assets/app-ed61e967.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
   "resources/fonts/OFL.txt": {
-    "file": "assets/OFL-aeccbb3a.txt",
+    "file": "assets/OFL-8ce06420.txt",
     "src": "resources/fonts/OFL.txt"
   },
   "resources/fonts/SourceSansPro-Black.ttf": {
@@ -57,7 +57,7 @@
     "src": "resources/fonts/SourceSansPro-SemiBoldItalic.ttf"
   },
   "resources/js/app.js": {
-    "file": "assets/app-078d965d.js",
+    "file": "assets/app-f70bb012.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }
