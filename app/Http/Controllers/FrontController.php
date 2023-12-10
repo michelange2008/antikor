@@ -25,9 +25,9 @@ class FrontController extends Controller
     public function formations()
     {
         $formations = Formation::all();
-
+        
         return view('front.formations', [
-            'route_formationShow' => 'formationShow',
+            'route' => 'front.formationShow',
             'formations' => $formations,
         ]);
 
@@ -41,7 +41,7 @@ class FrontController extends Controller
      **/
     public function formationShow(Formation $formation)
     {
-        return view('formations.form_show', [
+        return view('formations.form_show_user', [
             'formation' => $formation,
         ]);
     }

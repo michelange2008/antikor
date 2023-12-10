@@ -27,6 +27,7 @@ use App\Http\Livewire\ShowUsers;
 Route::get('/', [FrontController::class, 'index'])->name('front.index');
 
 Route::get('/Formations', [FrontController::class, 'formations'])->name('front.formations');
+Route::get('/Formations/{formation}', [FrontController::class, 'formationShow'])->name('front.formationShow');
 Route::get('/Parasitisme', [FrontController::class, 'parasitisme'])->name('front.parasitisme');
 Route::get('/Reproduction', [FrontController::class, 'reproduction'])->name('front.reproduction');
 

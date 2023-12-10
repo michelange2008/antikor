@@ -15,21 +15,30 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     </head>
-    <body class="antialiased flex md:flex-row">
+    <body class="antialiased">
 
       @show
-      
-      <div class="m-2 w-0 md:w-24 lg:w-32 fixed top-0">
 
-          <x-menu-guest></x-menu-guest>
+      <div class="p-2 mb-2 bg-neutral-400">
+        <img class="w-32" src="{{ url('storage/img/logo.svg')}}" alt="">
+      </div>
+
+      <div class="flex flex-col md:flex-row">
+
+          <div class="fixed top-16 m-2 w-0 md:w-24 lg:w-32">
+    
+              <x-menu-guest></x-menu-guest>
+    
+          </div>
+            
+          <main class="justify-end px-8 grow md:ml-32 lg:ml-36">
+    
+              {{ $slot }}
+    
+          </main>
 
       </div>
-        
-      <main class="justify-end grow md:ml-32 lg:ml-36 px-8">
-
-          {{ $slot }}
-
-      </main>
+      
 
     </body>
 
