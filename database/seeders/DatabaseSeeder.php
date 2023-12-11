@@ -15,14 +15,14 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            DocumentSeeder::class,
-            DureeSeeder::class,
-            IntervenantSeeder::class,
-            ModaliteSeeder::class,
-            PedagogieSeeder::class,
-            StagiaireSeeder::class,
+            // DocumentSeeder::class,
+            // DureeSeeder::class,
+            // IntervenantSeeder::class,
+            // ModaliteSeeder::class,
+            // PedagogieSeeder::class,
+            // StagiaireSeeder::class,
             // EspecesTableSeeder::class,
-            FormationsTableSeeder::class,
+            // FormationsTableSeeder::class,
             // EspecesFormationsTableSeeder::class,
             // PhytotypesTableSeeder::class,
             // PhytounitesTableSeeder::class,
@@ -30,7 +30,8 @@ class DatabaseSeeder extends Seeder
             // PhytoprepsTableSeeder::class,
             // PhytoprepPhytoproduitTableSeeder::class,
             // FormationPhytoprepTableSeeder::class,
-            FormationModaliteSeeder::class
+            // FormationModaliteSeeder::class,
+            FormationPedagogieSeeder::class,
         ]);
     }
 }

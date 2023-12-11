@@ -36,4 +36,8 @@ class Formation extends Model
         return $this->belongsToMany(Modalite::class);
     }
 
+    function pedagogies() : BelongsToMany {
+        return $this->belongsToMany(Pedagogie::class);
+    }
+
 }
