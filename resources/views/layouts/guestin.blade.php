@@ -19,13 +19,13 @@
 
       @show
 
-      <div class="p-2 mb-2 bg-neutral-400">
+      <div class="sticky top-0 p-2 mb-2 stacked bg-neutral-400">
         <img class="w-32" src="{{ url('storage/img/logo.svg')}}" alt="">
       </div>
 
       <div class="flex flex-col md:flex-row">
 
-          <div class="fixed top-16 m-2 w-0 md:w-24 lg:w-32">
+          <div class="overflow-y-auto fixed top-16 m-2 w-0 h-screen md:w-24 lg:w-32">
     
               <x-menu-guest></x-menu-guest>
     

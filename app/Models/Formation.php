@@ -40,4 +40,8 @@ class Formation extends Model
         return $this->belongsToMany(Pedagogie::class);
     }
 
+    function documents() : BelongsToMany {
+        return $this->belongsToMany(Document::class);
+    }
+
 }

@@ -8,11 +8,13 @@
     </div>
 
     <div>
+        {{-- l'attribut multiple renvoie au fait qu'il y a plusieurs éléments à lister (relation belongsToMany) --}}
         <x-form-modalites :icone="'duree.svg'" :titre="'Durée'" :texte="$formation->duree->nom" multiple="0"></x-form-modalites>
         <x-form-modalites :icone="'public.svg'" :titre="'Public'" :texte="$formation->stagiaire->nom" multiple="0"></x-form-modalites>
         <x-form-modalites :icone="'intervenant.svg'" :titre="'Intervenant'" :texte="$formation->intervenant->nom" multiple="0"></x-form-modalites>
         <x-form-modalites :icone="'modalites.svg'" :titre="'Modalités'" :texte="$formation->modalites" multiple="1"></x-form-modalites>
         <x-form-modalites :icone="'pedagogie.svg'" :titre="'Pédagogie'" :texte="$formation->pedagogies" multiple="1"></x-form-modalites>
+        <x-form-modalites :icone="'documents.svg'" :titre="'Documents remis au stagiaires'" :texte="$formation->documents" multiple="1"></x-form-modalites>
     </div>
 
 </div>

@@ -1,6 +1,12 @@
 <x-app-layout>
 
-    <div class="mx-2 sm:mx-6 lg:mx-12 xl:mx-20 2xl:mx-36">
+    <div class="m-2">
+        <div class="my-1">
+            <a href="{{ route('formations.create') }}">
+                <x-buttons.generic-button :color="'amber'">+ Ajouter</x-buttons.generic-button>
+            </a>
+
+        </div>
     
         <x-titres.titre icone="formations_light.svg" >@lang('titres.liste_formations')</x-titre>
 
