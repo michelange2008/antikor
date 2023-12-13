@@ -47,7 +47,7 @@ class FormationController extends Controller
         $next_formation = Formation::find($id_formation + 1);
         $previous_formation = Formation::find($id_formation - 1);
 
-       return view('formations.form_show', [
+       return view('formations.form_show_admin', [
             'formation' => $formation,
             'next_formation' => $next_formation,
             'previous_formation' => $previous_formation,

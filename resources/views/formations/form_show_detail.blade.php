@@ -1,3 +1,7 @@
+{{-- -> form_show_user pour utilisateur non connecté ou form_show_admin pour administrateur connecté --}}
+{{-- Fiche descriptive de chaque formation qui s'affiche quelque soit le type d'utilisateur avec un titre
+un caretoluche à gauche en grand écran, un encart en bas en petit écran et une partie principale à droit 
+ou en tête --}}
 <div class="m-2">
 
     <x-titres.titre icone="{{ $formation->icone }}">{{ $formation->name }}</x-titre>
@@ -8,13 +12,19 @@
 
 </div>
 
-<div class="hidden md:block">
+<div class="grid md:grid-cols-3">
 
-    @include('formations.form_show_cartouche')
- 
+    <div class="hidden p-3 border md:block bg-neutral-100">
+    
+        @include('formations.form_show_cartouche')
+     
+    </div>
+    <div class="md:col-span-2">
+
+        <x-form-main :titre="'Contexte'" :texte="$formation->contexte" multiple=0 ></x-form-main>
+        <x-form-main :titre="'Objectifs pédagogiques'" :texte="$formation->objectifpedagos" multiple=1 ></x-form-main>
+        
+    </div>
+
 </div>
 
-<div class="m-2 sm:mx-6 lg:mx-12 xl:mx-20 2xl:mx-36">
-
-
-</div>

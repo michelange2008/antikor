@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Formation extends Model
 {
@@ -42,6 +43,14 @@ class Formation extends Model
 
     function documents() : BelongsToMany {
         return $this->belongsToMany(Document::class);
+    }
+
+    function objectifpedagos() : HasMany {
+        return $this->hasMany(Objectifpedago::class);
+    }
+
+    function programmeforms() : HasMany {
+        return $this->hasMany(Programmeform::class);
     }
 
 }

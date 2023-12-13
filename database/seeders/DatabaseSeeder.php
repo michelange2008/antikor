@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Objectifpedago;
 use App\Models\Phytoproduit;
 use Illuminate\Database\Seeder;
 
@@ -31,8 +32,9 @@ class DatabaseSeeder extends Seeder
             // PhytoprepPhytoproduitTableSeeder::class,
             // FormationPhytoprepTableSeeder::class,
             // FormationModaliteSeeder::class,
-            FormationPedagogieSeeder::class,
-            DocumentFormationSeeder::class,
+            // FormationPedagogieSeeder::class,
+            // DocumentFormationSeeder::class,
+            ObjectifpedagoSeeder::class,
         ]);
     }
 }

@@ -1,3 +1,5 @@
+{{-- -> form_show_cartouche 
+    Elément de description des modalités de la formation dans le cartouche (grand écran) ou l'encart' (petit écran) --}}
 <div class="my-3">
     <div class="flex items-center">
         <img class="w-10" src="{{ url('storage/img/formations/icones/' . $icone) }}" alt="default.svg">

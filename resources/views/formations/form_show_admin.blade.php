@@ -1,7 +1,8 @@
+{{-- -> FormationController pour admin connecté --}}
 <x-app-layout>
 
     @include('formations.form_nav', [
-        'route' => 'formations.show',
+        'route_detail' => 'formations.show',
         'route_liste' => 'formations.index'
     ])
 
