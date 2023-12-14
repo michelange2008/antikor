@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('programmeforms', function (Blueprint $table) {
             $table->id();
             $table->string('soustitre', 191);
-            $table->text('detail');
+            $table->text('detail')->nullable();
             $table->foreignId('formation_id')->constrained();
         });
     }

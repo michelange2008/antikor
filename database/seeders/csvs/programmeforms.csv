@@ -1,1 +1,118 @@
 id;soustitre;detail;formation_id
+1;Qu’est-ce que la phytothérapie ?;Phytothérapie et médecines empiriques;1
+2;Qu’est-ce que la phytothérapie ?;Extraits de plantes: élaboration, composition, toxicité;1
+3;Cadre réglementaire de la phytothérapie en élevage;;1
+4;Autour de la mise-bas :;La fin de la gestation et la préparation à la mise-bas;1
+5;Autour de la mise-bas :;Les soins au nouveau-né et à la mère en post-partum;1
+6;La santé des jeunes;Préparation à la mise-bas;1
+7;La santé des jeunes;Prévention des affections néonatales ;1
+8;La santé des jeunes;Trouble du sevrage et des transitions alimentaires;1
+9;Le drainage hépatique et rénal;;1
+10;La prévention des affections respiratoires;;1
+11;Échanges d’expériences suite à la formation initiale;;2
+12;Rappels sur la réglementation;;2
+13;Composition et mode d’action des huiles essentielles;L’approche ternaire en phytothérapie;2
+14;Composition et mode d’action des huiles essentielles;L’intérêt du schéma bio-électronique;2
+15;Composition et mode d’action des huiles essentielles;Mise en pratique avec un jeu de cartes;2
+16;Coups, contusions, congestions :;Quelles sont les plantes utilisables ?;2
+17;Coups, contusions, congestions :;Fabriquer une crème à cet usage.;2
+18;La reproduction;Rappel du cycle sexuel et des causes d’infécondité;2
+19;La reproduction;Quels effets des plantes sur la reproduction;2
+20;Santé de la mamelle - santé des pieds;;2
+21; Matinée théorique  et exercices en salle:;Présentation de l’ostéopathie : indications et contre-indications.;3
+22; Matinée théorique  et exercices en salle:;Rappels d’anatomie : le squelette, les viscères.;3
+23; Matinée théorique  et exercices en salle:;Définition de la lésion ostéopathique.;3
+24; Matinée théorique  et exercices en salle:;Exercice du ballon : concept du MRP (Mouvement respiratoire Primaire), notion de motilité.;3
+25; Matinée théorique  et exercices en salle:;Initiation à la fasciathérapie / Exercices pratiques en salle.;3
+26;Après-midi en élevage;Mise en pratique des techniques présentées le matin.;3
+27;Après-midi en élevage;Ecoute du MRP sur le sacrum d’un animal. ;3
+28;Après-midi en élevage;Réalisation d’un déroulé fascial à partir du membre d’un animal.;3
+29;Après-midi en élevage;Prise en charge d’un animal boiteux.;3
+30; Matinée théorique et exercices en salle :;Initiation à l’approche viscérale et musculo-squelettique.;3
+31; Matinée théorique et exercices en salle :;Notions de mobilité viscérale et articulaires.;3
+32;Après-midi pratique :; Mise en pratique des techniques présentées le matin;3
+33;Matinée théorique :;La peau et la cicatrisation;4
+34;Matinée théorique :;La gestion de l’infection – Point sur l’antibiorésistance;4
+35;Matinée théorique :;Prise de décision en cas de plaie : arbre décisionnel et exemples;4
+36;Après-midi pratique :;Utilisation du « matador » ;4
+37;Après-midi pratique :;Autopsie + atelier sutures;4
+38;Matinée théorique :;Processus de cicatrisation osseuse et gestion des fractures;4
+39;Matinée théorique :;Définition, mécanismes et gestion de la douleur;4
+40;Matinée théorique :;Notions de bien-être animal;4
+41;Après-midi pratique :;Réalisation de plâtre;4
+42;Après-midi pratique :;Autres urgences en élevage;4
+43;Matin en exploitation;Examen clinique d’un animal;5
+44;Matin en exploitation;Observation du troupeau;5
+45;Matin en exploitation;Utilisation du « matador »;5
+46;Matin en exploitation;Autopsie d’un animal de réforme;5
+47;Matin en exploitation;Soins d’urgence : gestion des fractures et plaies ;5
+48;Après-midi en salle;Démarche préventive et préparation à la mise-bas;5
+49;Après-midi en salle;La pharmacie d’élevage;5
+50;Après-midi en salle;Le registre sanitaire;5
+51;Après-midi en salle;Principaux médicaments curatifs utilisés en élevage;5
+52;Après-midi en salle;Questions réponses autour des principaux problèmes rencontrés (coccidiose, avortements, maladies néonatales, parasitisme…) en fonction des attentes des participants.;5
+53;Matin activités pratiques en élevage :;Contention, réalisation de licols, technique d’administration d’un bolus, injections;6
+54;Matin activités pratiques en élevage :;Examen clinique d’un animal;6
+55;Matin activités pratiques en élevage :;Observation du troupeau;6
+56;Après-midi apports théoriques et echanges d’expérience :;Démarche préventive et préparation à la mise-bas;6
+57;Après-midi apports théoriques et echanges d’expérience :;Principaux médicaments curatifs utilisés en élevage: antibiotiques, anti-inflammatoires, etc.;6
+58;Après-midi apports théoriques et echanges d’expérience :;La pharmacie d’élevage;6
+59;Après-midi apports théoriques et echanges d’expérience :;Le registre sanitaire;6
+60;Après-midi apports théoriques et echanges d’expérience :;Questions-réponses autour des principaux problèmes rencontrés (coccidiose, avortements, maladies néonatales…);6
+61;Tour de table: ;Situations parasitaire et pratiques actuelles;7
+62;Cycles des principaux parasites;Strongles gastro-intestinaux;7
+63;Cycles des principaux parasites;Douves, ténias, etc.;7
+64;Relation hôte-parasite et immunité du troupeau;Immunité globale;7
+65;Relation hôte-parasite et immunité du troupeau;Immunité spécifique;7
+66;Diagnostic et suivi de l’infestation parasitaire;Observation des animaux, famacha;7
+67;Diagnostic et suivi de l’infestation parasitaire;Coproscopies et coproculture ;7
+68;Prévention du parasitisme:;Rotation de pâturage;7
+69;Prévention du parasitisme:;Pâturage mixte, aérien, etc. ;7
+70;Traitement du parasitisme:;Résistances aux antiparasitaires;7
+71;Traitement du parasitisme:;Vermifuges et risques environnementaux;7
+72;Traitement du parasitisme:;Rôle de la phytothérapie;7
+73;Traitement du parasitisme:;Traitements ciblés sélectifs;7
+74;Traitement du parasitisme:;Élaboration d’un plan de maîtrise raisonnée du parasitisme;7
+75;Présentation de leur exploitation par les éleveurs accueillant: ;Historique, troupeau, calendrier fourrager, etc. ;8
+76;Pratiques mises en œuvres pour la gestion du parasitisme:;Circuit de pâturage;8
+77;Pratiques mises en œuvres pour la gestion du parasitisme:;Diagnostic et suivi de l’infestation parasitaire;8
+78;Pratiques mises en œuvres pour la gestion du parasitisme:;Vermifuges et traitement complémentaires;8
+79;Pratiques mises en œuvres pour la gestion du parasitisme:;Bilan du parasitisme;8
+80;Évaluation des animaux:;Mesures d’état corporel ;8
+81;Évaluation des animaux:;Évaluation de la couleur des muqueuses.;8
+82;Visite de parcelles;;8
+83;Bilan de la situation de l’élevage:;Résultats d’analyses (coproscopies, …).;8
+84;Bilan de la situation de l’élevage:;Discussion, partages d’expérience, échanges d’idée.;8
+85;Proposition d’amélioration du plan de maîtrise du parasitisme;;8
+86;Présentation des différents minéraux et vitamines indispensable à la bonne santé du troupeau:;  Rôles biologiques;9
+87;Présentation des différents minéraux et vitamines indispensable à la bonne santé du troupeau:;  Besoins;9
+88;Présentation des différents minéraux et vitamines indispensable à la bonne santé du troupeau:;  Signes de carence;9
+89;Présentation des différents minéraux et vitamines indispensable à la bonne santé du troupeau:;  Toxicité;9
+90;Exercice de lecture d’étiquettes de compléments alimentaires apportés par chaque participant et par l’intervenant:;  Recherche des informations;9
+91;Exercice de lecture d’étiquettes de compléments alimentaires apportés par chaque participant et par l’intervenant:;  Analyse critique de chaque complément;9
+92;Élaboration par chaque participant d’un plan de minéralisation: ;Type de minéral, ;9
+93;Élaboration par chaque participant d’un plan de minéralisation: ;Quantités et rythmes de distribution.;9
+94;Anatomie et physiologie de la mamelle;;10
+95;Les infections mammaires:;Facteurs favorisants;10
+96;Les infections mammaires:;Bactéries en cause;10
+97;Les infections mammaires:;Moyens de diagnostic;10
+98;Les infections mammaires:;Prévention;10
+99;La gestion du troupeau au regard de la santé des mamelles;;10
+100;Activité pratique:;Examen des mamelles;10
+101;Activité pratique:;Test au teepol;10
+102;Activité pratique:;Mise en pratique sur le troupeau accueillant;10
+103;Plan de prévention:;Présentation par chaque participant d’un plan de prévention des infections mammaires adapté à son exploitation.;10
+104;Au-delà des mammites;Lactations longues, continues, induites…;10
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;; ;
+;; ;

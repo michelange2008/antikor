@@ -34,7 +34,8 @@ class DatabaseSeeder extends Seeder
             // FormationModaliteSeeder::class,
             // FormationPedagogieSeeder::class,
             // DocumentFormationSeeder::class,
-            ObjectifpedagoSeeder::class,
+            // ObjectifpedagoSeeder::class,
+            ProgrammeformSeeder::class,
         ]);
     }
 }
