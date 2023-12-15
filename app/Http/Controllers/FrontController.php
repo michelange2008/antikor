@@ -44,6 +44,7 @@ class FrontController extends Controller
         $id_formation = $formation->id;
         $next_formation = Formation::find($id_formation + 1);
         $previous_formation = Formation::find($id_formation - 1);
+
         return view('formations.form_show_guest', [
             'formation' => $formation,
             'next_formation' => $next_formation,

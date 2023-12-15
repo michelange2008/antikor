@@ -33,8 +33,8 @@ class DatabaseSeeder extends Seeder
             // FormationPhytoprepTableSeeder::class,
             // FormationModaliteSeeder::class,
             // FormationPedagogieSeeder::class,
-            // DocumentFormationSeeder::class,
-            // ObjectifpedagoSeeder::class,
+            DocumentFormationSeeder::class,
+            ObjectifpedagoSeeder::class,
             ProgrammeformSeeder::class,
         ]);
     }
