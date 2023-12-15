@@ -19,7 +19,7 @@
 
       @show
 
-      <div class="sticky top-0 p-2 mb-2 stacked bg-neutral-400">
+      <div class="sticky top-0 p-2 mb-2 stacked bg-neutral-400/75">
         <img class="w-32" src="{{ url('storage/img/logo.svg')}}" alt="">
       </div>
 
