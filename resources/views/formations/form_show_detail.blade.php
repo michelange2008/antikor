@@ -2,12 +2,15 @@
 {{-- Fiche descriptive de chaque formation qui s'affiche quelque soit le type d'utilisateur avec un titre
 un caretoluche à gauche en grand écran, un encart en bas en petit écran et une partie principale à droit 
 ou en tête --}}
-<div class="m-2">
+<div class="my-2">
 
-    <x-titres.titre icone="{{ $formation->icone }}">{{ $formation->name }}</x-titre>
+    <x-titres.titre icone="{{ $formation->icone }}">{{ $formation->name }}
+        @if ($formation->subname != null)
+            ({{ mb_convert_case($formation->subname, MB_CASE_LOWER_SIMPLE) }})
+        @endif
+    </x-titre>
 
         <p class="my-2 text-base font-bold text-gray-600 sm:text-xl md:text-2xl xl:text-3xl">
-            {{ $formation->subname }}
         </p>
 
 </div>

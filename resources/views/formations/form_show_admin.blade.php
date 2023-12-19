@@ -8,7 +8,7 @@
 
     @include('formations.form_show_detail')
 
-    <div class="m-2">
+    <div class="my-2">
 
 
         <a href="{{ route('formations.edit', $formation) }}">

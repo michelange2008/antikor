@@ -59,7 +59,10 @@ class FormationController extends Controller
      */
     public function edit(Formation $formation)
     {
-        //
+        
+        return view('livewire.formation-edit', [
+            'formation' => $formation,
+        ]);
     }
 
     /**
@@ -67,7 +70,7 @@ class FormationController extends Controller
      */
     public function update(UpdateFormationRequest $request, Formation $formation)
     {
-        //
+        dd($request->all());
     }
 
     /**
