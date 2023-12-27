@@ -49,8 +49,8 @@ class Formation extends Model
         return $this->hasMany(Objectifpedago::class);
     }
 
-    function programmeforms() : HasMany {
-        return $this->hasMany(Programmeform::class);
+    function programmesoustitres() : HasMany {
+        return $this->hasMany(Programmesoustitre::class);
     }
 
 }

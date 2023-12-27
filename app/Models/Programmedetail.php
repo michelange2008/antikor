@@ -6,13 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Programmeform extends Model
+class Programmedetail extends Model
 {
     use HasFactory;
 
-    public $timestamps = false;
-    
-    function formation() : BelongsTo {
-        return $this->belongsTo(Formation::class);
+    function programmesoustitre() : BelongsTo {
+        return $this->belongsTo(Programmesoustitre::class);
     }
 }

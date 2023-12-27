@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('programmeforms', function (Blueprint $table) {
+        Schema::create('programmedetails', function (Blueprint $table) {
             $table->id();
-            $table->string('soustitre', 191);
-            $table->text('detail')->nullable();
-            $table->foreignId('formation_id')->constrained();
+            $table->text('nom');
+            $table->foreignId('programmesoustitre_id')
+                    ->constrained()
+                    ->onUpdate('cascade')
+                    ->onDelete('cascade');
         });
     }
 
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('programmeforms');
+        Schema::dropIfExists('programmedetails');
     }
 };

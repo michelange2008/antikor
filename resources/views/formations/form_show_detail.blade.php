@@ -26,7 +26,7 @@ ou en tête --}}
 
         <x-form-main :titre="'Contexte'" :texte="$formation->contexte" type="unique" ></x-form-main>
         <x-form-main :titre="'Objectifs pédagogiques'" :texte="$formation->objectifpedagos" type="multiple" ></x-form-main>
-        <x-form-main :titre="'Programme détaillé'" :texte="$formation->programmeforms->groupBy('soustitre')" type="arbre" ></x-form-main>
+        <x-form-main :titre="'Programme détaillé'" :texte="$programme" type="arbre" ></x-form-main>
         
     </div>
 

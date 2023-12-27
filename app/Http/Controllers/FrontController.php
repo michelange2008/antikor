@@ -8,6 +8,7 @@ use App\Models\Formation;
 use App\View\Components\Titre;
 
 use App\Traits\LitJson;
+use Illuminate\Support\Facades\DB;
 
 class FrontController extends Controller
 {
@@ -44,11 +45,19 @@ class FrontController extends Controller
         $id_formation = $formation->id;
         $next_formation = Formation::find($id_formation + 1);
         $previous_formation = Formation::find($id_formation - 1);
+        $programme = DB::table('programmesoustitres')
+            ->where('formations.id', $id_formation)
+            ->join('formations', 'formations.id', 'programmesoustitres.formation_id')
+            ->leftJoin('programmedetails', 'programmesoustitres.id', 'programmedetails.programmesoustitre_id')
+            ->select('programmesoustitres.nom as soustitre', 'programmedetails.nom as detail')
+            ->orderBy('programmesoustitres.ordre')
+            ->get()->groupBy('soustitre');
 
         return view('formations.form_show_guest', [
             'formation' => $formation,
             'next_formation' => $next_formation,
             'previous_formation' => $previous_formation,
+            'programme' => $programme,
         ]);
     }
 

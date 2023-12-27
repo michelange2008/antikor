@@ -3,10 +3,10 @@
     <label for="{{ $id }}">{{ $name }}</label>
 
     <textarea id="{{ $id }}" wire:model.defer="{{ $model.".".$id }}" rows={{ $rows ?? 5}}
-        class="form-input rounded border-1 focus:active:border-0"></textarea>
+        class="rounded form-input border-1 focus:active:border-0"></textarea>
 
     @error($model.".".$id)
-        <div class="text-red-900 text-xs">{{ $message }}</div>
+        <div class="text-xs text-red-900">{{ $message }}</div>
     @enderror
 
 </div>

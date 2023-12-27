@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreFormationRequest;
 use App\Http\Requests\UpdateFormationRequest;
 use App\Models\Formation;
-use App\View\Components\Titre;
+use Illuminate\Support\Facades\DB;
 
 class FormationController extends Controller
 {
@@ -46,11 +46,19 @@ class FormationController extends Controller
         $id_formation = $formation->id;
         $next_formation = Formation::find($id_formation + 1);
         $previous_formation = Formation::find($id_formation - 1);
+        $programme = DB::table('programmesoustitres')
+            ->where('formations.id', $id_formation)
+            ->join('formations', 'formations.id', 'programmesoustitres.formation_id')
+            ->leftJoin('programmedetails', 'programmesoustitres.id', 'programmedetails.programmesoustitre_id')
+            ->select('programmesoustitres.nom as soustitre', 'programmedetails.nom as detail')
+            ->orderBy('programmesoustitres.ordre')
+            ->get()->groupBy('soustitre');
 
-       return view('formations.form_show_admin', [
+        return view('formations.form_show_admin', [
             'formation' => $formation,
             'next_formation' => $next_formation,
             'previous_formation' => $previous_formation,
+            'programme' => $programme,
         ]);
     }
 
@@ -59,10 +67,8 @@ class FormationController extends Controller
      */
     public function edit(Formation $formation)
     {
-        
-        return view('livewire.formation-edit', [
-            'formation' => $formation,
-        ]);
+
+        return redirect()->route('formations.edit');
     }
 
     /**

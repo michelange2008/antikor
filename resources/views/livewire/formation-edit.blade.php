@@ -1,21 +1,24 @@
 <div>
-    <x-app-layout>
 
-        <x-titres.titre :icone="$formation->icone">{{ $formation->name }} </x-titres.titre>
-    
-        <div class="my-2">
-    
-            <form action="{{ route('formations.update', $formation) }}" method="POST">
-    
-                @csrf
+    <x-titres.titre :icone="$formation->icone">{{ $formation->name }} </x-titres.titre>
+
+    <div class="my-2">
+
+        <form action="" wire:submit.prevent="update">
+
+            <x-forms.input-text name="Nom" id="name" model="formation"></x-forms.input-text>
+            <x-forms.input-text name="Sous-titre" id="subname" model="formation"></x-forms.input-text>
+            <x-forms.textarea name="Contexte" id='contexte' model='formation'></x-forms.textarea>
+
+            @foreach ($programmeforms as $programmeform)
+
+                <p>{{ $programmeform->soustitre }} </p>
+                <p>{{ $programmeform->detail }} </p>
                 
-                <input type="text" name="name">
-    
-                <button class="bg-teal-800 text-white hover:bg-teal-600 hover:text-black my-1 p-2" type="submit">Enregistrer</button>
-            </form>
-    
-        </div>
-    
-    </x-app-layout>
-    
+            @endforeach
+        </form>
+
+    </div>
+
+
 </div>

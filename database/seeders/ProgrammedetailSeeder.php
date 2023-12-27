@@ -1,14 +1,15 @@
 <?php
+
 namespace Database\Seeders;
 
 use Illuminate\Support\Facades\DB;
 use JeroenZwart\CsvSeeder\CsvSeeder;
 
-class ProgrammeformSeeder extends CsvSeeder
+class ProgrammedetailSeeder extends CsvSeeder
 {
     public function __construct()
     {
-        $this->file = "/database/seeders/csvs/programmeforms.csv";
+        $this->file = "/database/seeders/csvs/programmedetails.csv";
         $this->timestamps = false;
         $this->truncate= false;
     }

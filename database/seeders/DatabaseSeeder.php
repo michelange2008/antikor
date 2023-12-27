@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Objectifpedago;
 use App\Models\Phytoproduit;
+use App\Models\Programmesoustitre;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -23,7 +24,7 @@ class DatabaseSeeder extends Seeder
             // PedagogieSeeder::class,
             // StagiaireSeeder::class,
             // EspecesTableSeeder::class,
-            FormationsTableSeeder::class,
+            // FormationsTableSeeder::class,
             // EspecesFormationsTableSeeder::class,
             // PhytotypesTableSeeder::class,
             // PhytounitesTableSeeder::class,
@@ -31,11 +32,12 @@ class DatabaseSeeder extends Seeder
             // PhytoprepsTableSeeder::class,
             // PhytoprepPhytoproduitTableSeeder::class,
             // FormationPhytoprepTableSeeder::class,
-            FormationModaliteSeeder::class,
-            FormationPedagogieSeeder::class,
-            DocumentFormationSeeder::class,
-            ObjectifpedagoSeeder::class,
-            ProgrammeformSeeder::class,
+            // FormationModaliteSeeder::class,
+            // FormationPedagogieSeeder::class,
+            // DocumentFormationSeeder::class,
+            // ObjectifpedagoSeeder::class,
+            ProgrammesoustitreSeeder::class,
+            ProgrammedetailSeeder::class,
         ]);
     }
 }

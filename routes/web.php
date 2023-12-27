@@ -10,7 +10,9 @@ use App\Http\Controllers\PhytoprepController;
 use App\Http\Controllers\PhytoproduitController;
 use App\Http\Livewire\PreparationsListe;
 use App\Http\Livewire\CompositionEdit;
-
+use App\Http\Livewire\FormationEdit;
+use App\Http\Livewire\ProgrammeFormEdit;
+use App\Http\Livewire\ProgrammeForms;
 use App\Http\Livewire\ShowUsers;
 
 /*
@@ -40,7 +42,12 @@ Route::prefix('intranet')->middleware('auth', 'verified')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/aroma', [HomeController::class, 'aroma'])->name('aroma');
     Route::get('/visites', [HomeController::class, 'visites'])->name('visites');
-    Route::resource('/formations', FormationController::class);
+    // Route::resource('/formations', FormationController::class);
+    Route::get('/formations', [FormationController::class, 'index'])->name('formations.index');
+    Route::get('/formations/{formation}', [FormationController::class, 'show'])->name('formations.show');
+    Route::get('/formations/create', [FormationController::class, 'create'])->name('formations.create');
+    Route::get('/formations/edit/{formation}', FormationEdit::class)->name('formations.edit');
+    Route::get('/formations/edit/programmeform/{programmeform}', ProgrammeFormEdit::class)->name('programmeform.edit');
 
     Route::get('/preparations', PreparationsListe::class)->name('preparations.index');
     Route::get('/preparation/composition/{preparation}', [PhytoprepController::class, 'edit'])->name('composition.edit');

@@ -42,10 +42,12 @@ class PreparationsEditDel extends Component
 
         $this->validate();
 
-        $extension = $this->icone->getClientOriginalExtension();
-        $file_name = $this->preparation->name . "." . $extension;
-        $this->icone->storeAs('public/img/icones', $file_name);
-        $this->preparation->icone = $file_name;
+        if ($this->icone != null) {
+            $extension = $this->icone->getClientOriginalExtension();
+            $file_name = $this->preparation->name . "." . $extension;
+            $this->icone->storeAs('public/img/icones', $file_name);
+            $this->preparation->icone = $file_name;
+        }
 
         $this->preparation->save();
         $this->edit = false;
