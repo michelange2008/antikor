@@ -1,3 +1,4 @@
+@import '/node_modules/@fortawesome/fontawesome-free/css/all.min.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,10 +8,10 @@
         @apply text-2xl sm:text-4xl
     }
     .h2 {
-        @apply font-extrabold text-xl sm:text-2xl;
+        @apply text-xl font-extrabold sm:text-2xl;
     }
     .h3 {
-        @apply font-bold text-lg sm:text-xl;
+        @apply text-lg font-bold sm:text-xl;
     }
     .btn {
         @apply inline-flex flex-row sm:gap-1 justify-center items-center h-8 sm:h-auto

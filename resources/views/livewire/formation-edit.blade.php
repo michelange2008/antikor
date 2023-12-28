@@ -10,12 +10,22 @@
             <x-forms.input-text name="Sous-titre" id="subname" model="formation"></x-forms.input-text>
             <x-forms.textarea name="Contexte" id='contexte' model='formation'></x-forms.textarea>
 
-            @foreach ($programmeforms as $programmeform)
+            @foreach ($programmesoustitres as $programmesoustitre)
+            
+                @livewire('programme-soustitre-edit', ['programmesoustitre' => $programmesoustitre], key($programmesoustitre->id))
 
-                <p>{{ $programmeform->soustitre }} </p>
-                <p>{{ $programmeform->detail }} </p>
-                
+                @foreach ($programmedetails as $programmedetail)
+
+                    @if ($programmedetail->programmesoustitre_id == $programmesoustitre->id)
+
+                        @livewire('programme-detail-edit', ['programmedetail' => $programmedetail])
+
+                    @endif
+
+                @endforeach
+
             @endforeach
+
         </form>
 
     </div>

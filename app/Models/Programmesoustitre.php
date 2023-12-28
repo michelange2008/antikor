@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Programmesoustitre extends Model
 {
     use HasFactory;
+    
+    public $timestamps = false;
 
     function formation() : BelongsTo {
         return $this->belongsTo(Formation::class);

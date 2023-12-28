@@ -10,6 +10,8 @@ class Programmedetail extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     function programmesoustitre() : BelongsTo {
         return $this->belongsTo(Programmesoustitre::class);
     }

@@ -13,6 +13,7 @@ use App\Http\Livewire\CompositionEdit;
 use App\Http\Livewire\FormationEdit;
 use App\Http\Livewire\ProgrammeFormEdit;
 use App\Http\Livewire\ProgrammeForms;
+use App\Http\Livewire\ProgrammeSoustitreEdit;
 use App\Http\Livewire\ShowUsers;
 
 /*
@@ -47,7 +48,7 @@ Route::prefix('intranet')->middleware('auth', 'verified')->group(function () {
     Route::get('/formations/{formation}', [FormationController::class, 'show'])->name('formations.show');
     Route::get('/formations/create', [FormationController::class, 'create'])->name('formations.create');
     Route::get('/formations/edit/{formation}', FormationEdit::class)->name('formations.edit');
-    Route::get('/formations/edit/programmeform/{programmeform}', ProgrammeFormEdit::class)->name('programmeform.edit');
+    Route::get('/formations/edit/programme/soustitre/{programmesoustitre}', ProgrammeSoustitreEdit::class)->name('programmesoustitre.edit');
 
     Route::get('/preparations', PreparationsListe::class)->name('preparations.index');
     Route::get('/preparation/composition/{preparation}', [PhytoprepController::class, 'edit'])->name('composition.edit');
