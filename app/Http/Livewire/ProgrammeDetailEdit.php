@@ -10,8 +10,14 @@ class ProgrammeDetailEdit extends Component
     public Programmedetail $programmedetail;
 
     protected $rules = [
-        'programmedetail.nom' => 'string|mas:65000',
+        'programmedetail.nom' => 'string|max:65000',
     ];
+
+    function update()
+    {
+        $this->validate();
+        $this->programmedetail->save();    
+    }
 
     public function render()
     {

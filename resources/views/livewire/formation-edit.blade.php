@@ -10,21 +10,31 @@
             <x-forms.input-text name="Sous-titre" id="subname" model="formation"></x-forms.input-text>
             <x-forms.textarea name="Contexte" id='contexte' model='formation'></x-forms.textarea>
 
-            @foreach ($programmesoustitres as $programmesoustitre)
-            
-                @livewire('programme-soustitre-edit', ['programmesoustitre' => $programmesoustitre], key($programmesoustitre->id))
+            <div>
 
-                @foreach ($programmedetails as $programmedetail)
+                @foreach ($programmesoustitres as $programmesoustitre)
+                
+                    @livewire('programme-soustitre-edit', ['programmesoustitre' => $programmesoustitre], key($programmesoustitre->id))
+    
+                    <div class="ml-6">
 
-                    @if ($programmedetail->programmesoustitre_id == $programmesoustitre->id)
-
+                        @foreach ($programmedetails as $programmedetail)
+                        
+                        @if ($programmedetail->programmesoustitre_id == $programmesoustitre->id)
+                        
                         @livewire('programme-detail-edit', ['programmedetail' => $programmedetail])
+                        
+                        @endif
+                        
+                        @endforeach
 
-                    @endif
+                        <livewire:programme-detail-create :programmesoustitre="$programmesoustitre" :wire:key="$programmesoustitre->id">
 
+                    </div>
+    
                 @endforeach
 
-            @endforeach
+            </div>    
 
         </form>
 
