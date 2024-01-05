@@ -31,7 +31,6 @@ class FormationForm extends Form
     public $formation_modalites;
     public $formation_pedagogies;
     public $formation_documents;
-    public $objectifs_pedago;
 
     public function setFormation(Formation $formation)
     {
@@ -48,7 +47,6 @@ class FormationForm extends Form
         $this->formation_modalites = $formation->modalites->pluck('id')->toArray();
         $this->formation_pedagogies = $formation->pedagogies->pluck('id')->toArray();
         $this->formation_documents = $formation->documents->pluck('id')->toArray();
-        $this->objectifs_pedago = Objectifpedago::where('formation_id', $this->formation->id)->get();
     }
 
     public function update()
@@ -77,4 +75,5 @@ class FormationForm extends Form
         $parametre = 'formation_'.$table;
         $this->$parametre = $this->formation->$table->pluck('id')->toArray();
     }
+
 }

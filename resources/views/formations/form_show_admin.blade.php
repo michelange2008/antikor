@@ -12,7 +12,7 @@
 
 
         <a href="{{ route('formations.edit', $formation) }}">
-            <x-buttons.success-button>Modifier</x-buttons.success-button>
+            <x-buttons.success-button><i class="fa-solid fa-pencil"></i> Modifier</x-buttons.success-button>
         </a>
 
 

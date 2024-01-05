@@ -1,6 +1,5 @@
 <div x-data="{ open: false }">
 
-    <form wire:submit>
         <div class="md:flex">
 
             <div class="flex-auto">
@@ -15,11 +14,14 @@
                     model="soustitre.ordre"></x-forms.input-number-blur>
             </div>
 
-            <x-buttons.trash-button></x-buttons.trash-button>
+            <div class="mt-8 text-3xl text-gray-300 cursor-pointer hover:text-red-800 active:text-black"
+                wire:click="destroy()" wire:confirm="Voulez-vous vraiment supprimer cet objectif ?"
+                title="Supprimer cet objectif">
+                <i class="fa-solid fa-square-xmark"></i>
+            </div>
 
         </div>
     </form>
-    <x-modals.del-confirm action="destroy({{ $formation_id }})"
-        texte="Voulez-vous vraiment supprimer ce sous-titre ?"></x-modals.del-confirm>
+
 
 </div>

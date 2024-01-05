@@ -1,6 +1,6 @@
 <div x-data="{ edit: @entangle('edit').live,  del_prep: @entangle('del_prep').live}" @click.outside="edit = false" @keyup.escape="edit = false">
 
-    <div class="flex flex-wrap gap-x-3 gap-y-1 justify-around sm:justify-between">
+    <div class="flex flex-wrap gap-y-1 gap-x-3 justify-around sm:justify-between">
         <div class="flex flex-row gap-2">
             <x-buttons.success-button x-on:click=" edit = !edit">
                 <x-icones.edit :collapse="true"></x-icones.edit> Modifier
@@ -26,7 +26,7 @@
     </div>
 
     <div x-cloak x-show='edit' x-show="more == {{ $preparation->id }}" x-transition
-        class=" w-full lg:w-1/2 fixed top-2 left-0 lg:left-1/4 p-5 bg-orange-200">
+        class="fixed left-0 top-2 p-5 w-full bg-orange-200 lg:w-1/2 lg:left-1/4">
 
         <x-titres.titre1 icone="modify_light.svg">{{ $preparation->name }}</x-titres.titre1>
         <x-titres.titre2 :class="'text-amber-900'">Modifier le texte</x-titres.titre2>
@@ -45,10 +45,10 @@
 
             @isset($icone)
                 @if (in_array($icone->getClientOriginalExtension(), ['png', 'jpg', 'jpeg', 'svg']))
-                    <img class="w-8 m-3" src="{{ $icone->temporaryUrl() }}" alt="">
+                    <img class="m-3 w-8" src="{{ $icone->temporaryUrl() }}" alt="">
                 @endif
             @else
-                <img class="w-8 m-3" src="{{ url('storage/img/icones/'.$preparation->icone)}}">
+                <img class="m-3 w-8" src="{{ url('storage/img/icones/'.$preparation->icone)}}">
             @endisset
 
 
@@ -60,21 +60,19 @@
 
     {{-- Fenêtre modale qui demande la confirmation de la suppression d'une préparation --}}
     <div x-cloak x-show="del_prep"
-        class="fixed m-auto inset-0 z-50 
-            w-full sm:w-4/5 md:w-2/3 lg:w-1/2 h-3/5 sm:h-1/3
-            flex flex-col justify-around border-1 shadow-lg bg-white p-4">
+        class="flex fixed inset-0 z-50 flex-col justify-around p-4 m-auto w-full h-3/5 bg-white shadow-lg sm:w-4/5 md:w-2/3 lg:w-1/2 sm:h-1/3 border-1">
 
         <x-titres.titre1 :class="'bg-red-900'" :icone="'warning.svg'">Suppression d'une préparation ?</x-titres.titre1>
 
         <div class="m-5">
-            <p>En cliquant sur le bouton <span class="text-bold text-red-900 border px-1">
+            <p>En cliquant sur le bouton <span class="px-1 text-red-900 border text-bold">
                     CONFIRMER</span>, vous supprimerez définitivement la préparation:
             </p>
-            <p class="font-bold text-xl text-center my-3">
+            <p class="my-3 text-xl font-bold text-center">
                 {{ ucfirst($preparation->name) }}
             </p>
             <p>
-                Sinon cliquez sur le bouton <span class="text-bold text-gray-700 border px-1">ANNULER</span>
+                Sinon cliquez sur le bouton <span class="px-1 text-gray-700 border text-bold">ANNULER</span>
             </p>
         </div>
 

@@ -1,6 +1,6 @@
-<div x-data="{ open: false }" >
+<div x-data="{ open: false }">
 
-    <div class="md:flex">
+    <div class="gap-2 md:flex">
 
         <div class="flex-auto">
 
@@ -8,16 +8,12 @@
 
         </div>
 
-        <div class="mx-2"></div>
-
-        <div>
-
-            <x-buttons.trash-button></x-buttons.trash-button>
-            
+        <div class="mt-8 text-3xl text-gray-300 cursor-pointer hover:text-red-800 active:text-black"
+            wire:click="destroy()" wire:confirm="Voulez-vous vraiment supprimer cet objectif ?"
+            title="Supprimer cet objectif">
+            <i class="fa-solid fa-square-xmark"></i>
         </div>
 
     </div>
-    <x-modals.del-confirm action="destroy({{ $formation_id }})"
-    texte="Voulez-vous vraiment supprimer ce détail ?"></x-modals.del-confirm>
 
 </div>

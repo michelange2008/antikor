@@ -30,7 +30,7 @@ class SoustitreForm extends Form
         $this->ordre = $programmesoustitre->ordre;
     }
 
-    function update($name, $value)
+    function update()
     {
         $this->validate();
         $this->programmesoustitre
@@ -45,6 +45,8 @@ class SoustitreForm extends Form
         $nouveau_soustitre->ordre = $this->ordre;
         $nouveau_soustitre->formation_id = $formation_id;
         $nouveau_soustitre->save();
+        $this->nom = '';
+        $this->ordre = '';
     }
 
     function delete()

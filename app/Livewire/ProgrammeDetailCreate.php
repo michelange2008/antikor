@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Livewire\Forms\DetailForm;
 use App\Models\Programmedetail;
 use App\Models\Programmesoustitre;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class ProgrammeDetailCreate extends Component
@@ -17,7 +18,7 @@ class ProgrammeDetailCreate extends Component
     function save($programmesoustitre_id)
     {
         $this->detail->store($programmesoustitre_id);    
-        return redirect()->back();
+        $this->dispatch('detail-change');
     }
 
     public function render()

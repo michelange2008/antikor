@@ -12,6 +12,8 @@ class Objectifpedago extends Model
 
     public $timestamps = false;
 
+    protected $fillable = ['nom'];
+
     function formation() : BelongsTo {
         return $this->belongsTo(Formation::class);
     }

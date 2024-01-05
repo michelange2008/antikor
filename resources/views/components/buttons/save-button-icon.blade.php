@@ -7,17 +7,17 @@ et
 
 dans l'élément que l'on clique pour changer l'aspect de l'icone
 --}}
-<div class="flex justify-center self-center mx-3 text-xl">
+<div class="text-3xl">
 
     <div x-show="!icon" class="text-gray-300">
         <button type="submit" disabled>
-            <i class="fa-solid fa-floppy-disk"></i>
+            <i class="fa-solid fa-square-plus"></i>
         </button>
     </div>
     
     <div x-show="icon" class="text-teal-700 hover:text-teal-900">
         <button type="submit">
-            <i class="fa-solid fa-floppy-disk"></i>
+            <i class="fa-solid fa-square-plus"></i>
         </button>
     </div>
 

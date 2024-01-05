@@ -14,7 +14,7 @@ class ProgrammeSoustitreCreate extends Component
     function save($formation_id)
     {
         $this->soustitre->store($formation_id);
-        return redirect()->route('formations.edit', $formation_id)->with('message', 'Un nouveau sous-titre a été créé');
+        $this->dispatch('soustitre-change');
     }
 
     public function render()

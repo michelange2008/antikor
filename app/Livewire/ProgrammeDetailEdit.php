@@ -22,11 +22,12 @@ class ProgrammeDetailEdit extends Component
         $this->detail->update();    
     }
 
-    function destroy($formation_id)
+    function destroy()
     {
         $this->detail->delete();
-        return redirect()->route('formations.edit', $formation_id);    }
- 
+        $this->dispatch('detail-change');
+    }
+
     public function render()
     {
         return view('livewire.programme-detail-edit');

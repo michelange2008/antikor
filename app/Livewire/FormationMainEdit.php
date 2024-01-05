@@ -9,7 +9,6 @@ use App\Models\Espece;
 use App\Models\Formation;
 use App\Models\Intervenant;
 use App\Models\Modalite;
-use App\Models\Objectifpedago;
 use App\Models\Pedagogie;
 use App\Models\Stagiaire;
 use Livewire\Component;
@@ -25,7 +24,6 @@ class FormationMainEdit extends Component
     public $modalites;
     public $pedagogies;
     public $documents;
-    public $objectifs_pedago;
 
     function mount(Formation $formation)
     {
@@ -58,6 +56,7 @@ class FormationMainEdit extends Component
     {
         $this->form->toggle($model_id, $table, $sens);
     }
+
 
     public function render()
     {

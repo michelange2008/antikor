@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Livewire\Forms\SoustitreForm;
 use App\Models\Programmesoustitre;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class ProgrammeSoustitreEdit extends Component
@@ -17,15 +18,19 @@ class ProgrammeSoustitreEdit extends Component
         $this->soustitre->setSoustitre($programmesoustitre);    
     }
 
-    function updated($name, $value)
+    function updated()
     {
-        $this->soustitre->update($name, $value);   
+        $this->soustitre->update();   
     }
 
-    function destroy($formation_id)
+    function destroy()
     {
         $this->soustitre->delete();
-        return redirect()->route('formations.edit', $formation_id);
+        $this->dispatch('soustitre-change');
+    }
+
+    function update()
+    {
     }
     
     public function render()
