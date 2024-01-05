@@ -8,13 +8,13 @@ use App\Http\Controllers\FrontController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PhytoprepController;
 use App\Http\Controllers\PhytoproduitController;
-use App\Http\Livewire\PreparationsListe;
-use App\Http\Livewire\CompositionEdit;
-use App\Http\Livewire\FormationEdit;
-use App\Http\Livewire\ProgrammeFormEdit;
-use App\Http\Livewire\ProgrammeForms;
-use App\Http\Livewire\ProgrammeSoustitreEdit;
-use App\Http\Livewire\ShowUsers;
+use App\Livewire\PreparationsListe;
+use App\Livewire\CompositionEdit;
+use App\Livewire\FormationEdit;
+use App\Livewire\ProgrammeFormEdit;
+use App\Livewire\ProgrammeForms;
+use App\Livewire\ProgrammeSoustitreEdit;
+use App\Livewire\ShowUsers;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,8 +47,9 @@ Route::prefix('intranet')->middleware('auth', 'verified')->group(function () {
     Route::get('/formations', [FormationController::class, 'index'])->name('formations.index');
     Route::get('/formations/{formation}', [FormationController::class, 'show'])->name('formations.show');
     Route::get('/formations/create', [FormationController::class, 'create'])->name('formations.create');
+    // Route::get('/formations/edit/{formation}', [FormationController::class, 'edit'])->name('formations.edit');
     Route::get('/formations/edit/{formation}', FormationEdit::class)->name('formations.edit');
-    Route::get('/formations/edit/programme/soustitre/{programmesoustitre}', ProgrammeSoustitreEdit::class)->name('programmesoustitre.edit');
+    // Route::get('/formations/edit/programme/soustitre/{programmesoustitre}', ProgrammeSoustitreEdit::class)->name('programmesoustitre.edit');
 
     Route::get('/preparations', PreparationsListe::class)->name('preparations.index');
     Route::get('/preparation/composition/{preparation}', [PhytoprepController::class, 'edit'])->name('composition.edit');

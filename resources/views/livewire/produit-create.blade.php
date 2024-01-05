@@ -5,13 +5,13 @@
         <h4 class="text-xl text-teal-100">Création d'un nouveau produit</h4>
     </div>
 
-    <form class=" border-gray-200 bg-gray-100 px-5 py-3 text-gray-900 " action="" wire:submit.prevent="save">
+    <form class=" border-gray-200 bg-gray-100 px-5 py-3 text-gray-900 " action="" wire:submit="save">
 
         <div class="flex flex-col mb-2">
 
             <label for="name">Nom du produit</label>
 
-            <input id="name" type="text" wire:model.defer="produit.name"
+            <input id="name" type="text" wire:model="produit.name"
                 class="form-input rounded border-1 focus:active:border-0">
             @error('produit.name')
                 <div class="text-red-900 text-xs">{{ $message }}</div>
@@ -24,7 +24,7 @@
 
             <label for="phytotype">Type de produit</label>
 
-            <select name="phytotype_id" id="phytotype" wire:model.defer="produit.phytotype_id">
+            <select name="phytotype_id" id="phytotype" wire:model="produit.phytotype_id">
 
                 <option value="default" hidden>Choisissez un type ...</option>
 
@@ -44,7 +44,7 @@
 
             <label for="phytounite">Unité</label>
 
-            <select name="phytounite_id" id="phytounite" wire:model.defer="produit.phytounite_id">
+            <select name="phytounite_id" id="phytounite" wire:model="produit.phytounite_id">
 
                 <option value="default" hidden>Choisissez une unité ...</option>
 

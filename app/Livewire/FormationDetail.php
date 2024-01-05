@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Livewire;
 
 use App\Models\Formation;
 use Livewire\Component;
@@ -11,8 +11,6 @@ class FormationDetail extends Component
 
     public function render()
     {
-        return view('livewire.formation-detail',[
-            'formation' => $this->formation,
-        ]);
+        return view('livewire.formation-detail');
     }
 }

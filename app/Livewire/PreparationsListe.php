@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Livewire;
 
 use App\Models\Phytoprep;
 use App\Models\Phytotype;
@@ -54,7 +54,7 @@ class PreparationsListe extends Component
         $this->icone->storeAs('public/img/icones', $file_name);
         $this->preparation->icone = $file_name;
         $this->preparation->save();
-        $this->emit('preparationCreated');
+        $this->dispatch('preparationCreated');
 
     }
 

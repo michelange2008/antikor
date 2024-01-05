@@ -1,4 +1,4 @@
-<div x-data="{ edit: @entangle('edit'),  del_prep: @entangle('del_prep')}" @click.outside="edit = false" @keyup.escape="edit = false">
+<div x-data="{ edit: @entangle('edit').live,  del_prep: @entangle('del_prep').live}" @click.outside="edit = false" @keyup.escape="edit = false">
 
     <div class="flex flex-wrap gap-x-3 gap-y-1 justify-around sm:justify-between">
         <div class="flex flex-row gap-2">
@@ -31,7 +31,7 @@
         <x-titres.titre1 icone="modify_light.svg">{{ $preparation->name }}</x-titres.titre1>
         <x-titres.titre2 :class="'text-amber-900'">Modifier le texte</x-titres.titre2>
 
-        <form action="" wire:submit.prevent="update">
+        <form action="" wire:submit="update">
 
             <x-forms.input-text name="Nom" id="name" model="preparation"></x-forms.input-text>
 

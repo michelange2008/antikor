@@ -18,13 +18,13 @@
 
 </head>
 
-<body class="font-sans antialiased bg-gray-100 xl:px-40 lg:px-10 md:px-8 sm:px-2 px-1">
+<body class="px-1 font-sans antialiased bg-gray-100 xl:px-40 lg:px-10 md:px-8 sm:px-2">
     <div class="mx-auto min-h-screen bg-gray-100 dark:bg-gray-900">
         @include('layouts.navigation')
 
         <!-- Page Heading -->
         @if (isset($header))
-            <header class="bg-white dark:bg-gray-800 shadow">
+            <header class="bg-white shadow dark:bg-gray-800">
                 <div class="px-2 py-6">
                     {{ $header }}
                 </div>
@@ -37,8 +37,7 @@
         </main>
         
     </div>
-
-    @livewireScripts
+    @livewireScriptConfig()
     
 </body>
 

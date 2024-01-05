@@ -1,12 +1,12 @@
 <div>
-    <button class="rounded my-1 px-3 py-1 text-center bg-teal-900 text-teal-100 disabled:bg-gray-500" type="submit"
-        wire:loading.attr="disabled" x-on:click="show = false">
-        Enregistrer
+    <button class="px-3 py-1 my-1 text-center text-teal-100 bg-teal-900 rounded disabled:bg-gray-500" type="submit"
+        wire:loading.attr="disabled" @click="open = false">
+        {{ $confirm ?? "Enregistrer"}}
     </button>
 
     <button
-        class="rounded my-1 px-3 py-1 text-center bg-gray-300 hover:bg-gray-800 hover:text-gray-200" type="cancel"
-        x-on:click="show = false">
-        Annuler
+        class="px-3 py-1 my-1 text-center bg-gray-300 rounded hover:bg-gray-800 hover:text-gray-200" type="reset"
+        @click="open = false">
+        {{ $cancel ?? "Annuler" }}
     </button>
 </div>

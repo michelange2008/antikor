@@ -2,7 +2,7 @@
 
     <label for="{{ $id }}">{{ $name }}</label>
 
-    <textarea id="{{ $id }}" wire:model.defer="{{ $model.".".$id }}" rows={{ $rows ?? 5}}
+    <textarea id="{{ $id }}" wire:model="{{ $model.".".$id }}" rows={{ $rows ?? 5}}
         class="rounded form-input border-1 focus:active:border-0"></textarea>
 
     @error($model.".".$id)

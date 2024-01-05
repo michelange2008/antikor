@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreFormationRequest;
 use App\Http\Requests\UpdateFormationRequest;
 use App\Models\Formation;
+use App\Models\Programmedetail;
+use App\Models\Programmesoustitre;
 use Illuminate\Support\Facades\DB;
 
 class FormationController extends Controller
@@ -68,7 +70,6 @@ class FormationController extends Controller
     public function edit(Formation $formation)
     {
 
-        return redirect()->route('formations.edit');
     }
 
     /**

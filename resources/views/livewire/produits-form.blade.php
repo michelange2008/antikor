@@ -1,12 +1,12 @@
 <div class="my-3 p-2 bg-white">
 
-    <form action="" wire:submit.prevent="save">
+    <form action="" wire:submit="save">
 
         <div class="mb-2 last:mb-0 ">
 
             <label for="name">Nom du produit</label>
 
-            <input id="name" type="text" wire:model.defer="produit.name"
+            <input id="name" type="text" wire:model="produit.name"
                 class="form-input rounded border-1 focus:active:border-0">
             @error('produit.name')
                 <div class="text-red-900 text-xs">{{ $message }}</div>
@@ -19,7 +19,7 @@
 
             <label for="phytotype">Type de produit</label>
 
-            <select name="phytotype" id="phytotype" wire:model.defer="produit.phytotype_id">
+            <select name="phytotype" id="phytotype" wire:model="produit.phytotype_id">
                 @foreach ($phytotypes as $type)
 
                 @if ($type->id == $produit->phytotype->id)
@@ -40,7 +40,7 @@
 
             <label for="phytounite">Unité</label>
 
-            <select name="phytounite" id="phytounite" wire:model.defer="produit.phytounite_id">
+            <select name="phytounite" id="phytounite" wire:model="produit.phytounite_id">
                 @foreach ($phytounites as $unite)
 
                 @if ($unite->id == $produit->phytounite->id)

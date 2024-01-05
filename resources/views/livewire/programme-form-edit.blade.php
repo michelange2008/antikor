@@ -1,5 +1,5 @@
 <div>
-    <form action="" wire:submit.prevent="update">
+    <form action="" wire:submit="update">
 
         <x-forms.input-text name="Sous-titre" id="soustitre" model="programmeform"></x-forms.input-text>
         <x-forms.input-text name="Détail" id="detail" model="programmeform"></x-forms.input-text>

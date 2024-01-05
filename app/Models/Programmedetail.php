@@ -11,6 +11,7 @@ class Programmedetail extends Model
     use HasFactory;
 
     public $timestamps = false;
+    protected $guarded = [];
 
     function programmesoustitre() : BelongsTo {
         return $this->belongsTo(Programmesoustitre::class);

@@ -11,7 +11,7 @@
                     
                     <x-titres.titre1 icone="modify_light.svg">Nouvelle préparation</x-titres.titre1>
                     
-                    <form action="" wire:submit.prevent="add_preparation">
+                    <form action="" wire:submit="add_preparation">
                         
                         <div class="md:flex md:flex-row md:gap-3 md:flex-grow">
                             
