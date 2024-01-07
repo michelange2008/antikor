@@ -20,7 +20,7 @@
     </div>
 
     <div id="especes">
-        <x-formations.formation-especes :especes="$especes" :form="$form"></x-formations.formation-especes>
+        <x-formations.formation-especes :especes="$especes" :listespeces="$listespeces"></x-formations.formation-especes>
     </div>
 
     <div id="duree-stag-interv" class="grid grid-cols-3 gap-1 my-3 lg:gap-2 xl:gap-5">

@@ -24,6 +24,7 @@ class FormationMainEdit extends Component
     public $modalites;
     public $pedagogies;
     public $documents;
+    public $listespeces;
 
     function mount(Formation $formation)
     {
@@ -35,7 +36,7 @@ class FormationMainEdit extends Component
         $this->pedagogies = Pedagogie::all();
         $this->documents = Document::all();
         $this->form->setFormation($formation);
-        
+        $this->listespeces = $formation->especes()->pluck('id')->toArray();
     }
 
     function updated($name, $value)
@@ -47,14 +48,28 @@ class FormationMainEdit extends Component
     }
 
     /**
-     * Appelle la fonction toggle de FormationForm
+     * Appelle la fonction toggle de FormationForm et modifie la liste d'id
+     * Concerne les modèles attachés à Formation par une table pivot soit:
+     *  - Espece, Modalite, Pedagogie, Document
      *
-     * Pour la description @see toggle() de FormationForm
+     * @param int $id: id de l'item à ajouter ou enlever de la table pivot et de la liste
+     * @param bool $isIn: si true (déjà présent) il faut l'enlever, sinon on l'ajoute
+     * @param string $table: nom de la table du modèle lié à formations par table pivot
+     * @param string $list: liste des Id attachés à modèle Formation par la table pivot
      * 
      */
-    function toggle($model_id, $table, $sens)
+    function toggle(int $id, bool $isIn, String $table, String $list)
     {
-        $this->form->toggle($model_id, $table, $sens);
+        if($isIn) {
+            $this->form->toggle($id, $table, 'detach');
+            $key = array_search($id, $this->$list);
+            array_splice($this->$list, $key, 1);
+            
+        } else {
+            $this->form->toggle($id, $table, 'attach');
+            array_push($this->$list, $id);
+        }
+
     }
 
 

@@ -24,13 +24,13 @@ class FormationForm extends Form
     public $contexte = '';
 
     public $icone = '';
+    #[Validate('required', message: "Merci de définir une durée")]
     public $duree_id = '';
+    #[Validate('required', message: "Merci de définir un type de stagiaires")]
     public $stagiaire_id = '';
+    #[Validate('required', message: "Merci de définir un intervenant")]
     public $intervenant_id = '';
-    public $formation_especes;
-    public $formation_modalites;
-    public $formation_pedagogies;
-    public $formation_documents;
+
 
     public function setFormation(Formation $formation)
     {
@@ -43,10 +43,14 @@ class FormationForm extends Form
         $this->duree_id = $formation->duree_id;
         $this->stagiaire_id = $formation->stagiaire_id;
         $this->intervenant_id = $formation->intervenant_id;
-        $this->formation_especes = $formation->especes->pluck('id')->toArray();
-        $this->formation_modalites = $formation->modalites->pluck('id')->toArray();
-        $this->formation_pedagogies = $formation->pedagogies->pluck('id')->toArray();
-        $this->formation_documents = $formation->documents->pluck('id')->toArray();
+
+    }
+
+    function create(array $list_especes, array $listeModalites, 
+                        array $listePedagogies, array $listeDocuments)
+    {
+        $this->validate();    
+        dd($this);
     }
 
     public function update()
@@ -61,7 +65,7 @@ class FormationForm extends Form
      * Concerne les modèles suivants: Modalite, Pedagogie, Intervenant
      * la ligne "$this->formation->$table()->$sens($model_id);"
      * se transforme ainsi en:
-     * $this->formation->modalites->attach(3)
+     *      $this->formation->modalites->attach(3)
      *
      * @param Int $model_id : Id du model que l'on veut attacher ou détacher
      * @param String $table : nom de la table du modèle à attacher ou détacher
@@ -71,9 +75,7 @@ class FormationForm extends Form
     {
         // Mise à jour de la table pivot
         $this->formation->$table()->$sens($model_id);
-        // Mise à jour de l'affichage
-        $parametre = 'formation_'.$table;
-        $this->$parametre = $this->formation->$table->pluck('id')->toArray();
+
     }
 
 }
