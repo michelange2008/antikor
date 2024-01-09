@@ -12,10 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('espece_formation', function (Blueprint $table) {
-            $table->foreignId('espece_id')->constrained();
-            $table->foreignId('formation_id')->constrained();
+            $table->foreignId('espece_id')->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreignId('formation_id')->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');;
         });
-         //
+        //
     }
 
     /**

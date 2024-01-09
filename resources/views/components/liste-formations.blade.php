@@ -4,7 +4,7 @@
         <a href="{{ route($route, $formation) }}">
             <li class="flex flex-row justify-between py-3 border-b-2 last:border-b-0 md:hover:bg-gray-100">
                 <div class="flex flex-row gap-3 justify-start items-start sm:gap-5 sm:items-center">
-                    <img class="w-10 lg:w-12" src="{{ url('storage/img/formations/icones/' . $formation->icone) }}"
+                    <img class="w-10 lg:w-12" src="{{ url('storage/img/icones/' . $formation->icone) }}"
                         alt="{{ $formation->icone }}">
                     <div class="flex flex-col">
                         <p class="font-semibold text-md sm:text-base md:text-lg lg:text-xl">{{ $formation->name }}

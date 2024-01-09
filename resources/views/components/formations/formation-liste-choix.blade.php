@@ -13,7 +13,7 @@ les parametres sont les suivants (obligatoires sauf précision):
     @foreach ($choix as $choi)
         {{-- Cas où le choix est dans la liste des choisis --}}
         @if (in_array($choi->id, $list))
-            <div class="flex flex-row justify-between p-3 my-1 font-bold bg-gray-200 cursor-pointer group hover:font-normal hover:ring-2 hover:ring-red-600 active:ring-0 active:bg-red-900 active:text-white"
+            <div class="flex flex-row justify-between p-3 my-1 font-bold cursor-pointer bg-neutral-300 group hover:font-normal hover:ring-2 hover:ring-red-600 active:ring-0 active:bg-red-900 active:text-white"
                 wire:click="toggle({{ $choi->id}}, true, '{{ $table}}', '{{ $liste }}')" title="Enlever cet élément">
                 <p>
                     {{ $choi->nom }}

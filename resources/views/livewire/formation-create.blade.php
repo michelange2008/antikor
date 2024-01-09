@@ -4,6 +4,7 @@
 
     <form wire:submit="create"">
 
+        <x-forms.input-file name="Icone" :model="'formation.icone'"/>
         <x-forms.input-text-save id="nom" name="Nom" :model="'formation.name'" />
         <x-forms.input-text-save id="soustitre_nom" name="Sous-titre" :model="'formation.subname'" />
         <x-forms.textarea-save id="contexte" name="Contexte" :model="'formation.contexte'" />
@@ -62,7 +63,10 @@
         
             </div>
 
-            <x-buttons.save-cancel-button></x-buttons.save-cancel-button>
+            <x-buttons.success-button>Enregistrer et continuer</x-buttons.success-button>
+            <a href="{{ route('formations.index')}}">
+                <x-buttons.secondary-button>Retour</x-buttons.secondary-button>
+            </a>
     </form>
 
 </div>

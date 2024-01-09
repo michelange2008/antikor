@@ -13,8 +13,12 @@ return new class extends Migration
     {
         Schema::create('document_formation', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('document_id')->constrained();
-            $table->foreignId('formation_id')->constrained();
+            $table->foreignId('document_id')->constrained()
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+            $table->foreignId('formation_id')->constrained()
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
         });
     }
 

@@ -7,9 +7,12 @@ use App\Models\Objectifpedago;
 use Livewire\Attributes\Rule;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
+use Livewire\WithFileUploads;
 
 class FormationForm extends Form
 {
+    use WithFileUploads;
+
     public Formation $formation;
 
     #[Validate('required', message: "Merci de définir un nom")]
@@ -22,8 +25,8 @@ class FormationForm extends Form
 
     #[validate('max:65000', message: "Ce nom est trop long")]
     public $contexte = '';
-
-    public $icone = '';
+    #[Validate('image|max:1024', message:"Il faut un fichier image de moins de 250 Ko")] // 1MB Max
+    public $icone;
     #[Validate('required', message: "Merci de définir une durée")]
     public $duree_id = '';
     #[Validate('required', message: "Merci de définir un type de stagiaires")]
@@ -49,8 +52,23 @@ class FormationForm extends Form
     function create(array $list_especes, array $listeModalites, 
                         array $listePedagogies, array $listeDocuments)
     {
-        $this->validate();    
-        dd($this);
+        $this->validate();
+        // Attribution d'un nom de fichier à l'icone et stockage
+        $nameIcone = str_replace(' ', '_', strtolower($this->name)).'.'.$this->icone->extension();
+        $this->icone->storeAs('public/img/icones', $nameIcone);
+        $this->icone = $nameIcone;
+
+        $nouvelleFormation = Formation::create(
+            $this->only(['name', 'subname', 'contexte', 'icone', 'duree_id', 'stagiaire_id', 'intervenant_id'])
+        );
+        
+        $nouvelleFormation->especes()->sync($list_especes);
+        $nouvelleFormation->modalites()->sync($listeModalites);
+        $nouvelleFormation->pedagogies()->sync($listePedagogies);
+        $nouvelleFormation->documents()->sync($listeDocuments);
+
+        return redirect()->route('formations.edit', $nouvelleFormation);
+
     }
 
     public function update()
@@ -65,7 +83,7 @@ class FormationForm extends Form
      * Concerne les modèles suivants: Modalite, Pedagogie, Intervenant
      * la ligne "$this->formation->$table()->$sens($model_id);"
      * se transforme ainsi en:
-     *      $this->formation->modalites->attach(3)
+     *      $this->formation->modalites->sync(3)
      *
      * @param Int $model_id : Id du model que l'on veut attacher ou détacher
      * @param String $table : nom de la table du modèle à attacher ou détacher

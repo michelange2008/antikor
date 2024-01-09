@@ -11,9 +11,12 @@ use App\Models\Modalite;
 use App\Models\Pedagogie;
 use App\Models\Stagiaire;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class FormationCreate extends Component
 {
+    use WithFileUploads;
+    
     public FormationForm $formation;
     
     public $especes;
@@ -27,6 +30,8 @@ class FormationCreate extends Component
     public $listePedagogies = [];
     public $documents;
     public $listeDocuments = [];
+    public $listeObjectifs = [];
+    public $nomObjectif;
 
     function mount()
     {
@@ -54,6 +59,8 @@ class FormationCreate extends Component
             array_push($this->$list, $id);
         }
     }
+
+
     public function render()
     {
         return view('livewire.formation-create');

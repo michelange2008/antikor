@@ -13,7 +13,7 @@ Ensuite, en fonction du composant Livewire d'orgine la méthode qui en découle 
             <div class="p-2 rounded-3xl ring-2 ring-teal-600 hover:font-bold hover:bg-stone-300" title="Cliquer pour desélectionner"
                 wire:click="toggle({{$espece->id}}, true, 'especes', 'listespeces')"
                 >
-                <img class="block m-auto h-20" src="{{ url('storage/img/formations/icones/' . $espece->icone) }}"
+                <img class="block m-auto h-20" src="{{ url('storage/img/icones/' . $espece->icone) }}"
                     alt="">
                 <p class="text-center">{{ $espece->name }}</p>
             </div>
@@ -22,7 +22,7 @@ Ensuite, en fonction du composant Livewire d'orgine la méthode qui en découle 
                 wire:click="toggle({{$espece->id}}, false, 'especes', 'listespeces')"
             >
                 <img class="block p-1 m-auto h-20 grayscale"
-                    src="{{ url('storage/img/formations/icones/' . $espece->icone) }}" alt="">
+                    src="{{ url('storage/img/icones/' . $espece->icone) }}" alt="">
                 <p class="text-center">{{ $espece->name }}</p>
             </div>
         @endif
