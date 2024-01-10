@@ -25,6 +25,9 @@ class FormationMainEdit extends Component
     public $pedagogies;
     public $documents;
     public $listespeces;
+    public $listeModalites;
+    public $listePedagogies;
+    public $listeDocuments;
 
     function mount(Formation $formation)
     {
@@ -37,6 +40,9 @@ class FormationMainEdit extends Component
         $this->documents = Document::all();
         $this->form->setFormation($formation);
         $this->listespeces = $formation->especes()->pluck('id')->toArray();
+        $this->listeModalites = $formation->modalites()->pluck('modalite_id')->toArray();
+        $this->listePedagogies = $formation->pedagogies()->pluck('pedagogie_id')->toArray();
+        $this->listeDocuments = $formation->documents()->pluck('document_id')->toArray();
     }
 
     function updated($name, $value)
