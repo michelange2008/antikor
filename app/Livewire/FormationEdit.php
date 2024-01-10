@@ -15,6 +15,7 @@ class FormationEdit extends Component
     protected $programmesoustitres;
     protected $programmedetails;
     protected $objectifs_pedago;
+    public $programmesoustitre;
 
     function mount()
     {
