@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Forms;
+namespace App\Livewire\Formations\Forms;
 
 use App\Models\Programmesoustitre;
 use Livewire\Attributes\Rule;

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Formations;
 
-use App\Livewire\Forms\FormationForm;
+use App\Livewire\Formations\Forms\FormationForm;
 use App\Models\Document;
 use App\Models\Duree;
 use App\Models\Espece;
@@ -63,6 +63,6 @@ class FormationCreate extends Component
 
     public function render()
     {
-        return view('livewire.formation-create');
+        return view('livewire.formations.formation-create');
     }
 }

@@ -4,14 +4,13 @@
 
             <div class="flex-auto">
 
-                <x-forms.input-text-blur name="Sous-titre" id="nom" model="soustitre.nom"></x-forms.input-text-blur>
+                <x-forms.input-text-blur :id="'soustitre_'.$id_item" name="Sous-titre" model="soustitre.nom"></x-forms.input-text-blur>
 
             </div>
 
             <div class="mx-2">
 
-                <x-forms.input-number-blur name="Ordre" id="ordre"
-                    model="soustitre.ordre"></x-forms.input-number-blur>
+                <x-forms.input-number-blur :id="'ordre_'.$id_item" name="Ordre" model="soustitre.ordre"></x-forms.input-number-blur>
             </div>
 
             <div class="mt-8 text-3xl text-gray-300 cursor-pointer hover:text-red-800 active:text-black"

@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Formations;
 
-use App\Livewire\Forms\DetailForm;
-use App\Models\Programmedetail;
+use App\Livewire\Formations\Forms\DetailForm;
 use Livewire\Component;
 
 class ProgrammeDetailEdit extends Component
@@ -11,6 +10,7 @@ class ProgrammeDetailEdit extends Component
     public DetailForm $detail;
 
     public $formation_id;
+    public $id_item;
 
     function mount($programmedetail)
     {
@@ -30,6 +30,6 @@ class ProgrammeDetailEdit extends Component
 
     public function render()
     {
-        return view('livewire.programme-detail-edit');
+        return view('livewire.formations.programme-detail-edit');
     }
 }

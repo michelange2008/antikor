@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Formations;
 
-use App\Livewire\Forms\SoustitreForm;
+use App\Livewire\Formations\Forms\SoustitreForm;
 use App\Models\Programmesoustitre;
-use Livewire\Attributes\On;
 use Livewire\Component;
 
 class ProgrammeSoustitreEdit extends Component
@@ -12,6 +11,7 @@ class ProgrammeSoustitreEdit extends Component
     public SoustitreForm $soustitre;
 
     public $formation_id;
+    public $id_item;
 
     function mount(Programmesoustitre $programmesoustitre)
     {
@@ -35,7 +35,7 @@ class ProgrammeSoustitreEdit extends Component
     
     public function render()
     {
-        return view('livewire.programme-soustitre-edit');
+        return view('livewire.formations.programme-soustitre-edit');
     }
     
 }

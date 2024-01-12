@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Formations;
 
-use App\Livewire\Forms\SoustitreForm;
+use App\Livewire\Formations\Forms\SoustitreForm;
 use Livewire\Component;
 
 class ProgrammeSoustitreCreate extends Component
@@ -19,6 +19,6 @@ class ProgrammeSoustitreCreate extends Component
 
     public function render()
     {
-        return view('livewire.programme-soustitre-create');
+        return view('livewire.formations.programme-soustitre-create');
     }
 }

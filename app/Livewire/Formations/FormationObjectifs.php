@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Formations;
 
 use App\Models\Objectifpedago;
 use Livewire\Attributes\Rule;
@@ -31,6 +31,6 @@ class FormationObjectifs extends Component
 
     public function render()
     {
-        return view('livewire.formation-objectifs');
+        return view('livewire.formations.formation-objectifs');
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Formations;
 
-use App\Livewire\Forms\FormationForm;
+use App\Livewire\Formations\Forms\FormationForm;
 use App\Models\Document;
 use App\Models\Duree;
 use App\Models\Espece;
@@ -77,10 +77,24 @@ class FormationMainEdit extends Component
         }
 
     }
+    /**
+     * Mise à jour des champs en lien belongsTo
+     * 
+     * Durée (duree_id), Stagiaires (stagiaire_id) et Intervenant (intervenant_id)
+     * Cette fonction est appelée par les 3 champs select de formation-main-edit 
+     *
+     * @param [type] $name: nom du champs
+     * 
+     * Appelle la fonction change de FormationForm qui fait la mise à jour
+     */
+    function maj($name)
+    {
+        $this->form->change($name, $this->form->$name);
+    }
 
 
     public function render()
     {
-        return view('livewire.formation-main-edit');
+        return view('livewire.formations.formation-main-edit');
     }
 }

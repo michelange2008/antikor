@@ -12,7 +12,7 @@
 
     <label for="duree" class="block">
         <span class="text-gray-700"><i class = "fa-solid {{ $fa ?? '' }}"></i> {{ $label }}</span>
-        <select id="{{ $id }}" name="{{ $name }}" wire:model.change={{ $model }}
+        <select id="{{ $id }}" name="{{ $name }}" wire:model={{ $model }} wire:change="maj('{{$name}}')"
             class="input-form">
             @foreach ($options as $option)
                 @if ($option->id == $compareId)

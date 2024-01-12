@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Formations;
 
 use App\Models\Objectifpedago;
 use Livewire\Attributes\On;
@@ -33,6 +33,6 @@ class FormationObjectifCreate extends Component
 
     public function render()
     {
-        return view('livewire.formation-objectif-create');
+        return view('livewire.formations.formation-objectif-create');
     }
 }

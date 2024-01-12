@@ -1,11 +1,8 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Formations;
 
-use App\Livewire\Forms\DetailForm;
-use App\Models\Programmedetail;
-use App\Models\Programmesoustitre;
-use Livewire\Attributes\On;
+use App\Livewire\Formations\Forms\DetailForm;
 use Livewire\Component;
 
 class ProgrammeDetailCreate extends Component
@@ -23,6 +20,6 @@ class ProgrammeDetailCreate extends Component
 
     public function render()
     {
-        return view('livewire.programme-detail-create');
+        return view('livewire.formations.programme-detail-create');
     }
 }

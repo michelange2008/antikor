@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Formations;
 
 use App\Models\Formation;
 use App\Models\Objectifpedago;
@@ -38,7 +38,7 @@ class FormationEdit extends Component
 
     public function render()
     {
-        return view('livewire.formation-edit', [
+        return view('livewire.formations.formation-edit', [
             'programmesoustitres' => $this->programmesoustitres,
             'programmedetails' => $this->programmedetails,
             'objectifs_pedago' => $this->objectifs_pedago,

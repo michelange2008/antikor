@@ -1,5 +1,6 @@
 <?php
 
+use App\Formations\Livewire\FormationCreate as LivewireFormationCreate;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\FormationController;
@@ -10,8 +11,10 @@ use App\Http\Controllers\PhytoprepController;
 use App\Http\Controllers\PhytoproduitController;
 use App\Livewire\PreparationsListe;
 use App\Livewire\CompositionEdit;
-use App\Livewire\FormationCreate;
-use App\Livewire\FormationEdit;
+use App\Livewire\Formations\FormationCreate;
+use App\Livewire\Formations\FormationEdit;
+use App\Livewire\Formations\FormationIndex;
+use App\Livewire\Formations\FormationShow;
 use App\Livewire\ProgrammeFormEdit;
 use App\Livewire\ProgrammeForms;
 use App\Livewire\ProgrammeSoustitreEdit;
@@ -44,10 +47,11 @@ Route::prefix('/intranet')->middleware('auth', 'verified')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/aroma', [HomeController::class, 'aroma'])->name('aroma');
     Route::get('/visites', [HomeController::class, 'visites'])->name('visites');
-    Route::get('/formations', [FormationController::class, 'index'])->name('formations.index');
+    // Affichage et gestion des formations
+    Route::get('/formations', FormationIndex::class)->name('formations.index');
     Route::get('/formations/create', FormationCreate::class)->name('formations.create');
     Route::get('/formations/edit/{formation}', FormationEdit::class)->name('formations.edit');
-    Route::get('/formations/{formation}', [FormationController::class, 'show'])->name('formations.show');
+    Route::get('/formations/{formation}', FormationShow::class)->name('formations.show');
 
     Route::get('/preparations', PreparationsListe::class)->name('preparations.index');
     Route::get('/preparation/composition/{preparation}', [PhytoprepController::class, 'edit'])->name('composition.edit');

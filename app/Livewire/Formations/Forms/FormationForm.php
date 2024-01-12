@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Forms;
+namespace App\Livewire\Formations\Forms;
 
 use App\Models\Formation;
 use App\Models\Objectifpedago;
@@ -94,6 +94,20 @@ class FormationForm extends Form
         // Mise à jour de la table pivot
         $this->formation->$table()->$sens($model_id);
 
+    }
+
+    /**
+     * Fait le mise à jour des champs en relation belongsTo
+     * 
+     * Durée (duree_id), Stagiaires (stagiaire_id) et Intervenant (intervenant_id)
+     *
+     * @param [type] $champs: champs de la table formations à modifier
+     * @param [type] $value: nouvelle valeur
+     * @return void
+     */
+    function change($champs, $value)
+    {
+        $this->formation->update([$champs => $value]);    
     }
 
 }

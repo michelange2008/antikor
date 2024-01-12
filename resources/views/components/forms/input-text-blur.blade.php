@@ -5,7 +5,7 @@
         <span class="text-gray-700"><i class = "fa-solid {{ $fa ?? '' }}"></i> {{ $name }}</span>
 
         <input id="{{ $id }}" type="text" wire:model.blur="{{ $model }}"
-            class="input-form"
+            class="input-form" autocomplete="on"
             placeholder="{{ $placeholder ?? '' }}">
         @error($model)
             <div class="text-xs text-red-900">{{ $message }}</div>

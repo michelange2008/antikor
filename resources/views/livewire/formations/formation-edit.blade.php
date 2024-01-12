@@ -8,7 +8,7 @@
     </div>
     <div id="main" class="my-2">
 
-        <livewire:formation-main-edit :formation="$formation" />
+        <livewire:formations.formation-main-edit :formation="$formation" />
 
     </div>
     <hr class="border-t-8">
@@ -18,9 +18,9 @@
         <div class="px-3 pb-2 my-3 border">
 
             @foreach ($objectifs_pedago as $objectif)
-                <livewire:formation-objectifs :objectif="$objectif" :wire:key="'objectif_'.$objectif->id" />
+                <livewire:formations.formation-objectifs :objectif="$objectif" :wire:key="'objectif_'.$objectif->id" />
             @endforeach
-            <livewire:formation-objectif-create :formation_id="$formation->id" />
+            <livewire:formations.formation-objectif-create :formation_id="$formation->id" />
 
         </div>
 
@@ -33,31 +33,32 @@
         @foreach ($programmesoustitres as $programmesoustitre)
             <div class="px-3 my-2 border">
 
-                <livewire:programme-soustitre-edit :programmesoustitre="$programmesoustitre" :formation_id="$formation->id"
-                    :wire:key="'soustitre_'.$programmesoustitre->id" />
+                <livewire:formations.programme-soustitre-edit id_item="{{ $programmesoustitre->id }}" :programmesoustitre="$programmesoustitre"
+                    :formation_id="$formation->id" :wire:key="'soustitre_'.$programmesoustitre->id" />
 
                 <div id="detail" class="ml-6">
                     @foreach ($programmedetails as $programmedetail)
                         @if ($programmedetail->programmesoustitre_id == $programmesoustitre->id)
-                            <livewire:programme-detail-edit :programmedetail="$programmedetail" :formation_id="$formation->id"
+                            <livewire:formations.programme-detail-edit id_item="{{ $programmedetail->id }}" :programmedetail="$programmedetail" :formation_id="$formation->id"
                                 :wire:key="'detail_'.$programmedetail->id">
                         @endif
                     @endforeach
 
-                    <livewire:programme-detail-create :programmesoustitre_id="$programmesoustitre->id" :wire:key="'detail_create'.time()">
+                    <livewire:formations.programme-detail-create id_item="{{ $programmedetail->id }}" :programmesoustitre_id="$programmesoustitre->id"
+                        :wire:key="'detail_create'.time()">
 
                 </div>
             </div>
         @endforeach
 
-        <livewire:programme-soustitre-create :programmesoustitre="$programmesoustitre" :formation_id="$formation->id" />
+        <livewire:formations.programme-soustitre-create :id="'nouveau'" :programmesoustitre="$programmesoustitre" :formation_id="$formation->id" />
 
     </div>
 
     <hr class="border-t-8">
     <div class="my-5">
         <x-buttons.success-button>
-            <a href="{{ route('formations.show', $formation)}}">
+            <a href="{{ route('formations.show', $formation) }}">
                 <i class="fa-solid fa-angles-left"></i> Retour
             </a>
         </x-buttons.success-button>

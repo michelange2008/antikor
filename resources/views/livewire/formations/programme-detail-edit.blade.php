@@ -4,7 +4,7 @@
 
         <div class="flex-auto">
 
-            <x-forms.input-text-blur name="" id="nom" model="detail.nom"></x-forms.input-text-blur>
+            <x-forms.input-text-blur name="" :id="'detail_'.$id_item" model="detail.nom"></x-forms.input-text-blur>
 
         </div>
 
