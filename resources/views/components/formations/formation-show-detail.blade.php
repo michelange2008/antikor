@@ -2,8 +2,6 @@
 {{-- Fiche descriptive de chaque formation qui s'affiche quelque soit le type d'utilisateur avec un titre
 un caretoluche à gauche en grand écran, un encart en bas en petit écran et une partie principale à droit 
 ou en tête --}}
-<div class="my-2">
-
     <x-titres.titre icone="{{ $formation->icone }}">{{ $formation->name }}
         @if ($formation->subname != null)
             ({{ mb_convert_case($formation->subname, MB_CASE_LOWER_SIMPLE) }})
@@ -13,9 +11,8 @@ ou en tête --}}
         <p class="my-2 text-base font-bold text-gray-600 sm:text-xl md:text-2xl xl:text-3xl">
         </p>
 
-</div>
 
-<div class="grid md:grid-cols-3">
+<div class="grid mt-8 md:grid-cols-3">
 
     <div class="hidden p-3 border md:block bg-neutral-100">
     
@@ -24,9 +21,9 @@ ou en tête --}}
     </div>
     <div class="md:col-span-2">
 
-        <x-form-main :titre="'Contexte'" :texte="$formation->contexte" type="unique" ></x-form-main>
-        <x-form-main :titre="'Objectifs pédagogiques'" :texte="$formation->objectifpedagos" type="multiple" ></x-form-main>
-        <x-form-main :titre="'Programme détaillé'" :texte="$programme" type="arbre" ></x-form-main>
+        <x-formations.formation-bloc :titre="'Contexte'" :texte="$formation->contexte" type="unique" />
+        <x-formations.formation-bloc :titre="'Objectifs pédagogiques'" :texte="$formation->objectifpedagos" type="multiple" />
+        <x-formations.formation-bloc :titre="'Programme détaillé'" :texte="$programme" type="arbre" />
         
     </div>
 

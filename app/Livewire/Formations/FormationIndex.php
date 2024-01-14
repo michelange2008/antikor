@@ -8,6 +8,12 @@ use Livewire\Component;
 class FormationIndex extends Component
 {
     public $formations;
+
+    function delete(Formation $formation)
+    {
+        Formation::destroy($formation->id);
+        $this->formations = Formation::all();
+    }
     
     function mount()
     {

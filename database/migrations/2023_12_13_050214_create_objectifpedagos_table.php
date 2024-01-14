@@ -14,7 +14,10 @@ return new class extends Migration
         Schema::create('objectifpedagos', function (Blueprint $table) {
             $table->id();
             $table->text('nom');
-            $table->foreignId('formation_id')->constrained();
+            $table->foreignId('formation_id')
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 

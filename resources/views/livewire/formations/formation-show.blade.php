@@ -3,7 +3,7 @@
     <x-formations.formation-nav :previousformation="$previousFormation" :nextformation="$nextFormation" routedetail="formations.show"
         routeliste="formations.index" />
 
-    @include('formations.form_show_detail')
+    <x-formations.formation-show-detail :formation="$formation" :programme="$programme" />
 
     <div class="my-2">
 

@@ -1,10 +1,10 @@
 {{-- -> form_show_detail
     multiple = 1 si plusieurs lignes (relation belonsTo ou belongsToMany) --}}
-<div class="m-2 md:px-6">
+<div class="px-4 py-2 mb-6 bg-gray-200 shadow shadow-slate-700 md:mb-8 md:px-6 md:py-4">
 
-    <p class="text-3xl font-bold text-teal-700">{{ $titre }}</p>
+    <p class="text-xl font-bold text-teal-700 md:text-3xl">{{ $titre }}</p>
 
-    <div class="pl-2 text-xl text-justify">
+    <div class="pl-2 text-justify md:text-xl">
         @if ($type == 'multiple')
             <ul>
                 @foreach ($texte as $ligne)
