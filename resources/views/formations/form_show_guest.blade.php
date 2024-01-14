@@ -2,11 +2,10 @@
     entre les différentes formations qui correspond à un guest non connecté --}}
 <x-guestin-layout>
 
-    @include('formations.form_nav', [
-        'route_detail' => 'front.formationShow', // Permet de passer à une autre formation, prec ou suiv
-        'route_liste' => 'front.formations',// retour à la liste des formations
-    ])
+    <x-formations.formation-nav :previousformation="$previousFormation" :nextformation="$nextFormation" routedetail="formations.show"
+        routeliste="front.formations" />
 
-    @include('formations.form_show_detail')
+    <x-formations.formation-show-detail :formation="$formation" :programme="$programme" />
+
 
 </x-guestin-layout>

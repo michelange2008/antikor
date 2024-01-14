@@ -16,7 +16,7 @@ ou en tête --}}
 
     <div class="hidden p-3 border md:block bg-neutral-100">
     
-        @include('formations.form_show_cartouche')
+        <x-formations.formation-show-cartouche :formation="$formation" />
      
     </div>
     <div class="md:col-span-2">

@@ -43,8 +43,8 @@ class FrontController extends Controller
     public function formationShow(Formation $formation)
     {
         $id_formation = $formation->id;
-        $next_formation = Formation::find($id_formation + 1);
-        $previous_formation = Formation::find($id_formation - 1);
+        $nextFormation = Formation::find($id_formation + 1);
+        $previousFormation = Formation::find($id_formation - 1);
         $programme = DB::table('programmesoustitres')
             ->where('formations.id', $id_formation)
             ->join('formations', 'formations.id', 'programmesoustitres.formation_id')
@@ -55,8 +55,8 @@ class FrontController extends Controller
 
         return view('formations.form_show_guest', [
             'formation' => $formation,
-            'next_formation' => $next_formation,
-            'previous_formation' => $previous_formation,
+            'nextFormation' => $nextFormation,
+            'previousFormation' => $previousFormation,
             'programme' => $programme,
         ]);
     }
