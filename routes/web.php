@@ -18,7 +18,9 @@ use App\Livewire\Formations\FormationShow;
 use App\Livewire\ProgrammeFormEdit;
 use App\Livewire\ProgrammeForms;
 use App\Livewire\ProgrammeSoustitreEdit;
+use App\Livewire\Roles;
 use App\Livewire\ShowUsers;
+use App\Livewire\Permissions;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,6 +60,9 @@ Route::prefix('/intranet')->middleware('auth', 'verified')->group(function () {
     Route::post('/preparation/composition/{preparation}', [PhytoprepController::class, 'update'])->name('composition.update');
     
     Route::resource('/produits', PhytoproduitController::class);
+
+    Route::get('/roles', Roles::class)->name('roles');
+    Route::get('/permissions', Permissions::class)->name('permissions');
 });
 
 Route::middleware('auth')->group(function () {

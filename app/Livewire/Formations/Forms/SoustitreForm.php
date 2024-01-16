@@ -11,7 +11,7 @@ class SoustitreForm extends Form
 {
     public Programmesoustitre $programmesoustitre;
 
-    #[Rule( 'required', message: "Ce champs ne peut être vide!")]
+    #[Rule('required', message: "Ce champs ne peut être vide!")]
     #[Rule('max:191', message: "Ce texte est trop long!")]
     #[Rule('min:3', message: "Ce texte est trop court!")]
     public $nom = '';
