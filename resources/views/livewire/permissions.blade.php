@@ -1,6 +1,6 @@
 <div x-data="{ updateMode: @entangle('updateMode') }">
 
-    <x-titres.titre icone="formations_light.svg">Roles</x-titres.titre>
+    <x-titres.titre icone="formations_light.svg">Permissions</x-titres.titre>
 
     <div class="flex flex-col gap-3 md:gap-12 md:flex-row">
 

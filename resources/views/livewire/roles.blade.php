@@ -21,6 +21,13 @@
                         </div>
 
                     </div>
+
+                    @foreach ($role->permissions as $permissions)
+                        <div>
+                            <p>{{ $permission->name }} </p>
+                        </div>
+                    @endforeach
+
                 </div>
             @endforeach
         </div>
@@ -43,6 +50,24 @@
                     <div x-show="!updateMode" x-cloak>
                         <x-forms.input-text-save id="name" name="" placeholder="Saisir un nouveau rôle"
                             :model="'name'" />
+
+                        <div class="mt-4">
+                            <p class="font-bold">Liste des permissions</p>
+                            @foreach ($permissions as $permission)
+                                <li class="px-2 list-none">
+
+                                    <label for="permissions_{{ $permission->id}}" class="inline-flex items-center">
+                                        <input class="bg-gray-200 rounded border-transparent focus:border-gray-700 focus:ring-1 focus:ring-offset-2 focus:ring-gray-500"
+                                         type="checkbox" name="permissions_{{ $permission->id }}" value="{{ $permission->id}}" wire:click.prevent = "togglePerm({{ $permission->id }})">
+                                         <span class="ml-2">{{ $permission->name }}</span>
+                                    </label>
+                                </li>
+                            @endforeach
+                            @foreach ($new_perms as $new)
+                                {{ $new }}
+                            @endforeach
+                        </div>
+
                         <div wire:click.prevent = "save">
                             <x-buttons.success-button>
                                 <i class="fa-solid fa-square-plus"></i> Créer
