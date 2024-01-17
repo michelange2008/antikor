@@ -7,7 +7,7 @@
         <div class="basis-full">
             @foreach ($roles as $role)
                 <div class="flex flex-col p-6 my-3 bg-gray-300 shadow shadow-gray-800">
-                    <p>Nom: <span class="font-bold">{{ $role->name }}</span></p>
+                    <p class="md:text-xl">{{ $role->name }}</p>
                     <div class="flex flex-row gap-2 justify-start">
 
                         <div wire:click="edit({{ $role->id }})">
@@ -55,16 +55,26 @@
                             <p class="font-bold">Liste des permissions</p>
                             @foreach ($permissions as $permission)
                                 <li class="px-2 list-none">
-
-                                    <label for="permissions_{{ $permission->id}}" class="inline-flex items-center">
-                                        <input class="bg-gray-200 rounded border-transparent focus:border-gray-700 focus:ring-1 focus:ring-offset-2 focus:ring-gray-500"
-                                         type="checkbox" name="permissions_{{ $permission->id }}" value="{{ $permission->id}}" wire:click.prevent = "togglePerm({{ $permission->id }})">
-                                         <span class="ml-2">{{ $permission->name }}</span>
-                                    </label>
-                                </li>
-                            @endforeach
-                            @foreach ($new_perms as $new)
-                                {{ $new }}
+                                    <div class="flex flex-row gap-1 align-middle">
+                                        @if (in_array($permission->id, $new_perms))
+                                            <div wire:click.prevent = "togglePerm({{ $permission->id }})">
+                                                <i title="Retirer cette permission"
+                                                    class="text-2xl text-gray-400 cursor-pointer hover:text-red-800 fa-solid fa-square-minus"></i>
+                                            </div>
+                                            <div class="p-2 font-bold">
+                                                {{ $permission->name }}
+                                            </div>
+                                        @else
+                                            <div wire:click.prevent = "togglePerm({{ $permission->id }})">
+                                                <i title="Ajouter cette permission"
+                                                    class="mt-1 text-2xl text-teal-800 cursor-pointer fa-solid fa-square-plus"></i>
+                                            </div>
+                                            <div class="p-2">
+                                                {{ $permission->name }}
+                                            </div>
+                                        @endif
+                                    </div>
+                               </li>
                             @endforeach
                         </div>
 
