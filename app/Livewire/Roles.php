@@ -31,6 +31,7 @@ class Roles extends Component
         $this->updateMode = true;
         $this->name = $role->name;
         $this->id = $role_id;
+        $this->new_perms = $role->permissions()->pluck('id')->toArray();
     }
 
     function update()
@@ -46,7 +47,8 @@ class Roles extends Component
     function save()
     {
         $this->validate();
-        Role::create(['name' => $this->name]);
+        $role = Role::create(['name' => $this->name]);
+        $role->permissions()->attach($this->new_perms);
         $this->raz();
     }
     function delete($role_id)
@@ -62,6 +64,7 @@ class Roles extends Component
         $this->roles = Role::all();
         $this->updateMode = false;
         $this->permissions = Permission::all();
+        $this->new_perms = [];
     }
 
     function togglePerm($permission_id)

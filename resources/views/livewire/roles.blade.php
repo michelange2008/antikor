@@ -22,7 +22,7 @@
 
                     </div>
 
-                    @foreach ($role->permissions as $permissions)
+                    @foreach ($role->permissions as $permission)
                         <div>
                             <p>{{ $permission->name }} </p>
                         </div>
@@ -39,7 +39,33 @@
                     <div x-show="updateMode" x-cloak>
                         <x-forms.input-text-save id="name" name="" placeholder="Modifier un rôle"
                             :model="'name'" />
-                        <div wire:click.prevent = "update">
+                            <div class="mt-4">
+                                <p class="font-bold">Liste des permissions</p>
+                                @foreach ($permissions as $permission)
+                                    <li class="px-2 list-none">
+                                        <div class="flex flex-row gap-1 align-middle">
+                                            @if (in_array($permission->id, $new_perms))
+                                                <div wire:click.prevent = "togglePerm({{ $permission->id }})">
+                                                    <i title="Retirer cette permission"
+                                                        class="text-2xl text-gray-400 cursor-pointer hover:text-red-800 fa-solid fa-square-minus"></i>
+                                                </div>
+                                                <div class="p-2 font-bold">
+                                                    {{ $permission->name }} <i class="text-teal-800 fa-solid fa-check"></i>
+                                                </div>
+                                            @else
+                                                <div wire:click.prevent = "togglePerm({{ $permission->id }})">
+                                                    <i title="Ajouter cette permission"
+                                                        class="mt-1 text-2xl text-gray-400 cursor-pointer hover:text-teal-800 fa-solid fa-square-plus"></i>
+                                                </div>
+                                                <div class="p-2">
+                                                    {{ $permission->name }}
+                                                </div>
+                                            @endif
+                                        </div>
+                                   </li>
+                                @endforeach
+                            </div>
+                            <div wire:click.prevent = "update">
                             <x-buttons.success-button>
                                 <i class="fa-solid fa-square-pen"></i> Mettre à jour
                             </x-buttons.success-button>
@@ -62,12 +88,12 @@
                                                     class="text-2xl text-gray-400 cursor-pointer hover:text-red-800 fa-solid fa-square-minus"></i>
                                             </div>
                                             <div class="p-2 font-bold">
-                                                {{ $permission->name }}
+                                                {{ $permission->name }} <i class="text-teal-800 fa-solid fa-check"></i>
                                             </div>
                                         @else
                                             <div wire:click.prevent = "togglePerm({{ $permission->id }})">
                                                 <i title="Ajouter cette permission"
-                                                    class="mt-1 text-2xl text-teal-800 cursor-pointer fa-solid fa-square-plus"></i>
+                                                    class="mt-1 text-2xl text-gray-400 cursor-pointer hover:text-teal-800 fa-solid fa-square-plus"></i>
                                             </div>
                                             <div class="p-2">
                                                 {{ $permission->name }}
