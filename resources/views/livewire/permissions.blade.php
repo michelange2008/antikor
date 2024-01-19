@@ -1,4 +1,4 @@
-<div x-data="{ updateMode: @entangle('updateMode') }">
+<div>
 
     <x-titres.titre icone="formations_light.svg">Permissions</x-titres.titre>
 
@@ -7,7 +7,9 @@
         <div class="basis-full">
             @foreach ($permissions as $permission)
                 <div class="flex flex-col p-6 my-3 bg-gray-300 shadow shadow-gray-800">
-                    <p>Nom: <span class="font-bold">{{ $permission->name }}</span></p>
+
+                    <p class="font-bold">{{ $permission->name }}</p>
+                    
                     <div class="flex flex-row gap-2 justify-start">
 
                         <div wire:click="edit({{ $permission->id }})">
@@ -21,37 +23,27 @@
                         </div>
 
                     </div>
+
+                    @foreach ($permission->roles as $role)
+                        <div>
+                            <p>{{ $role->name }} </p>
+                        </div>
+                    @endforeach
+
                 </div>
             @endforeach
         </div>
 
         <div class="basis-full">
-            <div class="flex flex-col p-4 my-3 bg-gray-300 shadow shadow-gray-800">
-                <p class="px-1 font-bold">Ajout ou modification d'un rôle</p>
-                <div class="-mt-4">
-                    <div x-show="updateMode" x-cloak>
-                        <x-forms.input-text-save id="name" name="" placeholder="Modifier un rôle"
-                            :model="'name'" />
-                        <div wire:click.prevent = "update">
-                            <x-buttons.success-button>
-                                <i class="fa-solid fa-square-pen"></i> Mettre à jour
-                            </x-buttons.success-button>
-                        </div>
-
-                    </div>
-                    {{-- Créer un nouveau rôle avec updateMode = false --}}
-                    <div x-show="!updateMode" x-cloak>
-                        <x-forms.input-text-save id="name" name="" placeholder="Saisir un nouveau rôle"
-                            :model="'name'" />
-                        <div wire:click.prevent = "save">
-                            <x-buttons.success-button>
-                                <i class="fa-solid fa-square-plus"></i> Créer
-                            </x-buttons.success-button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            @if ($updateMode)
+                <x-roles.create-or-edit updateOrCreateTitre="Modification d'une permission"
+                    placeholder="Modifier une permission" :items="$roles" :liste="$listeRoles" titre="Liste des rôles"
+                    bouton="Mettre à jour" fa="fa-square-pen" updateOrCreateMethod="update" />
+            @else
+                <x-roles.create-or-edit updateOrCreateTitre="Ajout d'une nouvelle permission"
+                    placeholder="Saisir un nouvelle permission" :items="$roles" :liste="$listeRoles"
+                    titre="Liste des rôles" bouton="Créer" fa="fa-square-plus" updateOrCreateMethod="create" />
+            @endif
         </div>
 
     </div>

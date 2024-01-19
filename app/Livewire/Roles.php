@@ -34,6 +34,12 @@ class Roles extends Component
         $this->listePerms = $role->permissions()->pluck('id')->toArray();
     }
 
+    function cancel()
+    {
+        $this->updateMode = false;
+        $this->listePerms = [];    
+    }
+
     function update()
     {
         $this->validate();
@@ -68,7 +74,7 @@ class Roles extends Component
         $this->listePerms = [];
     }
 
-    function togglePerm($permission_id)
+    function toggleListe($permission_id)
     {
         if (in_array($permission_id, $this->listePerms)) {
             $key = array_search($permission_id, $this->listePerms);
