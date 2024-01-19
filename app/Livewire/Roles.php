@@ -15,7 +15,7 @@ class Roles extends Component
     #[Rule('required', message: "Ce champs ne peut être vide")]
     public $name = '';
     public $permissions;
-    public $new_perms = [];
+    public $listePerms = [];
     
     public bool $updateMode = false;
 
@@ -31,7 +31,7 @@ class Roles extends Component
         $this->updateMode = true;
         $this->name = $role->name;
         $this->id = $role_id;
-        $this->new_perms = $role->permissions()->pluck('id')->toArray();
+        $this->listePerms = $role->permissions()->pluck('id')->toArray();
     }
 
     function update()
@@ -41,14 +41,15 @@ class Roles extends Component
         $role = Role::find($this->id);
         $role->name= $this->name;
         $role->save();
+        $role->permissions()->sync($this->listePerms);
         $this->raz();
     }
 
-    function save()
+    function create()
     {
         $this->validate();
         $role = Role::create(['name' => $this->name]);
-        $role->permissions()->attach($this->new_perms);
+        $role->permissions()->attach($this->listePerms);
         $this->raz();
     }
     function delete($role_id)
@@ -64,17 +65,17 @@ class Roles extends Component
         $this->roles = Role::all();
         $this->updateMode = false;
         $this->permissions = Permission::all();
-        $this->new_perms = [];
+        $this->listePerms = [];
     }
 
     function togglePerm($permission_id)
     {
-        if (in_array($permission_id, $this->new_perms)) {
-            $key = array_search($permission_id, $this->new_perms);
-            array_splice($this->new_perms, $key, 1);
+        if (in_array($permission_id, $this->listePerms)) {
+            $key = array_search($permission_id, $this->listePerms);
+            array_splice($this->listePerms, $key, 1);
         } else {
 
-            $this->new_perms[] = $permission_id;
+            $this->listePerms[] = $permission_id;
         }
 
     }

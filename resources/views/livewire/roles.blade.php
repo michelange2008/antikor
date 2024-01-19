@@ -33,87 +33,36 @@
         </div>
 
         <div class="basis-full">
-            <div class="flex flex-col p-4 my-3 bg-gray-300 shadow shadow-gray-800">
-                <p class="px-1 font-bold">Ajout ou modification d'un rôle</p>
-                <div class="-mt-4">
-                    <div x-show="updateMode" x-cloak>
-                        <x-forms.input-text-save id="name" name="" placeholder="Modifier un rôle"
-                            :model="'name'" />
-                            <div class="mt-4">
-                                <p class="font-bold">Liste des permissions</p>
-                                @foreach ($permissions as $permission)
-                                    <li class="px-2 list-none">
-                                        <div class="flex flex-row gap-1 align-middle">
-                                            @if (in_array($permission->id, $new_perms))
-                                                <div wire:click.prevent = "togglePerm({{ $permission->id }})">
-                                                    <i title="Retirer cette permission"
-                                                        class="text-2xl text-gray-400 cursor-pointer hover:text-red-800 fa-solid fa-square-minus"></i>
-                                                </div>
-                                                <div class="p-2 font-bold">
-                                                    {{ $permission->name }} <i class="text-teal-800 fa-solid fa-check"></i>
-                                                </div>
-                                            @else
-                                                <div wire:click.prevent = "togglePerm({{ $permission->id }})">
-                                                    <i title="Ajouter cette permission"
-                                                        class="mt-1 text-2xl text-gray-400 cursor-pointer hover:text-teal-800 fa-solid fa-square-plus"></i>
-                                                </div>
-                                                <div class="p-2">
-                                                    {{ $permission->name }}
-                                                </div>
-                                            @endif
-                                        </div>
-                                   </li>
-                                @endforeach
-                            </div>
+            <div x-show="updateMode" x-cloak>
+                {{-- <div class="flex flex-col p-4 my-3 bg-gray-300 shadow shadow-gray-800">
+                    <p class="px-1 font-bold"></p>
+                    <div class="-mt-4">
+                        <div>
+                            <x-forms.input-text-save id="name" name="" placeholder="Modifier un rôle"
+                                :model="'name'" />
+
+                            <x-roles.toggle-perm-role :permissions="$permissions" :listePerms="$listePerms"
+                                titre="Liste des permissions" />
+
                             <div wire:click.prevent = "update">
-                            <x-buttons.success-button>
-                                <i class="fa-solid fa-square-pen"></i> Mettre à jour
-                            </x-buttons.success-button>
-                        </div>
+                                <x-buttons.success-button>
+                                    <i class="fa-solid fa-square-pen"></i> Mettre à jour
+                                </x-buttons.success-button>
+                            </div>
 
-                    </div>
-                    {{-- Créer un nouveau rôle avec updateMode = false --}}
-                    <div x-show="!updateMode" x-cloak>
-                        <x-forms.input-text-save id="name" name="" placeholder="Saisir un nouveau rôle"
-                            :model="'name'" />
-
-                        <div class="mt-4">
-                            <p class="font-bold">Liste des permissions</p>
-                            @foreach ($permissions as $permission)
-                                <li class="px-2 list-none">
-                                    <div class="flex flex-row gap-1 align-middle">
-                                        @if (in_array($permission->id, $new_perms))
-                                            <div wire:click.prevent = "togglePerm({{ $permission->id }})">
-                                                <i title="Retirer cette permission"
-                                                    class="text-2xl text-gray-400 cursor-pointer hover:text-red-800 fa-solid fa-square-minus"></i>
-                                            </div>
-                                            <div class="p-2 font-bold">
-                                                {{ $permission->name }} <i class="text-teal-800 fa-solid fa-check"></i>
-                                            </div>
-                                        @else
-                                            <div wire:click.prevent = "togglePerm({{ $permission->id }})">
-                                                <i title="Ajouter cette permission"
-                                                    class="mt-1 text-2xl text-gray-400 cursor-pointer hover:text-teal-800 fa-solid fa-square-plus"></i>
-                                            </div>
-                                            <div class="p-2">
-                                                {{ $permission->name }}
-                                            </div>
-                                        @endif
-                                    </div>
-                               </li>
-                            @endforeach
-                        </div>
-
-                        <div wire:click.prevent = "save">
-                            <x-buttons.success-button>
-                                <i class="fa-solid fa-square-plus"></i> Créer
-                            </x-buttons.success-button>
                         </div>
                     </div>
-                </div>
-
+                </div> --}}
+                {{-- <x-roles.create-or-edit updateOrCreateTitre="Modification d'un rôle" placeholder="Modifier un rôle"
+                    :permissions="$permissions" :listePerms="$listePerms" titre="Liste des permissions" bouton="Mettre à jour"
+                    fa="fa-square-pen" updateOrCreateMethod="update" /> --}}
+            </div>
+            {{-- Créer un nouveau rôle avec updateMode = false --}}
+            <div x-show="!updateMode" x-cloak>
+                <x-roles.create-or-edit updateOrCreateTitre="Ajout d'un nouveau rôle"
+                    placeholder="Saisir un nouveau rôle" :permissions="$permissions" :listePerms="$listePerms"
+                    titre="Liste des permissions" bouton="Créer" fa="fa-square-plus" updateOrCreateMethod="create" />
             </div>
         </div>
-
     </div>
 </div>
