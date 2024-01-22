@@ -47,7 +47,8 @@ class Permissions extends Component
         $permission = Permission::find($this->id);
         $permission->name = $this->name;
         $permission->save();
-        $permission->roles()->sync($this->listeRoles);
+        $roles = Role::find($this->listeRoles);
+        $permission->syncRoles($roles);
         $this->raz();
     }
 
@@ -55,7 +56,8 @@ class Permissions extends Component
     {
         $this->validate();
         $permission = Permission::create(['name' => $this->name]);
-        $permission->roles()->attach($this->listeRoles);
+        $roles = ROle::find($this->listeRoles);
+        $permission->assignRole($roles);
         $this->raz();
     }
     function delete($permission_id)

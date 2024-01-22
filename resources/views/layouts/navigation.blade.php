@@ -15,7 +15,7 @@
                     {{ ucfirst(__('menu.home')) }}
                 </x-nav-link>
 
-                <x-dropdown-perso :haut="'aromaliste'" :bas="[
+                <x-dropdown-perso id='aroma' :haut="'aromaliste'" :bas="[
                     ['name' => 'aromaliste', 'route' => 'home'],
                     ['name' => 'produits', 'route' => 'produits.index'],
                     ['name' => 'preps', 'route' => 'preparations.index'],
@@ -33,6 +33,12 @@
                 <x-nav-link :href="config('links.nextcloud')">
                     Nuage
                 </x-nav-link>
+
+                <x-dropdown-perso id='admin' :haut="'admin'" :bas="[
+                    ['name' => 'users', 'route' => 'users'],
+                    ['name' => 'roles', 'route' => 'roles'],
+                    ['name' => 'permissions', 'route' => 'permissions'],
+                ]"></x-dropdown-perso>
 
             </div>
         </div>

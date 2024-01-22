@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\User;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
 use Spatie\Permission\Models\Permission;
@@ -16,6 +17,7 @@ class Roles extends Component
     public $name = '';
     public $permissions;
     public $listePerms = [];
+    public $users;
     
     public bool $updateMode = false;
 
@@ -23,6 +25,7 @@ class Roles extends Component
     {
         $this->roles = Role::all();
         $this->permissions = Permission::all();
+        $this->users = User::all();
     }
 
     function edit($role_id)
@@ -37,7 +40,8 @@ class Roles extends Component
     function cancel()
     {
         $this->updateMode = false;
-        $this->listePerms = [];    
+        $this->listePerms = [];
+        $this->name = '';    
     }
 
     function update()
@@ -47,7 +51,8 @@ class Roles extends Component
         $role = Role::find($this->id);
         $role->name= $this->name;
         $role->save();
-        $role->permissions()->sync($this->listePerms);
+        $permissions = Permission::find($this->listePerms);
+        $role->syncPermissions($permissions);
         $this->raz();
     }
 
@@ -55,7 +60,8 @@ class Roles extends Component
     {
         $this->validate();
         $role = Role::create(['name' => $this->name]);
-        $role->permissions()->attach($this->listePerms);
+        $permissions = Permission::find($this->listePerms);
+        $role->givePermissionTo($permissions);
         $this->raz();
     }
     function delete($role_id)

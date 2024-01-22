@@ -9,8 +9,8 @@
             <x-forms.input-text-save id="name" name="" placeholder="{{ $placeholder}}"
                 :model="'name'" />
 
-            <x-roles.toggle-liste-role :items="$items" :liste="$liste"
-                titre="Liste des permissions" />
+            <x-toggle-liste :items="$items" :liste="$liste"
+                titre="{{ $titre }}" />
 
             <div wire:click.prevent = "{{ $updateOrCreateMethod }}">
 

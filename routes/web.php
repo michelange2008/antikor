@@ -21,6 +21,8 @@ use App\Livewire\ProgrammeSoustitreEdit;
 use App\Livewire\Roles;
 use App\Livewire\ShowUsers;
 use App\Livewire\Permissions;
+use App\Livewire\Users;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,6 +63,7 @@ Route::prefix('/intranet')->middleware('auth', 'verified')->group(function () {
     
     Route::resource('/produits', PhytoproduitController::class);
 
+    Route::get('/utilisateurs', Users::class)->name('users');
     Route::get('/roles', Roles::class)->name('roles');
     Route::get('/permissions', Permissions::class)->name('permissions');
 });

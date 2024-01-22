@@ -2,13 +2,13 @@
 
     <x-titres.titre icone="formations_light.svg">Permissions</x-titres.titre>
 
-    <div class="flex flex-col gap-3 md:gap-12 md:flex-row">
+    <div class="flex flex-col gap-2 md:gap-6 md:flex-row">
 
         <div class="basis-full">
             @foreach ($permissions as $permission)
-                <div class="flex flex-col p-6 my-3 bg-gray-300 shadow shadow-gray-800">
+                <div class="flex flex-col px-6 py-3 my-3 bg-gray-300 shadow shadow-gray-800">
 
-                    <p class="font-bold">{{ $permission->name }}</p>
+                    <p class="md:text-xl">{{ $permission->name }}</p>
                     
                     <div class="flex flex-row gap-2 justify-start">
 
@@ -23,10 +23,10 @@
                         </div>
 
                     </div>
-
+                    <p class="italic text-gray-700">Rôles associés:</p>
                     @foreach ($permission->roles as $role)
                         <div>
-                            <p>{{ $role->name }} </p>
+                            <p class="px-2 md:text-lg">{{ $role->name }} </p>
                         </div>
                     @endforeach
 

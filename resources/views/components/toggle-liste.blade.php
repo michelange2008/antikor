@@ -1,3 +1,10 @@
+{{-- Composant destiné à affiché une liste d'items ($items) présents ou non dans une liste ($liste)
+et qui on clique dessus appelle la fonction toggleListe du composant livewire principal
+les parametres à fournir sont donc
+    - $items : collection de models
+    - $liste : array avec des id du model de $items
+    - titre : string titre de la liste
+ --}}
 <div class="mt-4">
     <p class="font-bold">{{ $titre }}</p>
     @foreach ($items as $item)
