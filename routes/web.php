@@ -15,6 +15,7 @@ use App\Livewire\Formations\FormationCreate;
 use App\Livewire\Formations\FormationEdit;
 use App\Livewire\Formations\FormationIndex;
 use App\Livewire\Formations\FormationShow;
+use App\Livewire\Oligos;
 use App\Livewire\ProgrammeFormEdit;
 use App\Livewire\ProgrammeForms;
 use App\Livewire\ProgrammeSoustitreEdit;
@@ -41,6 +42,7 @@ Route::get('/Formations', [FrontController::class, 'formations'])->name('front.f
 Route::get('/Formations/{formation}', [FrontController::class, 'formationShow'])->name('front.formationShow');
 Route::get('/Parasitisme', [FrontController::class, 'parasitisme'])->name('front.parasitisme');
 Route::get('/Reproduction', [FrontController::class, 'reproduction'])->name('front.reproduction');
+Route::get('/Oligos', Oligos::class)->name('oligos');
 
 
 Route::get('/dashboard', function () {
@@ -62,10 +64,12 @@ Route::prefix('/intranet')->middleware('auth', 'verified')->group(function () {
     Route::post('/preparation/composition/{preparation}', [PhytoprepController::class, 'update'])->name('composition.update');
     
     Route::resource('/produits', PhytoproduitController::class);
+    Route::group(['middleware' => ['role:admin']], function () {
+        Route::get('/utilisateurs', Users::class)->name('users');
+        Route::get('/roles', Roles::class)->name('roles');
+        Route::get('/permissions', Permissions::class)->name('permissions');
+    });
 
-    Route::get('/utilisateurs', Users::class)->name('users');
-    Route::get('/roles', Roles::class)->name('roles');
-    Route::get('/permissions', Permissions::class)->name('permissions');
 });
 
 Route::middleware('auth')->group(function () {

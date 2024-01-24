@@ -14,14 +14,14 @@
                 <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                     {{ ucfirst(__('menu.home')) }}
                 </x-nav-link>
-
-                <x-dropdown-perso id='aroma' :haut="'aromaliste'" :bas="[
-                    ['name' => 'aromaliste', 'route' => 'home'],
-                    ['name' => 'produits', 'route' => 'produits.index'],
-                    ['name' => 'preps', 'route' => 'preparations.index'],
-                    ['name' => 'aromaform', 'route' => 'home'],
-                ]"></x-dropdown-perso>
-
+                @role('antikor')
+                    <x-dropdown-perso id='aroma' :haut="'aromaliste'" :bas="[
+                        ['name' => 'aromaliste', 'route' => 'home'],
+                        ['name' => 'produits', 'route' => 'produits.index'],
+                        ['name' => 'preps', 'route' => 'preparations.index'],
+                        ['name' => 'aromaform', 'route' => 'home'],
+                    ]"></x-dropdown-perso>
+                @endrole
                 <x-nav-link :href="route('visites')" :active="request()->routeIs('visites')">
                     {{ ucfirst(__('menu.visites')) }}
                 </x-nav-link>
@@ -33,12 +33,14 @@
                 <x-nav-link :href="config('links.nextcloud')">
                     Nuage
                 </x-nav-link>
-
-                <x-dropdown-perso id='admin' :haut="'admin'" :bas="[
-                    ['name' => 'users', 'route' => 'users'],
-                    ['name' => 'roles', 'route' => 'roles'],
-                    ['name' => 'permissions', 'route' => 'permissions'],
-                ]"></x-dropdown-perso>
+                @role('admin')
+                    <x-dropdown-perso id='admin' :haut="'admin'" :bas="[
+                        ['name' => 'users', 'route' => 'users'],
+                        ['name' => 'roles', 'route' => 'roles'],
+                        ['name' => 'permissions', 'route' => 'permissions'],
+                    ]"></x-dropdown-perso>
+                    
+                @endrole
 
             </div>
         </div>
@@ -49,7 +51,7 @@
                 <x-slot name="trigger">
                     <button
                         class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
-                        <div>{{ Auth::user()->name }}</div>
+                        <div>{{ Auth::user()->name ?? '' }}</div>
 
                         <div class="ml-1">
                             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -136,8 +138,8 @@
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
             <div class="px-4">
-                <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name ?? '' }}</div>
+                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email ?? '' }}</div>
             </div>
 
             <div class="mt-3 space-y-1">
