@@ -109,7 +109,15 @@
                                 step="0.1" wire:model="{{ $oligo }}" class="text-center w-32"
                                 wire:change.debounce = "maj('{{ $oligo }}')">
                         </td>
-                        <td class="py-3 px-2 border border-gray-800 text-center">
+                        <td class="py-3 px-2 border border-gray-800 text-center
+                        @if(($mineral[$oligo] * $quantite / 1000) < 0.8*$besoins[$oligo]*$msi) bg-red-300
+                        @elseif (($mineral[$oligo] * $quantite / 1000) > 1.2*$besoins[$oligo]*$msi)
+                            @if ($espece == 'oa' || $espece == 'ol') bg-red-800 text-white
+                            @else bg-amber-300
+                            @endif
+                        @else bg-teal-300
+                        @endif
+                        ">
                             {{ round(($mineral[$oligo] * $quantite) / 1000, 2) }}
                         </td>
 
