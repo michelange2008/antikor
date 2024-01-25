@@ -104,7 +104,7 @@
                             {{ ucfirst($oligoelement) }}
                             ({{ $besoins[$oligo] * $msi }})
                         </td>
-                        <td class="py-3 px-2 border border-gray-800 text-center">
+                        <td class="py-3 w-24 px-2 border border-gray-800 text-center">
                             <input id="{{ $oligo }}" name="{{ $oligo }}" type="number" min="0"
                                 step="0.1" wire:model="{{ $oligo }}" class="text-center"
                                 style="appearance: textfield" wire:change.debounce = "maj('{{ $oligo }}')">
