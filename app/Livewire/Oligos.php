@@ -107,6 +107,11 @@ class Oligos extends Component
         $this->espece = '';
         $this->stade = '';
     }
+
+    function essai()
+     {
+        dd('coucou');    
+    }
     public function render()
     {
         return view('livewire.oligos');
