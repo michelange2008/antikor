@@ -1,7 +1,10 @@
 <div>
 
     <h1 class="h2 mt-3">Que vaut votre complément minéral ?</h1>
-<button wire:click = "essai">BOUTON</button>
+    <form action="">
+
+        <button wire:click = "essai">BOUTON</button>
+    </form>
     <div class="flex flex-col gap-2 lg:gap-4 lg:flex-row justify-around">
 
         <div id="espece" class="lg:basis-1/2 my-3 lg:my-1">
