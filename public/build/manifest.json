@@ -32,12 +32,12 @@
     "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-v4compatibility.woff2"
   },
   "resources/css/app.css": {
-    "file": "assets/app-db4ca8fd.css",
+    "file": "assets/app-29ab17e7.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
   "resources/fonts/OFL.txt": {
-    "file": "assets/OFL-aeccbb3a.txt",
+    "file": "assets/OFL-8ce06420.txt",
     "src": "resources/fonts/OFL.txt"
   },
   "resources/fonts/SourceSansPro-Black.ttf": {
@@ -89,7 +89,7 @@
     "src": "resources/fonts/SourceSansPro-SemiBoldItalic.ttf"
   },
   "resources/js/app.js": {
-    "file": "assets/app-9fc36ed5.js",
+    "file": "assets/app-5ec31719.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }
