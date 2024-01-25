@@ -11,7 +11,7 @@ class Oligos extends Component
 {
 
     use MineralManager;
-
+    public $nombre = 0;
     public $mineral;
     public $espece;
     public $stade;
@@ -110,7 +110,7 @@ class Oligos extends Component
 
     function essai()
      {
-        dd('coucou');    
+        $this->nombre = ($this->nombre == 0) ? 1 : 0;   
     }
     public function render()
     {
