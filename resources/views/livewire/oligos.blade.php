@@ -90,7 +90,7 @@
                         Eléments (besoins<span class="hidden md:inline"> en ppm</span>)
                     </td>
                     <td class="py-3 px-2 border-gray-200 border text-center">
-                        Composition du minéral
+                        Minéral
                     </td>
                     <td class="py-3 px-2 border-gray-200 border text-center">
                         Apports pour {{ $quantite }} g/j
