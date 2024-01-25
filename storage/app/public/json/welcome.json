@@ -20,9 +20,9 @@
         "url" : "front.reproduction"
     },
     "ave" : {
-        "img" : "aver.jpg",
-        "texte" : "AVER",
-        "url" : "front.index"
+        "img" : "mineraux.jpg",
+        "texte" : "Oligo-éléments et vitamines",
+        "url" : "oligos"
     },
     "ant" : {
         "img" : "antikor.jpg",
