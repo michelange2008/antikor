@@ -15,7 +15,7 @@ trait MineralManager
         $oligo = $this->set($name, $value);
     }
 
-    function besoins(float $zinc = 0, float $cuivre = 0, 
+    function setMineral(float $zinc = 0, float $cuivre = 0, 
         float $iode = 0, float $selenium = 0, float $cobalt = 0, float $manganese = 0, 
         float $vitA = 0, float $vitD3 = 0, float $vitE = 0): Collection
     {
@@ -34,17 +34,17 @@ trait MineralManager
 
     function getBesoinsCp(): Collection
     {
-        return $this->besoins(50, 15, 0.7, 0.15, 0.2, 50, 0, 0, 0 );
+        return $this->setMineral(50, 15, 0.7, 0.15, 0.2, 50, 0, 0, 0 );
     }
 
     function getBesoinsOa(): Collection
     {
-        return $this->besoins(50, 10, 0.7, 0.15, 0.2, 50, 0, 0, 0 );
+        return $this->setMineral(50, 10, 0.7, 0.15, 0.2, 50, 0, 0, 0 );
     }
 
     function getBesoinsOl(): Collection
     {
-        return $this->besoins(50, 10, 0.7, 0.15, 0.2, 50, 0, 0, 0 );
+        return $this->setMineral(50, 10, 0.7, 0.15, 0.2, 50, 0, 0, 0 );
     }
 
     function getListeOligos(): Collection

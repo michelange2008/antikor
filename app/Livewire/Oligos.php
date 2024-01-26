@@ -2,15 +2,14 @@
 
 namespace App\Livewire;
 
-use App\Models\Mineral;
 use Livewire\Component;
 use App\Traits\MineralManager;
-use Symfony\Component\ErrorHandler\Error\ClassNotFoundError;
 
 class Oligos extends Component
 {
 
     use MineralManager;
+
     public $nombre = 0;
     public $mineral;
     public $espece;
@@ -19,13 +18,17 @@ class Oligos extends Component
     public $listeOligos;
     public $besoins;
     public $msi;
+    public $bilan;
 
-    public const MSICPGE = 2;
-    public const MSICPLA = 3;
-    public const MSIOAGE = 2;
-    public const MSIOALA = 3;
-    public const MSIOLGE = 2;
-    public const MSIOLLA = 3;
+    public $msiCpGe = 2;
+    public $msiCpLa = 3;
+    public $msiOaGe = 2;
+    public $msiOaLa = 3;
+    public $msiOlGe = 2;
+    public $msiOlLa = 3;
+    public $toxiciteCuivre = 12;
+    public $tolerance = 0.2;
+
     public $zinc;
     public $cuivre;
     public $iode;
@@ -40,10 +43,11 @@ class Oligos extends Component
     {
         $this->espece = 'cp';
         $this->stade = 'ge';
-        $this->msi = self::MSICPGE;
+        $this->msi = $this->msiCpGe;
         $this->listeOligos = $this->getListeOligos();
         $this->besoins = $this->getBesoinsCp();
-        $this->mineral = $this->besoins();
+        $this->mineral = $this->setMineral();
+        $this->bilan = $this->setMineral();
 
     }
     function toggle($parametre, $valeur)
@@ -57,6 +61,7 @@ class Oligos extends Component
             # code...
         }
         $this->setMSI();
+        $this->calculBilan();
     }
 
     function setBesoins($espece): void
@@ -84,22 +89,50 @@ class Oligos extends Component
     function setMSI() : void 
     {
         if ($this->espece == 'cp') {
-            $this->msi = ($this->stade == 'ge') ? self::MSICPGE : self::MSICPLA ;
+            $this->msi = ($this->stade == 'ge') ? $this->msiCpGe : $this->msiCpLa ;
         } elseif ($this->espece == 'oa') {
-            $this->msi = ($this->stade == 'ge') ? self::MSIOAGE : self::MSIOALA ;
+            $this->msi = ($this->stade == 'ge') ? $this->msiOaGe : $this->msiOaLa ;
         } elseif ($this->espece == 'ol') {
-            $this->msi = ($this->stade == 'ge') ? self::MSIOLGE : self::MSIOLLA ;
+            $this->msi = ($this->stade == 'ge') ? $this->msiOlGe : $this->msiOlLa ;
         } else {
             $this->msi = 0;
         }
     }
 
+    function calculBilan() : void {
+        foreach ($this->listeOligos as $oligo => $oligoelement) {
+            $apport = $this->mineral[$oligo] * $this->quantite / 1000;
+            $besoin = $this->besoins[$oligo] * $this->msi;
+
+            if (($this->espece == 'oa' || $this->espece == 'ol') && $oligo == 'cuivre') {
+                if ($apport / $this->msi > $this->toxiciteCuivre) {
+                    $this->bilan[$oligo] = 'death';
+                } elseif ( $apport < ((1 - $this->tolerance) * $besoin) ) {
+                    $this->bilan[$oligo] = 'danger';
+                } else {
+                    $this->bilan[$oligo] = 'success';
+                }
+            }
+            else {
+                if ( $apport > ( (1 + $this->tolerance) * $besoin) ) {
+                    $this->bilan[$oligo] = 'warning';
+                } elseif ( $apport < ( (1 - $this->tolerance) * $besoin) ) {
+                    $this->bilan[$oligo] = 'danger';
+                } else {
+                    $this->bilan[$oligo] = 'success';
+                }
+            }
+        }
+    }
+
     function maj($oligo) : void {
         $this->mineral->put($oligo, $this->$oligo);
+        $this->calculBilan();
     }
 
     function majQtt()
     {
+        $this->calculBilan();
     }
 
     function raz()
