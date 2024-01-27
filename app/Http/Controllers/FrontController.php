@@ -71,4 +71,9 @@ class FrontController extends Controller
         $reproduction = config('links.reproduction');
         return redirect()->to($reproduction);
     }
+
+    function avertissement()
+    {
+        return view('avertissement')   ; 
+    }
 }

@@ -1,8 +1,13 @@
 <div>
 
     <h1 class="mt-3 h2">Que vaut votre complément minéral ?</h1>
-
-    <div class="flex flex-col lg:flex-row lg:gap-5">
+    <a href="{{ route('oligos.avertissement')}}">
+        <p class="mx-2 text-red-900">
+            <i class="fa-solid fa-square-arrow-up-right"></i>
+            Avertissement à lire avant d'utiliser l'outil ci-dessous
+        </p>
+    </a>
+    <div class="flex flex-col mt-2 lg:flex-row lg:gap-5">
 
         <div class="flex flex-col gap-2 my-3 lg:flex-auto">
 
@@ -84,6 +89,14 @@
                         animal</span>
                 </div>
             </div>
+            @role('antikor')
+            <div class="hidden lg:block">
+                <a href="{{ route('oligos.parametres')}}">
+                    <x-buttons.success-button><i class="mr-1 fa-solid fa-gear"></i>Paramètres</x-buttons.success-button>
+                </a>
+            </div>
+            @endrole
+        
         </div>
 
 
@@ -152,4 +165,11 @@
             </div>
         </div>
     </div>
+    @role('antikor')
+    <div class="block lg:hidden">
+        <a href="{{ route('oligos.parametres')}}">
+            <x-buttons.success-button><i class="mr-1 fa-solid fa-gear"></i>Paramètres</x-buttons.success-button>
+        </a>
+    </div>
+    @endrole
 </div>
