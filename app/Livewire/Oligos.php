@@ -69,15 +69,15 @@ class Oligos extends Component
             } else {
                 if ($apport > $marge_haute ) {
 
-                    $this->bilan[$oligo] = 'warning';
+                    $this->bilan[$oligo] = 'exces';
 
                 } elseif ($apport < $marge_basse ) {
 
-                    $this->bilan[$oligo] = 'danger';
+                    $this->bilan[$oligo] = 'carence';
 
                 } else {
 
-                    $this->bilan[$oligo] = 'apport-correct';
+                    $this->bilan[$oligo] = 'equilibre';
 
                 }
             }

@@ -31,16 +31,16 @@
         @apply block mt-1 w-full bg-gray-200 border-transparent focus:border-gray-500 
         focus:bg-white focus:ring-0
     }
-    .apport-correct {
+    .equilibre {
         @apply bg-teal-500 font-bold
     }
     .toxicite {
         @apply bg-red-800 text-white
     }
-    .danger {
+    .carence {
         @apply bg-red-300
     }
-    .warning {
+    .exces {
         @apply bg-amber-300
     }
 }
