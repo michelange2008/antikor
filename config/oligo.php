@@ -24,9 +24,9 @@ return [
             'selenium'  =>  0.15,
             'cobalt'    =>  0.2,
             'manganese' =>  50,
-            'vitA'      =>  500000,
-            'vitD3'     =>  25000,
-            'vitE'      =>  2500,
+            'vitA'      =>  5000,
+            'vitD3'     =>  2500,
+            'vitE'      =>  250,
     
         ],
         'ov_lait' => [
@@ -36,9 +36,9 @@ return [
             'selenium'  =>  0.15,
             'cobalt'    =>  0.2,
             'manganese' =>  50,
-            'vitA'      =>  500000,
-            'vitD3'     =>  25000,
-            'vitE'      =>  2500,
+            'vitA'      =>  5000,
+            'vitD3'     =>  2500,
+            'vitE'      =>  250,
         ],
         'ov_all' => [
             'zinc'      =>  50,
@@ -47,9 +47,9 @@ return [
             'selenium'  =>  0.15,
             'cobalt'    =>  0.2,
             'manganese' =>  50,
-            'vitA'      =>  500000,
-            'vitD3'     =>  25000,
-            'vitE'      =>  2500,
+            'vitA'      =>  5000,
+            'vitD3'     =>  2500,
+            'vitE'      =>  250,
         ],
     ],
     /**
