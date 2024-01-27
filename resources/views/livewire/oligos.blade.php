@@ -120,9 +120,13 @@
                             </td>
                             <td class="py-3 px-2 border border-gray-800 text-center {{ $bilan[$oligo] }}">
                                 @if ($bilan[$oligo] == 'toxicite')
-                                <i class="fa-solid fa-skull text-white"></i>
+                                    <i class="fa-solid fa-skull text-white"></i>
                                 @endif
+                                @if ($mineral[$oligo] == 0)
+                                    -
+                                @else
                                 {{ round(($mineral[$oligo] * $quantite) / 1000, 2) }}
+                                @endif
                             </td>
 
                         </tr>
