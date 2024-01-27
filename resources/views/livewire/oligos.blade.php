@@ -119,6 +119,9 @@
                                     wire:change.debounce = "majMineral()">
                             </td>
                             <td class="py-3 px-2 border border-gray-800 text-center {{ $bilan[$oligo] }}">
+                                @if ($bilan[$oligo] == 'toxicite')
+                                <i class="fa-solid fa-skull text-white"></i>
+                                @endif
                                 {{ round(($mineral[$oligo] * $quantite) / 1000, 2) }}
                             </td>
 
@@ -126,7 +129,7 @@
                     @endforeach
                 </tbody>
             </table>
-            <div class="border-2 bg-gray-200 my-2 px-3 py-5 flex flex-row gap-4">
+            <div class="border-2 bg-gray-200 my-2 px-3 py-5 flex flex-row gap-4 justify-around">
                 <div class="flex flex-row gap-1">
                     <div class=" w-5 h-5 equilibre"></div>
                     Equilibre
