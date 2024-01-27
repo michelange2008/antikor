@@ -63,7 +63,7 @@ class Oligos extends Component
             
             // Test de la toxicité
             if ($apport >= $seuil_toxicite * $this->msi) {
-                $this->bilan[$oligo] = 'death';
+                $this->bilan[$oligo] = 'toxicite';
 
             // Test des niveaux d'apport
             } else {
@@ -77,7 +77,7 @@ class Oligos extends Component
 
                 } else {
 
-                    $this->bilan[$oligo] = 'success';
+                    $this->bilan[$oligo] = 'apport-correct';
 
                 }
             }

@@ -126,6 +126,24 @@
                     @endforeach
                 </tbody>
             </table>
+            <div class="border-2 bg-gray-200 my-2 px-3 py-5 flex flex-row gap-4">
+                <div class="flex flex-row gap-1">
+                    <div class=" w-5 h-5 apport-correct"></div>
+                    Apports corrects
+                </div>
+                <div class="flex flex-row gap-1">
+                    <div class=" w-5 h-5 danger"></div>
+                    Carence
+                </div>
+                <div class="flex flex-row gap-1">
+                    <div class=" w-5 h-5 warning"></div>
+                    Excès
+                </div>
+                <div class="flex flex-row gap-1">
+                    <div class=" w-5 h-5 toxicite"></div>
+                    Toxique
+                </div>
+            </div>
         </div>
     </div>
 </div>
