@@ -3,11 +3,9 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use Illuminate\Support\Facades\Config;
 
 class Oligos extends Component
 {
-
     public string $atelier;
     public string $stade;
     public array $mineral;
@@ -21,17 +19,14 @@ class Oligos extends Component
 
     function mount()
     {
-        $this->listeOligos = Config::get('oligo.listeOligos'); 
+        $this->listeOligos = config('oligo.listeOligos'); 
 
-        $this->quantite = Config::get('oligo.init.quantite'); // Quantité de minéral distribué intial
-        $this->atelier = Config::get('oligo.init.atelier'); // Atelier initial
-        $this->stade = Config::get('oligo.init.stade'); // Stade initial
-        // $this->msi = Config::get('oligo.msi.' . $this->atelier . '.' . $this->stade); // msi ingérée en fonction de l'espèce et du stade
+        $this->quantite = config('oligo.init.quantite'); // Quantité de minéral distribué initial
+        $this->atelier = config('oligo.init.atelier'); // Atelier initial
+        $this->stade = config('oligo.init.stade'); // Stade initial
         
-        $this->mineral = Config::get('oligo.init.mineral');
-        $this->bilan = Config::get('oligo.init.mineral');
-        // $this->setBesoins();
-        // $this->calculBilan();
+        $this->mineral = config('oligo.init.mineral');
+        $this->bilan = config('oligo.init.mineral');
         $this->maj();
     }
     function toggle($parametre, $valeur)
@@ -42,12 +37,12 @@ class Oligos extends Component
 
     function setBesoins(): void
     {
-        $this->besoins = Config::get('oligo.besoins.' . $this->atelier);
+        $this->besoins = config('oligo.besoins.' . $this->atelier);
     }
 
     function setMSI(): void
     {
-        $this->msi = Config::get('oligo.msi.' . $this->atelier . '.' . $this->stade);
+        $this->msi = config('oligo.msi.' . $this->atelier . '.' . $this->stade);
     }
 
     function calculBilan(): void
@@ -57,9 +52,9 @@ class Oligos extends Component
             $this->mineral[$oligo] = ($this->mineral[$oligo] == null) ? 0 : $this->mineral[$oligo];
             $apport = $this->mineral[$oligo] * $this->quantite / 1000;
             $besoin = $this->besoins[$oligo] * $this->msi;
-            $seuil_toxicite = Config::get('oligo.tox.' . $this->getEspece() . '.' . $oligo);
-            $marge_haute =  (1 + Config::get('oligo.tolerance')) * $besoin;
-            $marge_basse = (1 - Config::get('oligo.tolerance')) * $besoin;
+            $seuil_toxicite = config('oligo.tox.' . $this->getEspece() . '.' . $oligo);
+            $marge_haute =  (1 + config('oligo.tolerance')) * $besoin;
+            $marge_basse = (1 - config('oligo.tolerance')) * $besoin;
             
             // Test de la toxicité
             if ($apport >= $seuil_toxicite * $this->msi) {
