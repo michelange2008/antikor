@@ -57,10 +57,6 @@
 
     <hr class="border-t-8">
     <div class="my-5">
-        <x-buttons.success-button>
-            <a href="{{ route('formations.show', $formation) }}">
-                <i class="fa-solid fa-angles-left"></i> Retour
-            </a>
-        </x-buttons.success-button>
+        <x-buttons.route-success-button :route="route('formations.show', $formation)" fa="angles-left">Retour</x-buttons.route-success-button>
     </div>
 </div>

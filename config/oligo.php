@@ -59,16 +59,16 @@ return [
 
     'msi' => [
         'cp_lait' => [
-            'ge' => 2,
-            'la' => 3,
+            'ge' => '2',
+            'la' => '3',
         ],
         'ov_lait' => [
-            'ge' => 2,
-            'la' => 3,
+            'ge' => '2',
+            'la' => '3',
         ],
         'ov_all' => [
-            'ge' => 2,
-            'la' => 3,
+            'ge' => '2',
+            'la' => '3',
         ],
     ],
 
@@ -116,8 +116,8 @@ return [
      */
 
     'init' => [
-        'quantite' => '13',
-        'atelier' => 'ov_lait',
+        'quantite' => '10',
+        'atelier' => 'cp_lait',
         'stade' => 'ge',
         'mineral' => [
             'zinc' => 0,

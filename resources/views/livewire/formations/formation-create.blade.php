@@ -56,9 +56,7 @@
         </div>
 
         <x-buttons.success-button>Enregistrer et continuer</x-buttons.success-button>
-        <a href="{{ route('formations.index') }}">
-            <x-buttons.secondary-button>Retour</x-buttons.secondary-button>
-        </a>
     </form>
+    <x-buttons.route-neutre-button :route="route('formations.index')" fa="arrow-rotate-left">Retour</x-buttons.route-neutre-button>
 
 </div>

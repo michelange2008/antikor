@@ -84,7 +84,5 @@
         </p>
 
     </div>
-    <a href="{{ route('oligos.outil') }}">
-        <x-buttons.success-button><i class="mr-1 fa-solid fa-calculator"></i>Retour à l'outil</x-buttons.success-button>
-    </a>
+        <x-buttons.route-success-button :route="route('oligos.outil')" fa="calculator" >Retour à l'outil</x-buttons.route-success-button>
 </x-app-layout>

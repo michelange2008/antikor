@@ -11,6 +11,7 @@ class OligosParametres extends Component
     public $ateliers;
     public $stades;
     public $tolerance;
+    public $msi;
     public $init = [];
 
     function mount()
@@ -19,15 +20,17 @@ class OligosParametres extends Component
         $this->stades = config('oligo.stades');
         $this->tolerance = config('oligo.tolerance');
         $this->init = config('oligo.init');
+        $this->msi = config('oligo.msi');
 
     }
 
     function setParametre($parametre)
-    {
+    {   
         $config = ArrayFile::open(base_path('config/oligo.php'));
         $config->set($parametre, $this->$parametre);
         $config->write();
     }
+
     public function render()
     {
         return view('livewire.oligos-parametres');

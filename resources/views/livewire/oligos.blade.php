@@ -1,7 +1,7 @@
 <div>
 
-    <h1 class="mt-3 h2">Que vaut votre complément minéral ?</h1>
-    <a href="{{ route('oligos.avertissement')}}">
+    <x-titres.titre icone="mineraux_light.svg" >Que vaut votre complément minéral ?</x-titres.titre>
+    <a href="{{ route('oligos.avertissement') }}">
         <p class="mx-2 text-red-900">
             <i class="fa-solid fa-square-arrow-up-right"></i>
             Avertissement à lire avant d'utiliser l'outil ci-dessous
@@ -15,7 +15,7 @@
                 <h3 class="py-1 pl-2 text-teal-900 bg-gray-300 h3 lg:pl-0 lg:text-center">1 - Choisir le type de
                     production
                 </h3>
-                <div class="flex flex-row gap-2 justify-start lg:justify-center">
+                <div class="flex flex-row gap-2 justify-start lg:justify-center lg:my-2">
 
                     <div class="flex-auto">
 
@@ -49,7 +49,7 @@
                 <div id="stade_chevre">
                     <h3 class="py-1 pl-2 text-teal-900 bg-gray-300 h3 lg:pl-0 lg:text-center">2 - Choisir le stade
                         physiologique</h3>
-                    <div class="flex flex-row gap-2 justify-start lg:justify-center">
+                    <div class="flex flex-row gap-2 justify-start lg:justify-center lg:my-2">
 
                         <div class="flex-auto">
                             @include('components.param-oligo', [
@@ -81,7 +81,7 @@
                     distribuée
                     <span class="inline md:hidden">(g/jour par animal)</span>
                 </h3>
-                <div class="py-1 my-2 text-center text-white bg-teal-800">
+                <div class="py-1 my-2 lg:my-3 text-center text-white bg-teal-800">
                     <input
                         class="inline-block w-32 text-center text-teal-900 bg-gray-100 rounded-md border-transparent md:text-lg lg:text-xl focus:border-gray-500 focus:bg-white focus:ring-0"
                         type="number" min="0" step="1" value=10 wire:model="quantite"
@@ -90,13 +90,12 @@
                 </div>
             </div>
             @role('antikor')
-            <div class="hidden lg:block">
-                <a href="{{ route('oligos.parametres')}}">
-                    <x-buttons.success-button><i class="mr-1 fa-solid fa-gear"></i>Paramètres</x-buttons.success-button>
-                </a>
-            </div>
+                <div class="hidden lg:block">
+                    <x-buttons.route-success-button :route="route('oligos.parametres')"
+                        fa="gear">Paramètres</x-buttons.route-success-button>
+                </div>
             @endrole
-        
+
         </div>
 
 
@@ -166,10 +165,8 @@
         </div>
     </div>
     @role('antikor')
-    <div class="block lg:hidden">
-        <a href="{{ route('oligos.parametres')}}">
-            <x-buttons.success-button><i class="mr-1 fa-solid fa-gear"></i>Paramètres</x-buttons.success-button>
-        </a>
-    </div>
+        <div class="block lg:hidden">
+            <x-buttons.route-success-button :route="route('oligos.parametres')" fa="gear">Paramètres</x-buttons.route-success-button>
+        </div>
     @endrole
 </div>

@@ -20,6 +20,29 @@ module.exports = {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
                 serif: ['Lora', ...defaultTheme.fontFamily.serif],
             },
+            colors: {
+                'brique': {
+                    100: '#ffc6c3',
+                    300: '#F39995',
+                    500: '#CA615B',
+                    DEFAULT: "#A2352F",
+                    900: '#75130E',
+                },
+                'bleu': {
+                    100: '#99AAC3',
+                    300: '#687FA0',
+                    500: '#435E86',
+                    DEFAULT: "#26426B",
+                    900: '#0F284D',
+                },
+                'vert': {
+                    100: '#52B7A3',
+                    300: '#2EA08A',
+                    500: '#10997E',
+                    DEFAULT: "#057A63",
+                    900: '#00604D',
+                },
+            },
         },
     },
 
