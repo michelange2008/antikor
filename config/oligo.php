@@ -1,16 +1,20 @@
 <?php
 
 return [
-    'listeOligos' => [
-        'zinc' => "zinc",
-        'cuivre' => "cuivre",
-        'iode' => "iode",
-        'selenium' => "sélénium",
-        'cobalt' => "cobalt",
-        'manganese' => "manganèse",
-        'vitA' => "vitamine A",
-        'vitD3' => "vitamine D3",
-        'vitE' => "vitamine E",
+    'oligovitamines' => [
+        'oligoelements' => [
+            'zinc' => 'zinc',
+            'cuivre' => 'cuivre',
+            'iode' => 'iode',
+            'selenium' => 'sélénium',
+            'cobalt' => 'cobalt',
+            'manganese' => 'manganèse',
+        ],
+        'vitamines' => [
+            'vitA' => 'vitamine A',
+            'vitD3' => 'vitamine D3',
+            'vitE' => 'vitamine E',
+        ],
     ],
 
     /**
@@ -19,37 +23,37 @@ return [
 
     'besoins' => [
         'cp_lait' => [
-            'zinc' => 50,
-            'cuivre' => 15,
-            'iode' => 0.7,
-            'selenium' => 0.15,
-            'cobalt' => 0.2,
-            'manganese' => 50,
-            'vitA' => 7500,
-            'vitD3' => 1000,
-            'vitE' => 30,
+            'zinc' => '50',
+            'cuivre' => '15',
+            'iode' => '0.7',
+            'selenium' => '0.15',
+            'cobalt' => '0.2',
+            'manganese' => '50',
+            'vitA' => '7500',
+            'vitD3' => '1000',
+            'vitE' => '30',
         ],
         'ov_lait' => [
-            'zinc' => 50,
-            'cuivre' => 10,
-            'iode' => 0.7,
-            'selenium' => 0.15,
-            'cobalt' => 0.2,
-            'manganese' => 50,
-            'vitA' => 7500,
-            'vitD3' => 1000,
-            'vitE' => 30,
+            'zinc' => '50',
+            'cuivre' => '10',
+            'iode' => '0.7',
+            'selenium' => '0.15',
+            'cobalt' => '0.2',
+            'manganese' => '50',
+            'vitA' => '7500',
+            'vitD3' => '1000',
+            'vitE' => '30',
         ],
         'ov_all' => [
-            'zinc' => 50,
-            'cuivre' => 10,
-            'iode' => 0.7,
-            'selenium' => 0.15,
-            'cobalt' => 0.2,
-            'manganese' => 50,
-            'vitA' => 6000,
-            'vitD3' => 1000,
-            'vitE' => 25,
+            'zinc' => '50',
+            'cuivre' => '10',
+            'iode' => '0.7',
+            'selenium' => '0.15',
+            'cobalt' => '0.2',
+            'manganese' => '50',
+            'vitA' => '6000',
+            'vitD3' => '1000',
+            'vitE' => '25',
         ],
     ],
 
@@ -76,10 +80,10 @@ return [
      * Seuils de toxicité
      */
 
-    'tox' => [
+    'toxicites' => [
         'ov' => [
             'zinc' => 10000,
-            'cuivre' => 12,
+            'cuivre' => '13',
             'iode' => 10000,
             'selenium' => 10000,
             'cobalt' => 10000,
@@ -89,8 +93,8 @@ return [
             'vitE' => 2000,
         ],
         'cp' => [
-            'zinc' => 10000,
-            'cuivre' => 10000,
+            'zinc' => '10003',
+            'cuivre' => '10000',
             'iode' => 10000,
             'selenium' => 10000,
             'cobalt' => 10000,
@@ -144,5 +148,9 @@ return [
     'stades' => [
         'ge' => 'gestation',
         'la' => 'lactation',
+    ],
+    'especes' => [
+        'cp' => "caprins",
+        'ov' => "ovins",
     ],
 ];

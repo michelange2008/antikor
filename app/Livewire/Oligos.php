@@ -9,7 +9,7 @@ class Oligos extends Component
     public string $atelier;
     public string $stade;
     public array $mineral;
-    public array $listeOligos;
+    public array $oligovitamines;
     public array $besoins;
     public array $bilan;
     public int $quantite;
@@ -19,7 +19,7 @@ class Oligos extends Component
 
     function mount()
     {
-        $this->listeOligos = config('oligo.listeOligos'); 
+        $this->oligovitamines = config('oligo.oligovitamines'); 
 
         $this->quantite = config('oligo.init.quantite'); // Quantité de minéral distribué initial
         $this->atelier = config('oligo.init.atelier'); // Atelier initial
@@ -48,32 +48,35 @@ class Oligos extends Component
     function calculBilan(): void
     {
         
-        foreach ($this->listeOligos as $oligo => $oligoelement) {
-            $this->mineral[$oligo] = ($this->mineral[$oligo] == null) ? 0 : $this->mineral[$oligo];
-            $apport = $this->mineral[$oligo] * $this->quantite / 1000;
-            $besoin = $this->besoins[$oligo] * $this->msi;
-            $seuil_toxicite = config('oligo.tox.' . $this->getEspece() . '.' . $oligo);
-            $marge_haute =  (1 + config('oligo.tolerance')) * $besoin;
-            $marge_basse = (1 - config('oligo.tolerance')) * $besoin;
-            
-            // Test de la toxicité
-            if ($apport >= $seuil_toxicite * $this->msi) {
-                $this->bilan[$oligo] = 'toxicite';
-
-            // Test des niveaux d'apport
-            } else {
-                if ($apport > $marge_haute ) {
-
-                    $this->bilan[$oligo] = 'exces';
-
-                } elseif ($apport < $marge_basse ) {
-
-                    $this->bilan[$oligo] = 'carence';
-
+        foreach ($this->oligovitamines as $type => $oligoOuVitamines) {
+            foreach ($oligoOuVitamines as $abbreviation => $nom) {
+                # code...
+                $this->mineral[$abbreviation] = ($this->mineral[$abbreviation] == null) ? 0 : $this->mineral[$abbreviation];
+                $apport = $this->mineral[$abbreviation] * $this->quantite / 1000;
+                $besoin = $this->besoins[$abbreviation] * $this->msi;
+                $seuil_toxicite = config('oligo.toxicites.' . $this->getEspece() . '.' . $abbreviation);
+                $marge_haute =  (1 + config('oligo.tolerance')) * $besoin;
+                $marge_basse = (1 - config('oligo.tolerance')) * $besoin;
+                
+                // Test de la toxicité
+                if ($apport >= $seuil_toxicite * $this->msi) {
+                    $this->bilan[$abbreviation] = 'toxicite';
+    
+                // Test des niveaux d'apport
                 } else {
-
-                    $this->bilan[$oligo] = 'equilibre';
-
+                    if ($apport > $marge_haute ) {
+    
+                        $this->bilan[$abbreviation] = 'exces';
+    
+                    } elseif ($apport < $marge_basse ) {
+    
+                        $this->bilan[$abbreviation] = 'carence';
+    
+                    } else {
+    
+                        $this->bilan[$abbreviation] = 'equilibre';
+    
+                    }
                 }
             }
         }

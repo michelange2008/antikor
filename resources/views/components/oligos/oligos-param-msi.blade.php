@@ -1,4 +1,4 @@
-<div class="sm:w-2/3 md:w-3/4 w-full p-3 bg-gray-300 shadow shadow-gray-800 my-3">
+<div class="lg:w-2/3 w-full p-3 bg-gray-300 shadow shadow-gray-800 my-3">
     <h2 class="h2">Matière sèche ingérée (kg MSI/j/animal</h2>
 
     <div class="flex flex-row gap-2">
@@ -18,7 +18,6 @@
                             wire:change.debounce="setParametre('msi')">
                     </label>
 
-                    {{-- <p>{{ $stades[$stade]}} {{ $val_msi }}</p> --}}
                 @endforeach
             </div>
         @endforeach

@@ -1,6 +1,6 @@
 <div>
 
-    <x-titres.titre icone="mineraux_light.svg" >Que vaut votre complément minéral ?</x-titres.titre>
+    <x-titres.titre icone="mineraux_light.svg">Que vaut votre complément minéral ?</x-titres.titre>
     <a href="{{ route('oligos.avertissement') }}">
         <p class="mx-2 text-red-900">
             <i class="fa-solid fa-square-arrow-up-right"></i>
@@ -118,29 +118,31 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($listeOligos as $oligo => $oligoelement)
-                        <tr>
-                            <td class="px-4 py-3 ml-3 border border-gray-800">
-                                {{ ucfirst($oligoelement) }}
-                                ({{ $besoins[$oligo] * $msi }})
-                            </td>
-                            <td class="px-2 py-3 text-center border border-gray-800">
-                                <input id="{{ $oligo }}" name="{{ $oligo }}" type="number" min="0"
-                                    step="1" wire:model="min.{{ $oligo }}" class="w-32 text-center"
-                                    wire:change.debounce = "majMineral()">
-                            </td>
-                            <td class="py-3 px-2 border border-gray-800 text-center {{ $bilan[$oligo] }}">
-                                @if ($bilan[$oligo] == 'toxicite')
-                                    <i class="text-white fa-solid fa-skull"></i>
-                                @endif
-                                @if ($mineral[$oligo] == 0)
-                                    -
-                                @else
-                                    {{ round(($mineral[$oligo] * $quantite) / 1000, 2) }}
-                                @endif
-                            </td>
+                    @foreach ($oligovitamines as $type => $oligoOuVitamines)
+                        @foreach ($oligoOuVitamines as $abbreviation => $nom)
+                            <tr class="@if( $type == 'vitamines')text-vert-900 @else font-bold text-brique-900 @endif">
+                                <td class="px-4 py-3 ml-3 border border-gray-800">
+                                    {{ ucfirst($nom) }}
+                                    ({{ $besoins[$abbreviation] * $msi }})
+                                </td>
+                                <td class="px-2 py-3 text-center border border-gray-800">
+                                    <input id="{{ $abbreviation }}" name="{{ $abbreviation }}" type="number"
+                                        min="0" step="1" wire:model="min.{{ $abbreviation }}"
+                                        class="w-32 text-center" wire:change.debounce = "majMineral()">
+                                </td>
+                                <td class="py-3 px-2 border border-gray-800 text-center {{ $bilan[$abbreviation] }}">
+                                    @if ($bilan[$abbreviation] == 'toxicite')
+                                        <i class="text-white fa-solid fa-skull"></i>
+                                    @endif
+                                    @if ($mineral[$abbreviation] == 0)
+                                        -
+                                    @else
+                                        {{ round(($mineral[$abbreviation] * $quantite) / 1000, 2) }}
+                                    @endif
+                                </td>
 
-                        </tr>
+                            </tr>
+                        @endforeach
                     @endforeach
                 </tbody>
             </table>
