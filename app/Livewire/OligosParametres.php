@@ -16,7 +16,7 @@ class OligosParametres extends Component
     public $stades;
     public $tolerance;
     public $msi;
-    public $nouvelOligo = [];
+    public $nouvelElement = [];
     public $init = [];
 
     function mount()
@@ -30,8 +30,8 @@ class OligosParametres extends Component
         $this->tolerance = config('oligo.tolerance');
         $this->init = config('oligo.init');
         $this->msi = config('oligo.msi');
-        $this->nouvelOligo['abbreviation'] = "";
-        $this->nouvelOligo['nom'] = "";
+        $this->nouvelElement['vitamines']['abbreviation'] = "";
+        $this->nouvelElement['oligoelements']['nom'] = "";
 
     }
 
@@ -42,11 +42,11 @@ class OligosParametres extends Component
         $config->write();
     }
 
-    function addOligo()
+    function addElement($type)
     {
-        $abbreviation = strtolower($this->nouvelOligo['abbreviation']);
-        $nom = strtolower($this->nouvelOligo['nom']);
-        $this->oligovitamines[$abbreviation] = $nom;
+        $abbreviation = strtolower($this->nouvelElement[$type]['abbreviation']);
+        $nom = strtolower($this->nouvelElement[$type]['nom']);
+        $this->oligovitamines[$type][$abbreviation] = $nom;
         $config = ArrayFile::open(base_path('config/oligo.php'));
         $config->set('oligovitamines', $this->oligovitamines);
         $config->write();

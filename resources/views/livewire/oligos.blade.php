@@ -120,7 +120,7 @@
                 <tbody>
                     @foreach ($oligovitamines as $type => $oligoOuVitamines)
                         @foreach ($oligoOuVitamines as $abbreviation => $nom)
-                            <tr class="@if( $type == 'vitamines')text-vert-900 @else font-bold text-brique-900 @endif">
+                            <tr class="font-bold @if( $type == 'vitamines')text-vert-900 @else text-brique-900 @endif œ">
                                 <td class="px-4 py-3 ml-3 border border-gray-800">
                                     {{ ucfirst($nom) }}
                                     ({{ $besoins[$abbreviation] * $msi }})
