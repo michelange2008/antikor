@@ -11,42 +11,49 @@
 
         <div class="flex flex-col gap-2 my-3 lg:flex-auto">
 
-            <div id="atelier" class="mb-6">
-                <h3 class="py-1 pl-2 text-teal-900 bg-gray-300 h3 lg:pl-0 lg:text-center">1 - Choisir le type de
-                    production
+            <div id="espece" class="mb-6">
+                <h3 class="py-1 pl-2 text-teal-900 bg-gray-300 h3 lg:pl-0 lg:text-center">1 - Choisir l'espèce
                 </h3>
                 <div class="flex flex-row gap-2 justify-start lg:justify-center lg:my-2">
 
+                    @foreach ($especes as $esp => $espec)
+                        <div class="flex-auto">
+
+                            @include('components.param-oligo', [
+                                'param' => $espece,
+                                'val' => $esp,
+                                'parametre' => 'espece',
+                                'groupe' => $especes,
+                                'valeur' => $esp,
+                            ])
+                        </div>
+                    @endforeach
+
+                </div>
+            </div>
+
+            <div id="atelier" class="mb-6">
+                <h3 class="py-1 pl-2 text-teal-900 bg-gray-300 h3 lg:pl-0 lg:text-center">2 - Choisir le type de
+                    production
+                </h3>
+                <div class="flex flex-row gap-2 justify-start lg:justify-center lg:my-2">
+                    @foreach ($productions as $prod => $produ)
+                        
                     <div class="flex-auto">
 
                         @include('components.param-oligo', [
-                            'param' => $atelier,
-                            'val' => 'cp_lait',
-                            'parametre' => 'atelier',
-                            'valeur' => 'Chèvres laitières',
+                            'param' => $production,
+                            'val' => $prod,
+                            'parametre' => 'production',
+                            'groupe' => $productions,
+                            'valeur' => $prod,
                         ])
                     </div>
-                    <div class="flex-auto">
-
-                        @include('components.param-oligo', [
-                            'param' => $atelier,
-                            'val' => 'ov_all',
-                            'parametre' => 'atelier',
-                            'valeur' => 'Brebis allaitantes',
-                        ])
-                    </div>
-                    <div class="flex-auto">
-                        @include('components.param-oligo', [
-                            'param' => $atelier,
-                            'val' => 'ov_lait',
-                            'parametre' => 'atelier',
-                            'valeur' => 'Brebis laitières',
-                        ])
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <div id="stade" class="mb-6">
-                <div id="stade_chevre">
+                {{-- <div id="stade_chevre">
                     <h3 class="py-1 pl-2 text-teal-900 bg-gray-300 h3 lg:pl-0 lg:text-center">2 - Choisir le stade
                         physiologique</h3>
                     <div class="flex flex-row gap-2 justify-start lg:justify-center lg:my-2">
@@ -74,7 +81,7 @@
                             <p class="mb-0 text-sm font-bold md:text-base">{{ $msi }} kg/MS par jour</p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <div id="quantite">
                 <h3 class="py-1 pl-2 text-teal-900 bg-gray-300 h3 lg:pl-0 lg:text-center">3 - Choisir la quantité
@@ -120,7 +127,8 @@
                 <tbody>
                     @foreach ($oligovitamines as $type => $oligoOuVitamines)
                         @foreach ($oligoOuVitamines as $abbreviation => $nom)
-                            <tr class="font-bold @if( $type == 'vitamines')text-vert-900 @else text-brique-900 @endif œ">
+                            <tr
+                                class="font-bold @if ($type == 'vitamines') text-vert-900 @else text-brique-900 @endif œ">
                                 <td class="px-4 py-3 ml-3 border border-gray-800">
                                     {{ ucfirst($nom) }}
                                     ({{ $besoins[$abbreviation] * $msi }})

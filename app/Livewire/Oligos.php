@@ -6,7 +6,12 @@ use Livewire\Component;
 
 class Oligos extends Component
 {
+    public array $especes;
+    public string $espece;
     public string $atelier;
+    public string $production;
+    public array $productions;
+    public array $ateliers;
     public string $stade;
     public array $mineral;
     public array $oligovitamines;
@@ -24,6 +29,12 @@ class Oligos extends Component
         $this->quantite = config('oligo.init.quantite'); // Quantité de minéral distribué initial
         $this->atelier = config('oligo.init.atelier'); // Atelier initial
         $this->stade = config('oligo.init.stade'); // Stade initial
+        $this->espece = config('oligo.init.espece'); // Espece initiale
+        $this->production = config('oligo.init.production');
+
+        $this->especes = config('oligo.especes');
+        $this->productions = config('oligo.productions');
+        $this->ateliers = config('oligo.ateliers');
         
         $this->mineral = config('oligo.init.mineral');
         $this->bilan = config('oligo.init.mineral');
@@ -90,6 +101,7 @@ class Oligos extends Component
 
     function maj()
     {
+        $this->atelier = $this->espece.'_'.$this->production;
         $this->setBesoins();
         $this->setMSI();
         $this->calculBilan();

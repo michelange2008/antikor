@@ -55,6 +55,28 @@ return [
             'vitD3' => '1000',
             'vitE' => '25',
         ],
+        'bv_lait' => [
+            'zinc' => '50',
+            'cuivre' => '10',
+            'iode' => '0.7',
+            'selenium' => '0.15',
+            'cobalt' => '0.2',
+            'manganese' => '50',
+            'vitA' => '7500',
+            'vitD3' => '1000',
+            'vitE' => '30',
+        ],
+        'bv_all' => [
+            'zinc' => '50',
+            'cuivre' => '10',
+            'iode' => '0.7',
+            'selenium' => '0.15',
+            'cobalt' => '0.2',
+            'manganese' => '50',
+            'vitA' => '6000',
+            'vitD3' => '1000',
+            'vitE' => '25',
+        ],
     ],
 
     /**
@@ -121,6 +143,8 @@ return [
 
     'init' => [
         'quantite' => '10',
+        'espece' => 'cp',
+        'production' => 'lait',
         'atelier' => 'cp_lait',
         'stade' => 'ge',
         'mineral' => [
@@ -140,17 +164,27 @@ return [
      * Types d'ateliers disponibles
      */
 
+    'especes' => [
+        'cp' => "caprins",
+        'ov' => "ovins",
+        'bv' => "bovins",
+    ],
+
+    'productions' => [
+        'lait' => "lait",
+        'all' => "allaitant",
+        'crois' => "croissance",
+    ],
+
     'ateliers' => [
         'cp_lait' => "chèvres laitières",
         'ov_lait' => "brebis laitières",
         'ov_all' => "brebis allaitantes",
+        'bv_lait' => "vaches laitières",
+        'bv_all' => "vaches allaitantes",
     ],
     'stades' => [
         'ge' => 'gestation',
         'la' => 'lactation',
-    ],
-    'especes' => [
-        'cp' => "caprins",
-        'ov' => "ovins",
     ],
 ];
