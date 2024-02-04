@@ -1,10 +1,21 @@
-    <div id="{{ $val }}" wire:click = "toggle('{{ $parametre }}','{{ $val }}')"
-        class="my-2 text-center cursor-pointer py-2 px-2 md:py-3 md:px-4 
-        bg-gray-300 shadow shadow-gray-800 active:bg-gray-800 active:text-white text-sm md:text-base
+        {{-- Utilisé par oligos.blade.php
+            Affiche un bouton qui n'a pas le même aspect si le parametre
+            en cause (espece, atelier, stade) est non-choisi/choisi
+            - Non choisi: gris clair avec curseur main
+            - Choisi: vert foncé avec texte balnc et curseur main
+            --}}
+        @if ($abbreviation_courante == $abbreviation)
+            <div id="{{ $abbreviation }}"
+                class="px-2 py-2 my-2 text-sm text-center text-white cursor-pointer md:py-3 md:px-4 active:bg-gray-800 active:text-white md:text-base bg-vert shadow-vert-900">
 
-        @if ($param == $val) bg-teal-800 text-white shadow-teal-900 @endif"
-    >
+                <span>{{ ucfirst($nom) }}</span>
 
-        <span>{{ ucfirst($groupe[$valeur]) }}</span>
+            </div>
+        @else
+            <div id="{{ $abbreviation }}"
+                class="px-2 py-2 my-2 text-sm text-center bg-gray-300 shadow cursor-pointer md:py-3 md:px-4 active:bg-gray-800 active:text-white md:text-base shadow-gray-800">
 
-    </div>
+                <span>{{ ucfirst($nom) }}</span>
+
+            </div>
+        @endif

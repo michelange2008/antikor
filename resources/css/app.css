@@ -32,13 +32,13 @@
         focus:bg-white focus:ring-0
     }
     .equilibre {
-        @apply bg-teal-500 font-bold
+        @apply bg-vert-300 font-bold
     }
     .toxicite {
-        @apply bg-red-800 text-white
+        @apply bg-brique-900 text-white
     }
     .carence {
-        @apply bg-red-300
+        @apply bg-brique-300
     }
     .exces {
         @apply bg-amber-300

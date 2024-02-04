@@ -18,7 +18,7 @@
 
 </head>
 
-<body class="px-1 font-sans antialiased bg-gray-100 xl:px-40 lg:px-10 md:px-8 sm:px-2">
+<body class="px-1 font-sans antialiased bg-gray-100 xl:px-30 lg:px-10 md:px-8 sm:px-2">
     <div class="mx-auto min-h-screen bg-gray-100 dark:bg-gray-900">
         @include('layouts.navigation')
 
