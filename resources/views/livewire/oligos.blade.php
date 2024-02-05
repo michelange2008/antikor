@@ -49,7 +49,7 @@
                                     ])
                                 </div>
                             @else
-                                <div class="px-2 py-2 my-2 text-sm text-center text-gray-700 bg-gray-200 md:py-3 md:px-4 md:text-base"
+                                <div class="px-2 py-2 my-2 text-sm text-center text-gray-700 bg-gray-200 cursor-not-allowed md:py-3 md:px-4 md:text-base"
                                     title="En cours d'implémentation">
                                     <span>{{ ucfirst($ateliers[$espece][$at]) }}</span>
                                 </div>
@@ -102,6 +102,10 @@
                         <span class="italic font-light">Choisir un atelier ...</span>
                     @else
                         {{ ucfirst($ateliers[$espece][$atelier]) }}
+
+                        @if ($stade != null)
+                             en {{ $stades[$stade] }}
+                        @endif
                     @endif
                 </h2>
             </div>
@@ -153,7 +157,7 @@
                                     @if ($bilan[$abbreviation] == 'toxicite')
                                         <i class="text-white fa-solid fa-skull"></i>
                                     @endif
-                                    @if ($mineral[$type][$abbreviation] == 0)
+                                    @if ($atelier == 'aucun' || $mineral[$type][$abbreviation] == 0)
                                         -
                                     @else
                                         {{ round(($mineral[$type][$abbreviation] * $quantite) / 1000, 2) }}

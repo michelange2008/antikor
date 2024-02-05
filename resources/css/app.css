@@ -43,6 +43,9 @@
     .exces {
         @apply bg-amber-300
     }
+    .notyetset {
+        @apply bg-gray-200
+    }
 }
 
 [x-cloak] { display: none !important; }
