@@ -3,7 +3,6 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use phpDocumentor\Reflection\Types\This;
 
 class Oligos extends Component
 {
@@ -16,6 +15,7 @@ class Oligos extends Component
     public string $production;
     public array $mineral;
     public array $oligovitamines;
+    public array $apports;
     public array $besoins;
     public array $besoinsTotaux;
     public array $carences;
@@ -44,6 +44,7 @@ class Oligos extends Component
 
         $this->mineral = config('oligo.init.mineral');
         $this->bilan = config('oligo.init.mineral');
+        $this->setMSI();
         $this->maj();
     }
 
@@ -59,6 +60,7 @@ class Oligos extends Component
         $this->atelier = $atelier;
         $this->setProduction();
         $this->stade = ($this->production == 'crois') ? 'cr' : $this->stade;
+        $this->setMSI();
         $this->maj();
     }
 
@@ -72,6 +74,7 @@ class Oligos extends Component
     function setStade($stade)
     {
         $this->stade = $stade;
+        $this->setMSI();
         $this->maj();
     }
 
@@ -84,8 +87,17 @@ class Oligos extends Component
     {
         $this->setStadesActifs();
         $this->setBesoins();
-        $this->setMSI();
+        $this->setApports();
         $this->calculBilan();
+    }
+
+    function setApports()
+    {
+        foreach ($this->oligovitamines as $type => $elements) {
+            foreach ($elements as $abbreviation => $nom) {
+                $this->apports[$abbreviation] = $this->mineral[$abbreviation] * $this->quantite / 1000;
+            }
+        }
     }
 
     function setBesoins(): void
@@ -136,10 +148,10 @@ class Oligos extends Component
         foreach ($this->oligovitamines as $type => $oligoOuVitamines) {
             foreach ($oligoOuVitamines as $abbreviation => $nom) {
                 // En l'absence de valeurs du minéral pour un élément, la valeur est mise à 0
-                $this->mineral[$type][$abbreviation] =
-                    ($this->mineral[$type][$abbreviation] == null) ? 0 : $this->mineral[$type][$abbreviation];
+                $this->mineral[$abbreviation] =
+                    ($this->mineral[$abbreviation] == null) ? 0 : $this->mineral[$abbreviation];
                 // Calcul des apports totaux en ppm ou mg
-                $apport = $this->mineral[$type][$abbreviation] * $this->quantite / 1000;
+                $apport = $this->apports[$abbreviation];
                 // Calcul des besoins en fonctions de besoins de l'atelier et la MSI
                 $this->besoinsTotaux[$abbreviation] = $this->besoins[$abbreviation] * $this->msi;
                 // Calcul de la toxicité
@@ -159,7 +171,7 @@ class Oligos extends Component
                         $this->bilan[$abbreviation] = 'toxicite';
 
                         // Test des niveaux d'apport
-                    } elseif ($apport < $carence * $this->msi) {
+                    } elseif ($apport <= $carence * $this->msi) {
                         // Si carence, affichage rouge clair
                         $this->bilan[$abbreviation] = 'carence';
                     } else {

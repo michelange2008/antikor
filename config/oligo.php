@@ -63,19 +63,15 @@ return [
         'atelier' => 'cp_lait',
         'stade' => 'ge',
         'mineral' => [
-            'oligoelements' => [
-                'zinc' => 9000,
-                'cuivre' => 2500,
-                'iode' => 150,
-                'selenium' => 30,
-                'cobalt' => 35,
-                'manganese' => 9000,
-            ],
-            'vitamines' => [
-                'vitA' => 1500000,
-                'vitD3' => 200000,
-                'vitE' => 5000,
-            ],
+            'zinc' => 9000,
+            'cuivre' => 2500,
+            'iode' => 150,
+            'selenium' => 30,
+            'cobalt' => 35,
+            'manganese' => 9000,
+            'vitA' => 1500000,
+            'vitD3' => 200000,
+            'vitE' => 5000,
         ],
     ],
 
