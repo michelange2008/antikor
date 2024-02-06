@@ -103,7 +103,7 @@
                     @else
                         {{ ucfirst($ateliers[$espece][$atelier]) }}
 
-                        @if ($stade != null)
+                        @if ($stade != 'aucun')
                              en {{ $stades[$stade] }}
                         @endif
                     @endif
