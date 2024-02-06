@@ -18,90 +18,6 @@ return [
     ],
 
     /**
-     * Besoins de animaux en mg/km MSI ou ppm
-     */
-
-    'besoins' => [
-        'aucun' => [
-            'zinc' => '0',
-            'cuivre' => '0',
-            'iode' => '0',
-            'selenium' => '0',
-            'cobalt' => '0',
-            'manganese' => '0',
-            'vitA' => '0',
-            'vitD3' => '0',
-            'vitE' => '0',
-        ],
-        'cp_lait' => [
-            'zinc' => '50',
-            'cuivre' => '15',
-            'iode' => '0.7',
-            'selenium' => '0.1',
-            'cobalt' => '0.2',
-            'manganese' => '50',
-            'vitA' => '7500',
-            'vitD3' => '1000',
-            'vitE' => '30',
-        ],
-        'cp_crois' => [
-            'zinc' => '50',
-            'cuivre' => '15',
-            'iode' => '0.7',
-            'selenium' => '0.15',
-            'cobalt' => '0.2',
-            'manganese' => '50',
-            'vitA' => '7500',
-            'vitD3' => '1000',
-            'vitE' => '30',
-        ],
-        'ov_lait' => [
-            'zinc' => '50',
-            'cuivre' => '10',
-            'iode' => '0.7',
-            'selenium' => '0.15',
-            'cobalt' => '0.2',
-            'manganese' => '50',
-            'vitA' => '7500',
-            'vitD3' => '1000',
-            'vitE' => '30',
-        ],
-        'ov_all' => [
-            'zinc' => '50',
-            'cuivre' => '10',
-            'iode' => '0.7',
-            'selenium' => '0.15',
-            'cobalt' => '0.2',
-            'manganese' => '50',
-            'vitA' => '6000',
-            'vitD3' => '1000',
-            'vitE' => '25',
-        ],
-        'bv_lait' => [
-            'zinc' => '50',
-            'cuivre' => '10',
-            'iode' => '0.7',
-            'selenium' => '0.15',
-            'cobalt' => '0.2',
-            'manganese' => '50',
-            'vitA' => '7500',
-            'vitD3' => '1000',
-            'vitE' => '30',
-        ],
-        'bv_all' => [
-            'zinc' => '50',
-            'cuivre' => '10',
-            'iode' => '0.7',
-            'selenium' => '0.1',
-            'cobalt' => '0.3',
-            'manganese' => '50',
-            'vitA' => '6000',
-            'vitD3' => '1000',
-            'vitE' => '25',
-        ],
-    ],
-
-    /**
      * Matière sèche ingérée en fonction de l'espece et du stade
      */
 
@@ -132,51 +48,6 @@ return [
 
     ],
 
-    /**
-     * Seuils de toxicité
-     */
-
-    'toxicites' => [
-        'ov' => [
-            'zinc' => 10000,
-            'cuivre' => '13',
-            'iode' => 10000,
-            'selenium' => 10000,
-            'cobalt' => 10000,
-            'manganese' => 10000,
-            'vitA' => 66000,
-            'vitD3' => 10000,
-            'vitE' => 2000,
-        ],
-        'cp' => [
-            'zinc' => '10000',
-            'cuivre' => '10000',
-            'iode' => 10000,
-            'selenium' => 10000,
-            'cobalt' => 10000,
-            'manganese' => 10000,
-            'vitA' => 66000,
-            'vitD3' => 10000,
-            'vitE' => 2000,
-        ],
-        'bv' => [
-            'zinc' => '250',
-            'cuivre' => '30',
-            'iode' => '8',
-            'selenium' => '0.5',
-            'cobalt' => 10,
-            'manganese' => 1000,
-            'vitA' => 66000,
-            'vitD3' => 10000,
-            'vitE' => 2000,
-        ],
-    ],
-
-    /**
-     * Tolérance dans la carences ou l'excès
-     */
-
-    'tolerance' => '0.2',
 
     /**
      * Valeurs au démarrage de l'appli
@@ -188,8 +59,8 @@ return [
 
     'init' => [
         'quantite' => '10',
-        'espece' => 'ov',
-        'atelier' => 'ov_lait',
+        'espece' => 'cp',
+        'atelier' => 'cp_lait',
         'stade' => 'ge',
         'mineral' => [
             'oligoelements' => [
@@ -282,13 +153,13 @@ return [
             'toxicites' => '8',
         ],
         'selenium' => [
-            'carences' => '0,1',
-            'besoins' => '0,1',
-            'toxicites' => '0,5',
+            'carences' => '0.1',
+            'besoins' => '0.1',
+            'toxicites' => '0.5',
         ],
         'cobalt' => [
-            'carences' => '0,07',
-            'besoins' => '0,3',
+            'carences' => '0.07',
+            'besoins' => '0.3',
             'toxicites' => '10',
         ],
         'manganese' => [
@@ -310,7 +181,7 @@ return [
             'toxicites' => '10000',
         ],
         'vitE' => [
-            'carences' => '45',
+            'carences' => '15',
             'besoins' => [
                 'ge' => '25',
                 'la' => '15',

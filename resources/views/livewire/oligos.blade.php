@@ -145,7 +145,7 @@
                                 class="font-bold @if ($type == 'vitamines') text-vert-900 @else text-brique-900 @endif">
                                 <td class="px-4 py-3 ml-3 border border-gray-800">
                                     {{ ucfirst($nom) }}
-                                    ({{ $besoins[$abbreviation] * $msi }})
+                                    ({{ $besoinsTotaux[$abbreviation] }})
                                 </td>
                                 <td class="px-2 py-3 text-center border border-gray-800">
                                     <input id="{{ $abbreviation }}" name="{{ $abbreviation }}" type="number"
@@ -177,10 +177,6 @@
                 <div class="flex flex-row gap-1">
                     <div class="w-5 h-5 carence"></div>
                     Carence
-                </div>
-                <div class="flex flex-row gap-1">
-                    <div class="w-5 h-5 exces"></div>
-                    Excès
                 </div>
                 <div class="flex flex-row gap-1">
                     <div class="w-5 h-5 toxicite"></div>

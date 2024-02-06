@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use phpDocumentor\Reflection\Types\This;
 
 class Oligos extends Component
 {
@@ -16,6 +17,7 @@ class Oligos extends Component
     public array $mineral;
     public array $oligovitamines;
     public array $besoins;
+    public array $besoinsTotaux;
     public array $carences;
     public array $toxicites;
     public array $bilan;
@@ -106,7 +108,6 @@ class Oligos extends Component
                 }
             }
         }
-        dd($this->toxicites);
     }
 
     function setMSI(): void
@@ -131,39 +132,39 @@ class Oligos extends Component
 
     function calculBilan(): void
     {
-
+        
         foreach ($this->oligovitamines as $type => $oligoOuVitamines) {
             foreach ($oligoOuVitamines as $abbreviation => $nom) {
-                # code...
+                // En l'absence de valeurs du minéral pour un élément, la valeur est mise à 0
                 $this->mineral[$type][$abbreviation] =
                     ($this->mineral[$type][$abbreviation] == null) ? 0 : $this->mineral[$type][$abbreviation];
+                // Calcul des apports totaux en ppm ou mg
                 $apport = $this->mineral[$type][$abbreviation] * $this->quantite / 1000;
-                $besoin = $this->besoins[$abbreviation] * $this->msi;
-                $seuil_toxicite = config('oligo.toxicites.' . $this->espece . '.' . $abbreviation);
-                $marge_haute =  (1 + config('oligo.tolerance')) * $besoin;
-                $marge_basse = (1 - config('oligo.tolerance')) * $besoin;
+                // Calcul des besoins en fonctions de besoins de l'atelier et la MSI
+                $this->besoinsTotaux[$abbreviation] = $this->besoins[$abbreviation] * $this->msi;
+                // Calcul de la toxicité
+                $toxicite = $this->toxicites[$abbreviation];
+                $carence = $this->carences[$abbreviation];
 
+                // Définition des classes à afficher à fonction de l'équilibre/carence/toxicité
+                // cf. app.css
                 if ( $this->atelier == 'aucun' || $this->stade == 'aucun' ) {
-
+                    // Si  pas d'atelier et de stade défini, affichage gris
                     $this->bilan[$abbreviation] = 'notyetset';
+
                 } else {
                     // Test de la toxicité
-                    if ($apport >= $seuil_toxicite * $this->msi) {
-
+                    if ($apport >= $toxicite * $this->msi) {
+                        // Si toxicité, affichage rouge foncé
                         $this->bilan[$abbreviation] = 'toxicite';
 
                         // Test des niveaux d'apport
+                    } elseif ($apport < $carence * $this->msi) {
+                        // Si carence, affichage rouge clair
+                        $this->bilan[$abbreviation] = 'carence';
                     } else {
-                        if ($apport > $marge_haute) {
-
-                            $this->bilan[$abbreviation] = 'exces';
-                        } elseif ($apport < $marge_basse) {
-
-                            $this->bilan[$abbreviation] = 'carence';
-                        } else {
-
-                            $this->bilan[$abbreviation] = 'equilibre';
-                        }
+                        // Si équilibre, affichage vert
+                        $this->bilan[$abbreviation] = 'equilibre';
                     }
                 }
             }
