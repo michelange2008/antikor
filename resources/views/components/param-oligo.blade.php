@@ -4,16 +4,18 @@
             - Non choisi: gris clair avec curseur main
             - Choisi: vert foncé avec texte balnc et curseur main
             --}}
-        @if ($abbreviation_courante == $abbreviation)
+        @if ( $abbreviation_courante == $abbreviation )
             <div id="{{ $abbreviation }}"
-                class="px-2 py-2 my-2 text-sm text-center text-white cursor-pointer md:py-3 md:px-4 active:bg-gray-800 active:text-white md:text-base bg-vert shadow-vert-900">
+                class="px-2 py-2 my-2 text-sm text-center text-white shadow cursor-pointer md:py-3 md:px-4 active:bg-gray-800 active:text-white md:text-base bg-vert shadow-vert-900"
+                title="" >
 
                 <span>{{ ucfirst($nom) }}</span>
 
             </div>
         @else
             <div id="{{ $abbreviation }}"
-                class="px-2 py-2 my-2 text-sm text-center bg-gray-300 shadow cursor-pointer md:py-3 md:px-4 active:bg-gray-800 active:text-white md:text-base shadow-gray-800">
+                class="px-2 py-2 my-2 text-sm text-center bg-gray-300 shadow cursor-pointer md:py-3 md:px-4 active:bg-gray-800 active:text-white md:text-base shadow-gray-800"
+                title="Cliquer pour sélectionner">
 
                 <span>{{ ucfirst($nom) }}</span>
 

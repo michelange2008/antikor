@@ -9,7 +9,7 @@
     </a>
     <div class="mt-2 lg:grid lg:grid-cols-8 lg:gap-5">
 
-        <div class="flex flex-col gap-2 my-3 lg:col-span-4 xl:col-span-3">
+        <div class="flex flex-col gap-2 justify-between my-3 lg:col-span-4 xl:col-span-3">
 
             <div id="espece" class="mb-4">
                 <h3 class="py-1 pl-2 bg-gray-300 text-vert-900 h3 lg:pl-0 lg:text-center">1 - Choisir l'espèce
@@ -49,7 +49,7 @@
                                     ])
                                 </div>
                             @else
-                                <div class="px-2 py-2 my-2 text-sm text-center text-gray-700 bg-gray-200 cursor-not-allowed md:py-3 md:px-4 md:text-base"
+                                <div class="px-2 py-2 my-2 text-sm text-center text-gray-400 bg-gray-200 cursor-not-allowed md:py-3 md:px-4 md:text-base"
                                     title="En cours d'implémentation">
                                     <span>{{ ucfirst($ateliers[$espece][$at]) }}</span>
                                 </div>
@@ -65,14 +65,21 @@
                 <div class="flex flex-row gap-2 justify-start lg:justify-center lg:my-2">
 
                     @foreach ($stades as $st => $stad)
-                        <div class="flex-auto" wire:click=" setStade('{{ $st }}') ">
-                            @include('components.param-oligo', [
-                                'abbreviation_courante' => $stade,
-                                'abbreviation' => $st,
-                                'parametre' => 'stade',
-                                'nom' => $stad,
-                            ])
-                        </div>
+                        @if ($stadesActif[$st])
+                            <div class="flex-auto" wire:click=" setStade('{{ $st }}') ">
+                                @include('components.param-oligo', [
+                                    'abbreviation_courante' => $stade,
+                                    'abbreviation' => $st,
+                                    'parametre' => 'stade',
+                                    'nom' => $stad,
+                                ])
+                            </div>
+                        @else
+                            <div class="px-2 py-2 my-2 text-sm text-center text-gray-400 bg-gray-200 cursor-not-allowed basis-1/3 md:py-3 md:px-4 md:text-base"
+                                title="Non applicable">
+                                <span>{{ ucfirst($stad) }}</span>
+                            </div>
+                        @endif
                     @endforeach
 
                 </div>
@@ -82,12 +89,16 @@
                     éventuellement la MSI ingérée
                     <span class="inline md:hidden">(kg/MS par animal)</span>
                 </h3>
-                <div 
-                    class="py-1 my-2 text-center text-white bg-vert lg:my-3"> 
+                <div class="py-2 my-2 text-center text-white md:pl-40 md:text-left lg:pl-16
+                @if ($msi == 0)
+                    bg-brique
+                @else
+                    bg-vert 
+                @endif lg:my-3">
                     <input
                         class="inline-block w-32 text-center bg-gray-100 rounded-md border-transparent text-vert-900 md:text-lg lg:text-xl focus:border-gray-500 focus:bg-white focus:ring-0"
                         type="number" step="0.1" min="0" wire:model="msi" wire:change.debounce="majMineral">
-                        <span class="hidden md:inline md:text-lg lg:text-xl"> kg/MSI/jour par animal</span>
+                    <span class="hidden ml-1 md:inline md:text-lg lg:text-xl">kg/MSI/jour par animal</span>
                 </div>
             </div>
             <div id="quantite">
@@ -95,16 +106,17 @@
                     distribuée
                     <span class="inline md:hidden">(g/jour par animal)</span>
                 </h3>
-                <div class="py-1 my-2 text-center text-white bg-vert lg:my-3">
+                <div class="py-2 my-2 text-center text-white md:pl-40 md:text-left lg:pl-16 bg-vert lg:my-3">
                     <input
                         class="inline-block m-2 w-32 text-center bg-gray-100 rounded-md border-transparent text-vert-900 md:text-lg lg:text-xl focus:border-gray-500 focus:bg-white focus:ring-0"
                         type="number" min="0" step="1" value=10 wire:model="quantite"
-                        wire:change.debounce = "maj"><span class="hidden md:inline md:text-lg lg:text-xl"> g/jour par
+                        wire:change.debounce = "maj"><span class="hidden ml-1 md:inline md:text-lg lg:text-xl">g/jour
+                        par
                         animal</span>
                 </div>
             </div>
 
-            <div id="choix" class="p-4 mb-4 bg-gray-200">
+            <div id="choix" class="p-4 bg-gray-200">
                 <h2 class="h2">
                     @if ($atelier == 'aucun')
                         <span class="italic font-light">Choisir un atelier ...</span>
@@ -151,7 +163,7 @@
                         @foreach ($oligoOuVitamines as $abbreviation => $nom)
                             <tr
                                 class="font-bold @if ($type == 'vitamines') text-vert-900 @else text-brique-900 @endif">
-                                <td class="px-4 py-3 ml-3 border border-gray-800">
+                                <td class="px-4 py-3 ml-1 border border-gray-800">
                                     {{ ucfirst($nom) }}
                                     ({{ $besoinsTotaux[$abbreviation] }})
                                 </td>
@@ -172,7 +184,7 @@
                     @endforeach
                 </tbody>
             </table>
-            <div class="flex flex-row gap-4 justify-around px-3 py-5 my-2 bg-gray-200 border-2">
+            <div class="flex flex-row gap-4 justify-around px-2 py-5 mt-2 bg-gray-200">
                 <div class="flex flex-row gap-1">
                     <div class="w-5 h-5 equilibre"></div>
                     Equilibre
@@ -190,7 +202,9 @@
     </div>
     @role('antikor')
         <div class="block lg:hidden">
-            <x-buttons.route-success-button :route="route('oligos.parametres')" fa="gear">Paramètres</x-buttons.route-success-button>
+            <x-buttons.route-success-button :route="route('oligos.parametres')" fa="gear">
+                Paramètres
+            </x-buttons.route-success-button>
         </div>
     @endrole
 </div>

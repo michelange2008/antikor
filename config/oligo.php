@@ -18,65 +18,7 @@ return [
     ],
 
     /**
-     * Matière sèche ingérée en fonction de l'espece et du stade
-     */
-
-    'msi' => [
-        'cp_lait' => [
-            'ge' => '2',
-            'la' => '3',
-        ],
-        'cp_crois' => [
-            'cr' => '1',
-        ],
-        'ov_lait' => [
-            'ge' => '2',
-            'la' => '3',
-        ],
-        'ov_all' => [
-            'ge' => '2',
-            'la' => '3',
-        ],
-        'bv_lait' => [
-            'ge' => '11',
-            'la' => '15',
-        ],
-        'bv_all' => [
-            'ge' => '10',
-            'la' => '13',
-        ],
-
-    ],
-
-
-    /**
-     * Valeurs au démarrage de l'appli
-     *  quantite: quantite de minéral distribuée par g/animal/jour
-     *  atelier: cp_lait = chèvres laitières (options ov_lait, ov_all)
-     *  stade: ge = gestation (options ge, la <=> lactation)
-     *  mineral: on démarre avec des valeurs à 0 pour l'affichage des couleurs
-     */
-
-    'init' => [
-        'quantite' => '10',
-        'espece' => 'cp',
-        'atelier' => 'cp_lait',
-        'stade' => 'ge',
-        'mineral' => [
-            'zinc' => 9000,
-            'cuivre' => 2500,
-            'iode' => 150,
-            'selenium' => 30,
-            'cobalt' => 35,
-            'manganese' => 9000,
-            'vitA' => 1500000,
-            'vitD3' => 200000,
-            'vitE' => 5000,
-        ],
-    ],
-
-    /**
-     * Types d'ateliers disponibles
+     * Espèces, productions, ateliers, stades
      */
 
     'especes' => [
@@ -86,6 +28,7 @@ return [
     ],
 
     'productions' => [
+        'aucune' => 'aucune',
         'lait' => "lait",
         'all' => "allaitant",
         'crois' => "croissance",
@@ -124,6 +67,69 @@ return [
         'bv_all' => true,
         'bv_crois' => false,
     ],
+
+    /**
+     * Valeurs au démarrage de l'appli
+     *  quantite: quantite de minéral distribuée par g/animal/jour
+     *  atelier: cp_lait = chèvres laitières (options ov_lait, ov_all)
+     *  stade: ge = gestation (options ge, la <=> lactation)
+     *  mineral: on démarre avec des valeurs moyennes d'un minéral caprin
+     */
+
+    'init' => [
+        'quantite' => '10',
+        'espece' => 'cp',
+        'atelier' => 'cp_lait',
+        'stade' => 'ge',
+        'mineral' => [
+            'zinc' => 9000,
+            'cuivre' => 2500,
+            'iode' => 150,
+            'selenium' => 30,
+            'cobalt' => 35,
+            'manganese' => 9000,
+            'vitA' => 1500000,
+            'vitD3' => 200000,
+            'vitE' => 5000,
+        ],
+    ],
+
+
+    /**
+     * Matière sèche ingérée en fonction de l'espece et du stade
+     */
+
+    'msi' => [
+        'cp_lait' => [
+            'ge' => '2',
+            'la' => '3',
+        ],
+        'cp_crois' => [
+            'cr' => '1',
+        ],
+        'ov_lait' => [
+            'ge' => '1.8',
+            'la' => '2.5',
+        ],
+        'ov_all' => [
+            'ge' => '1.5',
+            'la' => '2',
+        ],
+        'bv_lait' => [
+            'ge' => '12',
+            'la' => '16',
+        ],
+        'bv_all' => [
+            'ge' => '11',
+            'la' => '13.5',
+        ],
+
+    ],
+
+    /**
+     * Besoins, seuils de carence et de toxicité des oligo-éléments
+     * et vitamines
+     */
     'valeurs' => [
         'zinc' => [
             'carences' => '45',

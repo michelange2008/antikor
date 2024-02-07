@@ -53,22 +53,22 @@ class Oligos extends Component
         $this->espece = $espece;
         $this->atelier = 'aucun';
         $this->stade = 'aucun';
+        $this->setProduction();
+        $this->setMSI();
         $this->maj();
     }
     function setAtelier($atelier)
     {
         $this->atelier = $atelier;
         $this->setProduction();
-        $this->stade = ($this->production == 'crois') ? 'cr' : $this->stade;
+        $this->stade = ($this->production == 'crois') ? 'cr' : 'aucun';
         $this->setMSI();
         $this->maj();
     }
 
     function setProduction()
     {
-        if ($this->atelier != 'aucun') {
-            $this->production = explode('_', $this->atelier)[1];
-        }
+            $this->production = ($this->atelier == 'aucun') ? 'aucune' : explode('_', $this->atelier)[1];
     }
 
     function setStade($stade)
@@ -130,15 +130,27 @@ class Oligos extends Component
 
     function setStadesActifs()
     {
-        if ($this->production == 'crois') {
-            $this->stadesActif['cr'] = true ;
+        if ($this->atelier == 'aucun') {
+            $this->stadesActif['cr'] = false ;
             $this->stadesActif['ge'] = false;
             $this->stadesActif['la'] = false;
         }
         else {
-            $this->stadesActif['cr'] = false;
-            $this->stadesActif['ge'] = true;
-            $this->stadesActif['la'] = true;
+            if ( $this->production == 'crois' ) {
+                $this->stadesActif['cr'] = true ;
+                $this->stadesActif['ge'] = false;
+                $this->stadesActif['la'] = false;
+            }
+            elseif ( $this->production === 'aucune' ) {
+                $this->stadesActif['cr'] = true;
+                $this->stadesActif['ge'] = true;
+                $this->stadesActif['la'] = true;
+            }
+            else {
+                $this->stadesActif['cr'] = false;
+                $this->stadesActif['ge'] = true;
+                $this->stadesActif['la'] = true;
+            }
         }
     }
 
