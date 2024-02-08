@@ -18,8 +18,10 @@ class Oligos extends Component
     public array $apports;
     public array $besoins;
     public array $besoinsTotaux;
+    public array $valeurs;
     public array $carences;
     public array $toxicites;
+    public array $max_reglem;
     public array $bilan;
     public int $quantite;
     public float $msi;
@@ -30,6 +32,7 @@ class Oligos extends Component
     {
         // Liste des oligo-éléments et des vitamines
         $this->oligovitamines = config('oligo.oligovitamines');
+        $this->valeurs = config('oligo.valeurs');
         // Initiation des valeurs par défaut
         $this->stade = config('oligo.init.stade'); // Stade initial
         $this->espece = config('oligo.init.espece'); // Espece initiale
@@ -61,7 +64,7 @@ class Oligos extends Component
     {
         $this->atelier = $atelier;
         $this->setProduction();
-        $this->stade = ($this->production == 'crois') ? 'cr' : 'aucun';
+        $this->stade = ($this->production == 'crois') ? 'croissance' : 'aucun';
         $this->setMSI();
         $this->maj();
     }
@@ -102,8 +105,7 @@ class Oligos extends Component
 
     function setBesoins(): void
     {
-        // $this->besoins = config('oligo.besoins.' . $this->atelier);
-        foreach (config('oligo.valeurs') as $oligo => $seuils) {
+        foreach ($this->valeurs as $oligo => $seuils) {
             foreach ($seuils as $seuil => $valeur) {
                 if (!is_array($valeur)) {
                     $this->$seuil[$oligo] = $seuils[$seuil];
@@ -131,25 +133,25 @@ class Oligos extends Component
     function setStadesActifs()
     {
         if ($this->atelier == 'aucun') {
-            $this->stadesActif['cr'] = false ;
-            $this->stadesActif['ge'] = false;
-            $this->stadesActif['la'] = false;
+            $this->stadesActif['croissance'] = false ;
+            $this->stadesActif['gestation'] = false;
+            $this->stadesActif['lactation'] = false;
         }
         else {
             if ( $this->production == 'crois' ) {
-                $this->stadesActif['cr'] = true ;
-                $this->stadesActif['ge'] = false;
-                $this->stadesActif['la'] = false;
+                $this->stadesActif['croissance'] = true ;
+                $this->stadesActif['gestation'] = false;
+                $this->stadesActif['lactation'] = false;
             }
             elseif ( $this->production === 'aucune' ) {
-                $this->stadesActif['cr'] = true;
-                $this->stadesActif['ge'] = true;
-                $this->stadesActif['la'] = true;
+                $this->stadesActif['croissance'] = true;
+                $this->stadesActif['gestation'] = true;
+                $this->stadesActif['lactation'] = true;
             }
             else {
-                $this->stadesActif['cr'] = false;
-                $this->stadesActif['ge'] = true;
-                $this->stadesActif['la'] = true;
+                $this->stadesActif['croissance'] = false;
+                $this->stadesActif['gestation'] = true;
+                $this->stadesActif['lactation'] = true;
             }
         }
     }

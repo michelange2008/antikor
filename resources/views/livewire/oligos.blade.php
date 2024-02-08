@@ -1,5 +1,7 @@
-<div>
-
+<div x-data="{ infosBesoins: true }">
+    <div x-show="infosBesoins" x-cloak>
+        <x-oligos.infos-besoins :oligovitamines="$oligovitamines" :valeurs="$valeurs"></x-oligo.infos-besoins>
+    </div>
     <x-titres.titre icone="mineraux_light.svg">Que vaut votre complément minéral ?</x-titres.titre>
     <a href="{{ route('oligos.avertissement') }}">
         <p class="mx-2 text-red-900">
@@ -64,20 +66,20 @@
                     physiologique</h3>
                 <div class="flex flex-row gap-2 justify-start lg:justify-center lg:my-2">
 
-                    @foreach ($stades as $st => $stad)
+                    @foreach ($stades as $st)
                         @if ($stadesActif[$st])
                             <div class="flex-auto" wire:click=" setStade('{{ $st }}') ">
                                 @include('components.param-oligo', [
                                     'abbreviation_courante' => $stade,
                                     'abbreviation' => $st,
                                     'parametre' => 'stade',
-                                    'nom' => $stad,
+                                    'nom' => $st,
                                 ])
                             </div>
                         @else
                             <div class="px-2 py-2 my-2 text-sm text-center text-gray-400 bg-gray-200 cursor-not-allowed basis-1/3 md:py-3 md:px-4 md:text-base"
                                 title="Non applicable">
-                                <span>{{ ucfirst($stad) }}</span>
+                                <span>{{ ucfirst($st) }}</span>
                             </div>
                         @endif
                     @endforeach
@@ -89,12 +91,11 @@
                     éventuellement la MSI ingérée
                     <span class="inline md:hidden">(kg/MS par animal)</span>
                 </h3>
-                <div class="py-2 my-2 text-center text-white md:pl-40 md:text-left lg:pl-16
-                @if ($msi == 0)
-                    bg-brique
+                <div
+                    class="py-2 my-2 text-center text-white md:pl-40 md:text-left lg:pl-16
+                @if ($msi == 0) bg-brique
                 @else
-                    bg-vert 
-                @endif lg:my-3">
+                    bg-vert @endif lg:my-3">
                     <input
                         class="inline-block w-32 text-center bg-gray-100 rounded-md border-transparent text-vert-900 md:text-lg lg:text-xl focus:border-gray-500 focus:bg-white focus:ring-0"
                         type="number" step="0.1" min="0" wire:model="msi" wire:change.debounce="majMineral">
@@ -124,7 +125,7 @@
                         {{ ucfirst($ateliers[$espece][$atelier]) }}
 
                         @if ($stade != 'aucun')
-                            en {{ $stades[$stade] }}
+                            en {{ $stade }}
                         @endif
                     @endif
                 </h2>
@@ -148,7 +149,9 @@
                 <thead class="p-2 text-gray-100 bg-gray-700">
                     <tr>
                         <td class="px-4 py-3 border border-gray-200">
-                            Eléments (besoins<span class="hidden md:inline"> en ppm</span>)
+                            Oligo-éléments et vitamines (besoins<span class="hidden md:inline"> en ppm</span>)
+                            <span class="ml-1 text-lg cursor-pointer" title="Plus d'informations"
+                                x-on:click="infosBesoins = !infosBesoins"><i class="fa fa-circle-info"></i></span>
                         </td>
                         <td class="px-2 py-3 text-center border border-gray-200">
                             Minéral
@@ -207,4 +210,5 @@
             </x-buttons.route-success-button>
         </div>
     @endrole
+
 </div>
