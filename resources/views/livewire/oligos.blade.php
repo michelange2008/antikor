@@ -1,4 +1,4 @@
-<div x-data="{ infosBesoins: true }">
+<div x-data="{ infosBesoins: false }">
     <div x-show="infosBesoins" x-cloak>
         <x-oligos.infos-besoins :oligovitamines="$oligovitamines" :valeurs="$valeurs"></x-oligo.infos-besoins>
     </div>
@@ -151,7 +151,7 @@
                         <td class="px-4 py-3 border border-gray-200">
                             Oligo-éléments et vitamines (besoins<span class="hidden md:inline"> en ppm</span>)
                             <span class="ml-1 text-lg cursor-pointer" title="Plus d'informations"
-                                x-on:click="infosBesoins = !infosBesoins"><i class="fa fa-circle-info"></i></span>
+                                x-on:click="infosBesoins = true"><i class="fa fa-circle-info"></i></span>
                         </td>
                         <td class="px-2 py-3 text-center border border-gray-200">
                             Minéral
