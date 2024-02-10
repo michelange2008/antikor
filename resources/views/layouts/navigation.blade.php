@@ -9,11 +9,17 @@
                 </a>
             </div>
             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-
                 <!-- Navigation Links -->
-                <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
-                    {{ ucfirst(__('menu.home')) }}
-                </x-nav-link>
+                @auth
+                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                        {{ ucfirst(__('menu.home')) }}
+                    </x-nav-link>
+                @else
+                    <x-nav-link :href="route('front.index')" :active="request()->routeIs('front.index')">
+                        {{ ucfirst(__('Accueil')) }}
+                    </x-nav-link>
+                @endauth
+
                 @role('antikor')
                     <x-dropdown-perso id='aroma' :haut="'aromaliste'" :bas="[
                         ['name' => 'aromaliste', 'route' => 'home'],
@@ -21,10 +27,10 @@
                         ['name' => 'preps', 'route' => 'preparations.index'],
                         ['name' => 'aromaform', 'route' => 'home'],
                     ]"></x-dropdown-perso>
+                    <x-nav-link :href="route('visites')" :active="request()->routeIs('visites')">
+                        {{ ucfirst(__('menu.visites')) }}
+                    </x-nav-link>
                 @endrole
-                <x-nav-link :href="route('visites')" :active="request()->routeIs('visites')">
-                    {{ ucfirst(__('menu.visites')) }}
-                </x-nav-link>
 
                 <x-nav-link :href="route('formations.index')" :active="request()->routeIs('formations.index')">
                     {{ ucfirst(__('menu.formations')) }}
@@ -35,9 +41,9 @@
                 </x-nav-link>
 
                 @haspermission('nuage')
-                <x-nav-link :href="config('links.nextcloud')">
-                    Nuage
-                </x-nav-link>
+                    <x-nav-link :href="config('links.nextcloud')">
+                        Nuage
+                    </x-nav-link>
                 @endhaspermission
                 @role('webmin')
                     <x-dropdown-perso id='admin' :haut="'admin'" :bas="[
@@ -67,23 +73,31 @@
                         </div>
                     </button>
                 </x-slot>
+                @auth
 
-                <x-slot name="content">
-                    <x-dropdown-link :href="route('profile.edit')">
-                        {{ __('profile.Profile') }}
-                    </x-dropdown-link>
-
-                    <!-- Authentication -->
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-
-                        <x-dropdown-link :href="route('logout')"
-                            onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                            {{ __('auth.Log Out') }}
+                    <x-slot name="content">
+                        <x-dropdown-link :href="route('profile.edit')">
+                            {{ __('profile.Profile') }}
                         </x-dropdown-link>
-                    </form>
-                </x-slot>
+
+                        <!-- Authentication -->
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+
+                            <x-dropdown-link :href="route('logout')"
+                                onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                {{ __('auth.Log Out') }}
+                            </x-dropdown-link>
+                        </form>
+                    </x-slot>
+                @else
+                    <x-slot name="content">
+                        <x-dropdown-link :href="route('login')">
+                            {{ __('Se connecter') }}
+                        </x-dropdown-link>
+                    </x-slot>
+                @endauth
             </x-dropdown>
         </div>
 
@@ -105,65 +119,83 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
+            @auth
+                <x-responsive-nav-link :class="'font-bold'" :href="route('home')" :active="request()->routeIs('home')">
+                    {{ ucfirst(__('menu.home')) }}
+                </x-responsive-nav-link>
+            @else
+                <x-responsive-nav-link :class="'font-bold'" :href="route('front.index')" :active="request()->routeIs('front.index')">
+                    {{ ucfirst(__('Accueil')) }}
+                </x-responsive-nav-link>
+            @endauth
 
-            <x-responsive-nav-link :class="'font-bold'" :href="route('home')" :active="request()->routeIs('home')">
-                {{ ucfirst(__('menu.home')) }}
-            </x-responsive-nav-link>
+            @hasrole('antikor')
+                <x-responsive-nav-link :class="'font-bold'">
+                    {{ ucfirst(__('menu.aromaliste')) }}
+                </x-responsive-nav-link>
 
-            <x-responsive-nav-link :class="'font-bold'">
-                {{ ucfirst(__('menu.aromaliste')) }}
-            </x-responsive-nav-link>
+                <x-responsive-nav-link :class="'ml-2'" href="#" :active="request()->routeIs('visites')">
+                    {{ ucfirst(__('menu.aromaliste')) }}
+                </x-responsive-nav-link>
 
-            <x-responsive-nav-link :class="'ml-2'" href="#" :active="request()->routeIs('visites')">
-                {{ ucfirst(__('menu.aromaliste')) }}
-            </x-responsive-nav-link>
+                <x-responsive-nav-link :class="'ml-2'" :href="route('produits.index')" :active="request()->routeIs('produits.index')">
+                    {{ ucfirst(__('menu.produits')) }}
+                </x-responsive-nav-link>
 
-            <x-responsive-nav-link :class="'ml-2'" :href="route('produits.index')" :active="request()->routeIs('produits.index')">
-                {{ ucfirst(__('menu.produits')) }}
-            </x-responsive-nav-link>
+                <x-responsive-nav-link :class="'ml-2'" :href="route('preparations.index')" :active="request()->routeIs('preparations.index')">
+                    {{ ucfirst(__('menu.preps')) }}
+                </x-responsive-nav-link>
 
-            <x-responsive-nav-link :class="'ml-2'" :href="route('preparations.index')" :active="request()->routeIs('preparations.index')">
-                {{ ucfirst(__('menu.preps')) }}
-            </x-responsive-nav-link>
-
-            <x-responsive-nav-link :class="'ml-2'" :href="route('visites')" :active="request()->routeIs('visites')">
-                {{ ucfirst(__('menu.aromaform')) }}
-            </x-responsive-nav-link>
+                <x-responsive-nav-link :class="'ml-2'" :href="route('visites')" :active="request()->routeIs('visites')">
+                    {{ ucfirst(__('menu.aromaform')) }}
+                </x-responsive-nav-link>
+            @endhasrole
 
             <x-responsive-nav-link :class="'font-bold'" :href="route('formations.index')" :active="request()->routeIs('formations.index')">
                 {{ ucfirst(__('menu.formations')) }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link :class="'font-bold'" :href="config('links.nextcloud')">
-                Nuage
+            <x-responsive-nav-link :class="'font-bold'" :href="route('oligos.outil')" :active="request()->routeIs('foligos.outil')">
+                {{ ucfirst(__('menu.oligos')) }}
             </x-responsive-nav-link>
 
+            @haspermission('nuage')
+                <x-responsive-nav-link :class="'font-bold'" :href="config('links.nextcloud')">
+                    Nuage
+                </x-responsive-nav-link>
+            @endhaspermission
         </div>
 
         <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
-            <div class="px-4">
-                <div class="text-base font-medium text-gray-800 dark:text-gray-200">{{ Auth::user()->name ?? '' }}
+        @auth
+            <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
+                <div class="px-4">
+                    <div class="text-base font-medium text-gray-800 dark:text-gray-200">{{ Auth::user()->name ?? '' }}
+                    </div>
+                    <div class="text-sm font-medium text-gray-500">{{ Auth::user()->email ?? '' }}</div>
                 </div>
-                <div class="text-sm font-medium text-gray-500">{{ Auth::user()->email ?? '' }}</div>
-            </div>
 
-            <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :class="'ml-2'" :href="route('profile.edit')">
-                    {{ __('profile.Profile') }}
-                </x-responsive-nav-link>
-
-                <!-- Authentication -->
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-
-                    <x-responsive-nav-link :class="'ml-2'" :href="route('logout')"
-                        onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Log Out') }}
+                <div class="mt-3 space-y-1">
+                    <x-responsive-nav-link :class="'ml-2'" :href="route('profile.edit')">
+                        {{ __('profile.Profile') }}
                     </x-responsive-nav-link>
-                </form>
+
+                    <!-- Authentication -->
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+
+                        <x-responsive-nav-link :class="'ml-2'" :href="route('logout')"
+                            onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                            {{ __('Log Out') }}
+                        </x-responsive-nav-link>
+                    </form>
+                </div>
             </div>
-        </div>
+        @else
+            <x-dropdown-link :href="route('login')">
+                {{ __('Se connecter') }}
+            </x-dropdown-link>
+        @endauth
     </div>
 </nav>
