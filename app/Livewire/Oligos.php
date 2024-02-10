@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use Livewire\Attributes\Validate;
 use Livewire\Component;
 
 class Oligos extends Component
@@ -23,7 +24,9 @@ class Oligos extends Component
     public array $toxicites;
     public array $max_reglem;
     public array $bilan;
+    #[Validate('required|numeric', as: 'quantité distribuée')]
     public int $quantite;
+    #[Validate('required|numeric', as: 'MSI')]
     public float $msi;
     public array $ateliersActifs;
     public array $stadesActif;
@@ -85,9 +88,21 @@ class Oligos extends Component
     {
         $this->maj();
     }
+    
+    function majMSI() {
+        $this->validate();
+        $this->maj();   
+    }
+
+    function majQuantite()
+    {
+        $this->validate();
+    }
 
     function maj()
     {
+        $this->validate();
+        $this->msi = round($this->msi, 1);
         $this->setStadesActifs();
         $this->setBesoins();
         $this->setApports();
@@ -98,6 +113,8 @@ class Oligos extends Component
     {
         foreach ($this->oligovitamines as $type => $elements) {
             foreach ($elements as $abbreviation => $nom) {
+                $this->mineral[$abbreviation] = ($this->mineral[$abbreviation] == '') ? 0 : $this->mineral[$abbreviation];
+                $this->mineral[$abbreviation] = ($this->mineral[$abbreviation] < 0 ) ? 0 : $this->mineral[$abbreviation];
                 $this->apports[$abbreviation] = $this->mineral[$abbreviation] * $this->quantite / 1000;
             }
         }
@@ -158,7 +175,7 @@ class Oligos extends Component
 
     function calculBilan(): void
     {
-        
+      
         foreach ($this->oligovitamines as $type => $oligoOuVitamines) {
             foreach ($oligoOuVitamines as $abbreviation => $nom) {
                 // En l'absence de valeurs du minéral pour un élément, la valeur est mise à 0
@@ -174,7 +191,7 @@ class Oligos extends Component
 
                 // Définition des classes à afficher à fonction de l'équilibre/carence/toxicité
                 // cf. app.css
-                if ( $this->atelier == 'aucun' || $this->stade == 'aucun' ) {
+                if ( $this->atelier == 'aucun' || $this->stade == 'aucun' || $this->msi == 0 ) {
                     // Si  pas d'atelier et de stade défini, affichage gris
                     $this->bilan[$abbreviation] = 'notyetset';
 

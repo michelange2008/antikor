@@ -2,7 +2,7 @@
     <div x-show="infosBesoins" x-cloak>
         <x-oligos.infos-besoins :oligovitamines="$oligovitamines" :valeurs="$valeurs"></x-oligo.infos-besoins>
     </div>
-    <x-titres.titre icone="mineraux_light.svg">Que vaut votre complément minéral ?</x-titres.titre>
+    <x-titres.titre icone="mineraux_light.svg">Oligo-éléments et vitamines: apports et besoins</x-titres.titre>
     <a href="{{ route('oligos.avertissement') }}">
         <p class="mx-2 text-red-900">
             <i class="fa-solid fa-square-arrow-up-right"></i>
@@ -86,36 +86,11 @@
 
                 </div>
             </div>
-            <div id="MSI" class="mb-4">
-                <h3 class="py-1 pl-2 bg-gray-300 text-vert-900 h3 lg:pl-0 lg:text-center">4 - Modifier
-                    éventuellement la MSI ingérée
-                    <span class="inline md:hidden">(kg/MS par animal)</span>
-                </h3>
-                <div
-                    class="py-2 my-2 text-center text-white md:pl-40 md:text-left lg:pl-16
-                @if ($msi == 0) bg-brique
-                @else
-                    bg-vert @endif lg:my-3">
-                    <input
-                        class="inline-block w-32 text-center bg-gray-100 rounded-md border-transparent text-vert-900 md:text-lg lg:text-xl focus:border-gray-500 focus:bg-white focus:ring-0"
-                        type="number" step="0.1" min="0" wire:model="msi" wire:change.debounce="majMineral">
-                    <span class="hidden ml-1 md:inline md:text-lg lg:text-xl">kg/MSI/jour par animal</span>
-                </div>
-            </div>
-            <div id="quantite">
-                <h3 class="py-2 pl-2 bg-gray-300 text-vert-900 h3 lg:pl-0 lg:text-center">5 - Choisir la quantité
-                    distribuée
-                    <span class="inline md:hidden">(g/jour par animal)</span>
-                </h3>
-                <div class="py-2 my-2 text-center text-white md:pl-40 md:text-left lg:pl-16 bg-vert lg:my-3">
-                    <input
-                        class="inline-block m-2 w-32 text-center bg-gray-100 rounded-md border-transparent text-vert-900 md:text-lg lg:text-xl focus:border-gray-500 focus:bg-white focus:ring-0"
-                        type="number" min="0" step="1" value=10 wire:model="quantite"
-                        wire:change.debounce = "maj"><span class="hidden ml-1 md:inline md:text-lg lg:text-xl">g/jour
-                        par
-                        animal</span>
-                </div>
-            </div>
+            <x-oligos.oligos-outil-qttmsi titre="4 - Modifier éventuellement la matière sèche ingérée"
+                unite="kg/MSI/jour par animal" step="0.1" :valeur="$msi" parametre="msi" />
+
+            <x-oligos.oligos-outil-qttmsi titre="5 - Choisir la quantité distribuée" unite="g/jour par animal"
+                step="1" :valeur="$quantite" parametre="quantite" />
 
             <div id="choix" class="p-4 bg-gray-200">
                 <h2 class="h2">
@@ -173,7 +148,7 @@
                                 <td class="px-2 py-3 text-center border border-gray-800">
                                     <input id="{{ $abbreviation }}" name="{{ $abbreviation }}" type="number"
                                         min="0" step="1" class="w-32 text-center"
-                                        wire:model="mineral.{{ $abbreviation }}" wire:change.debounce = "majMineral()">
+                                        wire:model="mineral.{{ $abbreviation }}" wire:change.debounce = "maj">
                                 </td>
                                 <td class="py-3 px-2 border border-gray-800 text-center {{ $bilan[$abbreviation] }}">
                                     @if ($bilan[$abbreviation] == 'toxicite')
