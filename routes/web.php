@@ -43,8 +43,8 @@ Route::get('/Formations', [FrontController::class, 'formations'])->name('front.f
 Route::get('/Formations/{formation}', [FrontController::class, 'formationShow'])->name('front.formationShow');
 Route::get('/Parasitisme', [FrontController::class, 'parasitisme'])->name('front.parasitisme');
 Route::get('/Reproduction', [FrontController::class, 'reproduction'])->name('front.reproduction');
-Route::prefix('/oligoéléments')->group( function() {
-    Route::get('/outil', Oligos::class)->name('oligos.outil');
+Route::prefix('/oligovitamines')->group( function() {
+    Route::get('', Oligos::class)->name('oligos.outil');
     Route::get('/avertissement', [FrontController::class, 'avertissement'])->name('oligos.avertissement');
     Route::get('/parametres', OligosParametres::class)->name('oligos.parametres');
 });
