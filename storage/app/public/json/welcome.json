@@ -1,28 +1,28 @@
 {
-    "par" : {
-        "img" : "parasitisme.jpg",
-        "texte" : "Parasitisme",
-        "url" : "front.index"
-    },
     "for" : {
         "img" : "formations.jpg",
         "texte" : "Formations",
         "url" : "front.formations"
+    },
+    "ave" : {
+        "img" : "mineraux.jpg",
+        "texte" : "Oligo-éléments et vitamines",
+        "url" : "oligos.outil"
     },
     "phy" : {
         "img" : "achillee.jpg",
         "texte" : "Phytothérapie",
         "url" : "front.index"
     },
+    "par" : {
+        "img" : "parasitisme.jpg",
+        "texte" : "Parasitisme",
+        "url" : "front.index"
+    },
     "rep" : {
         "img" : "reproduction.jpg",
         "texte" : "Reproduction",
         "url" : "front.reproduction"
-    },
-    "ave" : {
-        "img" : "mineraux.jpg",
-        "texte" : "Oligo-éléments et vitamines",
-        "url" : "oligos.outil"
     },
     "ant" : {
         "img" : "antikor.jpg",
