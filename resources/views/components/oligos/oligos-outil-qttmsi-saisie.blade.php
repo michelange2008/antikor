@@ -9,7 +9,7 @@
 
     <span class="hidden ml-1 md:inline md:text-lg lg:text-xl">{{ $unite }}</span>
     <img class="w-12 h-12 md:hidden" src="{{ url('storage/img/icones/down.svg') }}" alt="moins"
-        x-on:click="valeur = valeur + {{ $step }}" wire:click="maj"></i>
+        x-on:click="valeur = valeur - {{ $step }}" wire:click="maj"></i>
     <div>
         @error($parametre)
             {{ $message }}
