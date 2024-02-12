@@ -4,8 +4,12 @@
     <div class="flex justify-between h-16">
         <div class="flex">
             <div class="flex items-center shrink-0">
+                <a href="#">
+                    <img class="h-12" src="{{ url('storage/img/logo_fevec.png')}}" alt="">
+                </a>
                 <a href="{{ route('home') }}">
-                    <x-application-logo class="block w-auto h-9 text-gray-800 fill-current dark:text-gray-200" />
+                    <img class="h-10" src="{{ url('storage/img/logo.png') }}" alt="">
+                    {{-- <x-application-logo class="block w-auto h-9 text-gray-800 fill-current dark:text-gray-200" /> --}}
                 </a>
             </div>
             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">

@@ -2,7 +2,7 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
     
-    <div class="container md:w-1/2 xl:w-1/3 px-4 my-6 mx-auto py-60">
+    <div class="container px-4 py-60 mx-auto my-6 md:w-1/2 xl:w-1/3">
         
         <form method="POST" action="{{ route('login') }}">
             @csrf
@@ -29,15 +29,15 @@
             <div class="block mt-4">
                 <label for="remember_me" class="inline-flex items-center">
                     <input id="remember_me" type="checkbox"
-                        class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800"
+                        class="text-indigo-600 rounded border-gray-300 shadow-sm dark:bg-gray-900 dark:border-gray-700 focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800"
                         name="remember">
                     <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">{{ __('auth.Remember me') }}</span>
                 </label>
             </div>
 
-            <div class="flex items-center justify-end mt-4">
+            <div class="flex justify-end items-center mt-4">
                 @if (Route::has('password.request'))
-                    <a class="underline mr-3 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
+                    <a class="mr-3 text-sm text-gray-600 underline rounded-md dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
                         href="{{ route('password.request') }}">
                         {{ __('passwords.Forgot password') }}
                     </a>
@@ -48,7 +48,9 @@
                 </x-success-button>
             </div>
         </form>
-
+            <div class="flex justify-end items-center mr-1">
+                <x-buttons.route-neutre-button :route="route('front.index')" fa="rotate-left" >Annuler</x-buttons.route-neutre-button>
+            </div>
     </div>
 
 </x-guest-layout>

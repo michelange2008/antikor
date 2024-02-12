@@ -39,11 +39,14 @@ use App\Models\User;
 
 Route::get('/', [FrontController::class, 'index'])->name('front.index');
 
-Route::get('/Formations', [FrontController::class, 'formations'])->name('front.formations');
-Route::get('/Formations/{formation}', [FrontController::class, 'formationShow'])->name('front.formationShow');
+Route::get('/Formations', FormationIndex::class)->name('formations.index');
+Route::get('/Formations/{formation}', FormationShow::class)->name('formations.show');
+
 Route::get('/Parasitisme', [FrontController::class, 'parasitisme'])->name('front.parasitisme');
+
 Route::get('/Reproduction', [FrontController::class, 'reproduction'])->name('front.reproduction');
-Route::prefix('/oligovitamines')->group( function() {
+
+Route::prefix('/oligovitamines')->group(function () {
     Route::get('', Oligos::class)->name('oligos.outil');
     Route::get('/avertissement', [FrontController::class, 'avertissement'])->name('oligos.avertissement');
     Route::get('/parametres', OligosParametres::class)->name('oligos.parametres');
@@ -58,16 +61,14 @@ Route::prefix('/intranet')->middleware('auth', 'verified')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/aroma', [HomeController::class, 'aroma'])->name('aroma');
     Route::get('/visites', [HomeController::class, 'visites'])->name('visites');
-    // Affichage et gestion des formations
-    Route::get('/formations', FormationIndex::class)->name('formations.index');
+    // Gestion des formations
     Route::get('/formations/create', FormationCreate::class)->name('formations.create');
     Route::get('/formations/edit/{formation}', FormationEdit::class)->name('formations.edit');
-    Route::get('/formations/{formation}', FormationShow::class)->name('formations.show');
 
     Route::get('/preparations', PreparationsListe::class)->name('preparations.index');
     Route::get('/preparation/composition/{preparation}', [PhytoprepController::class, 'edit'])->name('composition.edit');
     Route::post('/preparation/composition/{preparation}', [PhytoprepController::class, 'update'])->name('composition.update');
-    
+
     Route::resource('/produits', PhytoproduitController::class);
 
     Route::group(['middleware' => ['role:webmin']], function () {
@@ -75,7 +76,6 @@ Route::prefix('/intranet')->middleware('auth', 'verified')->group(function () {
         Route::get('/roles', Roles::class)->name('roles');
         Route::get('/permissions', Permissions::class)->name('permissions');
     });
-
 });
 
 Route::middleware('auth')->group(function () {
@@ -84,4 +84,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

@@ -4,12 +4,12 @@
     </div>
     <x-titres.titre icone="mineraux_light.svg">Oligo-éléments et vitamines: apports et besoins</x-titres.titre>
     <a href="{{ route('oligos.avertissement') }}">
-        <p class="mx-2 text-red-900">
+        <p class="mx-1 text-red-900">
             <i class="fa-solid fa-square-arrow-up-right"></i>
             Avertissement à lire avant d'utiliser l'outil ci-dessous
         </p>
     </a>
-    <div class="mt-2 lg:grid lg:grid-cols-8 lg:gap-5">
+    <div class="lg:grid lg:grid-cols-8 lg:gap-5">
 
         <div class="flex flex-col gap-2 justify-between my-3 lg:col-span-4 xl:col-span-3">
 
@@ -86,11 +86,12 @@
 
                 </div>
             </div>
+
             <x-oligos.oligos-outil-qttmsi titre="4 - Modifier éventuellement la matière sèche ingérée"
                 unite="kg/MSI/jour par animal" step="0.1" :valeur="$msi" parametre="msi" />
 
-            <x-oligos.oligos-outil-qttmsi titre="5 - Choisir la quantité distribuée" unite="g/jour par animal"
-                step="1" :valeur="$quantite" parametre="quantite" />
+            <x-oligos.oligos-outil-qttmsi titre="5 - Indiquer la quantité de minéral distribuée"
+                unite="g/jour par animal" step="1" :valeur="$quantite" parametre="quantite" />
 
             <div id="choix" class="p-4 bg-gray-200">
                 <h2 class="h2">
@@ -117,21 +118,21 @@
 
 
         <div id="mineral" class="my-3 lg:col-span-4 xl:col-span-5">
-            <h2 class="py-1 pl-2 bg-gray-300 text-vert-900 h3 lg:pl-0 lg:text-center">6 - Saisir les valeurs du minéral
-                (mg/kg
-                ou ppm)</h2>
+            <h2 class="py-1 pl-2 bg-gray-300 text-vert-900 h3 lg:pl-0 lg:text-center">
+                6 - Saisir les valeurs du minéral
+            </h2>
             <table class="my-3 w-full border border-collapse table-auto">
-                <thead class="p-2 text-gray-100 bg-gray-700">
+                <thead class="p-2 text-gray-100 bg-gray-800">
                     <tr>
-                        <td class="px-4 py-3 border border-gray-200">
-                            Oligo-éléments et vitamines (besoins<span class="hidden md:inline"> en ppm</span>)
+                        <td class="px-4 py-3 border border-gray-800 border-r-gray-200">
+                            Oligo-éléments et vitamines (besoins)
                             <span class="ml-1 text-lg cursor-pointer" title="Plus d'informations"
                                 x-on:click="infosBesoins = true"><i class="fa fa-circle-info"></i></span>
                         </td>
-                        <td class="px-2 py-3 text-center border border-gray-200">
-                            Minéral
+                        <td class="px-2 py-3 text-center border border-x-gray-200 border-y-gray-800">
+                            Minéral (mg/kg ou ppm)
                         </td>
-                        <td class="px-2 py-3 text-center border border-gray-200">
+                        <td class="px-2 py-3 text-center border border-gray-800 border-l-200">
                             Apports pour {{ $quantite }} g/j
                         </td>
                     </tr>
@@ -139,12 +140,20 @@
                 <tbody>
                     @foreach ($oligovitamines as $type => $oligoOuVitamines)
                         @foreach ($oligoOuVitamines as $abbreviation => $nom)
-                            <tr
-                                class="font-bold @if ($type == 'vitamines') text-vert-900 @else text-brique-900 @endif">
-                                <td class="px-4 py-3 ml-1 border border-gray-800">
-                                    {{ ucfirst($nom) }}
-                                    ({{ $besoinsTotaux[$abbreviation] }})
-                                </td>
+                            <tr class="font-bold">
+                                @if ($type == 'vitamines')
+                                    <td class="px-4 py-3 ml-1 border border-gray-800 text-brique-900">
+                                        {{ ucfirst($nom) }}
+                                        <br class="block sm:hidden" />
+                                        <span class="text-sm sm:text-base text-nowrap">({{ $besoinsTotaux[$abbreviation] }}&nbspUI/kg)</span>
+                                    </td>
+                                @else
+                                    <td class="px-4 py-3 ml-1 border border-gray-800 text-vert-900">
+                                        {{ ucfirst($nom) }}
+                                        <br class="block sm:hidden" />
+                                        <span class="text-sm sm:text-base text-nowrap">({{ $besoinsTotaux[$abbreviation] }}&nbspmg/kg)</span>
+                                    </td>
+                                @endif
                                 <td class="px-2 py-3 text-center border border-gray-800">
                                     <input id="{{ $abbreviation }}" name="{{ $abbreviation }}" type="number"
                                         min="0" step="1" class="w-32 text-center"

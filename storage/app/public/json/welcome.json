@@ -1,8 +1,8 @@
 {
     "for" : {
-        "img" : "formations.jpg",
+        "img" : "formation.jpg",
         "texte" : "Formations",
-        "url" : "front.formations"
+        "url" : "formations.index"
     },
     "ave" : {
         "img" : "mineraux.jpg",

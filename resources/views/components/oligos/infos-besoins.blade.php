@@ -54,7 +54,7 @@
             </tbody>
         </table>
         <div class="text-xs sm:text-sm md:text-base">
-
+            <p class="font-bold">Les valeurs sont en mg/kg de MSI pour les oligo-éléments et en UI/kg de MSI pour les vitamines</p>
             <p>Certaines valeurs ont été modifiées. Dans la publication originale,
                 les AJR en iode vont de 0,2 à 0,8 selon le niveau de production laitière.
             </p>
@@ -62,7 +62,7 @@
                 Les AJR pour les chèvres en cuivre sont à 10 ppm. et les AJR en vitamines A
                 et E sont variables selon le % de concentré dans la ration.
             <p>
-                Nous avons pris une valeur intermédiaire.</p>
+                Pour ces dernières, nous avons pris une valeur intermédiaire.</p>
             </p>
         </div>
         <x-buttons.success-button x-on:click="infosBesoins = false">Fermer</x-buttons.success-button>

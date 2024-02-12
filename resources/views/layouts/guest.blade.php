@@ -19,7 +19,7 @@
 
       @show
       
-     <main>
+      <main>
         {{ $slot }}
       </main>
 
