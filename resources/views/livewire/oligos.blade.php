@@ -125,15 +125,16 @@
                 <thead class="p-2 text-gray-100 bg-gray-800">
                     <tr>
                         <td class="px-4 py-3 border border-gray-800 border-r-gray-200">
-                            Oligo-éléments et vitamines (besoins)
+                            <span class="hidden sm:inline">Oligo-éléments et vitamines (besoins)</span>
+                            <span class="inline sm:hidden">Besoins</span>
                             <span class="ml-1 text-lg cursor-pointer" title="Plus d'informations"
                                 x-on:click="infosBesoins = true"><i class="fa fa-circle-info"></i></span>
                         </td>
                         <td class="px-2 py-3 text-center border border-x-gray-200 border-y-gray-800">
-                            Minéral (mg/kg ou ppm)
+                            Minéral (mg/kg&nbspou&nbspppm)
                         </td>
                         <td class="px-2 py-3 text-center border border-gray-800 border-l-200">
-                            Apports pour {{ $quantite }} g/j
+                            Apports pour {{ $quantite }}&nbspg/j
                         </td>
                     </tr>
                 </thead>
