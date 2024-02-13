@@ -1,4 +1,4 @@
-<div id="{{ $parametre }}" class="mb-4" x-data="{ valeur: @entangle($parametre)}">
+<div id="{{ $parametre }}" class="mb-3" x-data="{ valeur: @entangle($parametre)}">
 
     <h3 class="py-1 pl-2 bg-gray-300 text-vert-900 h3 lg:pl-0 lg:text-center">
         {{ $titre }}

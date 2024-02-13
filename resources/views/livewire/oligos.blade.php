@@ -13,7 +13,7 @@
 
         <div class="flex flex-col gap-2 justify-between my-3 lg:col-span-4 xl:col-span-3">
 
-            <div id="espece" class="mb-4">
+            <div id="espece" class="mb-3">
                 <h3 class="py-1 pl-2 bg-gray-300 text-vert-900 h3 lg:pl-0 lg:text-center">1 - Choisir l'espèce
                 </h3>
                 <div class="flex flex-row gap-2 justify-start lg:justify-center lg:my-2">
@@ -33,7 +33,7 @@
                 </div>
             </div>
 
-            <div id="atelier" class="mb-4">
+            <div id="atelier" class="mb-3">
                 <h3 class="py-1 pl-2 bg-gray-300 text-vert-900 h3 lg:pl-0 lg:text-center">2 - Choisir le type d'atelier
                 </h3>
                 <div class="flex flex-row gap-2 justify-start lg:justify-center lg:my-2">
@@ -61,7 +61,7 @@
                 </div>
             </div>
 
-            <div id="stade" class="mb-4">
+            <div id="stade" class="mb-3">
                 <h3 class="py-1 pl-2 bg-gray-300 text-vert-900 h3 lg:pl-0 lg:text-center">3 - Choisir le stade
                     physiologique</h3>
                 <div class="flex flex-row gap-2 justify-start lg:justify-center lg:my-2">
@@ -93,7 +93,7 @@
             <x-oligos.oligos-outil-qttmsi titre="5 - Indiquer la quantité de minéral distribuée"
                 unite="g/jour par animal" step="1" :valeur="$quantite" parametre="quantite" />
 
-            <div id="choix" class="p-4 bg-gray-200">
+            <div id="choix" class="px-4 py-3 bg-gray-200">
                 <h2 class="h2">
                     @if ($atelier == 'aucun')
                         <span class="italic font-light">Choisir un atelier ...</span>
@@ -172,7 +172,7 @@
                     @endforeach
                 </tbody>
             </table>
-            <div class="flex flex-row gap-4 justify-around px-2 py-5 mt-2 bg-gray-200">
+            <div class="flex flex-row gap-4 justify-around px-2 py-4 mt-2 bg-gray-200">
                 <div class="flex flex-row gap-1">
                     <div class="w-5 h-5 equilibre"></div>
                     Equilibre
