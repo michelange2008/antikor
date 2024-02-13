@@ -8,7 +8,7 @@
 </div>
 
 {{-- l'attribut multiple renvoie au fait qu'il y a plusieurs éléments à lister (relation belongsToMany) --}}
-<div class="grid grid-cols-2 gap-1 mt-1 md:grid-flow-col md:flex md:flex-col md:gap-3">
+<div class="grid grid-cols-1 gap-1 mt-1 md:grid-flow-col md:flex md:flex-col md:gap-3">
     <x-formations.formation-modalites icone="duree.svg" titre="Durée" :texte="$formation->duree->nom" multiple="0" />
     <x-formations.formation-modalites icone="public.svg" titre="Public" :texte="$formation->stagiaire->nom" multiple="0" />
     <x-formations.formation-modalites icone="intervenant.svg" titre="Intervenant" :texte="$formation->intervenant->nom" multiple="0" />

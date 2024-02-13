@@ -1,6 +1,6 @@
 {{-- -> form_show_detail
     multiple = 1 si plusieurs lignes (relation belonsTo ou belongsToMany) --}}
-<div class="px-2 py-2 mb-2 bg-gray-200 md:px-4 md:shadow md:shadow-slate-700 md:mb-8 md:py-4">
+<div class="px-2 py-2 mb-2 bg-gray-200 md:px-4 md:shadow md:shadow-slate-700 md:mb-6 md:py-4">
 
     <p class="text-lg font-bold text-teal-700 md:text-2xl">{{ $titre }}</p>
 

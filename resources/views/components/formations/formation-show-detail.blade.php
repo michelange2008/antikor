@@ -12,7 +12,7 @@ ou en tête --}}
     </p>
 
 
-    <div class="grid mt-8 grid-col-1 md:grid-cols-3">
+    <div class="grid md:mt-6 grid-col-1 md:grid-cols-3">
 
         <div class="mb-2 border md:p-3 bg-neutral-100">
 
