@@ -1,9 +1,9 @@
 {{-- -> form-show-cartouche 
     Elément de description des modalités de la formation dans le cartouche (grand écran) ou l'encart' (petit écran) --}}
-<div class="my-3">
+<div class="p-1 bg-gray-200 border md:py-3 md:px-2">
     <div class="flex items-center">
         <img class="w-10" src="{{ url('storage/img/icones/' . $icone) }}" alt="default.svg">
-        <p class="mx-3 text-lg font-bold text-teal-700">{{ $titre }} </p>
+        <p class="mx-3 text-lg font-bold text-vert">{{ $titre }} </p>
     </div>
 
     <div class="mx-6 my-3 font-bold text-black">
