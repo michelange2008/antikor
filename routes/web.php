@@ -39,12 +39,12 @@ use App\Models\User;
 
 Route::get('/', [FrontController::class, 'index'])->name('front.index');
 
-Route::get('/Formations', FormationIndex::class)->name('formations.index');
-Route::get('/Formations/{formation}', FormationShow::class)->name('formations.show');
+Route::get('/formations', FormationIndex::class)->name('formations.index');
+Route::get('/formations/{formation}', FormationShow::class)->name('formations.show');
 
-Route::get('/Parasitisme', [FrontController::class, 'parasitisme'])->name('front.parasitisme');
+Route::get('/parasitisme', [FrontController::class, 'parasitisme'])->name('front.parasitisme');
 
-Route::get('/Reproduction', [FrontController::class, 'reproduction'])->name('front.reproduction');
+Route::get('/reproduction', [FrontController::class, 'reproduction'])->name('front.reproduction');
 
 Route::prefix('/oligovitamines')->group(function () {
     Route::get('', Oligos::class)->name('oligos.outil');

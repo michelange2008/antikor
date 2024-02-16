@@ -30,8 +30,9 @@ class FrontController extends Controller
 
     public function reproduction()
     {
-        $reproduction = config('links.reproduction');
-        return redirect()->to($reproduction);
+        // $reproduction = config('links.reproduction');
+        // return redirect()->to($reproduction);
+        return view('reproduction.animation');
     }
 
     function avertissement()
