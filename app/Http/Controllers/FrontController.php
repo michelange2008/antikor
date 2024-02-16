@@ -32,6 +32,7 @@ class FrontController extends Controller
     {
         // $reproduction = config('links.reproduction');
         // return redirect()->to($reproduction);
+        
         return view('reproduction.animation');
     }
 
