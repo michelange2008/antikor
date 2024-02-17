@@ -1,6 +1,6 @@
 // import './bootstrap';
 import './antikor';
-import './reproduction';
+// import './reproduction';
 
 import.meta.glob([
     '../images/**',

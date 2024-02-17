@@ -9,7 +9,7 @@
    viewBox="0 0 448 512"
    version="1.1"
    id="svg317"
-   sodipodi:docname="depart.svg"
+   sodipodi:docname="start.svg"
    inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -27,9 +27,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="0.45612581"
-     inkscape:cx="628.11617"
-     inkscape:cy="131.54265"
+     inkscape:zoom="1.2372203"
+     inkscape:cx="377.86319"
+     inkscape:cy="310.37319"
      inkscape:window-width="1920"
      inkscape:window-height="1043"
      inkscape:window-x="1920"
@@ -38,7 +38,7 @@
      inkscape:current-layer="svg317" />
   <path
      fill="currentColor"
-     d="M 69.209763,34.93296 H 136 V 220.4 L 384.35873,34.93296 384.27914,479.60518 136,292.7 V 479.60518 H 69.668639 Z"
+     d="M 83.404265,34.93296 83.483855,479.60518 384.35873,249.58782 Z"
      id="path315"
-     sodipodi:nodetypes="ccccccccc" />
+     sodipodi:nodetypes="cccc" />
 </svg>

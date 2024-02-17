@@ -32,8 +32,8 @@ class FrontController extends Controller
     {
         // $reproduction = config('links.reproduction');
         // return redirect()->to($reproduction);
-        
-        return view('reproduction.animation');
+
+        return view('repro.cycle-ovarien');
     }
 
     function avertissement()

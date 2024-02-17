@@ -37,6 +37,7 @@
         </main>
         
     </div>
+    @stack('scripts')
     @livewireScriptConfig()
     
 </body>
