@@ -32,7 +32,7 @@
     "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-v4compatibility.woff2"
   },
   "resources/css/app.css": {
-    "file": "assets/app-52740d93.css",
+    "file": "assets/app-5eeca2cb.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -92,5 +92,21 @@
     "file": "assets/app-5ec31719.js",
     "isEntry": true,
     "src": "resources/js/app.js"
+  },
+  "storage/app/public/img/reproduction/antikor.png": {
+    "file": "assets/antikor-c9fafffc.png",
+    "src": "storage/app/public/img/reproduction/antikor.png"
+  },
+  "storage/app/public/img/reproduction/cc.svg": {
+    "file": "assets/cc-f55e40cb.svg",
+    "src": "storage/app/public/img/reproduction/cc.svg"
+  },
+  "storage/app/public/img/reproduction/fleche.svg": {
+    "file": "assets/fleche-ddffe2de.svg",
+    "src": "storage/app/public/img/reproduction/fleche.svg"
+  },
+  "storage/app/public/img/reproduction/roller.svg": {
+    "file": "assets/roller-26cb658f.svg",
+    "src": "storage/app/public/img/reproduction/roller.svg"
   }
 }
