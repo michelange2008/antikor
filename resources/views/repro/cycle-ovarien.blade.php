@@ -17,9 +17,9 @@
 
     </div>
 
-    <div class="md:hidden">
-        {{-- <p>Merci de tourner votre écran en mode paysage</p> --}}
-        <img class="absolute" src="{{url('storage/img/highland.jpg')}}" alt="Pélican">
+    <div class="relative -mt-3 md:hidden">
+        <img class="absolute z-0" src="{{url('storage/img/highland.jpg')}}" alt="Pélican">
+        <p class="absolute z-10 py-3 w-full text-xl text-center text-white bg-brique-900 text-bold">Merci de mettre votre écran en mode paysage</p>
     </div>
 
 
