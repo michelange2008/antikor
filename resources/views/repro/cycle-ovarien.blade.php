@@ -17,9 +17,9 @@
 
     </div>
 
-    <div class="relative -mt-3 md:hidden">
-        <img class="absolute z-0" src="{{url('storage/img/highland.jpg')}}" alt="Pélican">
-        <p class="absolute z-10 py-3 w-full text-xl text-center text-white bg-brique-900 text-bold">Merci de mettre votre écran en mode paysage</p>
+    <div class="flex flex-col justify-start -mt-3 h-screen md:hidden bg-brique-900">
+        <p class="py-6 w-full text-xl text-center text-white bg-brique-900 text-bold">Merci de mettre votre écran en mode paysage</p>
+        <img class="" src="{{url('storage/img/highland.jpg')}}" alt="highland">
     </div>
 
 
