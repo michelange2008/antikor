@@ -1,10 +1,9 @@
 <x-app-layout>
 
     <x-titres.titre icone="fire.svg">Cycle ovarien de la vache</x-titres.titre>
-
     <div class="hidden md:block">
 
-        <div class="justify-between mt-3 bg-gray-300 lg:mt-6 lg:flex lg:flex-row">
+        <div class="justify-between mt-3 bg-gray-300 lg:mt-6 md:flex md:flex-row">
 
             @include('repro.animation.organe')
 
