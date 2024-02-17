@@ -13,5 +13,6 @@ return [
     'roles' => "Rôles",
     'permissions' => "Permissions",
     'users' => "Utilisateurs",
-    'oligos' => "Oligo-vitamines"
+    'oligos' => "Oligo-vitamines",
+    'repro' => "Reproduction",
 ];

@@ -44,6 +44,10 @@
                     {{ ucfirst(__('menu.oligos')) }}
                 </x-nav-link>
 
+                <x-nav-link :href="route('front.reproduction')" :active="request()->routeIs('front.reproduction')">
+                    {{ ucfirst(__('menu.repro')) }}
+                </x-nav-link>
+
                 @haspermission('nuage')
                     <x-nav-link :href="config('links.nextcloud')">
                         Nuage
@@ -159,8 +163,12 @@
                 {{ ucfirst(__('menu.formations')) }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link :class="'font-bold'" :href="route('oligos.outil')" :active="request()->routeIs('foligos.outil')">
+            <x-responsive-nav-link :class="'font-bold'" :href="route('oligos.outil')" :active="request()->routeIs('oligos.outil')">
                 {{ ucfirst(__('menu.oligos')) }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :class="'font-bold'" :href="route('front.reproduction')" :active="request()->routeIs('front.reproduction')">
+                {{ ucfirst(__('menu.repro')) }}
             </x-responsive-nav-link>
 
             @haspermission('nuage')
