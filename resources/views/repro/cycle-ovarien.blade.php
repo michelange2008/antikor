@@ -18,8 +18,8 @@
     </div>
 
     <div class="md:hidden">
-        <p>Désolé mais il faut tourner votre écran en mode paysage</p>
-        <img class="absolute" src="{{url('storage/img/pelican.jpg')}}" alt="Pélican">
+        {{-- <p>Merci de tourner votre écran en mode paysage</p> --}}
+        <img class="absolute" src="{{url('storage/img/highland.jpg')}}" alt="Pélican">
     </div>
 
 
