@@ -1,4 +1,9 @@
 {
+    "ant" : {
+        "img" : "antikor.jpg",
+        "texte" : "Antikor",
+        "url" : "front.antikor"
+    },
     "for" : {
         "img" : "formation.jpg",
         "texte" : "Formations",
@@ -9,6 +14,11 @@
         "texte" : "Oligo-éléments et vitamines",
         "url" : "oligos.outil"
     },
+    "rep" : {
+        "img" : "reproduction.jpg",
+        "texte" : "Reproduction",
+        "url" : "front.reproduction"
+    },
     "phy" : {
         "img" : "achillee.jpg",
         "texte" : "Phytothérapie",
@@ -18,15 +28,5 @@
         "img" : "parasitisme.jpg",
         "texte" : "Parasitisme",
         "url" : "front.index"
-    },
-    "rep" : {
-        "img" : "reproduction.jpg",
-        "texte" : "Reproduction",
-        "url" : "front.reproduction"
-    },
-    "ant" : {
-        "img" : "antikor.jpg",
-        "texte" : "Antikor",
-        "url" : "login"
     }
 }

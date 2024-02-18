@@ -45,6 +45,7 @@ Route::get('/formations/{formation}', FormationShow::class)->name('formations.sh
 Route::get('/parasitisme', [FrontController::class, 'parasitisme'])->name('front.parasitisme');
 
 Route::get('/reproduction', [FrontController::class, 'reproduction'])->name('front.reproduction');
+Route::get('/antikor', [FrontController::class, 'antikor'])->name('front.antikor');
 
 Route::prefix('/oligovitamines')->group(function () {
     Route::get('', Oligos::class)->name('oligos.outil');

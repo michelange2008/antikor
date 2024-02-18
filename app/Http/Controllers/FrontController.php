@@ -36,6 +36,12 @@ class FrontController extends Controller
         return view('repro.cycle-ovarien');
     }
 
+    function antikor()
+    {
+        $datas = $this->litJson("antikor");
+        return view('antikor.antikor-index', ['datas' => $datas]);
+    }
+
     function avertissement()
     {
         return view('avertissement')   ; 
