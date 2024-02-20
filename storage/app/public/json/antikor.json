@@ -1,11 +1,12 @@
 {
     "scop" : {
-        "titre" : "ANTIKOR, une SCOP de vétérinaires ruraux praticiens",
+        "titre" : "ANTIKOR, une SCOP de vétérinaires ruraux",
         "photo" : "velage.jpg",
         "texte" : {
             "p1" : "Depuis 2006, Les vétérinaires de la Scop Antikor travaillent dans la Drôme avec une centaine d’éleveurs de ruminants (vaches laitières et allaitantes, brebis et chèvres laitières, brebis allaitantes) réunis dans une association (AVER Association Vétérinaire des Eleveurs de la Raye).",
             "p2" : "Antikor et l’AVER sont membres de la FEVEC Fédération des Éleveurs et Vétérinaires en Convention)."
-        }
+        },
+        "plus" : "equipe"
     },
     "phyto" : {
         "titre" : "Une pratique de la phytothérapie et de l’ostéopathie au quotidien en élevages",
@@ -13,7 +14,8 @@
         "texte" : {
             "p1" : "Pour la prévention et les soins aux animaux, nous utilisons aussi bien l’allopathie que la phytothérapie, l’ostéopathie et l’homéopathie.",
             "p2" : "Cette approche pragmatique de la santé des troupeaux et du soin aux animaux nous permet de connaître les contraintes des éleveurs: temps de travail, économie de la santé, aspects pratiques, …"
-        }
+        },
+        "plus" : "partenaires"
     },
     "formation" : {
         "titre" : "Des formations pratiques basées sur l’expérience d’un travail quotidien avec les éleveurs",
@@ -21,6 +23,7 @@
         "texte" : {
             "p1" : "Depuis plus de 10 ans, nous avons élaboré et mis en œuvre des formations destinées aux éleveur.euse.s ou aux futurs éleveur.euses.s basées sur notre expérience de travail au quotidien dans les fermes. Ces formations alternent des temps d’apports théoriques avec des mises en œuvres pratiques, soit en salle, soit en exploitation.",
             "p2" : "Des documents pédagogiques soignés permettent aux participant.e.s de retrouver par la suite les connaissances acquises lors de la formation."
-        }
+        },
+        "plus" : "formations"
     }
 }

@@ -39,7 +39,11 @@ class FrontController extends Controller
     function antikor()
     {
         $datas = $this->litJson("antikor");
-        return view('antikor.antikor-index', ['datas' => $datas]);
+        $equipe = config('antikor');
+        return view('antikor.antikor-index', [
+            'datas' => $datas,
+            'equipe' => $equipe,
+        ]);
     }
 
     function avertissement()
