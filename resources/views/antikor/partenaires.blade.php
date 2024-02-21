@@ -1,5 +1,5 @@
 <div class="flex flex-col gap-5 justify-around">
-    <p class="p-3 text-2xl font-black text-center text-vert-900">Nos partenaires</p>
+    <p class="p-3 text-2xl font-black text-center text-vert-900">Nos partenaires pour la formation</p>
     <div class="flex flex-col gap-3 pr-3 pl-8">
         <p class="-indent-4"><span class="font-bold text-vert-900">FEVEC:</span> Fédération des Eleveurs et Vétérinaires en Convention</p>
         <p class="-indent-4"><span class="font-bold text-vert-900">Syndicats caprins:</span> Drôme, Hautes-Alpes</p>
