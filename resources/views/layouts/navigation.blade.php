@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="px-2 bg-white border-b border-gray-100 dark:bg-gray-800 dark:border-gray-700">
+<nav x-data="{ open: false }" class="sticky top-0 z-50 px-2 bg-white border-b border-gray-100 shadow-md shadow-gray-500 dark:bg-gray-800 dark:border-gray-700">
     <!-- Primary Navigation Menu -->
 
     <div class="flex justify-between h-16">
@@ -11,10 +11,10 @@
                 </div>
             @else
                 <div class="flex items-center shrink-0">
-                    <a href="#">
+                    <a href="{{ url("https://fevec.fr ")}}" target="_blank" title="Site de la FEVEC">
                         <img class="h-12" src="{{ url('storage/img/logo_fevec.png') }}" alt="">
                     </a>
-                    <a href="{{ route('home') }}">
+                    <a href="{{ route('front.index') }}" title="Retour à l'accueil">
                         <img class="ml-2 h-10" src="{{ url('storage/img/logo.svg') }}" alt="">
                     </a>
                 </div>
@@ -25,10 +25,6 @@
                 @auth
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                         {{ ucfirst(__('menu.home')) }}
-                    </x-nav-link>
-                @else
-                    <x-nav-link :href="route('front.index')" :active="request()->routeIs('front.index')">
-                        {{ ucfirst(__('Accueil')) }}
                     </x-nav-link>
                 @endauth
 
@@ -43,6 +39,10 @@
                         {{ ucfirst(__('menu.visites')) }}
                     </x-nav-link>
                 @endrole
+
+                <x-nav-link :href="route('front.antikor')" :active="request()->routeIs('front.antikor')">
+                    {{ ucfirst(__('menu.who')) }}
+                </x-nav-link>
 
                 <x-nav-link :href="route('formations.index')" :active="request()->routeIs('formations.index')">
                     {{ ucfirst(__('menu.formations')) }}

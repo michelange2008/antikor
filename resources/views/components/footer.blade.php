@@ -1,9 +1,9 @@
 <footer
-    class="invisible md:visible md:text-xs lg:text-base flex flex-row justify-between w-full fixed bottom-0 right-0 py-3 xl:px-44 lg:px-12 md:px-10 bg-gray-700 text-gray-200">
-    <p>ANTIKOR vétérinaires: <span class="font-serif italic">Société coopérative à capital variable</span></p>
+    class="flex flex-col gap-2 justify-between px-2 py-3 mt-4 w-full text-gray-200 bg-gray-700 md:text-xs lg:text-base md:flex md:flex-row xl:px-12 lg:px-6 md:px-4">
+    <p>ANTIKOR vétérinaires: <span class="font-serif italic">SCOP à capital variable</span></p>
     <p>605 Grande Rue - 26300 Barbières</p>
-    <p>
-        <a href="mailto:antikor@orange.fr">
+    <p class="hover:text-blue-200 hover:underline">
+        <a href="mailto:antikor@orange.fr" title="Ecrivez-nous">
             antikor@orange.fr
         </a>
     </p>

@@ -1,12 +1,12 @@
 {
     "ant" : {
         "img" : "antikor.jpg",
-        "texte" : "Antikor",
+        "texte" : "Qui sommes-nous ?",
         "url" : "front.antikor"
     },
     "for" : {
         "img" : "formation.jpg",
-        "texte" : "Formations",
+        "texte" : "Offre de formations",
         "url" : "formations.index"
     },
     "ave" : {
@@ -16,7 +16,7 @@
     },
     "rep" : {
         "img" : "reproduction.jpg",
-        "texte" : "Reproduction",
+        "texte" : "La reproduction en animation",
         "url" : "front.reproduction"
     },
     "phy" : {

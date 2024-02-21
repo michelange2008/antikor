@@ -1,4 +1,4 @@
-<div class="hidden w-full h-full bg-gray-300 lg:block lg:absolute">
+<div>
     <p class="p-3 text-2xl font-black text-center text-vert-900">Une équipe polyvalente</p>
     <div class="grid grid-cols-2 p-3">
         @foreach ($equipe as $membre)

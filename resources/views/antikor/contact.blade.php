@@ -1,4 +1,4 @@
-<div class="hidden w-full h-full bg-gray-300 lg:block lg:absolute">
+<div>
     <p class="p-3 text-2xl font-black text-center text-vert-900">Nous contacter</p>
 
     <div class="flex flex-col gap-4 p-5 mt-5">

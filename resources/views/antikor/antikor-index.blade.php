@@ -1,16 +1,17 @@
 <x-app-layout>
 
-    <div class="px-12">
+    <div class="my-3 select-none">
         <div class="lg:grid lg:grid-cols-3 lg:gap-3">
             @foreach ($datas as $data)
                 <div class="mb-1 rounded lg:relative">
-
-                    @includeIf('antikor.'.$data->plus)
-                    
-                    <div class="flex flex-col justify-center py-3 pr-3 pb-3 pl-5 h-full text-lg font-bold text-gray-100 opacity-0 lg:absolute lg:transition lg:duration-1000 lg:ease-in-out lg:hover:opacity-0 lg:text-3xl bg-vert-900">
+                    <div class="hidden w-full h-full bg-gray-300 lg:block lg:absolute">
+                        @includeIf('antikor.' . $data->plus)
+                    </div>
+                    <div
+                        class="flex flex-col justify-center py-3 pr-3 pb-3 pl-5 h-full text-lg font-bold text-gray-100 opacity-100 lg:absolute lg:transition lg:duration-1000 lg:ease-in-out lg:hover:opacity-0 lg:text-3xl bg-vert-900">
                         <p>{{ $data->titre }}</p>
                     </div>
-                    
+
                 </div>
                 <div class="mb-3 lg:mb-0">
                     <img class="" src="{{ url('storage/img/antikor/' . $data->photo) }}" alt="">

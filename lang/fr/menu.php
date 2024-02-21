@@ -15,4 +15,5 @@ return [
     'users' => "Utilisateurs",
     'oligos' => "Oligo-vitamines",
     'repro' => "Reproduction",
+    'who' => "Qui sommes-nous ?"
 ];

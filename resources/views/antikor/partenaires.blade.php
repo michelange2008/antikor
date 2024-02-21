@@ -1,14 +1,12 @@
-<div class="hidden w-full h-full bg-gray-300 lg:block lg:absolute">
-    <p class="p-3 text-2xl font-black text-center text-vert-900">Partenaires</p>
-    <div>
-        FEVEC: Fédération des Eleveurs et Vétérinaires en Convention
-Syndicats caprins: Drôme, Hautes-Alpes
-Groupes d’Agriculteurs Bio : Agribiodrôme, Agribioardèche, Bio
-Grand Est, Adabio38, Adabio74-75, Bio-Bourgogne
-Groupements de Défense Sanitaire: Drôme, Vaucluse, Ardèche
-Chambres d’agriculture: Drôme, Grand Est, Isère, Haute-Marne,
-Oise, Hautes-Alpes
-Conseil en Élevage: Ain
-CFPPA: Drôme, Ardèche, Hautes-Alpes
+<div class="flex flex-col gap-5 justify-around">
+    <p class="p-3 text-2xl font-black text-center text-vert-900">Nos partenaires</p>
+    <div class="flex flex-col gap-3 pr-3 pl-8">
+        <p class="-indent-4"><span class="font-bold text-vert-900">FEVEC:</span> Fédération des Eleveurs et Vétérinaires en Convention</p>
+        <p class="-indent-4"><span class="font-bold text-vert-900">Syndicats caprins:</span> Drôme, Hautes-Alpes</p>
+        <p class="-indent-4"><span class="font-bold text-vert-900">Groupes d’Agriculteurs Bio:</span> Agribiodrôme, Agribioardèche, Bio Grand Est, Adabio38, Adabio74-75, Bio-Bourgogne</p>
+        <p class="-indent-4"><span class="font-bold text-vert-900">Groupements de Défense Sanitaire:</span> Drôme, Vaucluse, Ardèche</p>
+        <p class="-indent-4"><span class="font-bold text-vert-900">Chambres d’agriculture:</span> Drôme, Grand Est, Isère, Haute-Marne, Oise, Hautes-Alpes</p>
+        <p class="-indent-4"><span class="font-bold text-vert-900">Conseil en Élevage:</span> Ain
+        <p class="-indent-4"><span class="font-bold text-vert-900">CFPPA:</span> Drôme, Ardèche, Hautes-Alpes, Moselle</p>
     </div>
 </div>
