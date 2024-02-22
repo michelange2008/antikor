@@ -7,13 +7,13 @@
 
             @if (Route::has('login'))
                 <div class="flex top-0 justify-between items-center px-6 py-3 text-right">
-                    <img class="w-32 dark:invert" src="{{ url('storage/img/logo.svg') }}" alt="Logo Antikor">
+                    <img class="w-48 dark:invert" src="{{ url('storage/img/logo.svg') }}" alt="Logo Antikor">
                     @auth
                         <a href="{{ route('home') }}"
-                            class="font-semibold text-gray-600 hover:text-black dark:text-neutral-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Intranet</a>
+                            class="font-semibold text-gray-600 md:text-lg hover:text-black dark:text-neutral-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Intranet</a>
                     @else
                         <a href="{{ route('login') }}"
-                            class="font-semibold text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Connexion</a>
+                            class="font-semibold text-gray-600 md:text-lg hover:text-black dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Connexion</a>
                     @endauth
                   </div>
               @endif
