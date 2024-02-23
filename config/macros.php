@@ -3,10 +3,10 @@ return [
 
     "troupeau" => [
         "atelier" => "cp",
-        "poids" => 65,
+        "poids" => 70,
         "production" => "lait",
         "stade" => "lactation",
-        "quantite" => 0,
+        "quantite" => 2,
     ],
 
     "msi" => 2,

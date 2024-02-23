@@ -23,6 +23,11 @@ class Macros extends Component
         $this->calculBesoins();
     }
 
+    function updated()
+    {
+        $this->calculBesoins();    
+    }
+
     function choixAtelier($atelier)
     {
         $this->troupeau['atelier'] = $atelier;
@@ -45,7 +50,7 @@ class Macros extends Component
 
         $p_entretien = 0.905 * $msi + 0.3 + 0.002 * $pv;
         $ca_entretien['gestation'] = 0.015 * $pv;
-        $ca_entretien['lactation'] = 0.67 * $msi + 0.01 * $pv;
+        $ca_entretien['lactation'] = 0.663 * $msi + 0.01 * $pv;
         $mg_entretien = 0.01 * $pv;
 
         $p_production['cp']['gestation'] = 0.6 * $prolificite; 
