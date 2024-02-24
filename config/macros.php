@@ -3,10 +3,8 @@ return [
 
     "troupeau" => [
         "atelier" => "cp",
-        "poids" => 70,
-        "production" => "lait",
         "stade" => "lactation",
-        "quantite" => 2,
+        "parametres" => [],
     ],
 
     "msi" => 2,
@@ -14,6 +12,24 @@ return [
     "stades" => [
         "gestation",
         "lactation",
+    ],
+
+    "default" => [
+        "cp" => [
+            "poids" => 70,
+            "prolificite" => 1.5,
+            "quantite" => 3,
+        ],
+        "oa" => [
+            "poids" => 60,
+            "prolificite" => 1.5,
+            "quantite" => 0.8,
+        ],
+        "ol" => [
+            "poids" => 65,
+            "prolificite" => 1.5,
+            "quantite" => 2,
+        ],
     ],
 
     "ateliers" => [
