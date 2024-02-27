@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use Livewire\Attributes\On;
 
 class Macros extends Component
 {
@@ -13,6 +14,8 @@ class Macros extends Component
     public $choixTroupeau = [];
     public $msi;
     public $besoins;
+    public $apports;
+    public $ration = [];
 
     function mount()
     {
@@ -24,6 +27,10 @@ class Macros extends Component
         $this->msi = config('macros.msi');
         $this->setDefaults();
         $this->calculBesoins();
+        $this->apports = [
+            "P" => 0,
+            "Ca" => 0,
+        ];
     }
 
     function updated()
@@ -87,8 +94,14 @@ class Macros extends Component
         $ca_production['oa']['lactation'] = $ca_entretien['lactation'] + 1.90 * $this->troupeau['parametres']['quantite'];
         $ca_production['ol']['lactation'] = $ca_entretien['lactation'] + 1.90 * $this->troupeau['parametres']['quantite'];
 
-        $this->besoins['p'] = round($p_production[$atelier][$stade], 1);
-        $this->besoins['ca'] = round($ca_production[$atelier][$stade], 1);
+        $this->besoins['P'] = round($p_production[$atelier][$stade], 1);
+        $this->besoins['Ca'] = round($ca_production[$atelier][$stade], 1);
+    }
+
+    #[On('nouvelle_ration')]
+    function nouvelleRation($apports)
+    {
+        $this->apports = $apports;    
     }
     public function render()
     {

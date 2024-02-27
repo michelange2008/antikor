@@ -1,6 +1,6 @@
 // import './bootstrap';
 import './antikor';
-import './bilanMineral';
+// import './bilanMineral';
 
 import.meta.glob([
     '../images/**',

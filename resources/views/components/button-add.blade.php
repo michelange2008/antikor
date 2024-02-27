@@ -1,8 +1,6 @@
-<button @click=" open = !open"  class="shadow-md flex flex-row justify-around items-center rounded p-2 bg-teal-800 w-30 hover:bg-teal-500 text-teal-100 hover:text-teal-900" type="submit">
+<button @click=" open = !open"  class="flex flex-row justify-around items-center p-2 my-1 text-white rounded shadow-md bg-vert-900 w-30 hover:bg-vert hover:text-vert-900" type="submit">
 
-        <img class="w-4 mr-2" src="{{ url('storage/img/fonticone/add.svg') }}" alt="add">
-
-        <p>{{ ucfirst(__('boutons.add')) }}</p>
+    <i class="fa-solid fa-square-plus"></i>&nbsp;{{ ucfirst(__('boutons.add')) }}
 
     </a>
 

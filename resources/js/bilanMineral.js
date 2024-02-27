@@ -1,3 +1,6 @@
+
+var phosphore = <?php echo $besoins['p']; ?>;
+console.log(phosphore)
 Highcharts.chart('container', {
     chart: {
         type: 'column'
@@ -7,8 +10,8 @@ Highcharts.chart('container', {
     },
     xAxis: {
         categories: [
+            'Phosphore',
             'Calcium',
-            'Phosphore'
         ]
     },
     yAxis: [{
@@ -32,16 +35,17 @@ Highcharts.chart('container', {
     },
     series: [{
         name: 'Besoins',
-        color: '#A2352FAA',
-        data: [150, 73],
+        color: '#057A6322',
+        border: '#000000',
+        data: besoins,
         pointPadding: 0.3,
-        pointPlacement: -0.05
+        pointPlacement: -0.02
     }, {
         name: 'Apports',
-        color: '#057A63AA',
-        data: [140, 90],
+        color: '#057A6366',
+        data: [90, 140],
         pointPadding: 0.3,
-        pointPlacement: 0.05
+        pointPlacement: 0.02
 
     }]
 });

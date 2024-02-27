@@ -1,0 +1,27 @@
+id;nom;altype_id;alstade_id;MS;Ptot;P;Catot;Ca
+1;Luzerne;4;1;85;2.4;1.4;12.5;3.8
+2;Luzerne;4;4;85;2.2;1.3;11;3.3
+3;Luzerne;4;5;85;2.2;1.3;14.4;4.3
+4;Prairie permanente (Crau);4;1;85;3;2;10.5;3.7
+5;Prairie permanente (Crau);4;4;85;3;2;10;3.5
+6;Prairie permanente (Crau);4;5;85;3;2;11;3.9
+7;Prairie permanente (Auvergne);4;1;85;2;1.3;3.8;1.4
+8;Prairie permanente (Auvergne);4;4;85;2.2;1.4;5.8;2
+9;Prairie permanente (Auvergne);4;5;85;2.4;1.6;5.8;2
+10;Luzerne;2;1;55;2.6;1.7;12.8;3.8
+11;Luzerne;2;4;55;2.3;1.5;11.9;3.6
+12;Prairie permanente (Normandie);1;2;16.5;4;2.8;6;2.1
+13;Prairie permanente (Normandie);1;3;21;3.6;2.5;4.7;1.7
+14;Prairie permanente (Normandie);1;4;19;3.8;2.7;6.9;2.4
+15;Prairie permanente (Normandie);1;5;16;4;2.8;5.9;2.1
+16;Prairie permanente (Auvergne);1;2;16;2.7;1.9;5;1.8
+17;Prairie permanente (Auvergne);1;3;21;1.7;1.1;4;1.4
+18;Prairie permanente (Auvergne);1;4;19;2.3;1.6;6.6;2.3
+19;Prairie permanente (Auvergne);1;5;19.6;2.7;1.9;7;2.5
+20;Orge;8;;86.7;4;3.3;0.8;0.5
+21;Maïs;8;;86.4;3;2.2;0.5;0.3
+22;Avoine;8;;88.1;3.6;2.7;1.2;0.7
+23;Triticale;8;;87.3;4;3;0.8;0.5
+24;Colza;11;;88.7;12.9;9.2;9.4;5.2
+25;Soja;11;;87.8;7.1;5;3.9;2.1
+26;Tournesol;11;;89;11.6;7.6;4.4;2.5

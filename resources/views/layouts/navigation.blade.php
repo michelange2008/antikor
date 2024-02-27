@@ -66,6 +66,8 @@
                         ['name' => 'users', 'route' => 'users'],
                         ['name' => 'roles', 'route' => 'roles'],
                         ['name' => 'permissions', 'route' => 'permissions'],
+                        ['name' => 'aliments', 'route' => 'aliments'],
+                        ['name' => 'rations', 'route' => 'rations'],
                     ]"></x-dropdown-perso>
                 @endrole
 

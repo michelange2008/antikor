@@ -9,6 +9,7 @@ use App\Http\Controllers\FrontController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PhytoprepController;
 use App\Http\Controllers\PhytoproduitController;
+use App\Livewire\Aliments;
 use App\Livewire\PreparationsListe;
 use App\Livewire\CompositionEdit;
 use App\Livewire\Formations\FormationCreate;
@@ -24,6 +25,7 @@ use App\Livewire\ProgrammeSoustitreEdit;
 use App\Livewire\Roles;
 use App\Livewire\ShowUsers;
 use App\Livewire\Permissions;
+use App\Livewire\Rations;
 use App\Livewire\Users;
 use App\Models\User;
 
@@ -80,6 +82,8 @@ Route::prefix('/intranet')->middleware('auth', 'verified')->group(function () {
         Route::get('/utilisateurs', Users::class)->name('users');
         Route::get('/roles', Roles::class)->name('roles');
         Route::get('/permissions', Permissions::class)->name('permissions');
+        Route::get('/aliments', Aliments::class )->name('aliments');
+        Route::get('/rations', Rations::class )->name('rations');
     });
 });
 

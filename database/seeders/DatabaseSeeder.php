@@ -36,8 +36,11 @@ class DatabaseSeeder extends Seeder
             // FormationPedagogieSeeder::class,
             // DocumentFormationSeeder::class,
             // ObjectifpedagoSeeder::class,
-            ProgrammesoustitreSeeder::class,
-            ProgrammedetailSeeder::class,
+            // ProgrammesoustitreSeeder::class,
+            // ProgrammedetailSeeder::class,
+            // AltypeSeeder::class,
+            // AlstadeSeeder::class,
+            AlimentSeeder::class,
         ]);
     }
 }
