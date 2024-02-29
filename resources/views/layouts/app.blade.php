@@ -18,7 +18,7 @@
 
 </head>
 
-<body class="px-1 font-sans antialiased bg-gray-100 xl:px-30">
+<body class="px-2 font-sans antialiased bg-gray-100 xl:px-30">
     <div class="flex flex-col justify-between mx-auto min-h-screen bg-gray-100 dark:bg-gray-900">
         <div class="justify-items-stretch border-0">
 
