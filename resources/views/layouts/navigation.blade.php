@@ -35,22 +35,28 @@
                         ['name' => 'preps', 'route' => 'preparations.index'],
                         ['name' => 'aromaform', 'route' => 'home'],
                     ]"></x-dropdown-perso>
-                    <x-nav-link :href="route('visites')" :active="request()->routeIs('visites')">
+                    {{-- <x-nav-link :href="route('visites')" :active="request()->routeIs('visites')">
                         {{ ucfirst(__('menu.visites')) }}
-                    </x-nav-link>
+                    </x-nav-link> --}}
                 @endrole
 
-                <x-nav-link :href="route('front.antikor')" :active="request()->routeIs('front.antikor')">
+                @role('!antikor')
+                <x-nav-link href="/antikor" wire:navigate :active="request()->routeIs('front.antikor')">
                     {{ ucfirst(__('menu.who')) }}
                 </x-nav-link>
-
-                <x-nav-link :href="route('formations.index')" :active="request()->routeIs('formations.index')">
+                @endrole
+                <x-nav-link href="/formations" :active="request()->routeIs('formations.index')">
                     {{ ucfirst(__('menu.formations')) }}
                 </x-nav-link>
 
-                <x-nav-link :href="route('oligos.outil')" :active="request()->routeIs('oligos.outil')">
-                    {{ ucfirst(__('menu.oligos')) }}
+                <x-nav-link href="/alim" :active="request()->routeIs('formations.alim')">
+                    {{ ucfirst(__('menu.alim')) }}
                 </x-nav-link>
+                
+                {{-- <x-dropdown-perso id='mineraux' :haut="'mineraux'" :bas="[
+                    ['name' => 'macros', 'route' => 'macros.outil'],
+                    ['name' => 'oligos', 'route' => 'oligos.outil'],
+                ]"></x-dropdown-perso> --}}
 
                 <x-nav-link :href="route('front.reproduction')" :active="request()->routeIs('front.reproduction')">
                     {{ ucfirst(__('menu.repro')) }}
@@ -173,8 +179,8 @@
                 {{ ucfirst(__('menu.formations')) }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link :class="'font-bold'" :href="route('oligos.outil')" :active="request()->routeIs('oligos.outil')">
-                {{ ucfirst(__('menu.oligos')) }}
+            <x-responsive-nav-link :class="'font-bold'" :href="route('front.alim')" :active="request()->routeIs('front.alim')">
+                {{ ucfirst(__('menu.alim')) }}
             </x-responsive-nav-link>
 
             <x-responsive-nav-link :class="'font-bold'" :href="route('front.reproduction')" :active="request()->routeIs('front.reproduction')">

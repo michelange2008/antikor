@@ -4,8 +4,8 @@
         <thead>
             <tr>
                 <th class="border-gray-300 border-r-2"></th>
-                <th colspan="3" class="p-2 text-center bg-vert text-white border-gray-300 border-l-2">Besoins</th>
-                <th colspan="2" class="p-2 text-center bg-brique text-white border-gray-300 border-l-2">Seuils de
+                <th colspan="3" class="p-2 text-center bg-vert-700 text-white border-gray-300 border-l-2">Besoins</th>
+                <th colspan="2" class="p-2 text-center bg-brique-700 text-white border-gray-300 border-l-2">Seuils de
                     toxicité</th>
             </tr>
             <tr>

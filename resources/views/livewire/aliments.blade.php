@@ -1,13 +1,21 @@
 <div x-data="{ open: @entangle('openModal'), edit: @entangle('editModal') }">
     <x-titres.titre icone="aliment.svg">Aliments</x-titres.titre>
 
-    <div x-show="open">
+    <div x-show="open" x-cloak>
         <x-aliments.create-modal :altypes="$altypes" :alstades="$alstades" />
     </div>
-    <div x-show="edit != 0 ">
+    <div x-show="edit != 0 " x-cloak>
         <x-aliments.edit-modal :altypes="$altypes" :alstades="$alstades" />
     </div>
-    <x-button-add />
+    <div class="flex flex-row justify-between">
+        <div>
+            <x-button-add />
+        </div>
+        <div>
+            <x-buttons.navigate-button route="/intranet/types" libelle="Types d'aliments" fa="sliders"/>
+            <x-buttons.navigate-button route="/intranet/stades" libelle="Stades de récolte" fa="sun"/>
+       </div>
+    </div>
     <div>
         <table class="w-full border-2">
             <thead class="text-white border-2 bg-brique-900 border-brique-900">
@@ -24,7 +32,8 @@
             </thead>
             <tbody class="border-2 divide-x-2 divide-y-2 divide-gray-200">
                 @foreach ($liste_aliments as $key => $aliment)
-                    <tr class="border-2 divide-x-2 divide-y-2 divide-gray-200">
+                    <tr
+                        class="{{ $aliment->altype->couleur }} text-{{ $aliment->altype->couleur }}-800 border-2 divide-x-2 divide-y-2 divide-gray-200">
                         <td class="p-2">
                             {{ ucfirst($aliment->altype->nom) }}
                         </td>
@@ -50,10 +59,10 @@
                             {{ $aliment->Ca }}
                         </td>
                         <td class="text-center cursor-pointer">
-                            <i class="text-vert fa-solid fa-pen-to-square" wire:click='edit({{$aliment->id}})'></i>
+                            <i class="text-vert-700 fa-solid fa-pen-to-square" wire:click='edit({{ $aliment->id }})'></i>
                         </td>
                         <td class="text-center cursor-pointer">
-                            <i class="text-brique fa-solid fa-trash"
+                            <i class="text-brique-700 fa-solid fa-trash"
                                 wire:confirm="Etes-vous sûr.e.s de vouloir supprimer cet aliment ?"
                                 wire:click="delete({{ $aliment->id }})"></i>
                         </td>

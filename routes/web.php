@@ -26,6 +26,8 @@ use App\Livewire\Roles;
 use App\Livewire\ShowUsers;
 use App\Livewire\Permissions;
 use App\Livewire\Rations;
+use App\Livewire\StadesRecoltes;
+use App\Livewire\TypesAliments;
 use App\Livewire\Users;
 use App\Models\User;
 
@@ -50,6 +52,7 @@ Route::get('/parasitisme', [FrontController::class, 'parasitisme'])->name('front
 Route::get('/reproduction', [FrontController::class, 'reproduction'])->name('front.reproduction');
 Route::get('/antikor', [FrontController::class, 'antikor'])->name('front.antikor');
 
+Route::get('/alim', [FrontController::class, 'alim'])->name('front.alim');
 Route::prefix('/oligovitamines')->group(function () {
     Route::get('', Oligos::class)->name('oligos.outil');
     Route::get('/avertissement', [FrontController::class, 'avertissement'])->name('oligos.avertissement');
@@ -84,6 +87,8 @@ Route::prefix('/intranet')->middleware('auth', 'verified')->group(function () {
         Route::get('/permissions', Permissions::class)->name('permissions');
         Route::get('/aliments', Aliments::class )->name('aliments');
         Route::get('/rations', Rations::class )->name('rations');
+        Route::get('/types', TypesAliments::class );
+        Route::get('/stades', StadesRecoltes::class );
     });
 });
 

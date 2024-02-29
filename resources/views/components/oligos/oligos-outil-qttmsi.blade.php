@@ -6,7 +6,7 @@
     </h3>
     {{-- Modification de la couleur de fond en fonction de la valeur du champs input --}}
     @if ($valeur == '')
-    <div class="bg-brique">
+    <div class="bg-brique-700">
         <x-oligos.oligos-outil-qttmsi-saisie :parametre="$parametre" :unite="$unite" :step="$step" />
     </div>
     @elseif ($valeur == 0)
@@ -14,7 +14,7 @@
             <x-oligos.oligos-outil-qttmsi-saisie :parametre="$parametre" :unite="$unite" :step="$step" />
         </div>
     @else
-        <div class="bg-vert">
+        <div class="bg-vert-700">
             <x-oligos.oligos-outil-qttmsi-saisie :parametre="$parametre" :unite="$unite" :step="$step" />
         </div>
     @endif

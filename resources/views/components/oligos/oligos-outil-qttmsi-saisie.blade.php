@@ -1,5 +1,5 @@
 <div
-    class="flex flex-row gap-1 justify-center py-2 my-2 text-center text-white align-middle md:pl-40 md:text-left lg:pl-16 lg:my-3">
+    class="flex flex-row gap-1 justify-center items-center py-2 my-2 text-center text-white align-middle md:pl-40 md:text-left lg:pl-16 lg:my-3">
     <img class="w-12 h-12 md:hidden" src="{{ url('storage/img/icones/up.svg') }}" alt="Plus"
         x-on:click="valeur = valeur + {{ $step }}" wire:click="maj">
     <input

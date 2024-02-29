@@ -28,6 +28,11 @@ class FrontController extends Controller
         "coucou";
     }
 
+    public function alim()
+    {
+        return view('alim'); 
+    }
+
     public function reproduction()
     {
         // $reproduction = config('links.reproduction');

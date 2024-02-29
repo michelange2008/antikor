@@ -1,4 +1,8 @@
-<div class="mt-3" x-data="{ alChoisi: @entangle('alimentChoisi') }">
+<div class="mt-3" x-data="{ alChoisi: @entangle('alimentChoisi'), edit: @entangle('editModal') }">
+
+    <div x-show="edit != 0 " x-cloak>
+        <x-rations.edit-modal />
+    </div>
 
     <div>
         <table class="w-full border">
@@ -8,19 +12,24 @@
                 <th class="py-2 border border-gray-400">Qtt de MS (kg)</th>
                 <th class="py-2 border border-gray-400">P absorbable</th>
                 <th class="py-2 border border-gray-400">Ca absorbable</th>
+                <th class="py-2 border border-gray-400"> Edit</th>
                 <th class="py-2 border border-gray-400"> Suppr.</th>
             </thead>
             <tbody>
                 @isset($ration)
-                    @foreach ($ration as $key => $aliment)
+                    @foreach ($ration as $aliment_id => $aliment)
                         <tr>
                             <td class="py-2 pl-3 text-left">{{ $aliment['nom'] }}</td>
                             <td class="text-center">{{ $aliment == null ? '' : $aliment['qtt'] }} </td>
                             <td class="text-center">{{ $aliment == null ? '' : $aliment['qttMS'] }} </td>
                             <td class="text-center">{{ $aliment == null ? '' : $aliment['P'] }} </td>
                             <td class="text-center">{{ $aliment == null ? '' : $aliment['Ca'] }} </td>
+                            <td class="text-center" title="Modifier cet aliment"
+                                wire:click="editAliment({{ $aliment_id }}, '{{ $aliment['nom'] }}', {{$aliment['qtt']}})">
+                                <i class="cursor-pointer text-vert-900 fa-solid fa-pen-to-square"></i>
+                            </td>
                             <td class="text-center" title="Supprimer cet aliment"
-                                wire:click="delAliment({{ $key }})">
+                                wire:click="delAliment({{ $aliment_id }})">
                                 <i class="cursor-pointer text-brique-900 fa-solid fa-trash"></i>
                             </td>
                         </tr>
@@ -29,12 +38,13 @@
                 <tr>
                     <td colspan="6" class="py-1"></td>
                 </tr>
-                <tr class="text-white bg-brique">
+                <tr class="text-white bg-brique-700">
                     <td class="py-2 pl-3 border border-gray-400">{{ $rationTotale['nom'] }}</td>
                     <td class="text-center border border-gray-400">{{ $rationTotale['qtt'] }}</td>
                     <td class="text-center border border-gray-400">{{ $rationTotale['qttMS'] }}</td>
                     <td class="text-center border border-gray-400">{{ $rationTotale['P'] }}</td>
                     <td class="text-center border border-gray-400">{{ $rationTotale['Ca'] }}</td>
+                    <td class="text-center border border-gray-400"></td>
                     <td class="text-center border border-gray-400" title="Supprimer tous les aliments"
                         wire:click="delAliments()">
                         <i class="text-white cursor-pointer fa-solid fa-trash">
@@ -80,7 +90,7 @@
                 <p>Indiquer la quantité consommée (kg brut)</p>
                 <input x-show="alChoisi > 0"
                     class="block mt-1 w-full bg-gray-200 rounded-md border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
-                    type="number" wire:model='qtt' step="0.01" min="0">
+                    type="number" wire:model='qtt' step="0.001" min="0">
                 <input x-show="alChoisi == 0"
                     class="block mt-1 w-full bg-gray-100 rounded-md border focus:border-gray-500 focus:bg-white focus:ring-0"
                     type="number" disabled>

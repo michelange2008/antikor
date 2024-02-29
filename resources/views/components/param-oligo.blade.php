@@ -6,7 +6,7 @@
             --}}
         @if ( $abbreviation_courante == $abbreviation )
             <div id="{{ $abbreviation }}"
-                class="px-2 py-2 my-2 text-sm text-center text-white shadow cursor-pointer md:py-3 md:px-4 active:bg-gray-800 active:text-white md:text-base bg-vert shadow-vert-900"
+                class="px-2 py-2 my-2 text-sm text-center text-white shadow cursor-pointer md:py-3 md:px-4 active:bg-gray-800 active:text-white md:text-base bg-vert-700 shadow-vert-900"
                 title="" >
 
                 <span>{{ ucfirst($nom) }}</span>

@@ -7,8 +7,8 @@
 
         <div id="valeurs" class="flex flex-col gap-3 lg:flex-row">
             {{-- atelier / Poids --}}
-            <div id="troupeau" class="border lg:w-1/2 border-brique-900">
-                <div class="px-2 py-3 text-white bg-brique">
+            <div id="troupeau" class="border lg:w-1/3 border-brique-900">
+                <div class="px-2 py-3 text-white bg-brique-700">
                     <h2 class="h2">Le troupeau</h2>
                 </div>
                 <div class="p-1">
@@ -20,7 +20,7 @@
                             @foreach ($ateliers as $abbreviation => $atelier)
                                 <div class="cursor-pointer" wire:click="choixAtelier('{{ $abbreviation }}')">
                                     @if ($abbreviation == $troupeau['atelier'])
-                                        <img class="w-16 border-2 shadow-lg border-vert shadow-vert-900"
+                                        <img class="w-16 border-2 shadow-lg border-vert-700 shadow-vert-900"
                                             src="{{ url('storage/img/icones/' . $atelier['icone']) }}" alt="">
                                     @else
                                         <img class="w-16 brightness-75"
@@ -67,8 +67,8 @@
                 </div>
             </div>
 
-            <div id="ration" class="flex flex-col border lg:w-1/2 border-brique">
-                <div class="px-2 py-3 text-white bg-brique">
+            <div id="ration" class="flex flex-col border lg:w-2/3 border-brique-900">
+                <div class="px-2 py-3 text-white bg-brique-700">
                     <h2 class="h2">La ration</h2>
                 </div>
                 <div class="p-1">
@@ -111,12 +111,5 @@
                 </div>
             </div>
         </div>
-
-        <div id="mineral">
-            <div class="px-2 py-3 text-white bg-brique">
-                <h2 class="h2">Quel minéral&nbsp;?</h2>
-            </div>
-        </div>
-
     </div>
 </div>

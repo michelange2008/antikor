@@ -18,32 +18,35 @@
 
 </head>
 
-<body class="px-1 font-sans antialiased bg-gray-100 xl:px-30 lg:px-10 md:px-8 sm:px-2">
-    <div class="mx-auto min-h-screen bg-gray-100 dark:bg-gray-900">
-        @include('layouts.navigation')
+<body class="px-1 font-sans antialiased bg-gray-100 xl:px-30">
+    <div class="flex flex-col justify-between mx-auto min-h-screen bg-gray-100 dark:bg-gray-900">
+        <div class="justify-items-stretch border-0">
 
-        <!-- Page Heading -->
-        @if (isset($header))
-            <header class="bg-white shadow dark:bg-gray-800">
-                <div class="px-2 py-6">
-                    {{ $header }}
-                </div>
-            </header>
-        @endif
+            @include('layouts.navigation')
 
-        <!-- Page Content -->
-        <main>
-            {{ $slot }}
-        </main>
+            <!-- Page Heading -->
+            @if (isset($header))
+                <header class="bg-white shadow dark:bg-gray-800">
+                    <div class="px-2 py-6">
+                        {{ $header }}
+                    </div>
+                </header>
+            @endif
+
+            <!-- Page Content -->
+            <main>
+                {{ $slot }}
+            </main>
+        </div>
 
         <footer>
             <x-footer />
         </footer>
-        
+
     </div>
     @stack('scripts')
     @livewireScriptConfig()
-    
+
 </body>
 
 </html>
