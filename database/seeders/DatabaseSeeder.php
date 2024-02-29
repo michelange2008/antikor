@@ -38,8 +38,8 @@ class DatabaseSeeder extends Seeder
             // ObjectifpedagoSeeder::class,
             // ProgrammesoustitreSeeder::class,
             // ProgrammedetailSeeder::class,
-            AltypeSeeder::class,
-            AlstadeSeeder::class,
+            // AltypeSeeder::class,
+            // AlstadeSeeder::class,
             AlimentSeeder::class,
         ]);
     }
