@@ -112,6 +112,21 @@ class ChoixMineral extends Component
         $CaNouveau = $this->CatotNouveau * $this->car['Ca'];
         $mineralNouveau = $this->peupleMineral($this->nomNouveau, $PNouveau, $CaNouveau, true);
         $this->liste_mineraux[] = $mineralNouveau;
+        $this->nomNouveau = '';
+        $this->PtotNouveau = 0;
+        $this->CatotNouveau = 0;
+
+    }
+
+    /**
+     * Suppression d'un minéral personnel ajouté
+     *
+     * @param int id du minéral
+     * @return void
+     **/
+    public function destroy($mineral_id)
+    {
+        unset($this->liste_mineraux[$mineral_id]);
     }
 
     public function render()
