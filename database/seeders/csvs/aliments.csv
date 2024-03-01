@@ -1,34 +1,34 @@
-"id";"nom";"altype_id";"alstade_id";"MS";"Ptot";"P";"Catot";"Ca";"created_at";"updated_at"
-"1";"Luzerne";"4";"1";"85.0";"2.4";"1.4";"12.5";"3.8";NULL;NULL
-"2";"Luzerne";"4";"4";"85.0";"2.2";"1.3";"11.0";"3.3";NULL;NULL
-"3";"Luzerne";"4";"5";"85.0";"2.2";"1.3";"14.4";"4.3";NULL;NULL
-"4";"Prairie permanente (Crau)";"4";"1";"85.0";"3.0";"2.0";"10.5";"3.7";NULL;NULL
-"5";"Prairie permanente (Crau)";"4";"4";"85.0";"3.0";"2.0";"10.0";"3.5";NULL;NULL
-"6";"Prairie permanente (Crau)";"4";"5";"85.0";"3.0";"2.0";"11.0";"3.9";NULL;NULL
-"7";"Prairie permanente (Auvergne)";"4";"1";"85.0";"2.0";"1.3";"3.8";"1.4";NULL;NULL
-"8";"Prairie permanente (Auvergne)";"4";"4";"85.0";"2.2";"1.4";"5.8";"2.0";NULL;NULL
-"9";"Prairie permanente (Auvergne)";"4";"5";"85.0";"2.4";"1.6";"5.8";"2.0";NULL;NULL
-"10";"Luzerne";"2";"1";"55.0";"2.6";"1.7";"12.8";"3.8";NULL;NULL
-"11";"Luzerne";"2";"4";"55.0";"2.3";"1.5";"11.9";"3.6";NULL;NULL
-"12";"Prairie permanente (Normandie)";"1";"2";"16.5";"4.0";"2.8";"6.0";"2.1";NULL;NULL
-"13";"Prairie permanente (Normandie)";"1";"3";"21.0";"3.6";"2.5";"4.7";"1.7";NULL;NULL
-"14";"Prairie permanente (Normandie)";"1";"4";"19.0";"3.8";"2.7";"6.9";"2.4";NULL;NULL
-"15";"Prairie permanente (Normandie)";"1";"5";"16.0";"4.0";"2.8";"5.9";"2.1";NULL;NULL
-"16";"Prairie permanente (Auvergne)";"1";"2";"16.0";"2.7";"1.9";"5.0";"1.8";NULL;NULL
-"17";"Prairie permanente (Auvergne)";"1";"3";"21.0";"1.7";"1.1";"4.0";"1.4";NULL;NULL
-"18";"Prairie permanente (Auvergne)";"1";"4";"19.0";"2.3";"1.6";"6.6";"2.3";NULL;NULL
-"19";"Prairie permanente (Auvergne)";"1";"5";"19.6";"2.7";"1.9";"7.0";"2.5";NULL;NULL
-"20";"Orge";"8";NULL;"86.7";"4.0";"3.3";"0.8";"0.5";NULL;NULL
-"21";"Maïs";"8";NULL;"86.4";"3.0";"2.2";"0.5";"0.3";NULL;NULL
-"22";"Avoine";"8";NULL;"87.6";"3.6";"2.7";"1.1";"0.6";NULL;NULL
-"23";"Triticale";"8";NULL;"87.3";"4.0";"3.0";"0.8";"0.5";NULL;NULL
-"24";"Colza";"11";NULL;"88.7";"12.9";"9.2";"9.4";"5.2";NULL;NULL
-"25";"Soja";"11";NULL;"87.8";"7.1";"5.0";"3.9";"2.1";NULL;NULL
-"26";"Tournesol";"11";NULL;"89.0";"11.6";"7.6";"4.4";"2.5";NULL;NULL
-"30";"Carbonate de Ca";"17";NULL;"100.0";"0.3";"0.0";"387.0";"147.0";NULL;NULL
-"32";"Phosphate tricalcique";"17";NULL;"99.2";"173.0";"118.0";"367.0";"174.0";NULL;NULL
-"33";"Phosphate monocalcique";"17";NULL;"98.5";"228.0";"150.0";"167.0";"83.1";NULL;NULL
-"34";"Phosphate bicalcique anhydre";"17";NULL;"97.0";"210.0";"143.0";"280.0";"132.0";NULL;NULL
-"35";"Phosphate ferrique";"17";NULL;"99.9";"205.0";"139.0";"0.0";"0.0";NULL;NULL
-"37";"Minéral 6-24";"17";NULL;"99.0";"60.0";"40.8";"240.0";"108.0";NULL;NULL
-"38";"Minéral 14-14";"17";NULL;"99.0";"140.0";"95.2";"140.0";"63.0";NULL;NULL
+id;nom;altype_id;alstade_id;MS;Ptot;P;Catot;Ca;created_at;updated_at
+1;Luzerne;4;1;85.0;2.4;1.4;12.5;3.8;NULL;NULL
+2;Luzerne;4;4;85.0;2.2;1.3;11.0;3.3;NULL;NULL
+3;Luzerne;4;5;85.0;2.2;1.3;14.4;4.3;NULL;NULL
+4;Prairie permanente (Crau);4;1;85.0;3.0;2.0;10.5;3.7;NULL;NULL
+5;Prairie permanente (Crau);4;4;85.0;3.0;2.0;10.0;3.5;NULL;NULL
+6;Prairie permanente (Crau);4;5;85.0;3.0;2.0;11.0;3.9;NULL;NULL
+7;Prairie permanente (Auvergne);4;1;85.0;2.0;1.3;3.8;1.4;NULL;NULL
+8;Prairie permanente (Auvergne);4;4;85.0;2.2;1.4;5.8;2.0;NULL;NULL
+9;Prairie permanente (Auvergne);4;5;85.0;2.4;1.6;5.8;2.0;NULL;NULL
+10;Luzerne;2;1;55.0;2.6;1.7;12.8;3.8;NULL;NULL
+11;Luzerne;2;4;55.0;2.3;1.5;11.9;3.6;NULL;NULL
+12;Prairie permanente (Normandie);1;2;16.5;4.0;2.8;6.0;2.1;NULL;NULL
+13;Prairie permanente (Normandie);1;3;21.0;3.6;2.5;4.7;1.7;NULL;NULL
+14;Prairie permanente (Normandie);1;4;19.0;3.8;2.7;6.9;2.4;NULL;NULL
+15;Prairie permanente (Normandie);1;5;16.0;4.0;2.8;5.9;2.1;NULL;NULL
+16;Prairie permanente (Auvergne);1;2;16.0;2.7;1.9;5.0;1.8;NULL;NULL
+17;Prairie permanente (Auvergne);1;3;21.0;1.7;1.1;4.0;1.4;NULL;NULL
+18;Prairie permanente (Auvergne);1;4;19.0;2.3;1.6;6.6;2.3;NULL;NULL
+19;Prairie permanente (Auvergne);1;5;19.6;2.7;1.9;7.0;2.5;NULL;NULL
+20;Orge;8;NULL;86.7;4.0;3.3;0.8;0.5;NULL;NULL
+21;Maïs;8;NULL;86.4;3.0;2.2;0.5;0.3;NULL;NULL
+22;Avoine;8;NULL;87.6;3.6;2.7;1.1;0.6;NULL;NULL
+23;Triticale;8;NULL;87.3;4.0;3.0;0.8;0.5;NULL;NULL
+24;Colza;11;NULL;88.7;12.9;9.2;9.4;5.2;NULL;NULL
+25;Soja;11;NULL;87.8;7.1;5.0;3.9;2.1;NULL;NULL
+26;Tournesol;11;NULL;89.0;11.6;7.6;4.4;2.5;NULL;NULL
+30;Carbonate de Ca;17;NULL;100.0;0.3;0.0;387.0;147.0;NULL;NULL
+32;Phosphate tricalcique;17;NULL;99.2;173.0;118.0;367.0;174.0;NULL;NULL
+33;Phosphate monocalcique;17;NULL;98.5;228.0;150.0;167.0;83.1;NULL;NULL
+34;Phosphate bicalcique anhydre;17;NULL;97.0;210.0;143.0;280.0;132.0;NULL;NULL
+35;Phosphate ferrique;17;NULL;99.9;205.0;139.0;0.0;0.0;NULL;NULL
+37;Minéral 6-24;17;NULL;99.0;60.0;40.8;240.0;108.0;NULL;NULL
+38;Minéral 14-14;17;NULL;99.0;140.0;95.2;140.0;63.0;NULL;NULL
