@@ -37,11 +37,17 @@
 
         </tbody>
     </table>
-    <div id="nouveauMineral">
+    <div id="nouveauMineral" class="my-1">
+        <p class="font-bold">Ajouter un minéral</p>
         <form wire:submit="create">
-            <input type="text" wire:model="nomNouveau" placeholder="Nom du minéral">
-            <input type="number" wire:model="PtotNouveau" placeholder="Phosphore total">
-            <input type="number" wire:model="CatotNouveau" placeholder="Calcium total">
+            <div class="flex flex-col gap-2 md:flex-row">
+                <input class="block px-0.5 mt-0 w-full border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
+                type="text" wire:model="nomNouveau" placeholder="Nom du minéral">
+                <input class="block px-0.5 mt-0 w-full border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black" 
+                type="number" wire:model="PtotNouveau" placeholder="Phosphore total">
+                <input class="block px-0.5 mt-0 w-full border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
+                type="number" wire:model="CatotNouveau" placeholder="Calcium total">
+            </div>
             <x-buttons.success-button>Ajouter</x-buttons.success-button>
         </form>
             

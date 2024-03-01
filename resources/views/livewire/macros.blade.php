@@ -64,9 +64,9 @@
                         </div>
                     </div>
                 </div>
-                <div id="besoins" class="grid grid-cols-2 mx-1 mb-1 h2">
+                <div id="besoins" class="grid grid-cols-2 mx-1 mb-1 text-center h2">
                     <div class="col-span-2 px-2 py-2 bg-gray-400 border-b border-gray-500">
-                        <h3 class="h3">Les besoins (grammes/jour d'élément <span class="underline">absorbable</span>)
+                        <h3 class="h3">Les besoins (g/j d'él<span class="text-sm align-top">t</span> <span class="underline">absorbable</span>)
                         </h3>
                     </div>
                     <div
@@ -88,9 +88,9 @@
                     <livewire:rations></livewire:rations>
 
                 </div>
-                <div id="apports" class="grid grid-cols-2 mx-1 mb-1 h2">
+                <div id="apports" class="grid grid-cols-2 mx-1 mb-1 text-center h2">
                     <div class="col-span-2 px-2 py-2 bg-gray-400 border-b border-gray-500">
-                        <h3 class="h3">Les apports (grammes/jour d'élément <span class="underline">absorbable</span>)
+                        <h3 class="h3">Les apports (g/j d'él<span class="text-sm align-top">t</span> <span class="underline">absorbable</span>)
                         </h3>
                     </div>
                     <div
@@ -104,7 +104,7 @@
                 </div>
 
         </div>
-
+        
         <div id="correction" class="px-1 mt-2">
             @if ($bilanOk)
                 <h2 class="h2 text-vert-900">{{ $bilan }}</h2>
