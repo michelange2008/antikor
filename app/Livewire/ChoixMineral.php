@@ -95,7 +95,7 @@ class ChoixMineral extends Component
         // Un minéral qui ne couvre pas les besoins en P ou Ca n'a pas d'intérêt (0 affichage)
         $mineral['bon'] = ( $couvBesoinsP == 0 || $couvBesoinsCa == 0 ) ? false : true;
         // Si c'est le minéral ajouté par l'utilisateur, il est forcément à afficher
-        $mineral['bon'] = ( $nouveau ) ? true : $nouveau['bon'];
+        $mineral['bon'] = ( $nouveau ) ? true : $mineral['bon'];
         // Permet de reconnaître le minéral personnel ajouté
         $mineral['nouveau'] = $nouveau;
         return $mineral;
