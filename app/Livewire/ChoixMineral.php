@@ -55,7 +55,7 @@ class ChoixMineral extends Component
     }
 
     /**
-     * peuple chaque ligne du tableau ligne_mineraux en efffectuant les calculs nécessaires
+     * peuple chaque ligne du tableau ligne_mineraux en effectuant les calculs nécessaires
      *
      * Undocumented function long description
      *
@@ -64,31 +64,39 @@ class ChoixMineral extends Component
      **/
     public function peupleMineral(string $nom, float $P, float $Ca, bool $nouveau)
     {
+        // Ajout des informations intiales
         $mineral['nom'] = $nom;
         $mineral['P'] = $P;
         $mineral['Ca'] = $Ca;
+        // Calcul du rapport Ca/P pour comparaison entre les besoins et les minéraux dispo
         $mineral['CaP'] = ( $P != 0 ) ? $Ca / $P : 0;
+        // Evaluation du besoin en minéral selon les besoins en P ou en Ca
         $qttSelonP = ($mineral['P'] == 0 ) ? null : $this->besoinsSupp['P'] / $mineral['P'];
         $qttSelonCa = ($mineral['Ca'] == 0 ) ? null : $this->besoinsSupp['Ca'] / $mineral['Ca'];
         $qtt = max($qttSelonCa, $qttSelonP);
         $mineral['qtt'] = $qtt;
+        // Calcul des apports correspondants
         $mineral['apportsP'] = $qtt * $mineral['P'];
         $mineral['apportsCa'] = $qtt * $mineral['Ca'];
+        // Calcul de la couverture des besoins en P
         if ($this->besoinsSupp['P'] !=  0) {
             $couvBesoinsP = round(100 * (1 - ($this->besoinsSupp['P'] - $qtt * $mineral['P']) / $this->besoinsSupp['P']), 0);
         } else {
             $couvBesoinsP = '-';
         }
         $mineral['couvBesoinsP'] = $couvBesoinsP;
-
+        // Idem pour le calcium
         if ($this->besoinsSupp['Ca'] !=  0) {
             $couvBesoinsCa = round(100 * (1 - ($this->besoinsSupp['Ca'] - $qtt * $mineral['Ca']) / $this->besoinsSupp['Ca']), 0);
         } else {
             $couvBesoinsCa = '> 100';
         }
         $mineral['couvBesoinsCa'] = $couvBesoinsCa;
+        // Un minéral qui ne couvre pas les besoins en P ou Ca n'a pas d'intérêt (0 affichage)
         $mineral['bon'] = ( $couvBesoinsP == 0 || $couvBesoinsCa == 0 ) ? false : true;
-        // $mineral['bon'] = ( $nouveau ) ? true : false;
+        // Si c'est le minéral ajouté par l'utilisateur, il est forcément à afficher
+        $mineral['bon'] = ( $nouveau ) ? true : $nouveau['bon'];
+        // Permet de reconnaître le minéral personnel ajouté
         $mineral['nouveau'] = $nouveau;
         return $mineral;
 }
