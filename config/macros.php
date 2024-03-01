@@ -49,4 +49,19 @@ return [
             "icone" => "OL_tete.svg",
         ],
     ],
+
+    "besoins_initiaux" => [
+        "P" => 0,
+        "Ca" => 0,
+    ],
+
+    "apports_initiaux" => [
+        "P" => 0,
+        "Ca" => 0,
+    ],
+
+    "car" => [
+        'P' => 0.68,
+        'Ca' => 0.45,
+    ],
 ];

@@ -10,8 +10,8 @@
                 <th class="py-2 pl-3 text-left border border-gray-400">Nom de l'aliment</th>
                 <th class="py-2 border border-gray-400">Qtt brute (kg)</th>
                 <th class="py-2 border border-gray-400">Qtt de MS (kg)</th>
-                <th class="py-2 border border-gray-400">P absorbable</th>
-                <th class="py-2 border border-gray-400">Ca absorbable</th>
+                <th class="py-2 border border-gray-400">P absorb. (g)</th>
+                <th class="py-2 border border-gray-400">Ca absorb. (g)</th>
                 <th class="py-2 border border-gray-400"> Edit</th>
                 <th class="py-2 border border-gray-400"> Suppr.</th>
             </thead>
@@ -20,12 +20,12 @@
                     @foreach ($ration as $aliment_id => $aliment)
                         <tr>
                             <td class="py-2 pl-3 text-left">{{ $aliment['nom'] }}</td>
-                            <td class="text-center">{{ $aliment == null ? '' : $aliment['qtt'] }} </td>
-                            <td class="text-center">{{ $aliment == null ? '' : $aliment['qttMS'] }} </td>
-                            <td class="text-center">{{ $aliment == null ? '' : $aliment['P'] }} </td>
-                            <td class="text-center">{{ $aliment == null ? '' : $aliment['Ca'] }} </td>
+                            <td class="text-center">{{ $aliment['qtt'] }} </td>
+                            <td class="text-center">{{ $aliment['qttMS'] }} </td>
+                            <td class="text-center">{{ $aliment['P'] }} </td>
+                            <td class="text-center">{{ $aliment['Ca'] }} </td>
                             <td class="text-center" title="Modifier cet aliment"
-                                wire:click="editAliment({{ $aliment_id }}, '{{ $aliment['nom'] }}', {{$aliment['qtt']}})">
+                                wire:click="editAliment({{ $aliment_id }}, '{{ $aliment['nom'] }}', {{ $aliment['qtt'] }})">
                                 <i class="cursor-pointer text-vert-900 fa-solid fa-pen-to-square"></i>
                             </td>
                             <td class="text-center" title="Supprimer cet aliment"
@@ -87,17 +87,25 @@
                 </select>
             </div>
             <div>
-                <p>Indiquer la quantité consommée (kg brut)</p>
-                <input x-show="alChoisi > 0"
-                    class="block mt-1 w-full bg-gray-200 rounded-md border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
-                    type="number" wire:model='qtt' step="0.001" min="0">
-                <input x-show="alChoisi == 0"
-                    class="block mt-1 w-full bg-gray-100 rounded-md border focus:border-gray-500 focus:bg-white focus:ring-0"
-                    type="number" disabled>
-            </div>
-            <div>
-                <x-buttons.success-button>Ajouter l'aliment</x-buttons.success-button>
+                <div>
+                    <p>Indiquer la quantité consommée (kg brut)</p>
+                    <input x-show="alChoisi > 0"
+                        class="block mt-1 w-full bg-gray-200 rounded-md border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
+                        type="number" wire:model='qtt' step="0.001" min="0">
+                    <input x-show="alChoisi == 0"
+                        class="block mt-1 w-full bg-gray-100 rounded-md border focus:border-gray-500 focus:bg-white focus:ring-0"
+                        type="number" disabled>
+                </div>
+                <div>
+                    @if ($alimentChoisi == 0)
+                        <button disabled
+                            class="text-gray-900 bg-gray-400 btn hover:bg-gray-400 hover:text-gray-900">Ajouter
+                            l'aliment</button>
+                    @else
+                        <x-buttons.success-button>Ajouter l'aliment</x-buttons.success-button>
+                    @endif
 
+                </div>
             </div>
         </div>
     </form>

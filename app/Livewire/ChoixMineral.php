@@ -1,0 +1,114 @@
+<?php
+
+namespace App\Livewire;
+
+use App\Models\Aliment;
+use App\Models\Altype;
+use Livewire\Component;
+use Livewire\Attributes\On;
+use Livewire\Attributes\Validate;
+
+class ChoixMineral extends Component
+{
+    public $bilan = [];
+    public $car = [];
+    public $besoinsSupp = [];
+    public $liste_mineraux = [];
+    #[Validate('required|string', as: "nom")]
+    public string $nomNouveau;
+    #[Validate('required|numeric', as: "phosphore total")]
+    public float $PtotNouveau;
+    #[Validate('required|numeric', as: "calcium total")]
+    public float $CatotNouveau;
+
+    public function mount()
+    {
+
+        $this->besoinsSupp = config('macros.besoins_initiaux');
+        $this->car = config('macros.car');
+        $this->chercheMineral();
+    }
+
+    #[On('nouveau_bilan')]
+    public function BesoinsSupp($bilan)
+    {
+        $this->besoinsSupp['P'] = ($bilan['P'] < 0 ) ? abs($bilan['P']) : 0;
+        $this->besoinsSupp['Ca'] = ($bilan['Ca'] < 0) ? abs($bilan['Ca']) : 0;  
+        $this->besoinsSupp['CaP'] = ($this->besoinsSupp['P'] != 0)? $this->besoinsSupp['Ca'] / $this->besoinsSupp['P'] : 0;  
+        $this->chercheMineral();
+    }
+    /**
+     * Cherche le minéral le plus proche en Ca/P des besoins et calcul la quantité sur la base du P
+     *
+     * @return void
+     */
+    public function chercheMineral()
+    {
+        $this->liste_mineraux = [];
+        $mineral_id = Altype::where('nom', 'minéral')->first();
+        $mineraux = Aliment::where('altype_id', $mineral_id->id)->get();   
+        // Ajoute à la liste_mineraux la différence entre le rapport Ca/P à amener et celui de chaque minéral
+        foreach ($mineraux as $mineral) {
+            $this->liste_mineraux[] = $this->peupleMineral($mineral->nom, $mineral->P, $mineral->Ca, false);
+        }
+
+    }
+
+    /**
+     * peuple chaque ligne du tableau ligne_mineraux en efffectuant les calculs nécessaires
+     *
+     * Undocumented function long description
+     *
+     * @param Array $mineral
+     * @return void
+     **/
+    public function peupleMineral(string $nom, float $P, float $Ca, bool $nouveau)
+    {
+        $mineral['nom'] = $nom;
+        $mineral['P'] = $P;
+        $mineral['Ca'] = $Ca;
+        $mineral['CaP'] = ( $P != 0 ) ? $Ca / $P : 0;
+        $qttSelonP = ($mineral['P'] == 0 ) ? null : $this->besoinsSupp['P'] / $mineral['P'];
+        $qttSelonCa = ($mineral['Ca'] == 0 ) ? null : $this->besoinsSupp['Ca'] / $mineral['Ca'];
+        $qtt = max($qttSelonCa, $qttSelonP);
+        $mineral['qtt'] = $qtt;
+        $mineral['apportsP'] = $qtt * $mineral['P'];
+        $mineral['apportsCa'] = $qtt * $mineral['Ca'];
+        if ($this->besoinsSupp['P'] !=  0) {
+            $couvBesoinsP = round(100 * (1 - ($this->besoinsSupp['P'] - $qtt * $mineral['P']) / $this->besoinsSupp['P']), 0);
+        } else {
+            $couvBesoinsP = '-';
+        }
+        $mineral['couvBesoinsP'] = $couvBesoinsP;
+
+        if ($this->besoinsSupp['Ca'] !=  0) {
+            $couvBesoinsCa = round(100 * (1 - ($this->besoinsSupp['Ca'] - $qtt * $mineral['Ca']) / $this->besoinsSupp['Ca']), 0);
+        } else {
+            $couvBesoinsCa = '> 100';
+        }
+        $mineral['couvBesoinsCa'] = $couvBesoinsCa;
+        $mineral['bon'] = ( $couvBesoinsP == 0 || $couvBesoinsCa == 0 ) ? false : true;
+        // $mineral['bon'] = ( $nouveau ) ? true : false;
+        $mineral['nouveau'] = $nouveau;
+        return $mineral;
+}
+
+    /**
+     * Ajoute un nouveau minéral à la liste
+     *
+     **/
+    public function create()
+    {
+        $this->validate();
+        $PNouveau = $this->PtotNouveau * $this->car['P'];
+        $CaNouveau = $this->CatotNouveau * $this->car['Ca'];
+        $mineralNouveau = $this->peupleMineral($this->nomNouveau, $PNouveau, $CaNouveau, true);
+        $this->liste_mineraux[] = $mineralNouveau;
+    }
+
+    public function render()
+    {
+        return view('livewire.choix-mineral');
+    }
+
+}

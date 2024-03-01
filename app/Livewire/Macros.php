@@ -7,15 +7,17 @@ use Livewire\Attributes\On;
 
 class Macros extends Component
 {
-    public $troupeau = [];
-    public $ateliers = [];
-    public $stades = [];
-    public $defaults = [];
-    public $choixTroupeau = [];
-    public $msi;
-    public $besoins;
-    public $apports;
-    public $ration = [];
+    public array $troupeau = [];
+    public array $ateliers = [];
+    public array $stades = [];
+    public array $defaults = [];
+    public array $choixTroupeau = [];
+    public float $msi;
+    public array $besoins;
+    public array $apports;
+    public string $bilan = '';
+    public bool $bilanOk = false;
+    public array $ration = [];
 
     function mount()
     {
@@ -23,14 +25,11 @@ class Macros extends Component
         $this->troupeau = config('macros.troupeau');
         $this->ateliers = config('macros.ateliers');
         $this->stades = config('macros.stades');
-        $this->besoins = config('macros.besoins');
+        $this->besoins = config('macros.besoins_initiaux');
         $this->msi = config('macros.msi');
         $this->setDefaults();
+        $this->apports = config('macros.apports_initiaux');
         $this->calculBesoins();
-        $this->apports = [
-            "P" => 0,
-            "Ca" => 0,
-        ];
     }
 
     function updated()
@@ -73,35 +72,60 @@ class Macros extends Component
         $atelier = $this->troupeau['atelier'];
         $stade = $this->troupeau['stade'];
 
-        $p_entretien = 0.905 * $msi + 0.3 + 0.002 * $pv;
-        $ca_entretien['gestation'] = 0.015 * $pv;
-        $ca_entretien['lactation'] = 0.663 * $msi + 0.01 * $pv;
         $mg_entretien = 0.01 * $pv;
 
-        $p_production['cp']['gestation'] = 0.6 * $prolificite;
-        $p_production['oa']['gestation'] = 0.4 * $prolificite;
-        $p_production['ol']['gestation'] = 0.4 * $prolificite;
+        $p_production['cp']['gestation'] = 0.905 * $msi + 0.3 + 0.002 * $pv + 0.6 * $prolificite;
+        $p_production['oa']['gestation'] = 0.905 * $msi + 0.3 + 0.002 * $pv + 0.4 * $prolificite;
+        $p_production['ol']['gestation'] = 0.905 * $msi + 0.3 + 0.002 * $pv + 0.4 * $prolificite;
 
-        $ca_production['cp']['gestation'] = $prolificite;
-        $ca_production['oa']['gestation'] = 0.7 * $prolificite;
-        $ca_production['ol']['gestation'] = 0.7 * $prolificite;
+        $ca_production['cp']['gestation'] = 0.015 * $pv + $prolificite;
+        $ca_production['oa']['gestation'] = 0.015 * $pv + 0.7 * $prolificite;
+        $ca_production['ol']['gestation'] = 0.015 * $pv + 0.7 * $prolificite;
 
-        $p_production['cp']['lactation'] = $p_entretien + 0.95 * $this->troupeau['parametres']['quantite'];
-        $p_production['oa']['lactation'] = $p_entretien + 1.5 * $this->troupeau['parametres']['quantite'];
-        $p_production['ol']['lactation'] = $p_entretien + 1.5 * $this->troupeau['parametres']['quantite'];
+        $p_production['cp']['lactation'] = 0.905 * $msi + 0.3 + 0.002 * $pv + 0.95 * $this->troupeau['parametres']['quantite'];
+        $p_production['oa']['lactation'] = 0.905 * $msi + 0.3 + 0.002 * $pv + 1.5 * $this->troupeau['parametres']['quantite'];
+        $p_production['ol']['lactation'] = 0.905 * $msi + 0.3 + 0.002 * $pv + 1.5 * $this->troupeau['parametres']['quantite'];
 
-        $ca_production['cp']['lactation'] = $ca_entretien['lactation'] + 1.25 * $this->troupeau['parametres']['quantite'];
-        $ca_production['oa']['lactation'] = $ca_entretien['lactation'] + 1.90 * $this->troupeau['parametres']['quantite'];
-        $ca_production['ol']['lactation'] = $ca_entretien['lactation'] + 1.90 * $this->troupeau['parametres']['quantite'];
+        $ca_production['cp']['lactation'] = 0.663 * $msi + 0.01 * $pv + 1.25 * $this->troupeau['parametres']['quantite'];
+        $ca_production['oa']['lactation'] = 0.663 * $msi + 0.01 * $pv + 1.90 * $this->troupeau['parametres']['quantite'];
+        $ca_production['ol']['lactation'] = 0.663 * $msi + 0.01 * $pv + 1.90 * $this->troupeau['parametres']['quantite'];
 
         $this->besoins['P'] = round($p_production[$atelier][$stade], 1);
         $this->besoins['Ca'] = round($ca_production[$atelier][$stade], 1);
+        $this->besoins['Mg'] = $mg_entretien;
+
+        $this->correction();
     }
 
     #[On('nouvelle_ration')]
     function nouvelleRation($apports)
     {
-        $this->apports = $apports;    
+        $this->apports = $apports;
+        $this->correction();
+    }
+
+    public function correction()
+    {
+        $bilanP = $this->apports['P'] - $this->besoins['P'];
+        $bilanCa = $this->apports['Ca'] - $this->besoins['Ca'];
+        $this->bilanOk = false;
+
+        if ($bilanP < 0 && $bilanCa < 0) {
+            $this->bilan = "Il manque " . abs($bilanP) . " g de Phosphore absorbable et " . abs($bilanCa) . 
+            " g de Calcium absorbable (rapport Ca/P = " . round($bilanCa / $bilanP, 1) . ")";
+        } elseif ($bilanP < 0 && $bilanCa >= 0) {
+            $this->bilan = "Il manque " . abs($bilanP) . " g de Phosphore absorbable.";
+        } elseif ($bilanP >= 0 && $bilanCa < 0) {
+            $this->bilan = "Il manque " . abs($bilanCa) . " g de Calcium absorbable.";
+        } else {
+            $this->bilan = "Les apports sont suffisants";
+            $this->bilanOk = true;
+        }
+
+        $this->dispatch('nouveau_bilan', [
+            'P' => $bilanP,
+            'Ca' => $bilanCa,
+        ]);
     }
     public function render()
     {
