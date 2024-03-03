@@ -13,8 +13,6 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @livewireStyles
     <!-- Matomo -->
     <script>
         var _paq = window._paq = window._paq || [];
@@ -34,6 +32,8 @@
         })();
     </script>
     <!-- End Matomo Code -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @livewireStyles
 
 </head>
 
