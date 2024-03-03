@@ -1,5 +1,6 @@
 // import './bootstrap';
 import './antikor';
+import './matomo';
 // import './bilanMineral';
 
 import.meta.glob([
