@@ -11,8 +11,8 @@
     },
     "ave" : {
         "img" : "mineraux.jpg",
-        "texte" : "Oligo-éléments et vitamines",
-        "url" : "oligos.outil"
+        "texte" : "Alimentation minérale",
+        "url" : "front.alim"
     },
     "rep" : {
         "img" : "reproduction.jpg",
