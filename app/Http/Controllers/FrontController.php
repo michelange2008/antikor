@@ -25,7 +25,7 @@ class FrontController extends Controller
 
     public function parasitisme()
     {
-        "coucou";
+        return view('parasito');
     }
 
     public function alim()

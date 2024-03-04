@@ -27,6 +27,6 @@
     "par" : {
         "img" : "parasitisme.jpg",
         "texte" : "Parasitisme",
-        "url" : "front.index"
+        "url" : "front.parasitisme"
     }
 }
