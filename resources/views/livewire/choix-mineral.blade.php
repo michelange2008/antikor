@@ -6,14 +6,14 @@
         <thead class="text-white bg-brique-900">
             <td class="p-2 border border-gray-300">Nom du minéral</td>
             <td class="p-2 text-center border border-gray-300">Rapport Ca/P</td>
-            <td class="p-2 text-center border border-gray-300">Quantité (g/j)</td>
+            <td class="p-2 font-bold text-center border border-gray-300">Quantité (g/j)</td>
             <td class="p-2 text-center border border-gray-300">P (g)</td>
             <td class="p-2 text-center border border-gray-300">Ca (g)</td>
         </thead>
         <tbody>
             @foreach ($liste_mineraux as $key => $mineral)
                 @if ($mineral['bon'])
-                    <tr>
+                    <tr class="hover:bg-brique-100">
                         <td class="p-2 border border-gray-300">
                             {{ $mineral['nom'] }}
                             @if ($mineral['nouveau'])
@@ -21,7 +21,7 @@
                             @endif
                         </td>
                         <td class="p-2 text-center border border-gray-300">{{ round($mineral['CaP'], 1)}} </td>
-                        <td class="p-2 text-center border border-gray-300">{{ round($mineral['qtt'] * 1000, 0) }}</td>
+                        <td class="p-2 font-bold text-center border border-gray-300">{{ round($mineral['qtt'] * 1000, 0) }}</td>
                         <td class="p-2 text-center border border-gray-300">
                             {{ round($mineral['apportsP'], 2) }}
                             <span class="italic text-gray-700">

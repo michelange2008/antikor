@@ -18,7 +18,7 @@
             <tbody>
                 @isset($ration)
                     @foreach ($ration as $aliment_id => $aliment)
-                        <tr>
+                        <tr class="hover:bg-brique-100">
                             <td class="py-2 pl-3 text-left">{{ $aliment['nom'] }}</td>
                             <td class="text-center">{{ $aliment['qtt'] }} </td>
                             <td class="text-center">{{ $aliment['qttMS'] }} </td>
