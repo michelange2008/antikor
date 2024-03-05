@@ -18,6 +18,7 @@ class Rations extends Component
     public float $qtt = 0;
     public array $aliment = [];
     public int $editModal = 0;
+    public string $link_root;
 
     function mount()
     {
@@ -25,6 +26,7 @@ class Rations extends Component
         $altypesUsed = Aliment::pluck('altype_id')->unique();
         $this->altypes = Altype::whereIn('id', $altypesUsed)->get();
         $this->calculRationTotale();
+        $this->link_root = config('aliments.link_root');
     }
 
     function updated()
@@ -82,6 +84,7 @@ class Rations extends Component
             "qttMS" => $this->arrondi($qtt * $aliment->MS / 100),
             "P" => $this->arrondi($qtt * ($aliment->MS / 100) * $aliment->P),
             "Ca" => $this->arrondi($qtt * ($aliment->MS / 100) * $aliment->Ca),
+            "link" => $aliment->link,
         ];
 
         return $alimentIngere;

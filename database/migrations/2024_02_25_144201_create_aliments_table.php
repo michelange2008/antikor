@@ -21,7 +21,7 @@ return new class extends Migration
             $table->float('P', 4, 1); // phosphore absorbable
             $table->float('Catot', 4, 1)->nullable(); // calcium total
             $table->float('Ca', 4, 1); // calcium absorbable
-            $table->timestamps();
+            $table->string('link', 191)->nullable();
         });
     }
 

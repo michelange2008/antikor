@@ -30,12 +30,14 @@ class Aliments extends Component
     public Aliment $aliment;
     public $openModal = false;
     public $editModal = 0;
+    public string $link_root;
 
     function mount()
     {
         $this->liste_aliments = Aliment::all();
         $this->altypes = Altype::all();
         $this->alstades = Alstade::all();
+        $this->link_root = config('aliments.link_root');
     }
 
     function create()

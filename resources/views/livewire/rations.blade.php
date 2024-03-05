@@ -19,7 +19,15 @@
                 @isset($ration)
                     @foreach ($ration as $aliment_id => $aliment)
                         <tr class="hover:bg-brique-100">
-                            <td class="py-2 pl-3 text-left">{{ $aliment['nom'] }}</td>
+                            <td class="py-2 pl-3 text-left">
+                                {{ $aliment['nom'] }}
+                                @if ($aliment['link'] != null)
+                                    <a href="{{ $link_root }}{{ $aliment['link']}}" target="_blank"
+                                    title="Plus d'infos sur cet aliment (tables INRAE)">
+                                        <i class="text-vert-700 fa-solid fa-circle-info"></i>
+                                    </a>
+                                @endif
+                            </td>
                             <td class="text-center">{{ $aliment['qtt'] }} </td>
                             <td class="text-center">{{ $aliment['qttMS'] }} </td>
                             <td class="text-center">{{ $aliment['P'] }} </td>

@@ -6,4 +6,7 @@ return [
     "stades_libelles" => [
         "Nom", "Nombre d'aliments", "Edit", "Suppr.",
     ],
+
+    "link_root" => 'https://www.feedtables.com/fr/content/',
+    
 ];

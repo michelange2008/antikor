@@ -20,13 +20,14 @@ class ChoixMineral extends Component
     public float $PtotNouveau;
     #[Validate('required|numeric', as: "calcium total")]
     public float $CatotNouveau;
+    public string $link_root;
 
     public function mount()
     {
-
         $this->besoinsSupp = config('macros.besoins_initiaux');
         $this->car = config('macros.car');
         $this->chercheMineral();
+        $this->link_root = config('aliments.link_root');
     }
 
     #[On('nouveau_bilan')]
