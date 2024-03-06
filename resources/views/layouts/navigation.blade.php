@@ -40,11 +40,11 @@
                     </x-nav-link> --}}
                 @endrole
 
-                @role('!antikor')
+                @unlessrole('antikor')
                 <x-nav-link href="/antikor" wire:navigate :active="request()->routeIs('front.antikor')">
                     {{ ucfirst(__('menu.who')) }}
                 </x-nav-link>
-                @endrole
+                @endunlessrole
                 <x-nav-link href="/formations" :active="request()->routeIs('formations.index')">
                     {{ ucfirst(__('menu.formations')) }}
                 </x-nav-link>
