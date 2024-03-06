@@ -17,11 +17,19 @@
                         <td class="p-2 border border-gray-300">
                             {{ $mineral['nom'] }}
                             @if ($mineral['nouveau'])
-                            <span class="cursor-pointer text-brique-700" wire:click="destroy({{ $key }})"><i class="fa-solid fa-trash"></i></span>
+                                <span class="cursor-pointer text-brique-700"
+                                    wire:click="destroy({{ $key }})"><i class="fa-solid fa-trash"></i></span>
+                            @endif
+                            @if ($mineral['link'] != null)
+                                <a href="{{ $link_root }}{{ $mineral['link'] }}" target="_blank"
+                                    title="Plus d'infos sur ce minéral (tables INRAE)">
+                                    <i class="text-vert-700 fa-solid fa-circle-info"></i>
+                                </a>
                             @endif
                         </td>
-                        <td class="p-2 text-center border border-gray-300">{{ round($mineral['CaP'], 1)}} </td>
-                        <td class="p-2 font-bold text-center border border-gray-300">{{ round($mineral['qtt'] * 1000, 0) }}</td>
+                        <td class="p-2 text-center border border-gray-300">{{ round($mineral['CaP'], 1) }} </td>
+                        <td class="p-2 font-bold text-center border border-gray-300">
+                            {{ round($mineral['qtt'] * 1000, 0) }}</td>
                         <td class="p-2 text-center border border-gray-300">
                             {{ round($mineral['apportsP'], 2) }}
                             <span class="italic text-gray-700">
@@ -44,18 +52,33 @@
         <p class="font-bold">Ajouter un minéral</p>
         <form wire:submit="create">
             <div class="flex flex-col gap-2 md:flex-row">
-                <input class="block px-0.5 mt-0 w-full border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
-                type="text" wire:model="nomNouveau" placeholder="Nom du minéral">
-                <div class="text-sm text-brique-900">@error('nomNouveau') {{ $message }} @enderror</div>
-                <input class="block px-0.5 mt-0 w-full text-center border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black" 
-                type="number" wire:model="PtotNouveau" placeholder="Phosphore total">
-                <div class="text-sm text-brique-900">@error('PtotNouveau') {{ $message }} @enderror</div>
-                <input class="block px-0.5 mt-0 w-full text-center border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
-                type="number" wire:model="CatotNouveau" placeholder="Calcium total">
-                <div class="text-sm text-brique-900">@error('CatotNouveau') {{ $message }} @enderror</div>
+                <input
+                    class="block px-0.5 mt-0 w-full border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
+                    type="text" wire:model="nomNouveau" placeholder="Nom du minéral">
+                <div class="text-sm text-brique-900">
+                    @error('nomNouveau')
+                        {{ $message }}
+                    @enderror
+                </div>
+                <input
+                    class="block px-0.5 mt-0 w-full text-center border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
+                    type="number" wire:model="PtotNouveau" placeholder="Phosphore total">
+                <div class="text-sm text-brique-900">
+                    @error('PtotNouveau')
+                        {{ $message }}
+                    @enderror
+                </div>
+                <input
+                    class="block px-0.5 mt-0 w-full text-center border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
+                    type="number" wire:model="CatotNouveau" placeholder="Calcium total">
+                <div class="text-sm text-brique-900">
+                    @error('CatotNouveau')
+                        {{ $message }}
+                    @enderror
+                </div>
             </div>
             <x-buttons.success-button>Ajouter</x-buttons.success-button>
         </form>
-            
+
     </div>
 </div>

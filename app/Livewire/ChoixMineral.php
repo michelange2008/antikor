@@ -50,7 +50,7 @@ class ChoixMineral extends Component
         $mineraux = Aliment::where('altype_id', $mineral_id->id)->get();   
         // Ajoute à la liste_mineraux la différence entre le rapport Ca/P à amener et celui de chaque minéral
         foreach ($mineraux as $mineral) {
-            $this->liste_mineraux[] = $this->peupleMineral($mineral->nom, $mineral->P, $mineral->Ca, false);
+            $this->liste_mineraux[] = $this->peupleMineral($mineral->nom, $mineral->P, $mineral->Ca, $mineral->link, false);
         }
 
     }
@@ -63,10 +63,11 @@ class ChoixMineral extends Component
      * @param Array $mineral
      * @return void
      **/
-    public function peupleMineral(string $nom, float $P, float $Ca, bool $nouveau)
+    public function peupleMineral(string $nom, float $P, float $Ca, $link, bool $nouveau)
     {
-        // Ajout des informations intiales
+        // Ajout des informations initiales
         $mineral['nom'] = $nom;
+        $mineral['link'] = $link;
         $mineral['P'] = $P;
         $mineral['Ca'] = $Ca;
         // Calcul du rapport Ca/P pour comparaison entre les besoins et les minéraux dispo
@@ -111,7 +112,7 @@ class ChoixMineral extends Component
         $this->validate();
         $PNouveau = $this->PtotNouveau * $this->car['P'];
         $CaNouveau = $this->CatotNouveau * $this->car['Ca'];
-        $mineralNouveau = $this->peupleMineral($this->nomNouveau, $PNouveau, $CaNouveau, true);
+        $mineralNouveau = $this->peupleMineral($this->nomNouveau, $PNouveau, $CaNouveau, null, true);
         $this->liste_mineraux[] = $mineralNouveau;
         $this->nomNouveau = '';
         $this->PtotNouveau = 0;
