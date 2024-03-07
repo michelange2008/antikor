@@ -1,5 +1,6 @@
 <div>
-    <p class="p-3 text-2xl font-black text-center text-vert-900">Une équipe polyvalente</p>
+    <p class="hidden p-3 text-2xl font-black text-center lg:block text-vert-900">Une équipe polyvalente</p>
+    <p class="p-2 text-xl font-bold text-center text-white lg:hidden bg-vert-700">Une équipe polyvalente</p>
     <div class="grid grid-cols-2 p-3">
         @foreach ($equipe as $membre)
             <div
