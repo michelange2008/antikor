@@ -57,7 +57,7 @@
         </tbody>
     </table>
     <div id="nouveauMineral" class="my-1">
-        <p class="font-bold">Ajouter un minéral</p>
+        <p class="font-bold">Ajouter un minéral (en g/kg d'élément total)</p>
         <form wire:submit="create">
             <div class="flex flex-col gap-2 md:flex-row">
                 <input
