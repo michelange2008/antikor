@@ -7,7 +7,7 @@
             <th rowspan="2" class="py-1 border border-b-0 border-gray-300">Nom du minéral</th>
             <th colspan="2" class="hidden lg:table-cell">Composition (g/kg)</th>
             <th rowspan="2" class="py-1 font-bold text-center border border-gray-300">Quantité (g/j)</th>
-            <th colspan="2" class="hidden lg:table-cell">Apports</th>
+            <th colspan="2">Apports</th>
         </tr>
         <tr class="text-white bg-brique-900">
             <th class="hidden py-1 text-center border border-t-0 border-gray-300 lg:table-cell">P absorb.</th>
