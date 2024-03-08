@@ -21,12 +21,14 @@
                         <tr class="hover:bg-brique-100">
                             <td class="py-2 pl-3 text-left">
                                 {{ $aliment['nom'] }}
-                                @if ($aliment['link'] != null)
-                                    <a href="{{ $link_root }}{{ $aliment['link']}}" target="_blank"
-                                    title="Plus d'infos sur cet aliment (tables INRAE)">
-                                        <i class="text-vert-700 fa-solid fa-circle-info"></i>
-                                    </a>
-                                @endif
+                                @isset($aliment['link'])
+                                    @if ($aliment['link'] != null)
+                                        <a href="{{ $link_root }}{{ $aliment['link'] }}" target="_blank"
+                                            title="Plus d'infos sur cet aliment (tables INRAE)">
+                                            <i class="text-vert-700 fa-solid fa-circle-info"></i>
+                                        </a>
+                                    @endif
+                                @endisset
                             </td>
                             <td class="text-center">{{ $aliment['qtt'] }} </td>
                             <td class="text-center">{{ $aliment['qttMS'] }} </td>

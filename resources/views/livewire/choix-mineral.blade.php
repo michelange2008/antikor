@@ -3,31 +3,39 @@
         <h2 class="h2">Choix d'un minéral et quantités à apporter</h2>
     </div>
     <table class="my-2 w-full">
-        <thead class="text-white bg-brique-900">
-            <td class="p-2 border border-gray-300">Nom du minéral</td>
-            <td class="p-2 text-center border border-gray-300">Rapport Ca/P</td>
-            <td class="p-2 font-bold text-center border border-gray-300">Quantité (g/j)</td>
-            <td class="p-2 text-center border border-gray-300">P (g)</td>
-            <td class="p-2 text-center border border-gray-300">Ca (g)</td>
-        </thead>
+        <tr class="text-white bg-brique-900">
+            <th rowspan="2" class="py-1 border border-b-0 border-gray-300">Nom du minéral</th>
+            <th colspan="2" class="hidden lg:table-cell">Composition (g/kg)</th>
+            <th rowspan="2" class="py-1 font-bold text-center border border-gray-300">Quantité (g/j)</th>
+            <th colspan="2" class="hidden lg:table-cell">Apports</th>
+        </tr>
+        <tr class="text-white bg-brique-900">
+            <th class="hidden py-1 text-center border border-t-0 border-gray-300 lg:table-cell">P absorb.</th>
+            <th class="hidden py-1 text-center border border-t-0 border-gray-300 lg:table-cell">Ca absorb.</th>
+            <th class="py-1 text-center border border-t-0 border-gray-300">P (g)</th>
+            <th class="py-1 text-center border border-t-0 border-gray-300">Ca (g)</th>
+        </tr>
         <tbody>
             @foreach ($liste_mineraux as $key => $mineral)
                 @if ($mineral['bon'])
                     <tr class="hover:bg-brique-100">
                         <td class="p-2 border border-gray-300">
-                            {{ $mineral['nom'] }}
+                            {{ $mineral['nom'] }} <span class="hidden text-sm lg:block">(Ca/P: {{ round($mineral['CaP'], 1) }})</span>
                             @if ($mineral['nouveau'])
                                 <span class="cursor-pointer text-brique-700"
                                     wire:click="destroy({{ $key }})"><i class="fa-solid fa-trash"></i></span>
                             @endif
-                            @if ($mineral['link'] != null)
-                                <a href="{{ $link_root }}{{ $mineral['link'] }}" target="_blank"
-                                    title="Plus d'infos sur ce minéral (tables INRAE)">
-                                    <i class="text-vert-700 fa-solid fa-circle-info"></i>
-                                </a>
-                            @endif
+                            @isset($mineral['link'])
+                                @if ($mineral['link'] != null)
+                                    <a href="{{ $link_root }}{{ $mineral['link'] }}" target="_blank"
+                                        title="Plus d'infos sur ce minéral (tables INRAE)">
+                                        <i class="text-vert-700 fa-solid fa-circle-info"></i>
+                                    </a>
+                                @endif
+                            @endisset
                         </td>
-                        <td class="p-2 text-center border border-gray-300">{{ round($mineral['CaP'], 1) }} </td>
+                        <td class="hidden p-2 text-center border border-gray-300 lg:table-cell">{{ round($mineral['P'], 1) }} </td>
+                        <td class="hidden p-2 text-center border border-gray-300 lg:table-cell">{{ round($mineral['Ca'], 1) }} </td>
                         <td class="p-2 font-bold text-center border border-gray-300">
                             {{ round($mineral['qtt'] * 1000, 0) }}</td>
                         <td class="p-2 text-center border border-gray-300">
