@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Aromaliste;
 
 use App\Models\Phytoprep;
 use App\Models\Phytoproduit;
@@ -65,6 +65,6 @@ class PreparationsEditDel extends Component
 
     public function render()
     {
-        return view('livewire.preparations-edit-del');
+        return view('livewire.aromaliste.preparations-edit-del');
     }
 }

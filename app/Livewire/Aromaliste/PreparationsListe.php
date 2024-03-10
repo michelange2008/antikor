@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Aromaliste;
 
 use App\Models\Phytoprep;
 use App\Models\Phytotype;
@@ -60,6 +60,6 @@ class PreparationsListe extends Component
 
     public function render()
     {
-        return view('livewire.preparations-liste');
+        return view('livewire.aromaliste.preparations-liste');
     }
 }

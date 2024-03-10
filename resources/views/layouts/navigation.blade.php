@@ -30,8 +30,7 @@
 
                 @role('antikor')
                     <x-dropdown-perso id='aroma' :haut="'aromaliste'" :bas="[
-                        ['name' => 'aromaliste', 'route' => 'home'],
-                        ['name' => 'produits', 'route' => 'produits.index'],
+                        ['name' => 'produits', 'route' => 'produits'],
                         ['name' => 'preps', 'route' => 'preparations.index'],
                         ['name' => 'aromaform', 'route' => 'home'],
                     ]"></x-dropdown-perso>
@@ -162,7 +161,7 @@
                     {{ ucfirst(__('menu.aromaliste')) }}
                 </x-responsive-nav-link>
 
-                <x-responsive-nav-link :class="'ml-2'" :href="route('produits.index')" :active="request()->routeIs('produits.index')">
+                <x-responsive-nav-link :class="'ml-2'" :href="route('produits')" :active="request()->routeIs('produits')">
                     {{ ucfirst(__('menu.produits')) }}
                 </x-responsive-nav-link>
 

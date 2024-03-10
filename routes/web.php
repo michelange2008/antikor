@@ -8,9 +8,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PhytoprepController;
-use App\Http\Controllers\PhytoproduitController;
 use App\Livewire\Aliments;
-use App\Livewire\PreparationsListe;
+use App\Livewire\Aromaliste\PreparationsListe;
+use App\Livewire\Aromaliste\Produits;
 use App\Livewire\CompositionEdit;
 use App\Livewire\Formations\FormationCreate;
 use App\Livewire\Formations\FormationEdit;
@@ -25,6 +25,7 @@ use App\Livewire\ProgrammeSoustitreEdit;
 use App\Livewire\Roles;
 use App\Livewire\ShowUsers;
 use App\Livewire\Permissions;
+use App\Livewire\PreparationsListe as LivewirePreparationsListe;
 use App\Livewire\Rations;
 use App\Livewire\StadesRecoltes;
 use App\Livewire\TypesAliments;
@@ -79,7 +80,7 @@ Route::prefix('/intranet')->middleware('auth', 'verified')->group(function () {
     Route::get('/preparation/composition/{preparation}', [PhytoprepController::class, 'edit'])->name('composition.edit');
     Route::post('/preparation/composition/{preparation}', [PhytoprepController::class, 'update'])->name('composition.update');
 
-    Route::resource('/produits', PhytoproduitController::class);
+    Route::get('/produits', Produits::class)->name('produits');
 
     Route::group(['middleware' => ['role:webmin']], function () {
         Route::get('/utilisateurs', Users::class)->name('users');
