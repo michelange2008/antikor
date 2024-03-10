@@ -1,17 +1,15 @@
 <?php
 
-use App\Formations\Livewire\FormationCreate as LivewireFormationCreate;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\FormationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PhytoprepController;
 use App\Livewire\Aliments;
+use App\Livewire\Aromaliste\Preparations;
 use App\Livewire\Aromaliste\PreparationsListe;
 use App\Livewire\Aromaliste\Produits;
-use App\Livewire\CompositionEdit;
 use App\Livewire\Formations\FormationCreate;
 use App\Livewire\Formations\FormationEdit;
 use App\Livewire\Formations\FormationIndex;
@@ -19,18 +17,12 @@ use App\Livewire\Formations\FormationShow;
 use App\Livewire\Macros;
 use App\Livewire\Oligos;
 use App\Livewire\OligosParametres;
-use App\Livewire\ProgrammeFormEdit;
-use App\Livewire\ProgrammeForms;
-use App\Livewire\ProgrammeSoustitreEdit;
 use App\Livewire\Roles;
-use App\Livewire\ShowUsers;
 use App\Livewire\Permissions;
-use App\Livewire\PreparationsListe as LivewirePreparationsListe;
 use App\Livewire\Rations;
 use App\Livewire\StadesRecoltes;
 use App\Livewire\TypesAliments;
 use App\Livewire\Users;
-use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,7 +68,7 @@ Route::prefix('/intranet')->middleware('auth', 'verified')->group(function () {
     Route::get('/formations/create', FormationCreate::class)->name('formations.create');
     Route::get('/formations/edit/{formation}', FormationEdit::class)->name('formations.edit');
 
-    Route::get('/preparations', PreparationsListe::class)->name('preparations.index');
+    Route::get('/preparations', Preparations::class)->name('preparations.index');
     Route::get('/preparation/composition/{preparation}', [PhytoprepController::class, 'edit'])->name('composition.edit');
     Route::post('/preparation/composition/{preparation}', [PhytoprepController::class, 'update'])->name('composition.update');
 
