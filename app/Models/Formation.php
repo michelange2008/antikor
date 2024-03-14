@@ -53,4 +53,8 @@ class Formation extends Model
         return $this->hasMany(Programmesoustitre::class);
     }
 
+    function preparations() : BelongsToMany {
+        return $this->belongsToMany(Phytoprep::class);
+    }
+
 }

@@ -10,6 +10,8 @@ use App\Livewire\Aliments;
 use App\Livewire\Aromaliste\Preparations;
 use App\Livewire\Aromaliste\PreparationsListe;
 use App\Livewire\Aromaliste\Produits;
+use App\Livewire\Aromaliste\Composition;
+use App\Livewire\Aromaliste\FormationsPreparations;
 use App\Livewire\Formations\FormationCreate;
 use App\Livewire\Formations\FormationEdit;
 use App\Livewire\Formations\FormationIndex;
@@ -68,11 +70,14 @@ Route::prefix('/intranet')->middleware('auth', 'verified')->group(function () {
     Route::get('/formations/create', FormationCreate::class)->name('formations.create');
     Route::get('/formations/edit/{formation}', FormationEdit::class)->name('formations.edit');
 
-    Route::get('/preparations', Preparations::class)->name('preparations.index');
+    Route::get('/produits', Produits::class)->name('produits');
+    Route::get('/preparations', Preparations::class)->name('preparations');
+    Route::get('/composition/{preparation_id}', Composition::class)->name('composition');
+    Route::get('/formaprep', FormationsPreparations::class)->name('formapreps');
+    
     Route::get('/preparation/composition/{preparation}', [PhytoprepController::class, 'edit'])->name('composition.edit');
     Route::post('/preparation/composition/{preparation}', [PhytoprepController::class, 'update'])->name('composition.update');
 
-    Route::get('/produits', Produits::class)->name('produits');
 
     Route::group(['middleware' => ['role:webmin']], function () {
         Route::get('/utilisateurs', Users::class)->name('users');

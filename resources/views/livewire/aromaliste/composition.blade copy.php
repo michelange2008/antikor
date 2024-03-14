@@ -1,20 +1,19 @@
-<x-app-layout>
-
+<div>
     <x-titres.titre :class="'mt-5'" icone="modify_light.svg">{{ ucfirst($preparation->name) }}</x-titres.titre>
     <x-titres.titre2 :class="'mb-5'">Modification de la composition</x-titres.titre2>
 
     <x-flash></x-flash>
-    <form action="{{ route('composition.update', $preparation) }}" method="POST"">
-        @csrf
-        @method('POST')
+
+    <form wire:submit="update()">
         <div class="flex flex-row justify-between">
             <div>
-                <x-buttons.success-button><x-icones.save :collapse="true"/> Enregistrer</x-buttons.success-button>
+                <x-buttons.success-button><x-icones.save :collapse="true" /> Enregistrer</x-buttons.success-button>
                 <x-buttons.reset-button><x-icones.reset :collapse="true" /> Réinitialiser</x-buttons.reset-button>
             </div>
             <div>
                 <a href="{{ route('preparations') }}">
-                    <x-buttons.secondary-button><x-icones.return collapse="true" /> Retour aux préparations</x-buttons.secondary-button>
+                    <x-buttons.secondary-button><x-icones.return collapse="true" /> Retour aux
+                        préparations</x-buttons.secondary-button>
                 </a>
             </div>
         </div>
@@ -43,6 +42,8 @@
                                         <input
                                             class="border-0 bg-transparent hover:bg-slate-100 focus:bg-slate-100 w-32 text-right sm:text-left"
                                             type="number" id="{{ $produit->id }}" name="{{ 'Q_' . $produit->id }}"
+                                            wire:key = "{{ $produit->id }}"
+                                            wire:model = "liste_produits.{{$produit->id}}"
                                             value="{{ $preparation->produits->where('id', $produit->id)->first()->pivot->quantite }}">
                                         <span
                                             class="sm:-ml-16 collapse sm:visible">{{ $produit->phytounite->abbreviation }}</span>
@@ -67,12 +68,15 @@
                                         {{ $produit->name }}
                                     </td>
                                     <td>
-                                        <div x-model="champs">
+                                        <div>
                                             <input
                                                 class="border-0 bg-transparent hover:bg-slate-100 focus:bg-slate-100 w-32 text-right sm:text-left"
                                                 type="number" id="{{ $produit->id }}" min=0
-                                                name="{{ 'Q_' . $produit->id }}" value=0>
-                                            <span class="sm:-ml-16">{{ $produit->phytounite->abbreviation }}</span>
+                                                name="{{ 'Q_' . $produit->id }}" value=0
+                                                wire:key = "{{ $produit->id }}"
+                                                wire:model = "liste_produits.{{$produit->id}}"
+                                                >
+                                                <span class="sm:-ml-16">{{ $produit->phytounite->abbreviation }}</span>
                                         </div>
                                     </td>
 
@@ -85,4 +89,4 @@
         </table>
     </form>
 
-</x-app-layout>
+</div>

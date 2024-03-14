@@ -6,7 +6,7 @@
 
     <button
         class="px-3 py-1 my-1 text-center bg-gray-300 rounded hover:bg-gray-800 hover:text-gray-200" type="reset"
-        @click="open = false">
+        @click="open = false, {{ $action ?? 'action' }} = 0 ">
         {{ $cancel ?? "Annuler" }}
     </button>
 </div>
