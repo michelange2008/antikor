@@ -1,4 +1,4 @@
-<div x-data="{ produitPris: @entangle('produitPris'), showProduits: @entangle('showProduits') }">
+<div x-data="{ showProduits: @entangle('showProduits') }">
     <x-titres.titre>{{ $formation->name }} ({{ strtolower($formation->subname) }}) </x-titres.titre>
     <div x-show="!showProduits">
         <div class="flex flex-row justify-between items-center ml-3 text-sm md:text-base lg:text-lg">

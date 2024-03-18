@@ -169,7 +169,7 @@
                     {{ ucfirst(__('menu.preps')) }}
                 </x-responsive-nav-link>
 
-                <x-responsive-nav-link :class="'ml-2'" :href="route('visites')" :active="request()->routeIs('visites')">
+                <x-responsive-nav-link :class="'ml-2'" :href="route('formapreps')" :active="request()->routeIs('formapreps')">
                     {{ ucfirst(__('menu.aromaform')) }}
                 </x-responsive-nav-link>
             @endhasrole

@@ -32,6 +32,7 @@ class FormationsPreparations extends Component
 
     public function updated($name, $value)
     {
+        $this->listeProduits = collect();
         if ($name == "formationChoisie") {
             $this->formationChoisie = $value;
             $this->formation = Formation::find($value);
