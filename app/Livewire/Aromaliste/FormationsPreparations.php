@@ -12,25 +12,32 @@ class FormationsPreparations extends Component
     use CalculQttProduits;
 
     public $formations;
-    public int $formationChoisie;
+    public Formation $formation;
+    public int $formationChoisie = 1;
     public $listePreparations;
-    public $listeProduits = [];
+    public $listeProduits;
     public $preparationsChoisies;
     public $nombreStagiaires = 10;
+    public $showProduits = false;
 
     public function mount()
     {
         $this->formations = Formation::all();
-        $this->listePreparations = Formation::find(1)->preparations;
-        $this->preparationsChoisies = $this->listePreparations;;
-        // $this->preparationsChoisies = collect();
+        $this->formation = Formation::find($this->formationChoisie);
+        $this->listePreparations = $this->formation->preparations;
+        $this->preparationsChoisies = $this->listePreparations;
+        $this->listeProduits = $this->produitsAvecQuantite($this->preparationsChoisies, $this->nombreStagiaires);
+
     }
 
     public function updated($name, $value)
     {
         if ($name == "formationChoisie") {
-            $this->listePreparations = Formation::find($value)->preparations;
-            $this->preparationsChoisies = $this->listePreparations;
+            $this->formationChoisie = $value;
+            $this->formation = Formation::find($value);
+            $this->listePreparations = $this->formation->preparations;
+            $this->preparationsChoisies = $this->formation->preparations;
+            $this->listeProduits = $this->produitsAvecQuantite($this->preparationsChoisies, $this->nombreStagiaires);
         }
     }
 
@@ -46,14 +53,9 @@ class FormationsPreparations extends Component
         if (!$preparationPresente) {
             $this->preparationsChoisies->push(Phytoprep::find($preparation_id));
         }
+        $this->listeProduits = $this->produitsAvecQuantite($this->preparationsChoisies, $this->nombreStagiaires);
     }
-    
-    public function showProduits()
-    {
 
-        $this->listeProduits = $this->produitsAvecQuantite($this->preparationsChoisies);
-
-    }
 
     public function render()
     {

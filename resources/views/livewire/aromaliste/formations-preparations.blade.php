@@ -1,19 +1,28 @@
-<div>
-    <x-titres.titre>Formations et préparations</x-titres.titre>
-    <div>
+<div x-data="{ produitPris: @entangle('produitPris'), showProduits: @entangle('showProduits') }">
+    <x-titres.titre>{{ $formation->name }} ({{ strtolower($formation->subname) }}) </x-titres.titre>
+    <div x-show="!showProduits">
+        <div class="flex flex-row justify-between items-center ml-3 text-sm md:text-base lg:text-lg">
+            <label class="flex flex-row gap-5 items-center w-full" for="nombreStagiaires">
+                <p class="">Nombre de stagiaires</p>
+                <input
+                    class="block mt-1 w-12 bg-gray-100 rounded-md border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
+                    type="number" name="nombreStagiaires" min="0" max="30" step="1"
+                    wire:model.blur="nombreStagiaires">
+            </label>
 
-        <label class="block" for="formations">
-            <select wire:model.change = "formationChoisie"
-                class="block mt-1 w-full bg-gray-100 rounded-md border-transparent md:text-base text-md focus:border-gray-500 focus:bg-white focus:ring-0"
-                name="formations" id="formations">
-                @foreach ($formations as $formation)
-                    <option value="" hidden>Choisir une formation</option>
-                    @if ($formation->preparations->count() > 0)
-                        <option value="{{ $formation->id }}">{{ $formation->name }} ({{ $formation->subname }})</option>
-                    @endif
-                @endforeach
-            </select>
-        </label>
+        </div>
+        <select wire:model.live = "formationChoisie"
+            class="block mt-1 w-full text-sm bg-gray-100 rounded-md border-transparent md:text-base lg:text-lg focus:border-gray-500 focus:bg-white focus:ring-0"
+            name="formations" id="formations">
+            @foreach ($formations as $formation)
+                <option value="" hidden>Choisir une formation</option>
+                @if ($formation->preparations->count() > 0)
+                    <option value="{{ $formation->id }}">{{ $formation->name }} ({{ strtolower($formation->subname) }})
+                    </option>
+                @endif
+            @endforeach
+        </select>
+
         <div class="my-3">
             @isset($listePreparations)
                 @foreach ($listePreparations as $preparation)
@@ -33,24 +42,40 @@
                 @endforeach
             @endisset
         </div>
-        <div class="flex flex-row justify-between items-center mx-2">
-            <label class="flex flex-row gap-5 items-center w-full" for="nombreStagiaires">
-                <p class="">Nombre de stagiaires</p>
-                <input
-                    class="block mt-1 w-12 bg-gray-100 rounded-md border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
-                    type="number" name="nombreStagiaires" min="0" max="30" step="1"
-                    wire:model.blur="nombreStagiaires">
-            </label>
-            <button wire:click="showProduits" class="btn bg-vert-700">Valider</button>
-        </div>
+        <button
+            class="flex fixed right-3 bottom-3 z-50 justify-center items-center p-3 w-12 h-12 text-base rounded-full shadow-xl btn btn-success"
+            @click = "showProduits = true" title="Voir les produits">
+            <i class="fa-solid fa-droplet"></i>
+        </button>
     </div>
 
-    <div>
-        Produits
-        @foreach ($listeProduits as $produit)
-            
-            <p>{{$produit->name}} : {{ $produit->quantite}} </p>
+    <div x-show="showProduits">
 
+        <button
+            class="flex fixed right-3 bottom-3 z-50 justify-center items-center p-3 w-12 h-12 text-base rounded-full shadow-xl btn btn-success"
+            @click = "showProduits = false" title="Voir les préparations">
+            <i class="fa-solid fa-jar"></i>
+        </button>
+
+        @foreach ($listeProduits as $key => $produit)
+            <div x-data="{ pris_{{ $key }}: false }">
+                <div x-show="!pris_{{ $key }}"
+                    @click = "pris_{{ $key }} = !pris_{{ $key }}"
+                    class="flex flex-row gap-2 items-center p-3 my-1 cursor-pointer bg-brique-300 text-brique-900 hover:font-bold">
+                    <img class="w-6" src="{{ url('storage/img/produits/' . $produit->phytotype->icone) }}"
+                        alt="">
+                    <p>{{ $produit->name }} : {{ $produit->quantite }} {{ $produit->phytounite->abbreviation }}
+                    </p>
+                </div>
+                <div x-show="pris_{{ $key }}"
+                    @click = "pris_{{ $key }} = !pris_{{ $key }}"
+                    class="flex flex-row gap-2 items-center p-3 my-1 text-gray-900 bg-gray-300 cursor-pointer hover:font-bold">
+                    <img class="w-6" src="{{ url('storage/img/produits/' . $produit->phytotype->icone) }}"
+                        alt="">
+                    <p>{{ $produit->name }} : {{ $produit->quantite }} {{ $produit->phytounite->abbreviation }}
+                    </p>
+                </div>
+            </div>
         @endforeach
     </div>
 
