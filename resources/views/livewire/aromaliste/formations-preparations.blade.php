@@ -21,6 +21,8 @@
                     </option>
                 @endif
             @endforeach
+            <option value="1000">Toutes les préparations</option>
+            <option value="0">Aucune préparation</option>
         </select>
 
         <div class="my-3">
@@ -33,7 +35,7 @@
                             <p class="">{{ ucfirst($preparation->name) }}</p>
                         </div>
                     @else
-                        <div class="flex flex-row gap-2 items-center p-3 my-1 text-gray-700 bg-gray-100 cursor-pointer hover:text-black hover:bg-gray-300"
+                        <div class="flex flex-row gap-2 items-center p-3 my-1 text-gray-700 bg-gray-100 cursor-pointer hover:text-black md:hover:bg-gray-300"
                             wire:click = "togglePrep({{ $preparation->id }})">
                             <img class="w-8" src="{{ url('storage/img/icones/' . $preparation->icone) }}" alt="">
                             <p class="">{{ ucfirst($preparation->name) }}</p>
@@ -57,25 +59,39 @@
             <i class="fa-solid fa-jar"></i>
         </button>
 
-        @foreach ($listeProduits as $key => $produit)
-            <div x-data="{ pris_{{ $key }}: false }">
-                <div x-show="!pris_{{ $key }}"
-                    @click = "pris_{{ $key }} = !pris_{{ $key }}"
-                    class="flex flex-row gap-2 items-center p-3 my-1 cursor-pointer bg-brique-300 text-brique-900 hover:font-bold">
-                    <img class="w-6" src="{{ url('storage/img/produits/' . $produit->phytotype->icone) }}"
-                        alt="">
-                    <p>{{ $produit->name }} : {{ $produit->quantite }} {{ $produit->phytounite->abbreviation }}
-                    </p>
-                </div>
-                <div x-show="pris_{{ $key }}"
-                    @click = "pris_{{ $key }} = !pris_{{ $key }}"
-                    class="flex flex-row gap-2 items-center p-3 my-1 text-gray-900 bg-gray-300 cursor-pointer hover:font-bold">
-                    <img class="w-6" src="{{ url('storage/img/produits/' . $produit->phytotype->icone) }}"
-                        alt="">
-                    <p>{{ $produit->name }} : {{ $produit->quantite }} {{ $produit->phytounite->abbreviation }}
-                    </p>
-                </div>
-            </div>
+        @if (count($listeProduits) == 0)
+            <p class="font-bold text-brique-900"><i class="fa-solid fa-face-flushed"></i>&nbsp;Pas de préparation donc pas de produit</p>
+        @endif
+
+        @foreach ($listeProduits as $groupeDeProduits)
+            @foreach ($groupeDeProduits as $key => $produit)
+                @if ($loop->first)
+                    <div
+                        class="flex flex-row gap-2 items-center p-2 bg-{{ $produit->phytotype->couleur }}-700 text-white font-bold">
+                        <img class="w-6 brightness-200"
+                            src="{{ url('storage/img/produits/' . $produit->phytotype->icone) }}" alt="">
+                        <p>{{ ucfirst($produit->phytotype->name) }}</p>
+                    </div>
+                @endif
+                    <div x-data="{ pris_{{ $key }}: false }">
+                        <div x-show="!pris_{{ $key }}"
+                            @click = "pris_{{ $key }} = !pris_{{ $key }}"
+                            class="p-3 my-1 cursor-pointer bg-{{ $produit->phytotype->couleur }}-300 text-brique-900 hover:font-bold">
+                            <p>{{ $produit->name }} : {{ $produit->quantite }}
+                                {{ $produit->phytounite->abbreviation }}
+                            </p>
+                        </div>
+                        <div x-show="pris_{{ $key }}"
+                            @click = "pris_{{ $key }} = !pris_{{ $key }}"
+                            class="flex flex-row gap-2 items-center p-3 my-1 text-gray-900 bg-gray-300 cursor-pointer hover:font-bold">
+                            <img class="w-6" src="{{ url('storage/img/produits/' . $produit->phytotype->icone) }}"
+                                alt="">
+                            <p>{{ $produit->name }} : {{ $produit->quantite }}
+                                {{ $produit->phytounite->abbreviation }}
+                            </p>
+                        </div>
+                    </div>
+            @endforeach
         @endforeach
     </div>
 

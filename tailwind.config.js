@@ -13,7 +13,23 @@ module.exports = {
         "./resources/**/**/**/**/**/*.blade.php",
         "./resources/**/*.js",
     ],
+    safelist: [
+        'bg-red-300',
+        'bg-green-300',
+        'bg-blue-300',
+        'bg-lime-300',
+        'bg-orange-300',
+        'bg-slate-300',
+        'bg-pink-300',
+        'bg-red-700',
+        'bg-green-700',
+        'bg-blue-700',
+        'bg-lime-700',
+        'bg-orange-700',
+        'bg-slate-700',
+        'bg-pink-700',
 
+    ],
     theme: {
         extend: {
             fontFamily: {
