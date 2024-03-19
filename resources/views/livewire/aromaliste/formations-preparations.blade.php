@@ -76,16 +76,16 @@
                     <div x-data="{ pris_{{ $key }}: false }">
                         <div x-show="!pris_{{ $key }}"
                             @click = "pris_{{ $key }} = !pris_{{ $key }}"
-                            class="p-3 my-1 cursor-pointer bg-{{ $produit->phytotype->couleur }}-300 text-brique-900 hover:font-bold">
+                            class="flex flex-row gap-2 items-center p-3 my-1 cursor-pointer bg-{{ $produit->phytotype->couleur }}-300 text-brique-900 hover:font-bold">
+                            <img class="w-6" src="{{ url('storage/img/produits/' . $produit->phytotype->icone) }}"
+                                alt="">
                             <p>{{ $produit->name }} : {{ $produit->quantite }}
                                 {{ $produit->phytounite->abbreviation }}
                             </p>
                         </div>
                         <div x-show="pris_{{ $key }}"
                             @click = "pris_{{ $key }} = !pris_{{ $key }}"
-                            class="flex flex-row gap-2 items-center p-3 my-1 text-gray-900 bg-gray-300 cursor-pointer hover:font-bold">
-                            <img class="w-6" src="{{ url('storage/img/produits/' . $produit->phytotype->icone) }}"
-                                alt="">
+                            class="p-3 my-1 text-gray-900 bg-gray-300 cursor-pointer hover:font-bold">
                             <p>{{ $produit->name }} : {{ $produit->quantite }}
                                 {{ $produit->phytounite->abbreviation }}
                             </p>
