@@ -60,7 +60,8 @@
         </button>
 
         @if (count($listeProduits) == 0)
-            <p class="font-bold text-brique-900"><i class="fa-solid fa-face-flushed"></i>&nbsp;Pas de préparation donc pas de produit</p>
+            <p class="font-bold text-brique-900"><i class="fa-solid fa-face-flushed"></i>&nbsp;Pas de préparation donc
+                pas de produit</p>
         @endif
 
         @foreach ($listeProduits as $groupeDeProduits)
@@ -73,24 +74,28 @@
                         <p>{{ ucfirst($produit->phytotype->name) }}</p>
                     </div>
                 @endif
-                    <div x-data="{ pris_{{ $key }}: false }">
-                        <div x-show="!pris_{{ $key }}"
-                            @click = "pris_{{ $key }} = !pris_{{ $key }}"
-                            class="flex flex-row gap-2 items-center p-3 my-1 cursor-pointer bg-{{ $produit->phytotype->couleur }}-300 text-brique-900 hover:font-bold">
+                <div x-data="{ pris_{{ $key }}: false }">
+                    <div x-show="!pris_{{ $key }}"
+                        @click = "pris_{{ $key }} = !pris_{{ $key }}"
+                        class="flex flex-row justify-between items-center p-3 my-1 cursor-pointer bg-{{ $produit->phytotype->couleur }}-300 text-brique-900 hover:font-bold">
+                        <div class="flex flex-row gap-2">
                             <img class="w-6" src="{{ url('storage/img/produits/' . $produit->phytotype->icone) }}"
                                 alt="">
-                            <p>{{ $produit->name }} : {{ $produit->quantite }}
-                                {{ $produit->phytounite->abbreviation }}
-                            </p>
+                            <p>{{ $produit->name }}&nbsp;:</p>
                         </div>
-                        <div x-show="pris_{{ $key }}"
-                            @click = "pris_{{ $key }} = !pris_{{ $key }}"
-                            class="p-3 my-1 text-gray-900 bg-gray-300 cursor-pointer hover:font-bold">
-                            <p>{{ $produit->name }} : {{ $produit->quantite }}
-                                {{ $produit->phytounite->abbreviation }}
-                            </p>
+                        <div>
+                            <p>{{ $produit->quantite }}&nbsp;{{ $produit->phytounite->abbreviation }}</p>
                         </div>
                     </div>
+                    <div x-show="pris_{{ $key }}"
+                        @click = "pris_{{ $key }} = !pris_{{ $key }}"
+                        class="flex flex-row justify-between p-3 my-1 text-gray-900 bg-gray-300 cursor-pointer hover:font-bold">
+                        <p>{{ $produit->name }} : {{ $produit->quantite }}
+                            {{ $produit->phytounite->abbreviation }}
+                        </p>
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                </div>
             @endforeach
         @endforeach
     </div>
