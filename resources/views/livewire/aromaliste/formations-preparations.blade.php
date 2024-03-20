@@ -1,103 +1,45 @@
-<div x-data="{ showProduits: @entangle('showProduits') }">
-    <x-titres.titre>{{ $formation->name }} ({{ strtolower($formation->subname) }}) </x-titres.titre>
-    <div x-show="!showProduits">
-        <div class="flex flex-row justify-between items-center ml-3 text-sm md:text-base lg:text-lg">
-            <label class="flex flex-row gap-5 items-center w-full" for="nombreStagiaires">
-                <p class="">Nombre de stagiaires</p>
-                <input
-                    class="block mt-1 w-12 bg-gray-100 rounded-md border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
-                    type="number" name="nombreStagiaires" min="0" max="30" step="1"
-                    wire:model.blur="nombreStagiaires">
-            </label>
+<div x-data="{ formationId: @entangle('formationId') }">
+    <x-titres.titre icone="sirop.svg">Formations et préparations</x-titres.titre>
 
-        </div>
-        <select wire:model.live = "formationChoisie"
-            class="block mt-1 w-full text-sm bg-gray-100 rounded-md border-transparent md:text-base lg:text-lg focus:border-gray-500 focus:bg-white focus:ring-0"
-            name="formations" id="formations">
+    <div class="gap-3 justify-between lg:flex lg:flex-row">
+
+        <div id="formations" class="basis-1/2">
             @foreach ($formations as $formation)
-                <option value="" hidden>Choisir une formation</option>
-                @if ($formation->preparations->count() > 0)
-                    <option value="{{ $formation->id }}">{{ $formation->name }} ({{ strtolower($formation->subname) }})
-                    </option>
-                @endif
-            @endforeach
-            <option value="1000">Toutes les préparations</option>
-            <option value="0">Aucune préparation</option>
-        </select>
-
-        <div class="my-3">
-            @isset($listePreparations)
-                @foreach ($listePreparations as $preparation)
-                    @if ($preparationsChoisies->contains($preparation))
-                        <div class="flex flex-row gap-2 items-center p-3 my-1 cursor-pointer bg-vert-300 text-vert-900 hover:font-bold"
-                            wire:click = "togglePrep({{ $preparation->id }})">
-                            <img class="w-8" src="{{ url('storage/img/icones/' . $preparation->icone) }}" alt="">
-                            <p class="">{{ ucfirst($preparation->name) }}</p>
-                        </div>
-                    @else
-                        <div class="flex flex-row gap-2 items-center p-3 my-1 text-gray-700 bg-gray-100 cursor-pointer hover:text-black md:hover:bg-gray-300"
-                            wire:click = "togglePrep({{ $preparation->id }})">
-                            <img class="w-8" src="{{ url('storage/img/icones/' . $preparation->icone) }}" alt="">
-                            <p class="">{{ ucfirst($preparation->name) }}</p>
-                        </div>
-                    @endif
-                @endforeach
-            @endisset
-        </div>
-        <button
-            class="flex fixed right-3 bottom-3 z-50 justify-center items-center p-3 w-12 h-12 text-base rounded-full shadow-xl btn btn-success"
-            @click = "showProduits = true" title="Voir les produits">
-            <i class="fa-solid fa-droplet"></i>
-        </button>
-    </div>
-
-    <div x-show="showProduits">
-
-        <button
-            class="flex fixed right-3 bottom-3 z-50 justify-center items-center p-3 w-12 h-12 text-base rounded-full shadow-xl btn btn-success"
-            @click = "showProduits = false" title="Voir les préparations">
-            <i class="fa-solid fa-jar"></i>
-        </button>
-
-        @if (count($listeProduits) == 0)
-            <p class="font-bold text-brique-900"><i class="fa-solid fa-face-flushed"></i>&nbsp;Pas de préparation donc
-                pas de produit</p>
-        @endif
-
-        @foreach ($listeProduits as $groupeDeProduits)
-            @foreach ($groupeDeProduits as $key => $produit)
-                @if ($loop->first)
-                    <div
-                        class="flex flex-row gap-2 items-center p-2 bg-{{ $produit->phytotype->couleur }}-700 text-white font-bold">
-                        <img class="w-6 brightness-200"
-                            src="{{ url('storage/img/produits/' . $produit->phytotype->icone) }}" alt="">
-                        <p>{{ ucfirst($produit->phytotype->name) }}</p>
-                    </div>
-                @endif
-                <div x-data="{ pris_{{ $key }}: false }">
-                    <div x-show="!pris_{{ $key }}"
-                        @click = "pris_{{ $key }} = !pris_{{ $key }}"
-                        class="flex flex-row justify-between items-center p-3 my-1 cursor-pointer bg-{{ $produit->phytotype->couleur }}-300 text-brique-900 hover:font-bold">
-                        <div class="flex flex-row gap-2">
-                            <img class="w-6" src="{{ url('storage/img/produits/' . $produit->phytotype->icone) }}"
-                                alt="">
-                            <p>{{ $produit->name }}&nbsp;:</p>
-                        </div>
-                        <div>
-                            <p>{{ $produit->quantite }}&nbsp;{{ $produit->phytounite->abbreviation }}</p>
-                        </div>
-                    </div>
-                    <div x-show="pris_{{ $key }}"
-                        @click = "pris_{{ $key }} = !pris_{{ $key }}"
-                        class="flex flex-row justify-between p-3 my-1 text-gray-900 bg-gray-300 cursor-pointer hover:font-bold">
-                        <p>{{ $produit->name }} : {{ $produit->quantite }}
-                            {{ $produit->phytounite->abbreviation }}
-                        </p>
-                        <i class="fa-solid fa-check"></i>
-                    </div>
+                <div x-show="formationId == {{ $formation->id }}"
+                    class="flex flex-row gap-2 items-center p-3 my-2 shadow cursor-pointer shadow-gray-700 bg-vert-100 hover:font-bold hover:bg-vert-300 active:bg-vert-700 active:text-white">
+                    <img class="h-10 active:brightness-20" src="{{ url('storage/img/icones/' . $formation->icone) }}"
+                        alt="{{ $formation->name }}">
+                    <p>{{ $formation->name }} ({{ $formation->subname }}) </p>
+                </div>
+                <div x-show=" formationId != {{ $formation->id }}" wire:click="choisitFormation({{ $formation->id }})"
+                    class="flex flex-row gap-2 items-center p-3 my-2 bg-gray-200 cursor-pointer hover:font-bold hover:bg-gray-300 active:bg-gray-500 active:text-white active:brightness-150">
+                    <img class="h-10" src="{{ url('storage/img/icones/' . $formation->icone) }}"
+                        alt="{{ $formation->name }}">
+                    <p>{{ $formation->name }} ({{ $formation->subname }}) </p>
                 </div>
             @endforeach
-        @endforeach
-    </div>
 
+        </div>
+
+        <div id="preparations" class="basis-1/2">
+            @foreach ($preparations as $preparation)
+                @if ($formationPreparations->contains($preparation))
+                    <div wire:click="enlevePreparation({{ $preparation->id }})"
+                        class="flex flex-row gap-2 items-center p-3 my-2 bg-orange-200 shadow cursor-pointer shadow-gray-700 hover:font-bold hover:bg-orange-300 active:bg-orange-700 active:text-white">
+                        <img class="h-10 active:brightness-20"
+                            src="{{ url('storage/img/icones/' . $preparation->icone) }}" <p>{{ $preparation->name }}
+                        </p>
+                    </div>
+                @else
+                    <div wire:click="ajoutePreparation({{ $preparation->id }})"
+                        class="flex flex-row gap-2 items-center p-3 my-2 text-gray-700 bg-gray-100 border border-gray-300 cursor-pointer hover:font-bold hover:bg-gray-300 active:bg-gray-700 active:text-white">
+                        <img class="h-10 saturate-0 active:brightness-20"
+                            src="{{ url('storage/img/icones/' . $preparation->icone) }}" <p>{{ $preparation->name }}
+                        </p>
+                    </div>
+                @endif
+            @endforeach
+        </div>
+
+    </div>
 </div>

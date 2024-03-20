@@ -12,6 +12,7 @@ use App\Livewire\Aromaliste\PreparationsListe;
 use App\Livewire\Aromaliste\Produits;
 use App\Livewire\Aromaliste\Composition;
 use App\Livewire\Aromaliste\FormationsPreparations;
+use App\Livewire\Aromaliste\FormationsProduits;
 use App\Livewire\Formations\FormationCreate;
 use App\Livewire\Formations\FormationEdit;
 use App\Livewire\Formations\FormationIndex;
@@ -73,7 +74,8 @@ Route::prefix('/intranet')->middleware('auth', 'verified')->group(function () {
     Route::get('/produits', Produits::class)->name('produits');
     Route::get('/preparations', Preparations::class)->name('preparations');
     Route::get('/composition/{preparation_id}', Composition::class)->name('composition');
-    Route::get('/formaprep', FormationsPreparations::class)->name('formapreps');
+    Route::get('/formations-produits', FormationsProduits::class)->name('formaproduits');
+    Route::get('formation-préparations', FormationsPreparations::class)->name('formapreparations');
     
     Route::get('/preparation/composition/{preparation}', [PhytoprepController::class, 'edit'])->name('composition.edit');
     Route::post('/preparation/composition/{preparation}', [PhytoprepController::class, 'update'])->name('composition.update');

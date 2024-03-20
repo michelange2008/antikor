@@ -32,7 +32,8 @@
                     <x-dropdown-perso id='aroma' :haut="'aromaliste'" :bas="[
                         ['name' => 'produits', 'route' => 'produits'],
                         ['name' => 'preps', 'route' => 'preparations'],
-                        ['name' => 'aromaform', 'route' => 'formapreps'],
+                        ['name' => 'formapreparations', 'route' => 'formapreparations'],
+                        ['name' => 'formaproduits', 'route' => 'formaproduits'],
                     ]"></x-dropdown-perso>
                     {{-- <x-nav-link :href="route('visites')" :active="request()->routeIs('visites')">
                         {{ ucfirst(__('menu.visites')) }}
@@ -169,8 +170,12 @@
                     {{ ucfirst(__('menu.preps')) }}
                 </x-responsive-nav-link>
 
-                <x-responsive-nav-link :class="'ml-2'" :href="route('formapreps')" :active="request()->routeIs('formapreps')">
-                    {{ ucfirst(__('menu.aromaform')) }}
+                <x-responsive-nav-link :class="'ml-2'" :href="route('formapreparations')" :active="request()->routeIs('formapreparations')">
+                    {{ ucfirst(__('menu.formapreparations')) }}
+                </x-responsive-nav-link>
+
+                <x-responsive-nav-link :class="'ml-2'" :href="route('formaproduits')" :active="request()->routeIs('formaproduits')">
+                    {{ ucfirst(__('menu.formaproduits')) }}
                 </x-responsive-nav-link>
             @endhasrole
 
