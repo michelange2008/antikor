@@ -27,6 +27,9 @@
     .btn-success {
         @apply bg-vert-700 hover:bg-vert-500 focus:ring-vert-500 active:bg-vert-900  active:ring-vert-900
     }
+    .btn-neutre {
+        @apply bg-gray-700 hover:bg-gray-500 focus:ring-gray-500 active:bg-gray-900  active:ring-gray-900
+    }
     .titre {
         @apply flex items-center gap-3 px-3 py-2 rounded h1 text-gray-100
     }

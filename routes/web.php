@@ -18,6 +18,7 @@ use App\Livewire\Formations\FormationEdit;
 use App\Livewire\Formations\FormationIndex;
 use App\Livewire\Formations\FormationShow;
 use App\Livewire\Joker;
+use App\Livewire\JokerAdmin;
 use App\Livewire\Macros;
 use App\Livewire\Oligos;
 use App\Livewire\OligosParametres;
@@ -57,7 +58,7 @@ Route::prefix('/oligovitamines')->group(function () {
 });
 Route::get('/macroéléments', Macros::class)->name('macros.outil');
 
-Route::get('/joker', Joker::class)->name('joker');
+Route::get('/joker-admin', JokerAdmin::class)->name('joker-admin');
 Route::get('/joker/{code}', Joker::class);
 
 

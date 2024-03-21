@@ -8,18 +8,24 @@ class Joker extends Component
 {
     public $code;
     public int $input;
-    public $resultat = false;
+    public $bonnevaleurs = [];
+    public $resultat= [];
+    public $choix = [];
+    public bool $fin = false;
 
     public function mount($code)
     {
         $this->code = $code;    
+        $this->bonnevaleurs['boninput'] = 4;
+        $this->bonnevaleurs['bonnecouleur'] = "rouge";
+        $this->resultat['calcul'] = false;
     }
 
     public function calculer()
     {
-        if($this->input == 4) {
-            $this->resultat = true;
-        }
+        // dd($this);
+        $this->resultat['calcul'] = ($this->input == $this->bonnevaleurs['boninput']) ? true : false;
+        $this->fin = true;
     }
 
     public function render()
