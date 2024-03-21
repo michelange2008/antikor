@@ -17,6 +17,7 @@ use App\Livewire\Formations\FormationCreate;
 use App\Livewire\Formations\FormationEdit;
 use App\Livewire\Formations\FormationIndex;
 use App\Livewire\Formations\FormationShow;
+use App\Livewire\Joker;
 use App\Livewire\Macros;
 use App\Livewire\Oligos;
 use App\Livewire\OligosParametres;
@@ -54,9 +55,10 @@ Route::prefix('/oligovitamines')->group(function () {
     Route::get('/avertissement', [FrontController::class, 'avertissement'])->name('oligos.avertissement');
     Route::get('/parametres', OligosParametres::class)->name('oligos.parametres');
 });
-Route::prefix('/macroéléments')->group(function () {
-    Route::get('', Macros::class)->name('macros.outil');
-});
+Route::get('/macroéléments', Macros::class)->name('macros.outil');
+
+Route::get('/joker', Joker::class)->name('joker');
+Route::get('/joker/{code}', Joker::class);
 
 
 Route::get('/dashboard', function () {
