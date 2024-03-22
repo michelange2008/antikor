@@ -6,16 +6,23 @@ use Livewire\Component;
 
 class JokerAdmin extends Component
 {
-    public $type;
+    public $session;
+    public array $types;
+    public string $type;
+    public array $nombres = [];
     public array $questions = [];
     public string $texte = '';
     public int $valeur = 0;
 
+
+
     public function mount()
     {
-        $this->questions = [
-            ["texte" => "Marignan", "valeur" => 1515],
-            ["texte" => "Mort Henri IV", "valeur" => 1610],
+        $this->types = [
+            ['categorie' => 'question', 'intitule' => "Valider une question"],
+            ['categorie' => 'nombre', 'intitule' => "Répondre par un nombre"],
+            ['categorie' => 'qcm', 'intitule' => "QCM"],
+            ['categorie' => 'qcu', 'intitule' => "QCU"],
         ];
     }
 
@@ -26,7 +33,7 @@ class JokerAdmin extends Component
 
     public function creeNombre()
     {
-        $this->questions[] = [
+        $this->nombres[] = [
             "texte" => $this->texte,
             "valeur" => $this->valeur,
         ];
@@ -36,6 +43,6 @@ class JokerAdmin extends Component
 
     public function render()
     {
-        return view('livewire.joker-admin');
+        return view('livewire.joker.joker-admin');
     }
 }
