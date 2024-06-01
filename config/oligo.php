@@ -75,7 +75,7 @@ return [
 
     'init' => [
         'quantite' => '10',
-        'atelier' => 'cp_crois',
+        'atelier' => 'cp_lait',
         'stade' => 'gestation',
         'mineral' => [
             'zinc' => 7000,
