@@ -18,14 +18,13 @@
                 </h3>
                 <div class="flex flex-row gap-2 justify-start lg:justify-center lg:my-2">
 
-                    @foreach ($especes as $esp => $espec)
+                    @foreach ($especes as $esp)
                         <div class="flex-auto" wire:click = "setEspece( '{{ $esp }}' )">
 
                             @include('components.param-oligo', [
-                                'abbreviation_courante' => $espece,
-                                'abbreviation' => $esp,
+                                'element_courant' => $espece,
+                                'element' => $esp,
                                 'parametre' => 'espece',
-                                'nom' => $espec,
                             ])
                         </div>
                     @endforeach
@@ -38,22 +37,21 @@
                 </h3>
                 <div class="flex flex-row gap-2 justify-start lg:justify-center lg:my-2">
 
-                    @foreach ($ateliers[$espece] as $at => $atel)
+                    @foreach ($ateliers[$espece] as $at)
                         <div class="flex-auto">
 
                             @if ($ateliersActifs[$at])
                                 <div wire:click = "setAtelier( '{{ $at }}' )">
                                     @include('components.param-oligo', [
-                                        'abbreviation_courante' => $atelier,
-                                        'abbreviation' => $at,
+                                        'element_courant' => $atelier,
+                                        'element' => $at,
                                         'parametre' => 'atelier',
-                                        'nom' => $ateliers[$espece][$at],
                                     ])
                                 </div>
                             @else
                                 <div class="px-2 py-2 my-2 text-sm text-center text-gray-400 bg-gray-200 cursor-not-allowed md:py-3 md:px-4 md:text-base"
                                     title="En cours d'implémentation">
-                                    <span>{{ ucfirst($ateliers[$espece][$at]) }}</span>
+                                    <span>{{ ucfirst($at) }}</span>
                                 </div>
                             @endif
                         </div>
@@ -70,8 +68,8 @@
                         @if ($stadesActif[$st])
                             <div class="flex-auto" wire:click=" setStade('{{ $st }}') ">
                                 @include('components.param-oligo', [
-                                    'abbreviation_courante' => $stade,
-                                    'abbreviation' => $st,
+                                    'element_courant' => $stade,
+                                    'element' => $st,
                                     'parametre' => 'stade',
                                     'nom' => $st,
                                 ])
@@ -98,7 +96,7 @@
                     @if ($atelier == 'aucun')
                         <span class="italic font-light">Choisir un atelier ...</span>
                     @else
-                        {{ ucfirst($ateliers[$espece][$atelier]) }}
+                        {{ ucfirst(__( 'oligos.' . $atelier)) }}
 
                         @if ($stade != 'aucun')
                             en {{ $stade }}
@@ -140,31 +138,31 @@
                 </thead>
                 <tbody>
                     @foreach ($oligovitamines as $type => $oligoOuVitamines)
-                        @foreach ($oligoOuVitamines as $abbreviation => $nom)
+                        @foreach ($oligoOuVitamines as $element)
                             <tr class="font-bold">
                                 @if ($type == 'vitamines')
                                     <td class="px-4 py-3 ml-1 border border-gray-800 text-brique-900">
-                                        {{ ucfirst($nom) }}
+                                        {{ ucfirst(__('oligos.'.$element)) }}
                                         <br class="block sm:hidden" />
-                                        <span class="text-sm sm:text-base text-nowrap">({{ $besoinsTotaux[$abbreviation] }}&nbspUI/kg)</span>
+                                        <span class="text-sm sm:text-base text-nowrap">({{ $besoinsTotaux[$element] }}&nbspUI/kg)</span>
                                     </td>
                                 @else
                                     <td class="px-4 py-3 ml-1 border border-gray-800 text-vert-900">
-                                        {{ ucfirst($nom) }}
+                                        {{ ucfirst(__('oligos.'.$element)) }}
                                         <br class="block sm:hidden" />
-                                        <span class="text-sm sm:text-base text-nowrap">({{ $besoinsTotaux[$abbreviation] }}&nbspmg/kg)</span>
+                                        <span class="text-sm sm:text-base text-nowrap">({{ $besoinsTotaux[$element] }}&nbspmg/kg)</span>
                                     </td>
                                 @endif
                                 <td class="px-2 py-3 text-center border border-gray-800">
-                                    <input id="{{ $abbreviation }}" name="{{ $abbreviation }}" type="number"
+                                    <input id="{{ $element }}" name="{{ $element }}" type="number"
                                         min="0" step="1" class="w-32 text-center"
-                                        wire:model="mineral.{{ $abbreviation }}" wire:change.debounce = "maj">
+                                        wire:model="mineral.{{ $element }}" wire:change.debounce = "maj">
                                 </td>
-                                <td class="py-3 px-2 border border-gray-800 text-center {{ $bilan[$abbreviation] }}">
-                                    @if ($bilan[$abbreviation] == 'toxicite')
+                                <td class="py-3 px-2 border border-gray-800 text-center {{ $bilan[$element] }}">
+                                    @if ($bilan[$element] == 'toxicite')
                                         <i class="text-white fa-solid fa-skull"></i>
                                     @endif
-                                    {{ $apports_mineral[$abbreviation] }}
+                                    {{ $apports_mineral[$element] }}
                                 </td>
 
                             </tr>

@@ -9,8 +9,7 @@ use Winter\LaravelConfigWriter\ArrayFile;
 class OligosParametres extends Component
 {
     public $oligovitamines;
-    public $besoins;
-    public $toxicites;
+    public $valeurs;
     public $especes;
     public $ateliers;
     public $stades;
@@ -22,8 +21,7 @@ class OligosParametres extends Component
     function mount()
     {
         $this->oligovitamines = config('oligo.oligovitamines');
-        $this->besoins = config('oligo.besoins');
-        $this->toxicites = config('oligo.toxicites');
+        $this->valeurs = config('oligo.valeurs');
         $this->especes = config('oligo.especes');
         $this->ateliers = config('oligo.ateliers');
         $this->stades = config('oligo.stades');
@@ -40,6 +38,14 @@ class OligosParametres extends Component
         $config = ArrayFile::open(base_path('config/oligo.php'));
         $config->set($parametre, $this->$parametre);
         $config->write();
+    }
+
+    function setValeurs()
+    {
+        $config = ArrayFile::open(base_path('config/oligo.php'));
+        $config->set('valeurs', $this->valeurs);
+        $config->write();
+ 
     }
 
     function addElement($type)

@@ -1,19 +1,19 @@
-<div class="flex flex-row gap-3 my-3 p-5 bg-gray-300 shadow shadow-gray-900">
+<div class="flex flex-col gap-3 p-5 my-3 bg-gray-300 shadow lg:flex-row shadow-gray-900">
     <div>
         <h2 class="h2">Liste de oligoéléments</h2>
-        <table class="w-full my-3 p-4 ">
+        <table class="p-4 my-3 w-full">
             <thead class="text-left">
-                <th class="border p-3">Abbréviation</th>
-                <th class="border p-3">Nom</th>
+                <th class="p-3 border">Abbréviation</th>
+                <th class="p-3 border">Nom</th>
             </thead>
             <tbody>
-                @foreach ($oligovitamines['oligoelements'] as $abbreviation => $nom)
+                @foreach ($oligovitamines['oligoelements'] as $element)
                     <tr>
-                        <td class="border p-3">
-                            {{ $abbreviation }}
+                        <td class="p-3 border">
+                            {{ $element }}
                         </td>
                         <td class="p-3 border">
-                            {{ $nom }}
+                            {{ __('oligos.'.$element) }}
                         </td>
                     </tr>
                 @endforeach
@@ -21,11 +21,11 @@
                 <form wire:submit="addElement('oligoelements')">
 
                     <tr>
-                        <td class="border p-3">
+                        <td class="p-3 border">
                             <input type="text" wire:model="nouvelElement.oligoelements.abbreviation"
                                 placeholder="Abbréviation">
                         </td>
-                        <td class="border p-3">
+                        <td class="p-3 border">
                             <input type="text" wire:model="nouvelElement.oligoelements.nom" placeholder="Nom">
                         </td>
                     </tr>
@@ -42,31 +42,31 @@
 
         <h2 class="h2">Liste des vitamines</h2>
 
-        <table class="w-full my-3 p-4 ">
+        <table class="p-4 my-3 w-full">
             <thead class="text-left">
-                <th class="border p-3">Abbréviation</th>
-                <th class="border p-3">Nom</th>
+                <th class="p-3 border">Abbréviation</th>
+                <th class="p-3 border">Nom</th>
             </thead>
             <tbody>
 
-                @foreach ($oligovitamines['vitamines'] as $abbreviation => $nom)
+                @foreach ($oligovitamines['vitamines'] as $element)
                     <tr>
-                        <td class="border p-3">
-                            {{ $abbreviation }}
+                        <td class="p-3 border">
+                            {{ $element }}
                         </td>
                         <td class="p-3 border">
-                            {{ $nom }}
+                            {{ __('oligos.'.$element) }}
                         </td>
                     </tr>
                 @endforeach
                 <form wire:submit="addElement('vitamines')">
 
                     <tr>
-                        <td class="border p-3">
+                        <td class="p-3 border">
                             <input type="text" wire:model="nouvelElement.vitamines.abbreviation"
                                 placeholder="Abbréviation">
                         </td>
-                        <td class="border p-3">
+                        <td class="p-3 border">
                             <input type="text" wire:model="nouvelElement.vitamines.nom" placeholder="Nom">
                         </td>
                     </tr>

@@ -22,7 +22,7 @@ class Oligos extends Component
     public array $besoinsTotaux;
     public array $valeurs;
     public array $carences;
-    public array $toxicites;
+    public array $toxicite;
     public array $max_reglem;
     public array $bilan;
     #[Validate('required|numeric', as: 'quantité distribuée')]
@@ -40,8 +40,8 @@ class Oligos extends Component
 
         // Initiation des valeurs par défaut
         $this->stade = config('oligo.init.stade'); // Stade initial
-        $this->espece = config('oligo.init.espece'); // Espèce initiale
         $this->atelier = config('oligo.init.atelier'); // Atelier initial
+        $this->espece = explode( '_', $this->atelier)[0]; // Espèce initiale
         $this->quantite = config('oligo.init.quantite'); // Quantité de minéral distribué initial
         // Espèces, ateliers et stades disponibles
         $this->especes = config('oligo.especes');
@@ -49,7 +49,7 @@ class Oligos extends Component
         $this->setProduction();
         $this->stades = config('oligo.stades');
         $this->ateliersActifs = config('oligo.ateliersActifs');
-
+        
         $this->mineral = config('oligo.init.mineral');
         $this->bilan = config('oligo.init.mineral');
         $this->setMSI();
@@ -76,7 +76,7 @@ class Oligos extends Component
 
     function setProduction()
     {
-            $this->production = ($this->atelier == 'aucun') ? 'aucune' : explode('_', $this->atelier)[1];
+        $this->production = ($this->atelier == 'aucun') ? 'aucune' : explode('_', $this->atelier)[1];
     }
 
     function setStade($stade)
@@ -90,10 +90,11 @@ class Oligos extends Component
     {
         $this->maj();
     }
-    
-    function majMSI() {
+
+    function majMSI()
+    {
         $this->validate();
-        $this->maj();   
+        $this->maj();
     }
 
     function majQuantite()
@@ -114,10 +115,10 @@ class Oligos extends Component
     function setApports()
     {
         foreach ($this->oligovitamines as $type => $elements) {
-            foreach ($elements as $abbreviation => $nom) {
-                $this->mineral[$abbreviation] = ($this->mineral[$abbreviation] == '') ? 0 : $this->mineral[$abbreviation];
-                $this->mineral[$abbreviation] = ($this->mineral[$abbreviation] < 0 ) ? 0 : $this->mineral[$abbreviation];
-                $this->apports_mineral[$abbreviation] = $this->mineral[$abbreviation] * $this->quantite / 1000;
+            foreach ($elements as $element) {
+                $this->mineral[$element] = ($this->mineral[$element] == '') ? 0 : $this->mineral[$element];
+                $this->mineral[$element] = ($this->mineral[$element] < 0) ? 0 : $this->mineral[$element];
+                $this->apports_mineral[$element] = $this->mineral[$element] * $this->quantite / 1000;
             }
         }
     }
@@ -128,14 +129,12 @@ class Oligos extends Component
             foreach ($seuils as $seuil => $valeur) {
                 if (!is_array($valeur)) {
                     $this->$seuil[$oligo] = $seuils[$seuil];
-                }
-                else {
+                } else {
                     foreach ($valeur as $parametre => $norme) {
                         if ($this->stade == $parametre) {
                             $this->$seuil[$oligo] = $norme;
-
                         } elseif ($this->espece == $parametre) {
-                            $this->$seuil[$oligo] = $norme ;
+                            $this->$seuil[$oligo] = $norme;
                         }
                     }
                 }
@@ -152,22 +151,19 @@ class Oligos extends Component
     function setStadesActifs()
     {
         if ($this->atelier == 'aucun') {
-            $this->stadesActif['croissance'] = false ;
+            $this->stadesActif['croissance'] = false;
             $this->stadesActif['gestation'] = false;
             $this->stadesActif['lactation'] = false;
-        }
-        else {
-            if ( $this->production == 'crois' ) {
-                $this->stadesActif['croissance'] = true ;
+        } else {
+            if ($this->production == 'crois') {
+                $this->stadesActif['croissance'] = true;
                 $this->stadesActif['gestation'] = false;
                 $this->stadesActif['lactation'] = false;
-            }
-            elseif ( $this->production === 'aucune' ) {
+            } elseif ($this->production === 'aucune') {
                 $this->stadesActif['croissance'] = true;
                 $this->stadesActif['gestation'] = true;
                 $this->stadesActif['lactation'] = true;
-            }
-            else {
+            } else {
                 $this->stadesActif['croissance'] = false;
                 $this->stadesActif['gestation'] = true;
                 $this->stadesActif['lactation'] = true;
@@ -177,39 +173,48 @@ class Oligos extends Component
 
     function calculBilan(): void
     {
-      
+
         foreach ($this->oligovitamines as $type => $oligoOuVitamines) {
-            foreach ($oligoOuVitamines as $abbreviation => $nom) {
+            foreach ($oligoOuVitamines as $element) {
                 // En l'absence de valeurs du minéral pour un élément, la valeur est mise à 0
-                $this->mineral[$abbreviation] =
-                    ($this->mineral[$abbreviation] == null) ? 0 : $this->mineral[$abbreviation];
+                $this->mineral[$element] =
+                    ($this->mineral[$element] == null) ? 0 : $this->mineral[$element];
                 // Calcul des apports totaux en ppm ou mg
-                $apport = ($this->apports_mineral[$abbreviation] + $this->apports_alim[$abbreviation]);
+                $apport = ($this->apports_mineral[$element] + $this->apports_alim[$element]);
                 // Calcul des besoins en fonctions de besoins de l'atelier et la MSI
-                $this->besoinsTotaux[$abbreviation] = $this->besoins[$abbreviation] * $this->msi;
+                // Si les besoins varient selon l'espece ou le stade
+                if (is_array($this->valeurs[$element]['besoins'])) {
+                    if (array_key_exists( $this->stade, $this->valeurs[$element]['besoins'])) {
+                        $this->besoinsTotaux[$element] = $this->valeurs[$element]['besoins'][$this->stade] * $this->msi;
+                    } elseif (array_key_exists( $this->espece, $this->valeurs[$element]['besoins'])) {
+                        $this->besoinsTotaux[$element] = $this->valeurs[$element]['besoins'][$this->espece] * $this->msi;
+                    }
+                } else {
+                    $this->besoinsTotaux[$element] = $this->valeurs[$element]['besoins'] * $this->msi;
+                }
+
                 // Calcul de la toxicité
-                $toxicite = $this->toxicites[$abbreviation];
-                $carence = $this->carences[$abbreviation];
+                $toxicite = $this->toxicite[$element];
+                $carence = $this->carences[$element];
 
                 // Définition des classes à afficher à fonction de l'équilibre/carence/toxicité
                 // cf. app.css
-                if ( $this->atelier == 'aucun' || $this->stade == 'aucun' || $this->msi == 0 ) {
+                if ($this->atelier == 'aucun' || $this->stade == 'aucun' || $this->msi == 0) {
                     // Si  pas d'atelier et de stade défini, affichage gris
-                    $this->bilan[$abbreviation] = 'notyetset';
-
+                    $this->bilan[$element] = 'notyetset';
                 } else {
                     // Test de la toxicité
                     if ($apport >= $toxicite * $this->msi) {
                         // Si toxicité, affichage rouge foncé
-                        $this->bilan[$abbreviation] = 'toxicite';
+                        $this->bilan[$element] = 'toxicite';
 
                         // Test des niveaux d'apport
                     } elseif ($apport < $carence * $this->msi) {
                         // Si carence, affichage rouge clair
-                        $this->bilan[$abbreviation] = 'carence';
+                        $this->bilan[$element] = 'carence';
                     } else {
                         // Si équilibre, affichage vert
-                        $this->bilan[$abbreviation] = 'equilibre';
+                        $this->bilan[$element] = 'equilibre';
                     }
                 }
             }

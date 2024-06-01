@@ -3,17 +3,17 @@
 return [
     'oligovitamines' => [
         'oligoelements' => [
-            'zinc',
-            'manganese',
-            'cuivre',
-            'iode',
-            'selenium',
-            'cobalt',
+            'zinc' => 'zinc',
+            'cuivre' => 'cuivre',
+            'iode' => 'iode',
+            'selenium' => 'sélénium',
+            'cobalt' => 'cobalt',
+            'manganese' => 'manganèse',
         ],
         'vitamines' => [
-            'vitA',
-            'vitD3',
-            'vitE',
+            'vitA' => 'vitamine A',
+            'vitD3' => 'vitamine D3',
+            'vitE' => 'vitamine E',
         ],
     ],
 
@@ -22,30 +22,32 @@ return [
      */
 
     'especes' => [
-        'cp',
-        'ov',
-        'bv',
+        'cp' => "caprins",
+        'ov' => "ovins",
+        'bv' => "bovins",
     ],
+
     'productions' => [
         'aucune' => 'aucune',
         'lait' => "lait",
         'all' => "allaitant",
         'crois' => "croissance",
     ],
+
     'ateliers' => [
         'cp' => [
-            'cp_lait',
-            'cp_crois',
+            'cp_lait' => "chèvres laitières",
+            'cp_crois' => "chevrettes",
         ],
         'ov' => [
-            'ov_lait',
-            'ov_all',
-            'ov_crois',
+            'ov_lait' => "brebis laitières",
+            'ov_all' => "brebis allaitantes",
+            'ov_crois' => "agnelles",
         ],
         'bv' => [
-            'bv_lait',
-            'bv_all',
-            'bv_crois',
+            'bv_lait' => "vaches laitières",
+            'bv_all' => "vaches allaitantes",
+            'bv_crois' => "génisses",
         ],
     ],
     'stades' => [
@@ -53,6 +55,7 @@ return [
         'lactation',
         'croissance',
     ],
+
     'ateliersActifs' => [
         'aucun' => true,
         'cp_lait' => true,
@@ -75,7 +78,8 @@ return [
 
     'init' => [
         'quantite' => '10',
-        'atelier' => 'cp_crois',
+        'espece' => 'cp',
+        'atelier' => 'cp_lait',
         'stade' => 'gestation',
         'mineral' => [
             'zinc' => 7000,
@@ -90,33 +94,40 @@ return [
         ],
     ],
 
+
     /**
      * Matière sèche ingérée en fonction de l’espèce et du stade
      */
 
     'msi' => [
-        'cp_lait' => [
-            'gestation' => '2',
-            'lactation' => '3',
+        'cp' => [
+            'cp_lait' => [
+                'gestation' => '2',
+                'lactation' => '3',
+            ],
+            'cp_crois' => [
+                'croissance' => '1',
+            ],
         ],
-        'cp_crois' => [
-            'croissance' => '1',
+        'ov' => [
+            'ov_lait' => [
+                'gestation' => '1.8',
+                'lactation' => '2.5',
+            ],
+            'ov_all' => [
+                'gestation' => '1.5',
+                'lactation' => '2',
+            ]
         ],
-        'ov_lait' => [
-            'gestation' => '1.8',
-            'lactation' => '2.5',
-        ],
-        'ov_all' => [
-            'gestation' => '1.5',
-            'lactation' => '2',
-        ],
-        'bv_lait' => [
-            'gestation' => '12',
-            'lactation' => '16',
-        ],
-        'bv_all' => [
-            'gestation' => '11',
-            'lactation' => '13.5',
+        'bv' => [
+            'bv_lait' => [
+                'gestation' => '12',
+                'lactation' => '16',
+            ],
+            'bv_all' => [
+                'gestation' => '11',
+                'lactation' => '13.5',
+            ]
         ],
     ],
 
@@ -124,7 +135,6 @@ return [
      * Besoins, seuils de carence et de toxicité des oligo-éléments
      * et vitamines
      */
-
     'valeurs' => [
         'zinc' => [
             'apports_alim' => '20',
@@ -134,17 +144,17 @@ return [
             'max_reglem' => '150',
         ],
         'cuivre' => [
-            'apports_alim' => '5',
+            'apports_alim' => '4',
             'carences' => '7',
             'besoins' => [
                 'bv' => '6',
                 'ov' => '6',
-                'cp' => '11',
+                'cp' => '11'
             ],
-            'toxicite' => [
+            'toxicite' =>  [
                 'bv' => '30',
-                'ov' => '12',
-                'cp' => '30',
+                'ov' => '15',
+                'cp' => '30'
             ],
             'max_reglem' => '-',
         ],
@@ -153,14 +163,14 @@ return [
             'carences' => '0.15',
             'besoins' => '0.5',
             'toxicite' => '8',
-            'max_reglem' => '',
+            'max_reglem' => '-',
         ],
         'selenium' => [
             'apports_alim' => '0',
             'carences' => '0.1',
             'besoins' => '0.2',
             'toxicite' => '0.5',
-            'max_reglem' => '0.5',
+            'max_reglem' => '0,5',
         ],
         'cobalt' => [
             'apports_alim' => '0.1',
@@ -174,14 +184,14 @@ return [
             'carences' => '45',
             'besoins' => '30',
             'toxicite' => '1000',
-            'max_reglem' => '',
+            'max_reglem' => '-',
         ],
         'vitA' => [
             'apports_alim' => '0',
             'carences' => '4200',
             'besoins' => [
                 'gestation' => '7000',
-                'lactation' => '5000',
+                'lactation' => '5000'
             ],
             'toxicite' => '66000',
             'max_reglem' => '-',

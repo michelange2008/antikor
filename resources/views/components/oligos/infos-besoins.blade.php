@@ -16,37 +16,37 @@
             </thead>
             <tbody>
                 @foreach ($oligovitamines as $type => $elements)
-                    @foreach ($elements as $abbreviation => $nom)
+                    @foreach ($elements as $element)
                         <tr class="text-center">
-                            <td class="p-3 text-left border border-brique-900">{{ $nom }}</td>
+                            <td class="p-3 text-left border border-brique-900">{{ __('oligos.'.$element) }}</td>
 
-                            <td class="p-3 text-left border border-brique-900">{{ $valeurs[$abbreviation]['carences'] }}
+                            <td class="p-3 text-left border border-brique-900">{{ $valeurs[$element]['carences'] }}
                             </td>
 
-                            @if (is_array($valeurs[$abbreviation]['besoins']))
+                            @if (is_array($valeurs[$element]['besoins']))
                                 <td class="p-3 text-left border border-brique-900">
-                                    @foreach ($valeurs[$abbreviation]['besoins'] as $groupe => $valeur)
+                                    @foreach ($valeurs[$element]['besoins'] as $groupe => $valeur)
                                         <p>{{ $groupe }}: {{ $valeur }}</p>
                                     @endforeach
                                 </td>
                             @else
                                 <td class="p-3 text-left border border-brique-900">
-                                    {{ $valeurs[$abbreviation]['besoins'] }} </td>
+                                    {{ $valeurs[$element]['besoins'] }} </td>
                             @endif
 
-                            @if (is_array($valeurs[$abbreviation]['toxicites']))
+                            @if (is_array($valeurs[$element]['toxicite']))
                                 <td class="p-3 text-left border border-brique-900">
-                                    @foreach ($valeurs[$abbreviation]['toxicites'] as $groupe => $valeur)
+                                    @foreach ($valeurs[$element]['toxicite'] as $groupe => $valeur)
                                         <p>{{ $groupe }}: {{ $valeur }}</p>
                                     @endforeach
                                 </td>
                             @else
                                 <td class="p-3 text-left border border-brique-900">
-                                    {{ $valeurs[$abbreviation]['toxicites'] }} </td>
+                                    {{ $valeurs[$element]['toxicite'] }} </td>
                             @endif
 
                             <td class="hidden p-3 text-left border md:table-cell border-brique-900">
-                                {{ $valeurs[$abbreviation]['max_reglem'] }} </td>
+                                {{ $valeurs[$element]['max_reglem'] }} </td>
 
                         </tr>
                     @endforeach
