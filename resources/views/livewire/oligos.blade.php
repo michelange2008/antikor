@@ -141,13 +141,13 @@
                         @foreach ($oligoOuVitamines as $element)
                             <tr class="font-bold">
                                 @if ($type == 'vitamines')
-                                    <td class="px-4 py-3 ml-1 border border-gray-800 text-brique-900">
+                                    <td class="px-1 py-3 ml-1 border border-gray-800 text-brique-900 sm:px-2">
                                         {{ ucfirst(__('oligos.'.$element)) }}
                                         <br class="block sm:hidden" />
                                         <span class="text-sm sm:text-base text-nowrap">({{ $besoinsTotaux[$element] }}&nbspUI/kg)</span>
                                     </td>
                                 @else
-                                    <td class="px-4 py-3 ml-1 border border-gray-800 text-vert-900">
+                                    <td class="px-1 py-3 ml-1 border border-gray-800 sm:px-2 text-vert-900">
                                         <a target="_blank" href="{{ url('storage/pdf/'. $element.'.pdf')}}" title="Voir la fiche">
                                             <i class="text-gray-400 hover:text-red-900 fa-solid fa-file-lines"></i>
                                         </a>
@@ -156,12 +156,12 @@
                                         <span class="text-sm sm:text-base text-nowrap">({{ $besoinsTotaux[$element] }}&nbspmg/kg)</span>
                                     </td>
                                 @endif
-                                <td class="px-2 py-3 text-center border border-gray-800">
+                                <td class="px-1 py-3 text-center border border-gray-800 sm:px-2">
                                     <input id="{{ $element }}" name="{{ $element }}" type="number"
                                         min="0" step="1" class="w-32 text-center"
                                         wire:model="mineral.{{ $element }}" wire:change.debounce = "maj">
                                 </td>
-                                <td class="py-3 px-2 border border-gray-800 text-center {{ $bilan[$element] }}">
+                                <td class="px-1 py-3 sm:px-2 border border-gray-800 text-center {{ $bilan[$element] }}">
                                     @if ($bilan[$element] == 'toxicite')
                                         <i class="text-white fa-solid fa-skull"></i>
                                     @endif
