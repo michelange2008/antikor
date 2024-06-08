@@ -1,5 +1,5 @@
-<div class="flex fixed top-0 left-0 justify-center w-full h-full bg-gray-200/50">
-    <div class="p-6 m-auto bg-brique-100">
+<div class="flex fixed left-0 top-12 justify-center w-full h-full bg-gray-200/50">
+    <div class="px-6 py-3 m-auto bg-brique-100">
         <h2 class="text-center h2">Besoins des ruminants en oligo-éléments et vitamines</h2>
         <p class="italic text-center">d'après MESCHY F. - Alimentation minérale et vitaminique des ruminants :
             <br>actualisation des connaissances - INRA Prod. Anim., 2007, 20 (2), 119-128

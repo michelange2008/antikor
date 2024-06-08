@@ -1,5 +1,4 @@
 <x-app-layout>
-
     <x-titres.titre icone="warning.svg">Outil d'évaluation d'un minéral: avertissement</x-titres.titres>
 
     <div class="p-8 my-4 text-teal-900 bg-gray-200 border shadow shadow-teal-900">
