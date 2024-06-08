@@ -119,19 +119,19 @@
             <h2 class="py-1 pl-2 bg-gray-300 text-vert-900 h3 lg:pl-0 lg:text-center">
                 6 - Saisir les valeurs du minéral
             </h2>
-            <table class="my-3 w-full border border-collapse table-auto">
+            <table class="my-3 w-full text-xs border border-collapse table-auto sm:text-base">
                 <thead class="p-2 text-gray-100 bg-gray-800">
                     <tr>
-                        <td class="px-4 py-3 border border-gray-800 border-r-gray-200">
+                        <td class="px-1 py-3 border border-gray-800 sm:px-4 border-r-gray-200">
                             <span class="hidden sm:inline">Oligo-éléments et vitamines (besoins supplémentaires)</span>
                             <span class="inline sm:hidden">Besoins</span>
                             <span class="ml-1 text-lg cursor-pointer" title="Plus d'informations"
                                 x-on:click="infosBesoins = true"><i class="fa fa-circle-info"></i></span>
                         </td>
-                        <td class="px-2 py-3 text-center border border-x-gray-200 border-y-gray-800">
+                        <td class="px-1 py-3 text-center border border-x-gray-200 border-y-gray-800">
                             Minéral (mg/kg&nbspou&nbspppm)
                         </td>
-                        <td class="px-2 py-3 text-center border border-gray-800 border-l-200">
+                        <td class="px-1 py-3 text-center border border-gray-800 sm:px-2 border-l-200">
                             Apports pour {{ $quantite }}&nbspg/j
                         </td>
                     </tr>
