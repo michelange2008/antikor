@@ -119,7 +119,7 @@
             <h2 class="py-1 pl-2 bg-gray-300 text-vert-900 h3 lg:pl-0 lg:text-center">
                 6 - Saisir les valeurs du minéral
             </h2>
-            <table class="my-3 w-full text-sm border border-collapse table-auto sm:text-base">
+            <table class="my-3 w-full border border-collapse table-auto">
                 <thead class="p-2 text-gray-100 bg-gray-800">
                     <tr>
                         <td class="px-1 py-3 border border-gray-800 sm:px-4 border-r-gray-200">
@@ -147,12 +147,13 @@
                                         <span class="text-sm sm:text-base text-nowrap">({{ $besoinsTotaux[$element] }}&nbspUI/kg)</span>
                                     </td>
                                 @else
-                                    <td class="px-1 py-3 ml-1 border border-gray-800 sm:px-2 text-vert-900">
-                                        <a target="_blank" href="{{ url('storage/pdf/'. $element.'.pdf')}}" title="Voir la fiche">
-                                            <i class="text-gray-400 hover:text-red-900 fa-solid fa-file-lines"></i>
-                                        </a>
-                                        {{ ucfirst(__('oligos.'.$element)) }}
-                                        <br class="block sm:hidden" />
+                                    <td class="px-2 py-3 ml-1 border border-gray-800 sm:px-3 text-vert-900">
+                                        <div class="flex flex-row flex-nowrap">
+                                            <a target="_blank" href="{{ url('storage/pdf/'. $element.'.pdf')}}" title="Voir la fiche">
+                                                <i class="text-gray-400 hover:text-red-900 fa-solid fa-file-lines"></i>
+                                            </a>
+                                            &nbsp;{{ ucfirst(__('oligos.'.$element)) }}
+                                        </div>
                                         <span class="text-sm sm:text-base text-nowrap">({{ $besoinsTotaux[$element] }}&nbspmg/kg)</span>
                                     </td>
                                 @endif
