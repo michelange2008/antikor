@@ -7,8 +7,8 @@ return [
             'manganese',
             'cuivre',
             'iode',
-            'selenium',
             'cobalt',
+            'selenium',
         ],
         'vitamines' => [
             'vitA',

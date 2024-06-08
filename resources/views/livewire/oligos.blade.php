@@ -148,6 +148,9 @@
                                     </td>
                                 @else
                                     <td class="px-4 py-3 ml-1 border border-gray-800 text-vert-900">
+                                        <a target="_blank" href="{{ url('storage/pdf/'. $element.'.pdf')}}" title="Voir la fiche">
+                                            <i class="text-gray-400 hover:text-red-900 fa-solid fa-file-lines"></i>
+                                        </a>
                                         {{ ucfirst(__('oligos.'.$element)) }}
                                         <br class="block sm:hidden" />
                                         <span class="text-sm sm:text-base text-nowrap">({{ $besoinsTotaux[$element] }}&nbspmg/kg)</span>
