@@ -22,6 +22,7 @@ use App\Livewire\JokerAdmin;
 use App\Livewire\Macros;
 use App\Livewire\Oligos;
 use App\Livewire\OligosParametres;
+use App\Livewire\Dosages;
 use App\Livewire\Roles;
 use App\Livewire\Permissions;
 use App\Livewire\Rations;
@@ -55,11 +56,10 @@ Route::prefix('/oligovitamines')->group(function () {
     Route::get('', Oligos::class)->name('oligos.outil');
     Route::get('/avertissement', [FrontController::class, 'avertissement'])->name('oligos.avertissement');
     Route::get('/parametres', OligosParametres::class)->name('oligos.parametres');
+    Route::get('/dosages', Dosages::class)->name('oligos.dosages');
 });
 Route::get('/macroéléments', Macros::class)->name('macros.outil');
 
-Route::get('/joker-admin', JokerAdmin::class)->name('joker-admin');
-Route::get('/joker/{code}', Joker::class);
 
 
 Route::get('/dashboard', function () {
