@@ -3,7 +3,7 @@ return [
     "substrats" => [
         'cobalt' => [
             "cobalt - sang",
-            "vitB12 - sang",
+            "vitamine B12 - sang",
         ],
         'cuivre' => [
             "cuivre - plasma",
@@ -36,7 +36,7 @@ return [
     ],
     "unités" => [
             "cobalt - sang" => "mg/L",
-            "vitB12 - sang" => "µg/L",
+            "vitamine B12 - sang" => "µg/L",
             "cuivre - plasma" => "mg/L",
             "cuivre - foie" => "mg/kg",
             "iode total - sang" => "µg/L",
@@ -56,7 +56,7 @@ return [
 
     "carence" => [
         "cobalt - sang" => "0,09",
-        "vitB12 - sang" => "0,2",
+        "vitamine B12 - sang" => "0,2",
         "cuivre - plasma" => "0,5",
         "cuivre - foie" => "10",
         "iode total - sang" => "80",
@@ -75,7 +75,7 @@ return [
     ],
     "normal" => [
         "cobalt - sang" => "0,15 à 0,50",
-        "vitB12 - sang" => "0,4 à 0,9",
+        "vitamine B12 - sang" => "0,4 à 0,9",
         "cuivre - plasma" => "0,8 à 1,5",
         "cuivre - foie" => "25 à 100",
         "iode total - sang" => "100 à 400 (ovins 50 à 120)",
@@ -94,7 +94,7 @@ return [
     ],
     "intoxication" => [
         "cobalt - sang" => "1,5",
-        "vitB12 - sang" => "-",
+        "vitamine B12 - sang" => "-",
         "cuivre - plasma" => "4 à 10",
         "cuivre - foie" => "500 à 1000",
         "iode total - sang" => "700",
@@ -111,23 +111,62 @@ return [
         "sélénium - lait" => "0,08 (ovins ND)",
         "zinc - sang" => "3",
     ],
-    "tube" => [
-        "cobalt - sang" => "sec/hep",
-        "vitB12 - sang" => "hep",
-        "cuivre - plasma" => "hep",
-        "cuivre - foie" => "",
-        "iode total - sang" => "hep",
-        "IIP (iode inorganique plasmatique) - sang " => "hep",
-        "T4 - sang" => "hep/EDTA/sec",
-        "T3 - sang" => "",
-        "iode - lait" => "",
-        "iode - urine" => "",
-        "manganèse - sang" => "sec/hep",
-        "sélénium - foie" => "",
-        "sélénium - sang" => "sec/hep",
-        "sélénium - plasma" => "hep",
-        "glutathion peroxydase (GPxe) -sang" => "hep",
-        "sélénium - lait" => "",
-        "zinc - sang" => "hep",
+    "prelevement" => [
+        "cobalt - sang" => [
+            "sec" => "tube_rouge.svg",
+            "hep" => "tube_vert.svg"
+        ],
+        "vitamine B12 - sang" => [
+            "hep" => "tube_vert.svg"
+        ],
+        "cuivre - plasma" => [
+            "hep" => "tube_vert.svg"
+        ],
+        "cuivre - foie" => [
+            "org" => "organe.svg"
+        ],
+        "iode total - sang" => [
+            "hep" => "tube_vert.svg",
+        ],
+        "IIP (iode inorganique plasmatique) - sang " => [
+            "hep" => "tube_vert.svg",
+        ],
+        "T4 - sang" => [
+            "sec" => "tube_rouge.svg", 
+            "hep" => "tube_vert.svg", 
+            "EDTA" => "tube_violet.svg",
+        ],
+        "T3 - sang" => [
+            "?" => "inconnu.svg",
+        ],
+        "iode - lait" => [
+            "lait" => "lait.svg",
+        ],
+        "iode - urine" => [
+            "urine" => "urine.svg",
+        ],
+        "manganèse - sang" => [
+            "sec" => "tube_rouge.svg", 
+            "hep" => "tube_vert.svg",
+        ],
+        "sélénium - foie" => [
+            "org" => "organe.svg",
+        ],
+        "sélénium - sang" => [
+            "sec" => "tube_rouge.svg", 
+            "hep" => "tube_vert.svg",
+        ],
+        "sélénium - plasma" => [
+            "hep" => "tube_vert.svg",
+        ],
+        "glutathion peroxydase (GPxe) -sang" => [
+            "hep" => "tube_vert.svg",
+        ],
+        "sélénium - lait" =>  [
+            "lait" => "lait.svg",
+        ],
+        "zinc - sang" => [
+            "hep" => "tube_vert.svg",
+        ],
     ]
 ];
