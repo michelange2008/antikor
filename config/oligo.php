@@ -12,7 +12,7 @@ return [
         ],
         'vitamines' => [
             'vitA',
-            'vitD3',
+            'vitD',
             'vitE',
         ],
     ],
@@ -85,7 +85,7 @@ return [
             'cobalt' => 35,
             'manganese' => 7000,
             'vitA' => 1500000,
-            'vitD3' => 200000,
+            'vitD' => 200000,
             'vitE' => 5000,
         ],
     ],
@@ -186,7 +186,7 @@ return [
             'toxicite' => '66000',
             'max_reglem' => '-',
         ],
-        'vitD3' => [
+        'vitD' => [
             'apports_alim' => '0',
             'carences' => '1000',
             'besoins' => '1000',

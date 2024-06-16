@@ -30,9 +30,22 @@ return [
         'zinc' => [
             "zinc (sang)",
         ],
-        'vitA' => [],
-        'vitD3' => [],
-        'vitE' => [],
+        'vitA' => [
+            'vitamine A (foie)',
+            'rétinol (sang)',
+            'rétinol (lait)',
+            'β-carotène (sang)',
+            'β-carotène (lait)',
+        ],
+        'vitD' => [
+            "25OH-D (sang)",
+            "25OH-D (lait)",
+            "1,25(OH)2-D (sang)",
+        ],
+        'vitE' => [
+            "α-tocophérol (sang)",
+            "α-tocophérol (lait)",
+        ],
     ],
 
     "cobalt (sang)" => [
@@ -198,6 +211,105 @@ return [
         "intoxication" => "3",
         "prelevement" => [
             "hep" => "tube_vert.svg",
+        ],
+    ],
+    'vitamine A (foie)' => [
+        "unités" => "µg/g",
+        "carence" => "?",
+        "normal" => "20",
+        "intoxication" => "-",
+        "prelevement" => [
+            "org" => "organe.svg",
+        ],
+    ],
+    'rétinol (sang)' => [
+        "unités" => "mg/L",
+        "carence" => "0,25",
+        "normal" => "0,25 à 0,8",
+        "intoxication" => "0,15",
+        "prelevement" => [
+            "hep" => "tube_vert.svg",
+            "sec" => "tube_rouge.svg",
+            "edta" => "tube_violet.svg"
+        ],
+    ],
+    'β-carotène (sang)' => [
+        "unités" => "mg/L",
+        "carence" => "?",
+        "normal" => "3 à 10",
+        "intoxication" => "-",
+        "prelevement" => [
+            "hep" => "tube_vert.svg",
+            "sec" => "tube_rouge.svg",
+            "edta" => "tube_violet.svg",
+        ],
+    ],
+    'rétinol (lait)' => [
+        "unités" => "µg/L",
+        "carence" => "?",
+        "normal" => "300",
+        "intoxication" => "-",
+        "prelevement" => [
+            "lait" => "lait.svg",
+        ],
+    ],
+    'β-carotène (lait)' => [
+        "unités" => "µg/L",
+        "carence" => "?",
+        "normal" => "150 à 380",
+        "intoxication" => "-",
+        "prelevement" => [
+            "lait" => "lait.svg",
+        ],
+    ],
+    "25OH-D (sang)" => [
+        "unités" => "µg/L",
+        "carence" => "10",
+        "normal" => "20 à 50",
+        "intoxication" => "100",
+        "prelevement" => [
+            "hep" => "tube_vert.svg",
+            "sec" => "tube_rouge.svg",
+            "edta" => "tube_violet.svg",
+        ],
+    ],
+    "25OH-D (lait)" => [
+        "unités" => "µg/L",
+        "carence" => "?",
+        "normal" => "0,3 à 10",
+        "intoxication" => "-",
+        "prelevement" => [
+            "lait" => "lait.svg",
+        ],
+    ],
+    "1,25(OH)2-D (sang)" => [
+        "unités" => "ng/L",
+        "carence" => "?",
+        "normal" => "45",
+        "intoxication" => "-",
+        "prelevement" => [
+            "hep" => "tube_vert.svg",
+            "sec" => "tube_rouge.svg",
+        ],
+    ],
+    "α-tocophérol (sang)" => [
+        "unités" => "mg/L",
+        "carence" => "4",
+        "normal" => "4 (1,7 au vêlage)",
+        "intoxication" => "-",
+        "prelevement" => [
+            "hep" => "tube_vert.svg",
+            "sec" => "tube_rouge.svg",
+            "edta" => "tube_violet.svg",
+        ],
+    ],
+    "α-tocophérol (lait)" => [
+        "unités" => "mg/L",
+        "carence" => "?",
+        "normal" => "700 à 1000",
+        "intoxication" => "-",
+        "prelevement" => [
+            "lait" => "lait.svg",
         ],
     ],
 ];

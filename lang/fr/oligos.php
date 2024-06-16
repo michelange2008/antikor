@@ -26,6 +26,6 @@ return [
     'cobalt' => 'cobalt',
     'manganese' => 'manganèse',
     'vitA' => 'vitamine A',
-    'vitD3' => 'vitamine D3',
+    'vitD' => 'vitamine D',
     'vitE' => 'vitamine E',
 ];
