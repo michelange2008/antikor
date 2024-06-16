@@ -23,7 +23,7 @@
                     @foreach ($elements as $element)
                         @if ($element_choisi != null)
                             @if ($element == $element_choisi)
-                                <div class="p-3 m-1 text-lg text-white sm:text-xl bg-vert-900">
+                                <div class="p-3 text-lg text-white sm:text-xl bg-vert-900">
                                     {{ ucfirst(__('oligos.' . $element)) }}
                                 </div>
 

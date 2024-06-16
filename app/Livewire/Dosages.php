@@ -16,9 +16,6 @@ class Dosages extends Component
     {
         $this->oligovitamines = config("oligo.oligovitamines");
         $this->dosages = config('dosages');
-
-        $this->element_choisi = "iode";
-        $this->substrat_choisi = "iode total - sang";
     }
 
     function choisi_element($element)
