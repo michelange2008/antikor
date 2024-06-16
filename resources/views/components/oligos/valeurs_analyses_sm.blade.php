@@ -1,18 +1,18 @@
 <div>
     @if ($substrat_choisi != null)
-            <div class="flex flex-row justify-between text-center sm:flex-col md:flex-row">
+            <div class="flex flex-row justify-between text-center border sm:flex-col md:flex-row border-bleu-900">
 
-                <div class="flex-grow p-3 bg-orange-100">
+                <div class="flex-grow p-3 border border-collapse border-bleu-900">
                     <p class="italic">Carence</p>
-                    <p><&nbsp{{ $dosages['carence'][$substrat_choisi] }} </p>
+                    <p class="font-bold text-orange-900"><&nbsp{{ $dosages['carence'][$substrat_choisi] }} </p>
                 </div>
-                <div class="flex-grow p-3 bg-vert-300">
+                <div class="flex-grow p-3 border border-collapse border-bleu-900">
                     <p class="italic">Plage physiologique</p>
-                    <p>{{ $dosages['normal'][$substrat_choisi] }} </p>
+                    <p class="font-bold text-vert-900">{{ $dosages['normal'][$substrat_choisi] }} </p>
                 </div>
-                <div class="flex-grow p-3 bg-brique-300">
+                <div class="flex-grow p-3 border border-bleu-900">
                     <p class="italic">Intoxication</p>
-                    <p>{{ $dosages['intoxication'][$substrat_choisi] }} </p>
+                    <p class="font-bold text-brique-900">{{ $dosages['intoxication'][$substrat_choisi] }} </p>
                 </div>
             </div>
     @endif

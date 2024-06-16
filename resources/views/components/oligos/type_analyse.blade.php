@@ -17,7 +17,7 @@
                                 @endforeach
                             </div>
                         </div>
-                        <div class="bg-blue-300 sm:hidden">
+                        <div class="sm:hidden">
                             @include('components.oligos.valeurs_analyses_sm')
                         </div>
                     </div>
