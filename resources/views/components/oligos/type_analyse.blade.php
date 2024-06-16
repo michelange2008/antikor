@@ -8,10 +8,10 @@
                         <div class="flex flex-row gap-1 justify-between items-center p-3 text-white bg-bleu-900">
                             <div>
                                 {{ ucfirst($substrat) }} 
-                                <span class="sm:hidden">({{ $dosages['unités'][$substrat_choisi] }})</span>
+                                <span class="sm:hidden">({{ $dosages[$substrat_choisi]["unités"] }})</span>
                             </div>
                             <div>
-                                @foreach ($dosages['prelevement'][$substrat] as $prelevement => $icone)
+                                @foreach ($dosages[$substrat]["prelevement"] as $prelevement => $icone)
                                     <img class="inline-block h-8" src="{{ url('storage/img/icones/' . $icone) }}"
                                         alt="">
                                 @endforeach
@@ -26,7 +26,7 @@
                         wire:click="choisi_substrat('{{ $substrat }}')">
                         {{ ucfirst($substrat) }}
                         <div>
-                            @foreach ($dosages['prelevement'][$substrat] as $prelevement => $icone)
+                            @foreach ($dosages[$substrat]["prelevement"] as $prelevement => $icone)
                                 <img class="inline-block h-8" src="{{ url('storage/img/icones/' . $icone) }}"
                                     alt="">
                             @endforeach
