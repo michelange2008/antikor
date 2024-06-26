@@ -1,7 +1,9 @@
 <?php
 return [
     'apports_alim' => 'apports alimentaires',
+    'carence' => 'carence',
     'carences' => 'carences',
+    'ajr' => "Apports journalier recommandés",
     'besoins' => 'besoins (AJR)',
     'toxicite' => 'toxicité',
     'max_reglem' => 'maximum réglementaire',

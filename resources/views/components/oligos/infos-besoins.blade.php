@@ -20,18 +20,18 @@
                         <tr class="text-center">
                             <td class="px-1 py-1 text-left border sm:px-3 border-brique-900">{{ __('oligos.'.$element) }}</td>
 
-                            <td class="px-1 py-1 text-left border sm:px-3 border-brique-900">{{ $valeurs[$element]['carences'] }}
+                            <td class="px-1 py-1 text-left border sm:px-3 border-brique-900">{{ $valeurs[$element]['carence'] }}
                             </td>
 
-                            @if (is_array($valeurs[$element]['besoins']))
+                            @if (is_array($valeurs[$element]['ajr']))
                                 <td class="px-1 py-1 text-left border sm:px-3 border-brique-900">
-                                    @foreach ($valeurs[$element]['besoins'] as $groupe => $valeur)
+                                    @foreach ($valeurs[$element]['ajr'] as $groupe => $valeur)
                                         <p>{{ $groupe }}: {{ $valeur }}</p>
                                     @endforeach
                                 </td>
                             @else
                                 <td class="px-1 py-1 text-left border sm:px-3 border-brique-900">
-                                    {{ $valeurs[$element]['besoins'] }} </td>
+                                    {{ $valeurs[$element]['ajr'] }} </td>
                             @endif
 
                             @if (is_array($valeurs[$element]['toxicite']))

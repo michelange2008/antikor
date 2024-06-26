@@ -144,7 +144,7 @@
                                     <td class="px-1 py-3 ml-1 border border-gray-800 text-brique-900 sm:px-2">
                                         {{ ucfirst(__('oligos.'.$element)) }}
                                         <br class="block sm:hidden" />
-                                        <span class="text-sm sm:text-base text-nowrap">({{ $besoinsTotaux[$element] }}&nbspUI/kg)</span>
+                                        <span class="text-sm sm:text-base text-nowrap">({{ ($ajr[$element] - $valeurs[$element]['apports_alim']) * $msi }}&nbspUI/kg)</span>
                                     </td>
                                 @else
                                     <td class="px-2 py-3 ml-1 border border-gray-800 sm:px-3 text-vert-900">
@@ -154,7 +154,9 @@
                                             </a>
                                             &nbsp;{{ ucfirst(__('oligos.'.$element)) }}
                                         </div>
-                                        <span class="text-sm sm:text-base text-nowrap">({{ $besoinsTotaux[$element] }}&nbspmg/kg)</span>
+                                        <span class="text-sm sm:text-base text-nowrap">({{ ($ajr[$element] - $valeurs[$element]['apports_alim']) * $msi }}&nbspmg/kg)</span>
+                                        <span>{{ $valeurs[$element]['carence'] * $msi}} -  </span>
+                                        <span>{{ $toxicite[$element]}} </span>
                                     </td>
                                 @endif
                                 <td class="px-1 py-3 text-center border border-gray-800 sm:px-2">
@@ -166,7 +168,7 @@
                                     @if ($bilan[$element] == 'toxicite')
                                         <i class="text-white fa-solid fa-skull"></i>
                                     @endif
-                                    {{ $apports_mineral[$element] }}
+                                    {{ $mineral[$element] * $quantite/1000 }}
                                 </td>
 
                             </tr>

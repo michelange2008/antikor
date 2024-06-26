@@ -49,7 +49,7 @@
     .carence {
         @apply bg-brique-300
     }
-    .exces {
+    .subcarence {
         @apply bg-amber-300
     }
     .notyetset {

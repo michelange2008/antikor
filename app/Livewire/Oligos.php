@@ -18,6 +18,7 @@ class Oligos extends Component
     public array $oligovitamines;
     public array $apports_mineral;
     public array $apports_alim;
+    public array $ajr;
     public array $besoins;
     public array $besoinsTotaux;
     public array $valeurs;
@@ -37,11 +38,11 @@ class Oligos extends Component
         // Liste des oligo-éléments et des vitamines
         $this->oligovitamines = config('oligo.oligovitamines');
         $this->valeurs = config('oligo.valeurs');
-
+        // dd($this->valeurs);
         // Initiation des valeurs par défaut
         $this->stade = config('oligo.init.stade'); // Stade initial
         $this->atelier = config('oligo.init.atelier'); // Atelier initial
-        $this->espece = explode( '_', $this->atelier)[0]; // Espèce initiale
+        $this->espece = explode('_', $this->atelier)[0]; // Espèce initiale
         $this->quantite = config('oligo.init.quantite'); // Quantité de minéral distribué initial
         // Espèces, ateliers et stades disponibles
         $this->especes = config('oligo.especes');
@@ -49,7 +50,7 @@ class Oligos extends Component
         $this->setProduction();
         $this->stades = config('oligo.stades');
         $this->ateliersActifs = config('oligo.ateliersActifs');
-        
+
         $this->mineral = config('oligo.init.mineral');
         $this->bilan = config('oligo.init.mineral');
         $this->setMSI();
@@ -107,34 +108,54 @@ class Oligos extends Component
         $this->validate();
         $this->msi = round($this->msi, 1);
         $this->setStadesActifs();
-        $this->setBesoins();
-        $this->setApports();
+        // $this->setApports();
+        $this->setAJR();
+        $this->setToxicite();
         $this->calculBilan();
     }
 
-    function setApports()
+    // function setApports()
+    // {
+    //     foreach ($this->oligovitamines as $type => $elements) {
+    //         foreach ($elements as $element) {
+    //             $this->mineral[$element] = ($this->mineral[$element] == '') ? 0 : $this->mineral[$element];
+    //             $this->mineral[$element] = ($this->mineral[$element] < 0) ? 0 : $this->mineral[$element];
+    //             $this->apports_mineral[$element] = $this->mineral[$element] * $this->quantite / 1000;
+    //         }
+    //     }
+    // }
+
+    function setAJR(): void
     {
-        foreach ($this->oligovitamines as $type => $elements) {
-            foreach ($elements as $element) {
-                $this->mineral[$element] = ($this->mineral[$element] == '') ? 0 : $this->mineral[$element];
-                $this->mineral[$element] = ($this->mineral[$element] < 0) ? 0 : $this->mineral[$element];
-                $this->apports_mineral[$element] = $this->mineral[$element] * $this->quantite / 1000;
+        foreach ($this->oligovitamines as $types) {
+            foreach($types as $oligovitamine) {
+                if (!is_array($this->valeurs[$oligovitamine]['ajr'])) {
+                    $this->ajr[$oligovitamine] = $this->valeurs[$oligovitamine]['ajr'];
+                } else {
+                    foreach ($this->valeurs[$oligovitamine]['ajr'] as $parametre => $norme) {
+                        if ($this->stade == $parametre) {
+                            $this->ajr[$oligovitamine] = $norme;
+                        } elseif ($this->espece == $parametre) {
+                            $this->ajr[$oligovitamine] = $norme;
+                        }
+                    }
+                }
             }
         }
     }
 
-    function setBesoins(): void
+    function setToxicite() : void
     {
-        foreach ($this->valeurs as $oligo => $seuils) {
-            foreach ($seuils as $seuil => $valeur) {
-                if (!is_array($valeur)) {
-                    $this->$seuil[$oligo] = $seuils[$seuil];
+        foreach ($this->oligovitamines as $types) {
+            foreach($types as $oligovitamine) {
+                if (!is_array($this->valeurs[$oligovitamine]['toxicite'])) {
+                    $this->toxicite[$oligovitamine] = $this->valeurs[$oligovitamine]['toxicite'];
                 } else {
-                    foreach ($valeur as $parametre => $norme) {
+                    foreach ($this->valeurs[$oligovitamine]['toxicite'] as $parametre => $norme) {
                         if ($this->stade == $parametre) {
-                            $this->$seuil[$oligo] = $norme;
+                            $this->toxicite[$oligovitamine] = $norme;
                         } elseif ($this->espece == $parametre) {
-                            $this->$seuil[$oligo] = $norme;
+                            $this->toxicite[$oligovitamine] = $norme;
                         }
                     }
                 }
@@ -174,28 +195,30 @@ class Oligos extends Component
     function calculBilan(): void
     {
 
-        foreach ($this->oligovitamines as $type => $oligoOuVitamines) {
+        foreach ($this->oligovitamines as $oligoOuVitamines) {
             foreach ($oligoOuVitamines as $element) {
                 // En l'absence de valeurs du minéral pour un élément, la valeur est mise à 0
                 $this->mineral[$element] =
                     ($this->mineral[$element] == null) ? 0 : $this->mineral[$element];
-                // Calcul des apports totaux en ppm ou mg
-                $apport = ($this->apports_mineral[$element] + $this->apports_alim[$element]);
+                // Calcul des apports totaux (mineral x qtt) et des besoins totaux (ajr x msi) en ppm ou mg
+                $apport_total = $this->mineral[$element] * $this->quantite/1000 + $this->valeurs[$element]['apports_alim'] * $this->msi;
+                $ajr_total = $this->ajr[$element] * $this->msi;
+                // $apport = ($this->apports_mineral[$element] + $this->apports_alim[$element]);
                 // Calcul des besoins en fonctions de besoins de l'atelier et la MSI
                 // Si les besoins varient selon l'espece ou le stade
-                if (is_array($this->valeurs[$element]['besoins'])) {
-                    if (array_key_exists( $this->stade, $this->valeurs[$element]['besoins'])) {
-                        $this->besoinsTotaux[$element] = $this->valeurs[$element]['besoins'][$this->stade] * $this->msi;
-                    } elseif (array_key_exists( $this->espece, $this->valeurs[$element]['besoins'])) {
-                        $this->besoinsTotaux[$element] = $this->valeurs[$element]['besoins'][$this->espece] * $this->msi;
-                    }
-                } else {
-                    $this->besoinsTotaux[$element] = $this->valeurs[$element]['besoins'] * $this->msi;
-                }
+                // if (is_array($this->valeurs[$element]['besoins'])) {
+                //     if (array_key_exists($this->stade, $this->valeurs[$element]['besoins'])) {
+                //         $this->besoinsTotaux[$element] = $this->valeurs[$element]['besoins'][$this->stade] * $this->msi;
+                //     } elseif (array_key_exists($this->espece, $this->valeurs[$element]['besoins'])) {
+                //         $this->besoinsTotaux[$element] = $this->valeurs[$element]['besoins'][$this->espece] * $this->msi;
+                //     }
+                // } else {
+                //     $this->besoinsTotaux[$element] = $this->valeurs[$element]['besoins'] * $this->msi;
+                // }
 
                 // Calcul de la toxicité
                 $toxicite = $this->toxicite[$element];
-                $carence = $this->carences[$element];
+                $carence = $this->valeurs[$element]['carence'];
 
                 // Définition des classes à afficher à fonction de l'équilibre/carence/toxicité
                 // cf. app.css
@@ -204,17 +227,20 @@ class Oligos extends Component
                     $this->bilan[$element] = 'notyetset';
                 } else {
                     // Test de la toxicité
-                    if ($apport >= $toxicite * $this->msi) {
+                    if ($apport_total >= $toxicite * $this->msi) {
                         // Si toxicité, affichage rouge foncé
                         $this->bilan[$element] = 'toxicite';
-
-                        // Test des niveaux d'apport
-                    } elseif ($apport < $carence * $this->msi) {
-                        // Si carence, affichage rouge clair
-                        $this->bilan[$element] = 'carence';
                     } else {
-                        // Si équilibre, affichage vert
-                        $this->bilan[$element] = 'equilibre';
+                        // Test des niveaux d'apport
+                        if ($apport_total >= $ajr_total) {
+                            // Si équilibre, affichage vert
+                            $this->bilan[$element] = 'equilibre';
+                        } elseif ($apport_total < $ajr_total && $apport_total > $this->valeurs[$element]['carence']) {
+                            $this->bilan[$element] = 'subcarence';
+                        } else {
+                            // Si carence, affichage rouge clair
+                            $this->bilan[$element] = 'carence';
+                        }
                     }
                 }
             }

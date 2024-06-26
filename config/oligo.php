@@ -80,7 +80,7 @@ return [
         'mineral' => [
             'zinc' => 7000,
             'cuivre' => 2000,
-            'iode' => 120,
+            'iode' => 12,
             'selenium' => 30,
             'cobalt' => 35,
             'manganese' => 7000,
@@ -121,25 +121,32 @@ return [
     ],
 
     /**
-     * Besoins, seuils de carence et de toxicité des oligo-éléments
+     * ajr, seuils de carence et de toxicité des oligo-éléments
      * et vitamines
      */
 
     'valeurs' => [
         'zinc' => [
             'apports_alim' => '20',
-            'carences' => '45',
-            'besoins' => '35',
+            'carence' => '45',
+            'ajr' => '55',
             'toxicite' => '250',
             'max_reglem' => '150',
         ],
+        'manganese' => [
+            'apports_alim' => '25',
+            'carence' => '45',
+            'ajr' => '50',
+            'toxicite' => '1000',
+            'max_reglem' => '',
+        ],
         'cuivre' => [
             'apports_alim' => '5',
-            'carences' => '7',
-            'besoins' => [
-                'bv' => '6',
-                'ov' => '6',
-                'cp' => '11',
+            'carence' => '7',
+            'ajr' => [
+                'bv' => '10',
+                'ov' => '10',
+                'cp' => '15',
             ],
             'toxicite' => [
                 'bv' => '30',
@@ -150,36 +157,29 @@ return [
         ],
         'iode' => [
             'apports_alim' => '0.1',
-            'carences' => '0.15',
-            'besoins' => '0.5',
+            'carence' => '0.15',
+            'ajr' => '0.5',
             'toxicite' => '8',
             'max_reglem' => '',
         ],
-        'selenium' => [
-            'apports_alim' => '0',
-            'carences' => '0.1',
-            'besoins' => '0.2',
-            'toxicite' => '0.5',
-            'max_reglem' => '0.5',
-        ],
         'cobalt' => [
             'apports_alim' => '0.1',
-            'carences' => '0.07',
-            'besoins' => '0.2',
+            'carence' => '0.07',
+            'ajr' => '0.3',
             'toxicite' => '10',
             'max_reglem' => '2',
         ],
-        'manganese' => [
-            'apports_alim' => '25',
-            'carences' => '45',
-            'besoins' => '30',
-            'toxicite' => '1000',
-            'max_reglem' => '',
+        'selenium' => [
+            'apports_alim' => '0',
+            'carence' => '0.1',
+            'ajr' => '0.1',
+            'toxicite' => '0.5',
+            'max_reglem' => '0.5',
         ],
         'vitA' => [
             'apports_alim' => '0',
-            'carences' => '4200',
-            'besoins' => [
+            'carence' => '4200',
+            'ajr' => [
                 'gestation' => '7000',
                 'lactation' => '5000',
             ],
@@ -188,15 +188,15 @@ return [
         ],
         'vitD' => [
             'apports_alim' => '0',
-            'carences' => '1000',
-            'besoins' => '1000',
+            'carence' => '1000',
+            'ajr' => '1000',
             'toxicite' => '10000',
             'max_reglem' => '-',
         ],
         'vitE' => [
             'apports_alim' => '0',
-            'carences' => '15',
-            'besoins' => [
+            'carence' => '15',
+            'ajr' => [
                 'gestation' => '25',
                 'lactation' => '15',
             ],
