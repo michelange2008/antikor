@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use Illuminate\Support\Arr;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
@@ -19,8 +20,10 @@ class Oligos extends Component
     public array $apports_mineral;
     public array $apports_alim;
     public array $ajr;
+    public array $ajr_totaux;
     public array $besoins;
     public array $besoinsTotaux;
+    public array $apports_totaux;
     public array $valeurs;
     public array $carences;
     public array $toxicite;
@@ -202,20 +205,9 @@ class Oligos extends Component
                     ($this->mineral[$element] == null) ? 0 : $this->mineral[$element];
                 // Calcul des apports totaux (mineral x qtt) et des besoins totaux (ajr x msi) en ppm ou mg
                 $apport_total = $this->mineral[$element] * $this->quantite/1000 + $this->valeurs[$element]['apports_alim'] * $this->msi;
+                $this->apports_totaux[$element] = $apport_total;
                 $ajr_total = $this->ajr[$element] * $this->msi;
-                // $apport = ($this->apports_mineral[$element] + $this->apports_alim[$element]);
-                // Calcul des besoins en fonctions de besoins de l'atelier et la MSI
-                // Si les besoins varient selon l'espece ou le stade
-                // if (is_array($this->valeurs[$element]['besoins'])) {
-                //     if (array_key_exists($this->stade, $this->valeurs[$element]['besoins'])) {
-                //         $this->besoinsTotaux[$element] = $this->valeurs[$element]['besoins'][$this->stade] * $this->msi;
-                //     } elseif (array_key_exists($this->espece, $this->valeurs[$element]['besoins'])) {
-                //         $this->besoinsTotaux[$element] = $this->valeurs[$element]['besoins'][$this->espece] * $this->msi;
-                //     }
-                // } else {
-                //     $this->besoinsTotaux[$element] = $this->valeurs[$element]['besoins'] * $this->msi;
-                // }
-
+                $this->ajr_totaux[$element] = $ajr_total;
                 // Calcul de la toxicité
                 $toxicite = $this->toxicite[$element];
                 $carence = $this->valeurs[$element]['carence'];
@@ -235,7 +227,7 @@ class Oligos extends Component
                         if ($apport_total >= $ajr_total) {
                             // Si équilibre, affichage vert
                             $this->bilan[$element] = 'equilibre';
-                        } elseif ($apport_total < $ajr_total && $apport_total > $this->valeurs[$element]['carence']) {
+                        } elseif ($apport_total < $ajr_total && $apport_total > $this->valeurs[$element]['carence'] * $this->msi) {
                             $this->bilan[$element] = 'subcarence';
                         } else {
                             // Si carence, affichage rouge clair

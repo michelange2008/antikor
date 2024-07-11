@@ -80,9 +80,9 @@ return [
         'mineral' => [
             'zinc' => 7000,
             'cuivre' => 2000,
-            'iode' => 12,
+            'iode' => 100,
             'selenium' => 30,
-            'cobalt' => 35,
+            'cobalt' => 50,
             'manganese' => 7000,
             'vitA' => 1500000,
             'vitD' => 200000,

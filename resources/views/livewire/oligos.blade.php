@@ -123,7 +123,7 @@
                 <thead class="p-2 text-gray-100 bg-gray-800">
                     <tr>
                         <td class="px-1 py-3 border border-gray-800 sm:px-4 border-r-gray-200">
-                            <span class="hidden sm:inline">Oligo-éléments et vitamines (besoins supplémentaires)</span>
+                            <span class="hidden sm:inline">Oligo-éléments et vitamines (apports / ajr)</span>
                             <span class="inline sm:hidden">Besoins</span>
                             <span class="ml-1 text-lg cursor-pointer" title="Plus d'informations"
                                 x-on:click="infosBesoins = true"><i class="fa fa-circle-info"></i></span>
@@ -144,7 +144,7 @@
                                     <td class="px-1 py-3 ml-1 border border-gray-800 text-brique-900 sm:px-2">
                                         {{ ucfirst(__('oligos.'.$element)) }}
                                         <br class="block sm:hidden" />
-                                        <span class="text-sm sm:text-base text-nowrap">({{ ($ajr[$element] - $valeurs[$element]['apports_alim']) * $msi }}&nbspUI/kg)</span>
+                                        <span class="text-sm sm:text-base text-nowrap">({{ $apports_totaux[$element] }}&nbsp;/&nbsp;{{ $ajr_totaux[$element] }}&nbspUI/kg)</span>
                                     </td>
                                 @else
                                     <td class="px-2 py-3 ml-1 border border-gray-800 sm:px-3 text-vert-900">
@@ -154,9 +154,7 @@
                                             </a>
                                             &nbsp;{{ ucfirst(__('oligos.'.$element)) }}
                                         </div>
-                                        <span class="text-sm sm:text-base text-nowrap">({{ ($ajr[$element] - $valeurs[$element]['apports_alim']) * $msi }}&nbspmg/kg)</span>
-                                        <span>{{ $valeurs[$element]['carence'] * $msi}} -  </span>
-                                        <span>{{ $toxicite[$element]}} </span>
+                                        <span class="text-sm sm:text-base text-nowrap">({{ $apports_totaux[$element] }}&nbsp;/&nbsp;{{ $ajr_totaux[$element]  }}&nbspmg/kg)</span>
                                     </td>
                                 @endif
                                 <td class="px-1 py-3 text-center border border-gray-800 sm:px-2">
