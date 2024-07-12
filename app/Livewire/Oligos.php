@@ -29,6 +29,7 @@ class Oligos extends Component
     public array $toxicite;
     public array $max_reglem;
     public array $bilan;
+    public array $taux_couverture;
     #[Validate('required|numeric', as: 'quantité distribuée')]
     public int $quantite;
     #[Validate('required|numeric', as: 'MSI')]
@@ -204,10 +205,13 @@ class Oligos extends Component
                 $this->mineral[$element] =
                     ($this->mineral[$element] == null) ? 0 : $this->mineral[$element];
                 // Calcul des apports totaux (mineral x qtt) et des besoins totaux (ajr x msi) en ppm ou mg
+                $this->apports_alim[$element] = $this->valeurs[$element]['apports_alim'] * $this->msi;
                 $apport_total = $this->mineral[$element] * $this->quantite/1000 + $this->valeurs[$element]['apports_alim'] * $this->msi;
                 $this->apports_totaux[$element] = $apport_total;
                 $ajr_total = $this->ajr[$element] * $this->msi;
                 $this->ajr_totaux[$element] = $ajr_total;
+                $this->taux_couverture[$element] = round( ($this->apports_alim[$element] + $this->mineral[$element] * $this->quantite/1000) * 100 
+                                                            / $this->ajr_totaux[$element] );
                 // Calcul de la toxicité
                 $toxicite = $this->toxicite[$element];
                 $carence = $this->valeurs[$element]['carence'];

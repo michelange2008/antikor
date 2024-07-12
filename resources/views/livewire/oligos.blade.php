@@ -123,7 +123,7 @@
                 <thead class="p-2 text-gray-100 bg-gray-800">
                     <tr>
                         <td class="px-1 py-3 border border-gray-800 sm:px-4 border-r-gray-200">
-                            <span class="hidden sm:inline">Oligo-éléments et vitamines (apports / ajr)</span>
+                            <span class="hidden sm:inline">Oligo-éléments et vitamines (apports alimentaires / ajr)</span>
                             <span class="inline sm:hidden">Besoins</span>
                             <span class="ml-1 text-lg cursor-pointer" title="Plus d'informations"
                                 x-on:click="infosBesoins = true"><i class="fa fa-circle-info"></i></span>
@@ -142,9 +142,13 @@
                             <tr class="font-bold">
                                 @if ($type == 'vitamines')
                                     <td class="px-1 py-3 ml-1 border border-gray-800 text-brique-900 sm:px-2">
-                                        {{ ucfirst(__('oligos.'.$element)) }}
-                                        <br class="block sm:hidden" />
-                                        <span class="text-sm sm:text-base text-nowrap">({{ $apports_totaux[$element] }}&nbsp;/&nbsp;{{ $ajr_totaux[$element] }}&nbspUI/kg)</span>
+                                        <div class="flex flex-row flex-nowrap">
+                                            <a target="_blank" href="{{ url('storage/pdf/'. $element.'.pdf')}}" title="Voir la fiche">
+                                                <i class="text-gray-400 hover:text-red-900 fa-solid fa-file-lines"></i>
+                                            </a>
+                                            &nbsp;{{ ucfirst(__('oligos.'.$element)) }}
+                                        </div>
+                                       <span class="text-sm sm:text-base text-nowrap">({{ $apports_alim[$element] }}&nbsp;/&nbsp;{{ $ajr_totaux[$element] }}&nbspUI/kg)</span>
                                     </td>
                                 @else
                                     <td class="px-2 py-3 ml-1 border border-gray-800 sm:px-3 text-vert-900">
@@ -154,7 +158,7 @@
                                             </a>
                                             &nbsp;{{ ucfirst(__('oligos.'.$element)) }}
                                         </div>
-                                        <span class="text-sm sm:text-base text-nowrap">({{ $apports_totaux[$element] }}&nbsp;/&nbsp;{{ $ajr_totaux[$element]  }}&nbspmg/kg)</span>
+                                        <span class="text-sm sm:text-base text-nowrap">({{ $apports_alim[$element] }}&nbsp;/&nbsp;{{ $ajr_totaux[$element]  }}&nbspmg/kg)</span>
                                     </td>
                                 @endif
                                 <td class="px-1 py-3 text-center border border-gray-800 sm:px-2">
@@ -167,6 +171,7 @@
                                         <i class="text-white fa-solid fa-skull"></i>
                                     @endif
                                     {{ $mineral[$element] * $quantite/1000 }}
+                                    <span class="text-sm italic text-gray-700">&nbsp;({{ $taux_couverture[$element]  }}%)</span>
                                 </td>
 
                             </tr>
@@ -178,6 +183,10 @@
                 <div class="flex flex-row gap-1">
                     <div class="w-5 h-5 equilibre"></div>
                     Equilibre
+                </div>
+                <div class="flex flex-row gap-1">
+                    <div class="w-5 h-5 subcarence"></div>
+                    Subcarence
                 </div>
                 <div class="flex flex-row gap-1">
                     <div class="w-5 h-5 carence"></div>
