@@ -210,8 +210,13 @@ class Oligos extends Component
                 $this->apports_totaux[$element] = $apport_total;
                 $ajr_total = $this->ajr[$element] * $this->msi;
                 $this->ajr_totaux[$element] = $ajr_total;
-                $this->taux_couverture[$element] = round( ($this->apports_alim[$element] + $this->mineral[$element] * $this->quantite/1000) * 100 
-                                                            / $this->ajr_totaux[$element] );
+                if ($this->ajr_totaux[$element] != 0) {
+                    $this->taux_couverture[$element] = round( ($this->apports_alim[$element] + $this->mineral[$element] * $this->quantite/1000) * 100 
+                                                                / $this->ajr_totaux[$element] );
+                } else {
+                    $this->taux_couverture[$element] = 0;
+                }
+                
                 // Calcul de la toxicité
                 $toxicite = $this->toxicite[$element];
                 $carence = $this->valeurs[$element]['carence'];
