@@ -14,4 +14,15 @@
             </a>
         </div>
     </div>
+    <div class="flex flex-row justify-end">
+        <div 
+        class="px-2 py-2 my-2 text-sm text-center text-white rounded shadow cursor-pointer md:py-3 md:px-4 hover:bg-brique-900 active:bg-brique-100 active:text-brique-900 md:text-base bg-brique-700 shadow-brique-900"
+        title="Cliquer pour afficher la page des dosages"
+        >
+        <a href="{{ route('oligos.dosages')}}">
+            <i class="fa-solid fa-droplet"></i>&nbsp;
+            Dosage des oligo-éléments
+        </a>
+        </div>
+    </div>
 </x-app-layout>
