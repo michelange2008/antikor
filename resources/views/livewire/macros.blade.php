@@ -36,10 +36,10 @@
 
                             @foreach ($stades as $st)
                                 <div class="flex-auto" wire:click=" setStade('{{ $st }}') ">
-                                    @include('components.param-oligo', [
-                                        'abbreviation_courante' => $troupeau['stade'],
-                                        'abbreviation' => $st,
-                                        'parametre' => 'stade',
+                                    @include('components.param-troupeau', [
+                                        'parametre_courant' => $troupeau['stade'],
+                                        'parametre' => $st,
+                                        'type_parametre' => 'stade',
                                         'nom' => $st,
                                     ])
                                 </div>

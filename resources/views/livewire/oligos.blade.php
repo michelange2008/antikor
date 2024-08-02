@@ -21,10 +21,10 @@
                     @foreach ($especes as $esp)
                         <div class="flex-auto" wire:click = "setEspece( '{{ $esp }}' )">
 
-                            @include('components.param-oligo', [
-                                'element_courant' => $espece,
-                                'element' => $esp,
-                                'parametre' => 'espece',
+                            @include('components.param-troupeau', [
+                                'parametre_courant' => $espece,
+                                'parametre' => $esp,
+                                'type_parametre' => 'espece',
                             ])
                         </div>
                     @endforeach
@@ -42,10 +42,10 @@
 
                             @if ($ateliersActifs[$at])
                                 <div wire:click = "setAtelier( '{{ $at }}' )">
-                                    @include('components.param-oligo', [
-                                        'element_courant' => $atelier,
-                                        'element' => $at,
-                                        'parametre' => 'atelier',
+                                    @include('components.param-troupeau', [
+                                        'parametre_courant' => $atelier,
+                                        'parametre' => $at,
+                                        'type_parametre' => 'atelier',
                                     ])
                                 </div>
                             @else
@@ -67,10 +67,10 @@
                     @foreach ($stades as $st)
                         @if ($stadesActif[$st])
                             <div class="flex-auto" wire:click=" setStade('{{ $st }}') ">
-                                @include('components.param-oligo', [
-                                    'element_courant' => $stade,
-                                    'element' => $st,
-                                    'parametre' => 'stade',
+                                @include('components.param-troupeau', [
+                                    'parametre_courant' => $stade,
+                                    'parametre' => $st,
+                                    'type_parametre' => 'stade',
                                     'nom' => $st,
                                 ])
                             </div>
