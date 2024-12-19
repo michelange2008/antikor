@@ -15,7 +15,7 @@
                         <h3 class="py-1 pl-2 bg-gray-300 text-vert-900 h3 lg:pl-0 lg:text-center">1 - Choisir le type de
                             troupeau</h3>
 
-                        <div class="flex flex-row gap-8 justify-center my-1">
+                        <div class="flex flex-row gap-1 justify-center my-1 sm:gap-8 lg:gap-2 xl:gap-4">
                             @foreach ($ateliers as $abbreviation => $atelier)
                                 <div class="cursor-pointer" wire:click="choixAtelier('{{ $abbreviation }}')">
                                     @if ($abbreviation == $troupeau['atelier'])
