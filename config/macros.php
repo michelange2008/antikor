@@ -30,6 +30,16 @@ return [
             "prolificite" => 1.5,
             "quantite" => 2,
         ],
+        "vl" => [
+            "poids" => 750,
+            "prolificite" => 1,
+            "quantite" => 20,
+        ],
+        "va" => [
+            "poids" => 650,
+            "prolificite" => 1,
+            "quantite" => 10,
+        ],
     ],
 
     "ateliers" => [
@@ -47,6 +57,16 @@ return [
             "nom" => "brebis laitières",
             "production" => "lait",
             "icone" => "OL_tete.svg",
+        ],
+        "vl" => [
+            "nom" => "vaches laitières",
+            "production" => "lait",
+            "icone" => "VL_tete.svg",
+        ],
+        "va" => [
+            "nom" => "vaches allaitantes",
+            "production" => "viande",
+            "icone" => "VA_tete.svg",
         ],
     ],
 

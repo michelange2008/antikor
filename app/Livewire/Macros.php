@@ -73,22 +73,31 @@ class Macros extends Component
         $stade = $this->troupeau['stade'];
 
         $mg_entretien = 0.01 * $pv;
+        $coeff_ca_bovins = 13.0415;
 
         $p_production['cp']['gestation'] = 0.905 * $msi + 0.3 + 0.002 * $pv + 0.6 * $prolificite;
         $p_production['oa']['gestation'] = 0.905 * $msi + 0.3 + 0.002 * $pv + 0.4 * $prolificite;
         $p_production['ol']['gestation'] = 0.905 * $msi + 0.3 + 0.002 * $pv + 0.4 * $prolificite;
+        $p_production['vl']['gestation'] = 0.05 * $pv -15.5 + 5.3;
+        $p_production['va']['gestation'] = 0.05 * $pv -15.5 + 5.3;
 
         $ca_production['cp']['gestation'] = 0.015 * $pv + $prolificite;
         $ca_production['oa']['gestation'] = 0.015 * $pv + 0.7 * $prolificite;
         $ca_production['ol']['gestation'] = 0.015 * $pv + 0.7 * $prolificite;
+        $ca_production['vl']['gestation'] = 0.0475 * $pv - $coeff_ca_bovins + 9;
+        $ca_production['va']['gestation'] = 0.0475 * $pv - $coeff_ca_bovins + 9;
 
         $p_production['cp']['lactation'] = 0.905 * $msi + 0.3 + 0.002 * $pv + 0.95 * $this->troupeau['parametres']['quantite'];
         $p_production['oa']['lactation'] = 0.905 * $msi + 0.3 + 0.002 * $pv + 1.5 * $this->troupeau['parametres']['quantite'];
         $p_production['ol']['lactation'] = 0.905 * $msi + 0.3 + 0.002 * $pv + 1.5 * $this->troupeau['parametres']['quantite'];
+        $p_production['vl']['lactation'] = 0.05 * $pv -15.5 + 0.9 * $this->troupeau['parametres']['quantite'];
+        $p_production['va']['lactation'] = 0.05 * $pv -15.5 + 0.9 * $this->troupeau['parametres']['quantite'];
 
         $ca_production['cp']['lactation'] = 0.663 * $msi + 0.01 * $pv + 1.25 * $this->troupeau['parametres']['quantite'];
         $ca_production['oa']['lactation'] = 0.663 * $msi + 0.01 * $pv + 1.90 * $this->troupeau['parametres']['quantite'];
         $ca_production['ol']['lactation'] = 0.663 * $msi + 0.01 * $pv + 1.90 * $this->troupeau['parametres']['quantite'];
+        $ca_production['vl']['lactation'] = 0.0475 * $pv - $coeff_ca_bovins+ 1.25 * $this->troupeau['parametres']['quantite'];
+        $ca_production['va']['lactation'] = 0.0475 * $pv - $coeff_ca_bovins+ 1.25 * $this->troupeau['parametres']['quantite'];
 
         $this->besoins['P'] = round($p_production[$atelier][$stade], 1);
         $this->besoins['Ca'] = round($ca_production[$atelier][$stade], 1);
